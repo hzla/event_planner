@@ -46,6 +46,10 @@
 	background-size: cover;
 }
 
+.s1 {
+	background-image: image_url("BG_2.png");
+}
+
 .default-img {
 	background-image: image_url("BG.png");
 }
@@ -55,7 +59,7 @@
 #content-box {
 	width: 720px;
 	margin: 0 auto;
-	margin-top: 15vh;
+	margin-top: 12vh;
 	position: relative;
 }
 
@@ -87,7 +91,7 @@
 			display: none;
 		}
 
-		#content-container.default-img {
+		#content-container.default-img, .s1, .s2 {
 			background: white;
 		}
 
