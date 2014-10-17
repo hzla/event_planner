@@ -1,4 +1,4 @@
-Home = 
+Home =
   init: ->
     $('#log-in').click @showLogInForm
     $('#sign-up').click @showSignUpForm
@@ -24,7 +24,7 @@ Home =
     $('.form-actions').removeClass 'active'
     $(@).addClass 'active'
     $('#name, #phone_number').css 'border-bottom', 'none'
-    $('#name, #phone_number').animate 
+    $('#name, #phone_number').animate
     	height: '0px'
     	opacity: 0;
     , 250, ->
@@ -41,7 +41,7 @@ Home =
   	$('.form-actions').removeClass 'active'
   	$(@).addClass 'active'
   	$('#name, #phone_number').show()
-  	$('#name, #phone_number').animate 
+  	$('#name, #phone_number').animate
   		height: '40px'
   		opacity: 1;
   	, 250, ->
