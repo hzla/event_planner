@@ -1,7 +1,5 @@
 @import 'variables';
 
-
-
 #profile-pic {
 	position: absolute;
 	width: 100px;
@@ -66,8 +64,9 @@
 	margin-right: 0px;
 }
 
-.read-more {
+.read-more, .hide-text {
 	cursor: pointer;
+	color: $grey;
 }
 
 .description {

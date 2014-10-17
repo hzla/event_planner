@@ -3,16 +3,16 @@ Home =
     $('#log-in').click @showLogInForm
     $('#sign-up').click @showSignUpForm
     $('.back-icon').click @goBack
+    $('.user-field').blur @checkForm
     @detectMobile()
     @initMobile()
 
-  initMobile: -> #very hacky, will change if necessary
+  initMobile: -> #will change if necessary
     if $('.main-logo.text').length > 0 && Home.mobile
       $('.main-logo').hide()
       $('.main-logo.text').show()
     else
       $('.main-logo.text').hide()
-
 
   goBack: ->
     location.reload()
@@ -53,6 +53,17 @@ Home =
     $('header .mobile, form').show()
     $('#content-container, #sign-up-box').css('background', 'white')
     $('.landing-text, #facebook, .form-actions, #submit-user').hide()
+
+  checkForm: ->
+    if $('#sign-up.active').length > 0
+      Home.showCheck $('#name') if $('#name').val() != ""
+      Home.showCheck $('#password') if $('#password').val() != "" && $('#password').val().length > 6
+      Home.showCheck $('#email') if /.+\@.+\..+/.exec $('#email').val()
+      Home.showCheck $('#phone_number') if /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/.exec $('#phone_number').val()
+
+
+  showCheck: (field) ->
+    field.parent().children('.check-icon').show()
 
 ready = ->
   Home.init()

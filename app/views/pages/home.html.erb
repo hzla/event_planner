@@ -35,13 +35,23 @@
 					<%= image_tag 'plusgreen.svg', :class => "plus-icon" %><br><br>
 					Add Photo
 				</div>
-				
-
-
-				<%= text_field_tag :name, nil, :class => "user-field", placeholder: "Full Name" %>
-				<%= text_field_tag :email, nil, :class => "user-field", placeholder: "Email Address" %>
-				<%= text_field_tag :phone_number, nil, :class => "user-field", placeholder: "Phone Number" %>
-				<%= text_field_tag :password, nil, :class => "user-field", placeholder: "Password" %>
+				<div class="user-form-row">
+					<%= text_field_tag :name, nil, :class => "user-field", placeholder: "Full Name" %>
+					<%= image_tag "Check.svg", :class => "check-icon" %>
+				</div>
+				<div class="user-form-row">
+					<%= text_field_tag :email, nil, :class => "user-field", placeholder: "Email Address" %>
+					<%= image_tag "Check.svg", :class => "check-icon" %>
+				</div>
+				<div class="user-form-row">
+					<%= text_field_tag :phone_number, nil, :class => "user-field", placeholder: "Phone Number" %>
+					<%= image_tag "Check.svg", :class => "check-icon" %>
+				</div>
+				<div class="user-form-row">
+					<%= password_field_tag :password, nil, :class => "user-field", placeholder: "Password" %>
+					<%= image_tag "Check.svg", :class => "check-icon" %>
+				</div>
+			
 				<%= submit_tag "Static Text", id: "submit-user", :class => "btn" %>
 			<% end %>
 		</div>
@@ -49,9 +59,5 @@
 		<div class="mobile landing-text main-text">
 			This is a static text field here.
 		</div>
-
-
-
-
 	</div>
 </div>
