@@ -1,0 +1,164 @@
+
+/***************** The Sign Up Container **********************/
+
+#sign-up-box {
+	width: 420px;
+	background: white;
+	margin: 0 auto;
+	position: relative;
+	margin-top: 15vh;
+}
+
+#sign-up-circle {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	top: -50px;
+	left: calc(50% - 50px);
+	background: white;
+}
+
+#user-icon {
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	margin-top: 25px;
+	display: block;
+}
+
+/********************* Sign Up Buttons **************************/
+#sign-up-content {
+	margin: 0 auto;
+	padding-top: 50px;
+	width: calc(100% - 100px);
+}
+
+.form-row {
+	margin-bottom: 10px; 
+	line-height: 40px;
+	text-align: center;
+}
+
+#facebook {
+	background: #3b5998;
+	width: 100%;
+	height: 40px;
+}
+
+#or {
+	color: gray;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+}
+
+.form-actions.btn {
+	width: calc(50% - 5px);
+	display: inline-block;
+	height: 100%;
+	text-align: center;
+	border: 1px solid #1dcfac;
+	color: #1dcfac;
+	height: 30px;
+	line-height: 30px;
+}
+
+.form-actions.active.btn, .form-actions:hover {
+	background: #1dcfac;
+	color: white;
+}
+
+/********************* Sign Up Form **************************/
+
+#user-form {
+	width: 100%;
+	input {
+		font-size: 16px;
+	}
+}
+
+
+.user-field {
+	height: 40px;
+	border: none;
+	border-bottom: 1px solid lightgray;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+#submit-user {
+	margin-top: 20px;
+	border: none;
+	margin-bottom: 40px;
+	height: 40px;
+	width: 100%;
+	text-align: center;
+	background: #1dcfac;
+}
+
+
+
+/********* Media Queries **************/
+
+
+@media (max-width: 1023px) {
+	body {
+		.form-actions.btn {
+			height: 40px;
+			line-height: 40px;
+			position: fixed;
+			bottom: 0;
+			background: white;
+		}
+		#sign-up-box {
+			margin-top: 0;
+		}
+		#sign-up-content {
+			padding-top: 0;
+		}
+		#sign-up {	
+			left: 0;
+			width: 50%;
+		}
+		#log-in {
+			right: 0;
+			width: 50%;
+		}
+		#facebook {
+			position: fixed;
+			bottom: 40px;
+			margin: 0;
+		}
+		.landing-text {
+			color: white;
+			position: fixed;
+			bottom: 100px;
+			width: calc(100% - 40px);
+			left: 20px;
+			text-align: center;
+		}
+
+
+
+		#user-form {
+			width: calc(100% - 40px);
+			margin: 0 auto;
+		}
+		.user-field.add-photo {
+			text-align: center;
+			height: 120px;
+		}
+		#submit-user {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			left: 0;
+			margin: 0;
+		}
+
+	}
+}
+
+
+

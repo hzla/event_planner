@@ -1,0 +1,136 @@
+/** Headers and Background **/
+
+#main-header {
+	position: fixed;
+	height: 60px;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	line-height: 60px;
+	font-size: 32px;
+	z-index: 2;
+	background: white;
+}
+
+.main-logo {
+	position: absolute;
+	left: 40px;
+	top: 10px;
+}
+
+#header-right-pic {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	right: 40px;
+	top: 10px;
+	border-radius: 40px;
+	cursor: pointer;
+}
+
+#counter-header {
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	background: lightgray;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+}
+
+#content-container {
+	position: absolute;
+	width: 100%;
+	height: calc(100% - 60px);
+	top: 60px;
+	background-size: cover;
+}
+
+.default-img {
+	background-image: image_url("BG.png");
+}
+
+/** General Layout Within Content Boxes **/
+
+#content-box {
+	width: 720px;
+	margin: 0 auto;
+	margin-top: 15vh;
+	position: relative;
+}
+
+.box-content {
+	width: 100%;
+	background: white;
+}
+
+.content-row {
+	width: calc(100% - 40px);
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+
+
+
+@media (max-width: 1023px) {
+	body {
+		#main-header {
+			font-size: 24px;
+		}
+		#header-right-pic {
+			display: none;
+		}
+		#content-container.default-img {
+			background: white;
+		}
+		.main-logo {
+			display: block;
+			position: static;
+			margin: 0 auto;
+			margin-top: 10px;
+		}
+		.main-logo.text {
+			font-size: 20px;
+			height: 60px;
+			margin: 0;
+		}
+		#sign-up-content, #sign-up-box {
+			width: 100%;
+		}
+
+		#sign-up-circle, #or, form {
+			display: none;
+		}
+		#header-left {
+			position: absolute;
+			height: 40px;
+			width: 40px;
+			left: 20px;
+			top: 10px;
+		}
+		#header-right {
+			position: absolute;
+			height: 40px;
+			font-size: 20px;
+			line-height: 40px;
+			right: 20px;
+			top: 10px;
+		}
+	}
+
+
+
+
+
+
+
+
+}
+
+
+
+
+

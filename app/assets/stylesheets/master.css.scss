@@ -1,0 +1,97 @@
+
+/** Buttons and Form Elements **/
+
+.btn {
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+input {
+    -webkit-appearance: none;
+}
+
+/** Backgrounds **/
+
+.white-back {
+	background: white;
+}
+
+.opaque {
+	background: rgba(255,255,255,.9);
+}
+
+.hidden {
+	display: none;
+}
+
+
+/** Text Formatting **/
+
+
+
+.bold {
+	font-weight: 500;
+}
+
+.main-text {
+	font-size: 32px;
+}
+
+.sub-text {
+	font-size: 16px;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-middle {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.mobile {
+	display: none;
+}
+
+
+
+
+
+@media (max-width: 1023px) {
+	.no-mobile {
+		display: none;
+	}
+	body {
+		font-weight: 300;
+		.main-text {
+			font-size: 24px;
+			font-weight: 300;
+		}
+		.sub-text {
+			font-weight: 300;
+		}
+		.btn {
+			border-radius: 0px;
+		}
+		.mobile.hidden {
+			display: none;
+		}
+		.mobile {
+			display: block;
+		}
+		
+		
+	}
+}

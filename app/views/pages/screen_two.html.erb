@@ -1,0 +1,64 @@
+<div id="content-container" class="s2">
+	<%= content_for :header do %>
+		Dynamic Text
+		<%= image_tag 'cancel.png', id: 'header-right-pic' %>
+		<%= image_tag 'cancel.png', id: 'header-left', :class => "mobile" %>
+		<div class="main-logo text mobile"></div>
+	<% end %>
+
+	<div id="counter-header">
+		4 of 7
+	</div>
+
+	<div id="content-box">
+		
+		<div class="content-row main-text bold header white-back">
+			Dynamic Content
+		</div>
+		<div class="content-row sub-text white-back time-row">
+			<div class="time"><%= image_tag 'iconforkknife.png', :class => "text-icon" %> April 29, 8pm-9pm</div>
+		</div>
+		<div class="cover-image-container">
+			<%= image_tag 'big_cat.png', id: 'cover-image' %>
+			<div class="ratings-container">
+				<% 4.times do %>
+					<%= image_tag 'starfilled.png', :class => "star" %> 
+				<% end %>
+				<%= image_tag 'starunfilled.png', :class => "star" %> 
+			</div>
+		</div>
+
+		<div id="box-content" class="white-back">
+			<div class="content-row">
+				<div class="content-column-3 text-left">
+					<div class="sub-text bold no-mobile">Dynamic Text:</div>
+					<div class="sub-text no-mobile">This is Dynamic</div>
+					<div class="sub-text mobile time-info"><%= image_tag 'iconforkknife.png', :class => "text-icon" %> Dynamic Text</div>
+
+				</div>
+				<div class="content-column-3 text-middle">
+					<div class="sub-text bold">Dynamic Text:</div>
+					<div class="sub-text">This is Dynamic</div>
+				</div>
+				<div class="content-column-3 text-right">
+					<div class="sub-text bold">Dynamic Text:</div>
+					<div class="sub-text">This is Dynamic</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="content-row opaque footer">
+			<div class="content-column-2 text-left">
+				<div class="sub-text">#dynamic static text</div>
+			</div>
+			<div class="content-column-2 text-right">
+				<div class="sub-text">#dynamic static text</div>
+			</div>
+		</div>
+		<div class="box-actions">
+			<div id="red-circle" class="box-action">Static</div>
+			<div id="green-circle" class="box-action">Static</div>
+		</div>
+
+	</div>
+</div>
