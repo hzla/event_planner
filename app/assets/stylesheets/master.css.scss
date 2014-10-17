@@ -1,3 +1,4 @@
+@import 'variables';
 
 /** Buttons and Form Elements **/
 
@@ -67,7 +68,12 @@ input {
 
 
 
+/***********  Media Queries *******************/
 
+
+
+
+/************** elements with the class mobile shown, no-mobile are hidden  *****************/
 
 @media (max-width: 1023px) {
 	.no-mobile {
@@ -91,7 +97,5 @@ input {
 		.mobile {
 			display: block;
 		}
-		
-		
 	}
 }
