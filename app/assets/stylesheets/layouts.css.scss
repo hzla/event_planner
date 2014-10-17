@@ -73,30 +73,37 @@
 }
 
 
+/********* Media Queries **************/
 
+/********** Reduced font sizes, added styling for icons in the header  ************/
 
 @media (max-width: 1023px) {
 	body {
 		#main-header {
 			font-size: 24px;
 		}
+
 		#header-right-pic {
 			display: none;
 		}
+
 		#content-container.default-img {
 			background: white;
 		}
+
 		.main-logo {
 			display: block;
 			position: static;
 			margin: 0 auto;
 			margin-top: 10px;
 		}
+
 		.main-logo.text {
 			font-size: 20px;
 			height: 60px;
 			margin: 0;
 		}
+
 		#sign-up-content, #sign-up-box {
 			width: 100%;
 		}
@@ -104,6 +111,7 @@
 		#sign-up-circle, #or, form {
 			display: none;
 		}
+
 		#header-left {
 			position: absolute;
 			height: 40px;
@@ -111,6 +119,7 @@
 			left: 20px;
 			top: 10px;
 		}
+		
 		#header-right {
 			position: absolute;
 			height: 40px;
@@ -120,14 +129,6 @@
 			top: 10px;
 		}
 	}
-
-
-
-
-
-
-
-
 }
 
 
