@@ -1,3 +1,5 @@
+@import 'variables';
+
 #profile-pic {
 	position: absolute;
 	width: 100px;
@@ -53,12 +55,18 @@
 	border: 1px solid red;
 }
 
+.good, .bad {
+	width: 38px;
+	height: 38px;
+}
+
 .see-more {
 	margin-right: 0px;
 }
 
-.read-more {
+.read-more, .hide-text {
 	cursor: pointer;
+	color: $grey;
 }
 
 .description {
@@ -95,6 +103,8 @@
 }
 
 
+/************* Media Queries ***************/
+
 @media (max-width: 1023px) {
 	body {
 		#content-box {
@@ -106,7 +116,7 @@
 			padding-top: 0px;
 		}
 		#profile-pic {
-			top: 20px;
+			top: 5px;
 			left: 20px;
 		}
 		.main-text.profile-info {
