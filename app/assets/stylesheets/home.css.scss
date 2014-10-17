@@ -55,7 +55,7 @@
 }
 
 #or {
-	color: gray;
+	color: $grey;
 	width: 100%;
 	height: 20px;
 	line-height: 20px;
@@ -91,6 +91,7 @@
 
 .user-form-row {
 	position: relative;
+	border-bottom: 1px solid $light-grey;
 }
 
 .check-icon {
@@ -105,8 +106,8 @@
 .user-field {
 	height: 50px;
 	border: none;
-	border-bottom: 1px solid lightgray;
 	width: 100%;
+	border-bottom: 1px solid $light-grey;
 }
 
 #submit-user {
