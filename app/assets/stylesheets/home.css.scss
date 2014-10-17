@@ -2,7 +2,7 @@
 /***************** The Sign Up Container **********************/
 
 #sign-up-box {
-	width: 420px;
+	width: 460px;
 	background: white;
 	margin: 0 auto;
 	position: relative;
@@ -30,20 +30,20 @@
 /********************* Sign Up Buttons **************************/
 #sign-up-content {
 	margin: 0 auto;
-	padding-top: 50px;
+	padding: 50px 0px;
 	width: calc(100% - 100px);
 }
 
 .form-row {
-	margin-bottom: 10px; 
-	line-height: 40px;
+	margin-bottom: 10px;
+	line-height: 50px;
 	text-align: center;
 }
 
 #facebook {
 	background: #3b5998;
 	width: 100%;
-	height: 40px;
+	height: 50px;
 }
 
 #or {
@@ -51,6 +51,7 @@
 	width: 100%;
 	height: 20px;
 	line-height: 20px;
+	margin-bottom: 0px;
 }
 
 .form-actions.btn {
@@ -62,6 +63,7 @@
 	color: #1dcfac;
 	height: 30px;
 	line-height: 30px;
+	box-sizing: border-box;
 }
 
 .form-actions.active.btn, .form-actions:hover {
@@ -75,23 +77,22 @@
 	width: 100%;
 	input {
 		font-size: 16px;
+		font-family: 'Muli', sans-serif;
 	}
 }
 
 
 .user-field {
-	height: 40px;
+	height: 50px;
 	border: none;
 	border-bottom: 1px solid lightgray;
-	margin-bottom: 10px;
 	width: 100%;
 }
 
 #submit-user {
 	margin-top: 20px;
 	border: none;
-	margin-bottom: 40px;
-	height: 40px;
+	height: 50px;
 	width: 100%;
 	text-align: center;
 	background: #1dcfac;
@@ -105,8 +106,8 @@
 @media (max-width: 1023px) {
 	body {
 		.form-actions.btn {
-			height: 40px;
-			line-height: 40px;
+			height: 44px;
+			line-height: 44px;
 			position: fixed;
 			bottom: 0;
 			background: white;
@@ -115,9 +116,9 @@
 			margin-top: 0;
 		}
 		#sign-up-content {
-			padding-top: 0;
+			padding: 0;
 		}
-		#sign-up {	
+		#sign-up {
 			left: 0;
 			width: 50%;
 		}
@@ -127,8 +128,10 @@
 		}
 		#facebook {
 			position: fixed;
-			bottom: 40px;
+			bottom: 44px;
+			height: 44px;
 			margin: 0;
+			line-height: 44px;
 		}
 		.landing-text {
 			color: white;
@@ -159,6 +162,3 @@
 
 	}
 }
-
-
-
