@@ -6,10 +6,13 @@ Home =
     @detectMobile()
     @initMobile()
 
-  initMobile: ->
-    if $('.main-logo.text').length > 0
+  initMobile: -> #very hacky, will change if necessary
+    if $('.main-logo.text').length > 0 && Home.mobile
       $('.main-logo').hide()
       $('.main-logo.text').show()
+    else
+      $('.main-logo.text').hide()
+
 
   goBack: ->
     location.reload()
