@@ -3,6 +3,7 @@ Home =
     $('#log-in').click @showLogInForm
     $('#sign-up').click @showSignUpForm
     $('.back-icon').click @goBack
+    @detectMobile()
     @initMobile()
 
   initMobile: ->
@@ -13,6 +14,8 @@ Home =
   goBack: ->
     location.reload()
 
+  detectMobile: ->
+    Home.mobile = $('.mobile:visible').length > 0
 
   showLogInForm: ->
     $('.form-actions').removeClass 'active'
@@ -23,12 +26,13 @@ Home =
     	opacity: 0;
     , 250, ->
     	$(@).hide()
-    if $('.mobile:visible').length > 0
-      $('#main-logo, .add-photo').hide()
-      $('#header-left, form').show()
-      $('#content-container, #sign-up-box').css('background', 'white')
-      $('.landing-text, #facebook, .form-actions').hide()
+    Home.handleMobileLogin() if Home.mobile
 
+  handleMobileLogin: ->
+    $('#main-logo, .add-photo').hide()
+    $('#header-left, form').show()
+    $('#content-container, #sign-up-box').css('background', 'white')
+    $('.landing-text, #facebook, .form-actions').hide()
 
   showSignUpForm: ->
   	$('.form-actions').removeClass 'active'
@@ -39,14 +43,14 @@ Home =
   		opacity: 1;
   	, 250, ->
   		$('#name, #phone_number').css('border-bottom', '1px solid lightgray')
-    if $('.mobile:visible').length > 0
+    Home.handleMobileSignUp() if Home.mobile
       
-      $('.main-logo').hide()
-      $('header .mobile, form').show()
-      $('#content-container, #sign-up-box').css('background', 'white')
-      $('.landing-text, #facebook, .form-actions, #submit-user').hide()
+  handleMobileSignUp: ->
+    $('.main-logo').hide()
+    $('header .mobile, form').show()
+    $('#content-container, #sign-up-box').css('background', 'white')
+    $('.landing-text, #facebook, .form-actions, #submit-user').hide()
 
-  
 ready = ->
   Home.init()
 $(document).ready ready
