@@ -47,7 +47,7 @@ Home =
   	, 250, ->
   		$('#name, #phone_number').css('border-bottom', '1px solid lightgray')
     Home.handleMobileSignUp() if Home.mobile
-      
+
   handleMobileSignUp: ->
     $('.main-logo').hide()
     $('header .mobile, form').show()
