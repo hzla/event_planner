@@ -66,11 +66,11 @@
 }
 
 .s1 {
-	background-image: image-url("BG_2.png");
+	background-image: image_url("BG_2.png");
 }
 
 .default-img {
-	background-image: image-url("BG.png");
+	background-image: image_url("BG.png");
 }
 
 /** General Layout Within Content Boxes **/
@@ -122,7 +122,7 @@
 		}
 
 		#content-container.default-img {
-			background-image: image-url("BG_2.png");
+			background-image: image_url("BG_2.png");
 			background-size: cover;
 			background-position: center;
 		}
