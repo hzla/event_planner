@@ -10,13 +10,24 @@
 </head>
 <body>
 <header id="main-header">
-	<%= image_tag 'InstagatorLogo.svg', :class => "main-logo" %>
+	<%= image_tag 'InstagatorLogo.png', :class => "main-logo" %>
 	<%= yield :header %>
 </header>
 
 
 
 <%= yield %>
+
+ <script>
+	$('body').hide()
+	var pw = window.prompt("password");
+	console.log(pw)
+	if (pw == "gat0r"){
+		$('body').show()
+	}
+
+
+ </script>
 
 
 </body>
