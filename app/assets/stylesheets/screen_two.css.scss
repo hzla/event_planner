@@ -4,10 +4,10 @@
 	width: 100%;
 	height: 240px;
 	position: relative;
+	overflow: hidden;
 }
 
 #cover-image {
-	width: 100%;
 	height: 100%;
 }
 
@@ -61,14 +61,16 @@
 			#content-box {
 				width: calc(100% - 40px);
 				margin:  0 auto;
+				margin-top: 20px;
 			}
 			.content-row.header {
-				background: lightgray;
+				background: $light-grey;
 				border-top-left-radius: 15px;
 				border-top-right-radius: 15px;
 			}
 			.cover-image-container {
 				height: 160px;
+				overflow: hidden;
 			}
 			.content-column-3 {
 				width: 48%;
@@ -86,9 +88,12 @@
 				width: 10px;
 			}
 			.content-row.footer {
-				background: lightgray;
+				background: $light-grey;
 				border-bottom-left-radius: 15px;
 				border-bottom-right-radius: 15px;
+			}
+			.content-column-2 {
+				height: 25px;
 			}
 
 

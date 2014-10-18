@@ -104,8 +104,9 @@
 @media (max-width: 1023px) {
 	body {
 		#main-header {
-			font-size: 24px;
+			font-size: 17px;
 			height: 44px;
+			line-height: 44px;
 		}
 
 		#header-right-pic {
@@ -114,6 +115,10 @@
 
 		#content-container {
 			border-top: solid 1px $light-grey;
+			position: absolute;
+			width: 100%;
+			height: calc(100% - 44px);
+			top: 44px;
 		}
 
 		#content-container.default-img {
@@ -129,6 +134,8 @@
 
 		#content-container.landing.default-img {
 			border-top: none;
+			height: calc(100% - 60px);
+			top: 60px;
 		}
 
 		.main-logo {

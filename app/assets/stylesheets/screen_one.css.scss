@@ -169,16 +169,21 @@
 			padding-top: 0px;
 		}
 		#profile-pic {
-			top: 5px;
+			top: 10px;
 			left: 20px;
+			width: 80px;
+			height: 80px;
 		}
 		.main-text.profile-info {
-			padding-top: 20px;
+			padding-top: 25px;
+			margin-right: 60px;
 		}
 		.content-row.profile-info {
 			float: right;
 			width: 50%;
 			text-align: left;
+			clear: right;
+			margin-right: 60px;
 		}
 		#time-header {
 			margin-top: 20px;
@@ -198,10 +203,31 @@
 			float: left;
 		}
 		.small-profile-img {
-			margin-right: 10px;
+			margin: 2px;
+			height: 32px;
+			width: 32px;
+			box-sizing: border-box;
 		}
 		.light-gray {
 			background: $light-grey;
+		}
+		.image-row {
+			padding: 10px 10px;
+		}
+		#red-circle {
+			left: calc(50% - 100px);
+			height: 80px;
+			width: 80px;
+			line-height: 80px;
+			font-size: 14px;
+		}
+
+		#green-circle {
+			right: calc(50% - 100px);
+			height: 80px;
+			width: 80px;
+			line-height: 80px;
+			font-size: 14px;
 		}
 	}
 }
