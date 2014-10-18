@@ -84,11 +84,11 @@
 }
 
 .small-profile-img.good {
-	border: 1px solid green;
+	border: solid 2px $green;
 }
 
 .small-profile-img.bad {
-	border: 1px solid red;
+	border: solid 2px $red;
 }
 
 .see-more, .see-less {
@@ -109,6 +109,7 @@
 .description {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	font-size: 14px;
 }
 
 .empty {
@@ -119,7 +120,7 @@
 	width: 100px;
 	height: 100px;
 	position: absolute;
-	bottom: -50px;
+	bottom: -40px;
 	text-align: center;
 	border-radius: 100px;
 	line-height: 100px;
@@ -129,14 +130,28 @@
 
 #red-circle {
 	left: calc(50% - 120px);
-	border: 1px solid red;
-	color: red;
+	border: solid 2px $red;
+	color: $red;
+	box-sizing: border-box;
 }
 
 #green-circle {
 	right: calc(50% - 120px);
-	border: 1px solid green;
-	color: green;
+	border: solid 2px $green;
+	color: $green;
+	box-sizing: border-box;
+}
+
+#red-circle:hover {
+	left: calc(50% - 120px);
+	background-color: $red;
+	color: $white;
+}
+
+#green-circle:hover {
+	right: calc(50% - 120px);
+	background-color: $green;
+	color: $white;
 }
 
 
@@ -147,7 +162,7 @@
 		#content-box {
 			width: 100%;
 			margin-top: 0;
-			background: white;
+			background: $white;
 		}
 		.box-content.profile-box {
 			padding-top: 0px;
@@ -189,5 +204,3 @@
 		}
 	}
 }
-
-

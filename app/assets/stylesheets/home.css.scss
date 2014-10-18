@@ -50,8 +50,9 @@
 	color: #3b5998;
 	border: 1px solid #3b5998;
 	background: white;
-	height: 38px;
-	width: calc(100% - 2px);
+	height: 50px;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 #or {
@@ -164,7 +165,7 @@
 			line-height: 44px;
 		}
 		.landing-text {
-			color: white;
+			color: $white;
 			position: fixed;
 			bottom: 100px;
 			width: calc(100% - 40px);
