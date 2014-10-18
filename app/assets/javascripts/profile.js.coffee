@@ -7,11 +7,20 @@ Profile =
 
   addRow: ->
   	$(@).css 'opacity', '0'
-  	$(@).parent().find('.hidden-image-row').show()
+  	$(@).parent().find('.hidden-image-row').show().animate 
+  		height: "60px"
+  		opacity: '1'
+  	, 250
+
+
 
   removeRow: ->
   	$('.see-more').css 'opacity', '1'
-  	$(@).parent().hide()
+  	$(@).parent().animate 
+  		height: '0px'
+  		opacity: '1'
+  	, 250, ->
+  		$(@).hide().attr('style', '')
 
   showMore: ->
     $(@).hide()
