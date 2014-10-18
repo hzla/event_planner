@@ -1,8 +1,13 @@
 <div id="content-container" class="s1">
 	<%= content_for :header do %>
+
+	<div class="header-pic-container">
 		<%= image_tag 'cat.png', id: 'header-right-pic' %>
+		<div class="profile-tooltip">Logout</div>
+		<div class="tail"></div>
+	</div>
 		<%= image_tag 'cat.png', id: 'header-left', :class => "mobile" %>
-		<div id="header-right">Static</div>
+		<div id="header-right" class="mobile">Static</div>
 		<div class="main-logo text">INSTAGATOR</div>
 	<% end %>
 
@@ -28,16 +33,101 @@
 
 
 			<div class="content-row image-row opaque">
-				<%= image_tag 'cat.png', :class => 'small-profile-img good selected' %>
-				<%= image_tag 'cat.png', :class => 'small-profile-img good' %>
-				<%= image_tag 'cat.png', :class => 'small-profile-img good' %>
-				<%= image_tag 'cat.png', :class => 'small-profile-img good' %>
-				<%= image_tag 'cat.png', :class => 'small-profile-img bad' %>
-				<%= image_tag 'cat.png', :class => 'small-profile-img' %>
-				<%= image_tag 'cat.png', :class => 'small-profile-img' %>
-				<%= image_tag 'cat.png', :class => 'small-profile-img' %>
-				<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img good selected' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img good' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img good' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img good' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img bad' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
 				<%= image_tag 'seemoremembersicon.svg', :class => 'small-profile-img see-more' %>
+				<div class="hidden-image-row hidden">
+					<div class="pic-container">
+						<div class="profile-tooltip">John Doe</div>
+						<div class="tail"></div>
+						<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+					</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+				<div class="pic-container">
+					<div class="profile-tooltip">John Doe</div>
+					<div class="tail"></div>
+					<%= image_tag 'cat.png', :class => 'small-profile-img' %>
+				</div>
+					<%= image_tag 'minus.svg', :class => 'small-profile-img see-less' %>
+				</div>
+
 			</div>
 
 		<div class="box-content">

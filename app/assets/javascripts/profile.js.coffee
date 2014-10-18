@@ -2,6 +2,16 @@ Profile =
   init: ->
     $('.read-more').click @showMore
     $('.hide-text').click @hideText
+    $('.see-more').click @addRow
+    $('.see-less').click @removeRow
+
+  addRow: ->
+  	$(@).css 'opacity', '0'
+  	$(@).parent().find('.hidden-image-row').show()
+
+  removeRow: ->
+  	$('.see-more').css 'opacity', '1'
+  	$(@).parent().hide()
 
   showMore: ->
     $(@).hide()
