@@ -6,22 +6,22 @@ Profile =
     $('.see-less').click @removeRow
 
   addRow: ->
-  	$(@).css 'opacity', '0'
-  	$(@).parent().find('.hidden-image-row').show().animate 
-  		height: "60px"
+  	$(@).hide()
+  	$(@).parent().find('.pic-container.hidden').css('display', 'inline-block').animate 
+  		height: "40px"
   	, 250
-  	
-  	$(@).parent().find('.hidden-image-row').show().animate 
+  	$(@).parent().find('.pic-container.hidden').css('display', 'inline-block').animate 
   		opacity: '1'
-  	, 500
+  	, 500, ->
+  		$(@).addClass('shown')
+  	$('')
 
   removeRow: ->
-  	$(@).parent().animate 
-  		height: '0px'
-  		opacity: '1'
+  	$('.shown').animate 
+  		opacity: '0'
   	, 250, ->
   		$(@).hide().attr('style', '')
-  		$('.see-more').css 'opacity', '1'
+  		$('.see-more').show()
 
   showMore: ->
     $(@).hide()

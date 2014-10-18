@@ -95,10 +95,11 @@
 	margin-right: 0px;
 }
 
-.hidden-image-row {
-	margin-top: 10px;
+.pic-container.hidden {
 	opacity: 0;
 	height: 0px;
+	height: 40px;
+	display: none;
 }
 
 .read-more, .hide-text {
