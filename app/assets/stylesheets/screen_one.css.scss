@@ -44,7 +44,7 @@
 	border-radius: 40px;
 	cursor: pointer;
 	display: inline-block;
-	margin-right: 20px;
+	margin: 0px 10px;
 	box-sizing: border-box;
 }
 
@@ -92,7 +92,8 @@
 }
 
 .see-more, .see-less {
-	margin-right: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .pic-container.hidden {
