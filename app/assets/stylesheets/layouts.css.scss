@@ -112,6 +112,10 @@
 			display: none;
 		}
 
+		#content-container {
+			border-top: solid 1px $light-grey;
+		}
+
 		#content-container.default-img {
 			background-image: image_url("BG_2.png");
 			background-size: cover;
@@ -121,7 +125,6 @@
 
 		.s1, #content-container.s2.default-img {
 			background: white;
-			border-top: solid 1px $light-grey;
 		}
 
 		#content-container.landing.default-img {

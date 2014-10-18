@@ -21,6 +21,7 @@ Home =
     Home.mobile = $('.mobile:visible').length > 0
 
   showLogInForm: ->
+    $('#content-container').removeClass 'landing'
     $('.form-actions').removeClass 'active'
     $(@).addClass 'active'
     $('#name, #phone_number').css 'border-bottom', 'none'
@@ -38,14 +39,15 @@ Home =
     $('.landing-text, #facebook, .form-actions').hide()
 
   showSignUpForm: ->
-  	$('.form-actions').removeClass 'active'
-  	$(@).addClass 'active'
-  	$('#name, #phone_number').show()
-  	$('#name, #phone_number').animate
-  		height: '40px'
-  		opacity: 1;
-  	, 250, ->
-  		$('#name, #phone_number').css('border-bottom', '1px solid lightgray')
+    $('#content-container').removeClass 'landing'
+    $('.form-actions').removeClass 'active'
+    $(@).addClass 'active'
+    $('#name, #phone_number').show()
+    $('#name, #phone_number').animate
+    	height: '40px'
+    	opacity: 1;
+    , 250, ->
+    	$('#name, #phone_number').css('border-bottom', '1px solid lightgray')
     Home.handleMobileSignUp() if Home.mobile
 
   handleMobileSignUp: ->

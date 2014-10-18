@@ -9,22 +9,23 @@ Profile =
   	$(@).css 'opacity', '0'
   	$(@).parent().find('.hidden-image-row').show().animate 
   		height: "60px"
-  		opacity: '1'
   	, 250
-
-
+  	
+  	$(@).parent().find('.hidden-image-row').show().animate 
+  		opacity: '1'
+  	, 500
 
   removeRow: ->
-  	$('.see-more').css 'opacity', '1'
   	$(@).parent().animate 
   		height: '0px'
   		opacity: '1'
   	, 250, ->
   		$(@).hide().attr('style', '')
+  		$('.see-more').css 'opacity', '1'
 
   showMore: ->
     $(@).hide()
-    $(@).parent().find('.more-text').show()
+    $(@).parent().find('.more-text').show().addClass('animated fadeIn')
 
   hideText: ->
     $(@).parent().hide().parent().find('.read-more').show()
