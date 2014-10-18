@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1 (8751) - http://www.bohemiancoding.com/sketch -->
+    <title>Glyph 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Take-Poll" sketch:type="MSArtboardGroup" transform="translate(-761.000000, -490.000000)" stroke="#FFFFFF" fill="#1B1B1B">
+            <g id="stars" sketch:type="MSLayerGroup" transform="translate(657.000000, 491.000000)">
+                <path d="M108.797326,20.2908204 L109.916899,13.444487 L105.17492,8.59651196 C104.831702,8.24562248 105.022119,7.63670494 105.497732,7.56421988 L112.048197,6.56590643 L114.978271,0.339047236 C115.190991,-0.113015709 115.809007,-0.113015755 116.021727,0.339047158 L118.951804,6.5659082 L125.502268,7.56422514 C125.977881,7.63671045 126.168298,8.24562813 125.82508,8.59651741 L121.083099,13.4444885 L122.202673,20.2908206 C122.283701,20.7863219 121.784271,21.1633374 121.358126,20.9283608 L115.499999,17.6981863 L109.641872,20.9283607 C109.215727,21.1633372 108.716297,20.7863218 108.797326,20.2908204 Z" id="Glyph-6" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>
