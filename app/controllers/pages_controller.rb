@@ -11,8 +11,7 @@ class PagesController < ApplicationController
 		@home = false
 	end
 
-	def mobile_home
-		
+	def app_store		
 	end
 
 end
