@@ -9,12 +9,20 @@
 
 #cover-image {
 	height: 100%;
+	right: -60px;
+	position: absolute;
 }
 
 .content-row.header {
 	padding-top: 20px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px; 
 }
 
+.content-row.footer {
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px; 
+}
 .content-column-3 {
 	width: 31%;
 	display: inline-block;

@@ -6,7 +6,7 @@
 
 
 	<div id="sign-up-box">
-
+		
 		<div id="sign-up-circle">
 			<%= image_tag 'User_icon.png', id: "user-icon" %>
 		</div>
@@ -20,7 +20,7 @@
 				or
 			</div>
 
-			<div class="form-row">
+			<div class="form-row" id="btn-container">
 				<div class="btn form-actions active" id="sign-up">
 					Sign Up
 				</div>
@@ -28,6 +28,8 @@
 				<div class="btn form-actions" id="log-in">
 					Log In
 				</div>
+
+				<div class="no-mobile" id="btn-line"></div>
 			</div>
 
 			<%= form_tag '/users', id: 'user-form' do %>
