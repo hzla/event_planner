@@ -1,0 +1,42 @@
+<%= content_for :header do %>
+	<div class="header-pic-container">
+		<div id="header-right-pic" class="submit-emails">Next</div>
+	</div>
+		<%= image_tag 'back.svg', id: 'header-left', :class => "mobile" %>
+		<div class="main-logo text">Invite Friends</div>
+		<div id="header-right" class="mobile submit-emails">Next</div>
+<% end %>
+
+<%= form_tag polls_path(event_id: @event_id), id: "emails-form" do %>
+	<%= hidden_field_tag :email_list, nil, id: "email-list" %>
+<% end %>
+
+<div class="generic" id="content-container">
+	<div class="full-grey-block">
+		<%= text_field_tag :email, nil, id: "invite-email", placeholder: "Add an invitee's email.." %>
+	</div>
+	<div class="btn" id="add-email-btn">
+		Add
+	</div>
+
+	<div id="invitees-container" class="full-white-block">
+		<div class="invitee-header full-grey-block">
+			Invitees
+		</div>
+		<div class="invitees">
+			<div class="invitee placeholder-invitee">No invitees yet</div>
+		</div>
+	</div>
+	<div id="contacts-container" class="full-white-block">
+		<div class="invitee-header full-grey-block">
+			Recent Contacts
+		</div>
+		<div class="contacts">
+			<div class="invitee">walterwhite@gmail.com</div>
+			<div class="invitee">walterwhite@gmail.com</div>
+			<div class="invitee">walterwhite@gmail.com</div>
+		</div>
+	</div>
+
+
+</div>

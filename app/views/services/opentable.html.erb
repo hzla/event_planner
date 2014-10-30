@@ -1,0 +1,41 @@
+<%= content_for :header do %>
+	<div class="header-pic-container">
+		<div id="header-right-pic" class="done">Done</div>
+	</div>
+		<%= image_tag 'cancel.png', id: 'header-left', :class => "mobile" %>
+		<div class="main-logo text">Open Table</div>
+		<div id="header-right" class="mobile">Done</div>
+<% end %>
+
+<div class="generic" id="content-container">
+	<div class="service-header full-white-block">
+		<div class="service-tabs">
+			<div class="browse service-tab active">Browse</div>
+			<div class="chosen service-tab">Selected</div>
+		</div>
+	</div>
+
+	<div class="full-grey-block small-padded">
+		All restaurants near me in <%= current_user.location || "San Francisco, California" %>
+	</div>
+
+	<div class="service-options full-white-block">
+		<% @options.each do |option| %>
+			<div class="option">
+				<%= image_tag Opentable.image_for(option), :class => "option-pic" %>
+				<%= image_tag 'checkgreen.svg', :class => "option-check" %>
+					<div class="option-title bold">
+					<%= option["name"] %>
+				</div>
+				<div class="option-info">
+					<%= option["address"] %>
+				</div>
+			</div>
+			
+
+
+		<% end %>
+
+	</div>
+
+</div>

@@ -1,0 +1,38 @@
+<%= content_for :header do %>
+	
+
+	<div class="header-pic-container">
+		<%= image_tag 'cat.png', id: 'header-right-pic' %>
+		<div class="profile-tooltip">Logout</div>
+		<div class="tail"></div>
+	</div>
+		<div class="hidden" id="cancel-form">Cancel</div>
+		<%= image_tag 'cat.png', id: 'header-left', :class => "mobile" %>
+		<div class="main-logo text">INSTAGATOR</div>
+<% end %>
+
+<div id="content-container" class="welcome-dashboard gray-back generic">
+	<div id="welcome-text-container" class="full-white-block">
+		<%= image_tag 'instagatoricon.svg', id: "welcome-icon" %>
+		<div id="welcome-text" class="medium-text">
+			Welcome to Instagator, get started by creating a poll below.
+		</div>
+	</div>
+
+	<div id="create-poll" class="btn-rnd">
+		Create Poll
+	</div>
+
+	<div id="poll-creator" class="hidden">
+		<%= form_for @event do |f| %>
+			<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
+			<%= f.text_field :desc, placeholder: "Description", :class => "poll-field" %>
+			<%= f.datetime_field :start_time, placeholder: "Date", :class => "poll-field" %>
+			<%= f.submit "Continue", id: "submit-poll", :class => "btn" %>
+
+		<% end %>
+
+	</div>
+
+
+</div>

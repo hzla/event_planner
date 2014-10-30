@@ -12,9 +12,11 @@
 		</div>
 
 		<div id="sign-up-content">
-			<div class="btn form-row" id="facebook">
-				Connect with Facebook
-			</div>
+			<%= link_to '/auth/facebook' do %>
+				<div class="btn form-row" id="facebook">
+					Connect with Facebook
+				</div>
+			<% end %>
 
 			<div class="form-row" id="or">
 				or

@@ -1,0 +1,13 @@
+Tasks
+
+fb login
+select extensions screen: only open table
+integrate with open table bot to get info
+select info, create poll
+push poll out 
+answer poll
+view results
+confirm reservation
+
+
+

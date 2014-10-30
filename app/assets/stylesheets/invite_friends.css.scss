@@ -1,0 +1,53 @@
+@import 'variables';
+
+#invite-email {
+	width: calc(100% - 20px);
+	margin: 10px;
+	border: none;
+	text-align: center;
+	height: 30px;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+#add-email-btn {
+	height: 40px;
+	line-height: 40px;
+	color: white;
+	width: 100%;
+	background: $turq;
+	font-weight: 600;
+	border-radius: 0px;
+}
+
+#invitees-container {
+	margin-top: 20px;
+	text-align: left;
+}
+
+#contacts-container {
+	text-align: left;
+}
+
+.invitee-header.full-grey-block, .invitee {
+	box-sizing: border-box;
+	padding-left: 10px;
+	width: 100%;
+	text-align: left;
+	height: 30px;
+	line-height: 30px;
+}
+
+.invitee {
+	cursor: pointer;
+}
+
+
+@media (min-width: 1024px) {
+	#add-email-btn:hover {
+		background: white;
+		border: 1px solid $turq;
+		color: $turq;
+	}
+}
+

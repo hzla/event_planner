@@ -6,6 +6,15 @@
 	border-radius: 5px;
 	color: white;
 	cursor: pointer;
+	text-align: center;
+}
+/* .btn are square in mobile */
+
+.btn-rnd {
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	text-align: center;	
 }
 
 input:focus,
@@ -29,6 +38,12 @@ div, input {
 	background: white;
 }
 
+.gray-back {
+	background: $light-grey;
+}
+
+
+
 .opaque {
 	background: rgba(255,255,255,.9);
 }
@@ -39,6 +54,9 @@ div, input {
 
 /** Text Formatting **/
 
+a {
+	text-decoration: none;
+}
 
 
 .bold {
@@ -78,7 +96,11 @@ div, input {
 
 /***********  Media Queries *******************/
 
-
+@media (min-width: 1024px) {
+	.gray-back.generic {
+		background: white;
+	}
+}
 
 
 /************** elements with the class mobile shown, no-mobile are hidden  *****************/

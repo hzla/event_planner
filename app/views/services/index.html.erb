@@ -1,0 +1,23 @@
+<%= content_for :header do %>
+
+	<div class="header-pic-container">
+		<%= image_tag 'back.svg', id: 'header-right-pic' %>
+	</div>
+		<%= image_tag 'cat.png', id: 'header-left', :class => "mobile" %>
+		<div class="main-logo text">Add Options</div>
+<% end %>
+
+<div id="content-container" class="generic">
+	<div id="services">
+		<% @services.each do |service| %>
+			<div class="service">
+			<%= link_to service.event_url(@event_id) do %>
+				<%= image_tag "opentable.svg", :class => "service-image" %>
+			<% end %>
+			</div>
+		<% end %>
+
+	</div>
+
+
+</div>

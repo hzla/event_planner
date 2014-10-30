@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="31px" height="31px" viewBox="0 0 31 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>Checkbox Selected 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="11-Home-2" sketch:type="MSArtboardGroup" transform="translate(-37.000000, -595.000000)">
+            <g id="Group-3" sketch:type="MSLayerGroup" transform="translate(-1.000000, 511.000000)">
+                <g id="Text-Box" transform="translate(35.000000, 44.000000)" sketch:type="MSShapeGroup">
+                    <g id="Checkbox-Selected-3" transform="translate(3.000000, 40.000000)">
+                        <path d="M15.5,31 C24.060414,31 31,24.060414 31,15.5 C31,6.93958595 24.060414,0 15.5,0 C6.93958595,0 0,6.93958595 0,15.5 C0,24.060414 6.93958595,31 15.5,31 Z" id="Circle" fill="#00CC99"></path>
+                        <path d="M21.3244734,9.23328925 L24.1836443,12.0924602 L13.7000177,22.5760868 L6.81635572,15.7267161 L9.67552662,12.8675452 L13.682872,16.8748906 L21.3244734,9.23328925 Z" id="Rectangle-71" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

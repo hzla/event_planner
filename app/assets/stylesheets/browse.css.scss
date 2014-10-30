@@ -1,0 +1,90 @@
+@import 'variables';
+
+.service-tabs {
+	width: calc(100% - 20px);
+	height: 30px;
+	margin:  0 auto;
+	padding: 20px 0px;
+}
+
+.service-tab {
+	width: 50%;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px; 
+	background: white;
+	color: $turq;
+	border: 1px solid $turq;
+	text-align: center;
+	box-sizing: border-box;
+	float: left;
+	height: 100%;
+	line-height: 30px;
+}
+
+.service-tab:nth-child(2n) {
+	border-radius: 0px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.service-tab.active, .service-tab:hover {
+	background: $turq;
+	color: white;
+}
+
+/******* browsing options *******/
+
+.option {
+	width: 100%;
+	border-bottom: 1px solid $light-grey;
+	height: 100px;
+	text-align: left;
+	position: relative;
+	cursor: pointer;
+}
+
+.option.selected {
+	.option-pic {
+		border: 3px solid $turq;
+	}
+	.option-check {
+		display: block;
+	}
+}
+
+.option-check {
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	top: 20px;
+	left: 60px;
+	display: none;
+}
+
+.option div {
+	display: inline;
+}
+
+.option-title, .option-info {
+	float: left;
+	width: calc(100% - 120px);
+}
+
+.option-title {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.option-pic {
+	height: 60px;
+	width: 60px;
+	margin: 20px;
+	border-radius: 50px;
+	box-sizing: border-box;
+	float: left;
+}
+
+
+
+
+
