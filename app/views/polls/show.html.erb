@@ -1,0 +1,69 @@
+<div id="content-container" class="s1">
+	<%= content_for :header do %>
+
+		<div class="header-pic-container">
+			<%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
+			<div class="profile-tooltip">Logout</div>
+			<div class="tail"></div>
+		</div>
+			<%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
+			<div id="header-right" class="mobile">Static</div>
+			<div class="main-logo text">INSTAGATOR</div>
+	<% end %>
+
+	<div id="content-box">
+
+			<%= image_tag @poll.user.profile_pic_url, id: 'profile-pic' %>
+
+		<div class="box-content profile-box">
+			<div class="content-row main-text profile-info">
+				<%= @poll.user.name %>
+			</div>
+			<div class="content-row medium-text profile-info">
+				Invited you to take a poll
+			</div>
+
+			<div class="content-row main-text bold light-gray" id="time-header">
+				<%= @poll.name %>
+			</div>
+			<div class="content-row medium-text light-gray" id="time">
+				<div class="time"><%= image_tag 'clockicon.png', :class => "text-icon" %><%= @poll.start_time || "Some Random Time" %></div>
+			</div>
+		</div>
+
+
+			<div class="content-row image-row opaque">
+				<% @poll.takers[0..8].each_with_index do |taker, i| %>
+					<div class="pic-container">
+						<div class="profile-tooltip"><%= taker.email %></div>
+						<div class="tail"></div>
+						<%= image_tag "p#{(i % 12) + 1}.png", :class => "small-profile-img" %>
+					</div>
+				<% end %>
+				<% if @poll.takers.length > 9 %>
+					<%= image_tag 'seemoremembersicon.svg', :class => 'small-profile-img see-more' %>
+					<% @poll.takers[9..-1].each_with_index do |taker, i| %>
+						<div class="pic-container">
+							<div class="profile-tooltip"><%= taker.email %></div>
+							<div class="tail"></div>
+							<%= image_tag "p#{(i % 12) + 1}.png", :class => "small-profile-img" %>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+		<div class="box-content">
+			<div class="content-row description sub-text light-gray">
+				<%= description(@poll) %>
+			</div>
+		</div>
+
+		<div class="content-row empty opaque"></div>
+		<div class="content-row box-actions">
+			<div id="red-circle" class="box-action">Decline</div>
+			<%= link_to take_path(@poll, code: @code) do %>
+				<div id="green-circle" class="box-action">Take Poll</div>
+			<% end %>
+		</div>
+
+	</div>
+</div>

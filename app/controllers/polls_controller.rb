@@ -1,6 +1,7 @@
 class PollsController < ApplicationController
 	
 	include SessionsHelper
+	skip_before_action :require_login, only: "show"
 	before_filter :check_event_ownership
 
 
@@ -10,6 +11,23 @@ class PollsController < ApplicationController
 			Poll.create email: email, event_id: @event_id
 		end
 		redirect_to services_path(event_id: @event_id)
+	end
+
+	def show
+		@poll = Poll.find params[:id]
+		if params[:code] != @poll.url.split("?code=").last
+			redirect_to root_path and return
+		end
+		@code = params[:code]
+	end
+
+	def take
+		@poll = Poll.find(params[:id])
+		if params[:code] != @poll.url.split("?code=").last
+			redirect_to root_path and return
+		end
+
+		@choices = @poll.choices
 	end
 
 	private

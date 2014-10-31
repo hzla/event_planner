@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   resources :events
   get '/events/:id/activate', to: 'events#activate', as: 'activate'
 
-  resources :polls
+  resources :polls 
+  get '/polls/:id/take', to: 'polls#take', as: 'take'
   resources :choices
+
+  get '/choices/:id/vote', to: 'choices#vote', as: 'vote'
 
   get '/invite_friends', to: 'events#invite_friends', as: 'invite_friends'
 
@@ -21,6 +24,8 @@ Rails.application.routes.draw do
   get '/s2', to: 'pages#screen_two'
   get '/appstore', to: 'pages#app_store'
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
+
+
 
 
 

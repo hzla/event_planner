@@ -1,0 +1,23 @@
+production:
+  :address: smtp.mandrillapp.com
+  :port: 587
+  :authentication: plain
+  :user_name: welcome@cliqwith.me
+  :password: MXvL4JDPdBfI1MswLwL8og
+  :enable_starttls_auto: true
+  :default_url_options:
+    :host: localhost:3000
+  :authentication: plain
+  :domain: cliqwith.me
+development:
+  :address: smtp.mandrillapp.com
+  :port: 587
+  :authentication: plain
+  :user_name: welcome@cliqwith.me
+  :password: MXvL4JDPdBfI1MswLwL8og
+  :enable_starttls_auto: true
+  :default_url_options:
+    :host: localhost:3000
+  :authentication: plain
+  :domain: cliqwith.me
+

@@ -5,12 +5,21 @@
 	height: 240px;
 	position: relative;
 	overflow: hidden;
+	background: $light-grey;
+}
+
+.choice {
+	width: 720px;
+	margin: 0 auto;
+	margin-top: 12vh;
+	position: relative;
+	border-radius: 3px;
 }
 
 #cover-image {
 	height: 100%;
-	right: -60px;
-	position: absolute;
+	margin: 0 auto;
+	display: block;
 }
 
 .content-row.header {
@@ -54,17 +63,43 @@
 	margin-right: 0px;
 }
 
+#poll-finished {
+	text-align: center;
+	font-size: 32px;
+	background: white;
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 40px 0px;
+	margin-top: 25vh;
+	box-sizing: border-box;
+
+}
+
 
 /************ Media Queries ***************/
 
 @media (max-width: 1023px) {
 	body {
-		#counter-header, .time-row {
+		.choice {
+			width: calc(100% - 20px);
+			margin: 0 auto;
+			margin-top: 20px;
+			background: $white;
+		}
+		.time-row {
 			display: none;
+		}
+		#counter-header {
+			position: fixed;
+			top: calc(100% - 40px);
+			z-index: 3;
+
 		}
 		.s2  {
 			.content-row, .box-content {
 				float: none;
+				padding-bottom: 0px;
 			}
 			#content-box {
 				width: calc(100% - 40px);
@@ -75,10 +110,13 @@
 				background: $light-grey;
 				border-top-left-radius: 15px;
 				border-top-right-radius: 15px;
+				padding: 0px;
+				padding: 10px 0px;
 			}
 			.cover-image-container {
 				height: 160px;
 				overflow: hidden;
+				background: white;
 			}
 			.content-column-3 {
 				width: 48%;

@@ -1,7 +1,7 @@
 <%= content_for :header do %>
-	<%= image_tag 'cat.png', id: 'header-left', :class => "mobile" %>
+	<%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
 	<div class="header-pic-container">
-		<%= image_tag 'cat.png', id: 'header-right-pic' %>
+		<%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
 		<div class="profile-tooltip">Logout</div>
 		<div class="tail"></div>
 	</div>

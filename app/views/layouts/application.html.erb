@@ -10,7 +10,9 @@
 </head>
 <body>
 <header id="main-header">
-	<%= image_tag 'InstagatorLogo.png', :class => "main-logo pic" %>
+	<%= link_to dashboard_path do %>
+		<%= image_tag 'InstagatorLogo.png', :class => "main-logo pic" %>
+	<% end %>
 	<%= yield :header %>
 </header>
 

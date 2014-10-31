@@ -1,0 +1,80 @@
+<%= content_for :header do %>
+	Take Poll
+	<%= image_tag 'cancel.png', id: 'header-left', :class => "mobile" %>
+	<div class="main-logo text mobile"></div>
+<% end %>
+<% if @poll.answered %>
+	<div id="content-container" class="s2 default-img">
+		<div id="poll-finished">
+			Congrats!<br>
+			<span class="main-text">You finished the poll!</span>
+		</div>
+	</div>
+<% else %>
+
+	<div id="content-container" class="s2 default-img">
+		<div id="counter-header">
+			<span id="choice-counter">1</span> of <%= @choices.count %>
+		</div>
+
+		<% @choices.each do |choice| %>
+			<div class="choice hidden">
+			
+				<div class="content-row main-text bold header white-back">
+					<%= choice.value %>
+				</div>
+				<div class="content-row sub-text white-back time-row">
+					<div class="time"><%= image_tag 'Food.svg', :class => "text-icon" %><%= @poll.event.start_time || "Time not yet determined" %></div>
+				</div>
+				<div class="cover-image-container">
+					<%= image_tag choice.image_url, id: 'cover-image' %>
+					<!-- <div class="ratings-container">
+						<% 4.times do %>
+							<%= image_tag 'starfilled.png', :class => "star" %> 
+						<% end %>
+						<%= image_tag 'starunfilled.png', :class => "star" %> 
+					</div> -->
+				</div>
+
+				<div id="box-content" class="white-back">
+					<div class="content-row">
+					<!-- 	<div class="content-column-3 text-left">
+							<div class="sub-text bold no-mobile">Dynamic Text:</div>
+							<div class="sub-text no-mobile">This is Dynamic</div>
+							<div class="sub-text mobile time-info"><%= image_tag 'iconforkknife.png', :class => "text-icon" %> Dynamic Text</div>
+						</div> -->
+						<div class="content-column-3 text-middle">
+							<div class="sub-text bold">Additional Info:</div>
+							<div class="sub-text"><%= choice.add_info %></div>
+						</div>
+					<!-- 	<div class="content-column-3 text-right">
+							<div class="sub-text bold">Dynamic Text:</div>
+							<div class="sub-text">This is Dynamic</div>
+						</div> -->
+					</div>
+				
+				</div>
+				<div class="content-row opaque footer">
+					<div class="content-column-2 text-left">
+						<div class="sub-text">Yes</div>
+					</div>
+					<div class="content-column-2 text-right">
+						<div class="sub-text">No</div>
+					</div>
+				</div>
+				<div class="box-actions">
+					<%= link_to vote_path(id: choice.id, answer: "no"), remote: true do %>
+						<div id="red-circle" class="box-action no-action">No</div>
+					<% end %>
+					<%= link_to vote_path(id: choice.id, answer: "yes"), remote: true do %>
+						<div id="green-circle" class="box-action yes-action">Yes</div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+			<div id="poll-finished" class="hidden">
+				Congrats!<br>
+				<span class="main-text">You finished the poll!</span>
+			</div>
+	</div>
+<% end %>

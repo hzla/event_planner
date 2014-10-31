@@ -20,7 +20,7 @@
 		<% end %>
 	</div>
 	<div class="grey-header">
-		<%= @event.polls.count %> Invitees
+		Description
 	</div>
 	<div class="full-white-block event-field" id="invitee-list">
 		<%= @event.desc %>
@@ -40,9 +40,11 @@
 		Other Options
 	</div> -->
 	<% if @event.status == "dormant" %>
-		<div class="btn activate-poll" id="poll-status">
-			ACTIVATE POLL
-		</div>
+		<%= link_to activate_path(@event) do %>
+			<div class="btn activate-poll" id="poll-status">
+				ACTIVATE POLL
+			</div>
+		<% end %>
 	<% else %>
 		<div class="btn" id="poll-status">
 			ALREADY ACTIVATED

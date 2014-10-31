@@ -17,6 +17,21 @@ class ChoicesController < ApplicationController
 		redirect_to event_path(@event_id)	
 	end
 
+	def vote
+		@choice = Choice.find params[:id]
+		answer = params[:answer]
+		if answer == "yes"
+			@choice.update_attributes yes: true
+		else
+			@choice.update_attributes yes: false
+		end
+		poll = @choice.poll
+		if @choice.poll.choices.where(yes: nil).empty?
+			poll.update_attributes answered: true
+		end
+		render nothing: true
+	end
+
 	private
 
 

@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
 	def activate
 		@event = Event.find(params[:id])
-		@event.update_attributes status: 'activated'
+		@event.activate_polls
 	end
 
 	def show
