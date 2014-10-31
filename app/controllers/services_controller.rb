@@ -8,6 +8,10 @@ class ServicesController < ApplicationController
 	end
 
 	def opentable
+		if @event_id
+			opentable_id = Service.where(name: "Open Table").first.id
+			Event.find(@event_id).update_attributes(service_id: opentable_id)
+		end
 		if current_user.location
 			location = current_user.location 
 			location = location.split(',')[0]

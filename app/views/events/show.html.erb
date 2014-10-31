@@ -1,0 +1,55 @@
+<%= content_for :header do %>
+	<div class="header-pic-container">
+		<div id="header-right-pic">Activate</div>
+	</div>
+		<%= image_tag 'cancel.png', id: 'header-left', :class => "mobile" %>
+		<div class="main-logo text">Your Poll</div>
+		<div id="header-right">Your Poll</div>
+<% end %>
+
+<div class="generic" id="content-container">
+	<div class="full-white-block event-field" id="event-name">
+		<%= @event.name %>
+	</div>
+	<div class="grey-header">
+		<%= @invitee_count %> Invitees
+	</div>
+	<div class="full-white-block event-field" id="invitee-list">
+		<% (1..@invitee_count).each do |invitee| %>
+			<%= image_tag "p#{(invitee % 12) + 1}.png", :class => "invitee-pic" %>
+		<% end %>
+	</div>
+	<div class="grey-header">
+		<%= @event.polls.count %> Invitees
+	</div>
+	<div class="full-white-block event-field" id="invitee-list">
+		<%= @event.desc %>
+	</div>
+	<div class="grey-header">
+		<%= @service.name %>
+	</div>
+	<div class="full-white-block event-field" id="event-options">
+		<% @choices.each do |choice| %>
+			<div class="event-option">
+					<%= image_tag choice.image_url , :class => "option-pic event-show" %>
+					<div class="option-title bold event-show"><%= choice.value %></div>
+			</div>
+		<% end %>
+	</div>
+	<!-- <div class="grey-header">
+		Other Options
+	</div> -->
+	<% if @event.status == "dormant" %>
+		<div class="btn activate-poll" id="poll-status">
+			ACTIVATE POLL
+		</div>
+	<% else %>
+		<div class="btn" id="poll-status">
+			ALREADY ACTIVATED
+		</div> 
+	<% end %>
+
+
+
+
+</div>

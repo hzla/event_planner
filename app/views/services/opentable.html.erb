@@ -1,10 +1,16 @@
 <%= content_for :header do %>
 	<div class="header-pic-container">
-		<div id="header-right-pic" class="done">Done</div>
+		<div id="header-right-pic" class="done submit-options">Done</div>
 	</div>
 		<%= image_tag 'cancel.png', id: 'header-left', :class => "mobile" %>
 		<div class="main-logo text">Open Table</div>
-		<div id="header-right" class="mobile">Done</div>
+		<div id="header-right" class="no-mobile submit-options">Done</div>
+<% end %>
+
+<%= form_tag choices_path(event_id: @event_id), id: 'options-form' do %>
+	<%= hidden_field_tag :image_url_list, nil, id: "image-url-list" %>
+	<%= hidden_field_tag :title_list, nil, id: "title-list" %>
+	<%= hidden_field_tag :info_list, nil, id: "info-list" %>	
 <% end %>
 
 <div class="generic" id="content-container">
@@ -24,18 +30,9 @@
 			<div class="option">
 				<%= image_tag Opentable.image_for(option), :class => "option-pic" %>
 				<%= image_tag 'checkgreen.svg', :class => "option-check" %>
-					<div class="option-title bold">
-					<%= option["name"] %>
-				</div>
-				<div class="option-info">
-					<%= option["address"] %>
-				</div>
+				<div class="option-title bold"><%= option["name"] %></div>
+				<div class="option-info"><%= option["address"] %></div>
 			</div>
-			
-
-
 		<% end %>
-
 	</div>
-
 </div>

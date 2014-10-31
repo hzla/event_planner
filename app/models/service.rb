@@ -9,7 +9,7 @@ class Service < ActiveRecord::Base
 	end
 
 	def event_url event_id
-		url + "?=event_id=#{event_id}"
+		url + "?event_id=#{event_id}"
 	end
 
 

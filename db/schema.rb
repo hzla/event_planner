@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030233231) do
+ActiveRecord::Schema.define(version: 20141031012131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141030233231) do
     t.text    "add_info"
     t.integer "poll_id"
     t.string  "replyer_name"
+    t.string  "image_url"
   end
 
   create_table "events", force: true do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20141030233231) do
     t.string   "name"
     t.string   "desc"
     t.datetime "start_time"
+    t.string   "status",     default: "dormant"
   end
 
   create_table "polls", force: true do |t|

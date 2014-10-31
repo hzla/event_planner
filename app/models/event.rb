@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :service
 
-	attr_accessible :finished, :user_id, :service_id, :desc, :start_time, :name
+	attr_accessible :finished, :user_id, :service_id, :desc, :start_time, :name, :status
 
 
 end

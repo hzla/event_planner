@@ -5,9 +5,14 @@ Rails.application.routes.draw do
     get "/#{page}", to: ("pages#" + "#{page}"), as: page 
   end
 
-  resources :polls
+  
   resources :services, only: [:index, :show]
   resources :events
+  get '/events/:id/activate', to: 'events#activate', as: 'activate'
+
+  resources :polls
+  resources :choices
+
   get '/invite_friends', to: 'events#invite_friends', as: 'invite_friends'
 
   get '/opentable', to: 'services#opentable', as: 'opentable'
