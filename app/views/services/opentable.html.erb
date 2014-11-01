@@ -10,7 +10,7 @@
 <%= form_tag choices_path(event_id: @event_id), id: 'options-form' do %>
 	<%= hidden_field_tag :image_url_list, nil, id: "image-url-list" %>
 	<%= hidden_field_tag :title_list, nil, id: "title-list" %>
-	<%= hidden_field_tag :info_list, nil, id: "info-list" %>	
+	<%= hidden_field_tag :info_list, nil, id: "info-list" %>
 <% end %>
 
 <div class="generic" id="content-container">
@@ -27,7 +27,7 @@
 
 	<div class="service-options full-white-block">
 		<% @options.each do |option| %>
-			<div class="option">
+			<div class="option mobile-text">
 				<%= image_tag Opentable.image_for(option), :class => "option-pic" %>
 				<%= image_tag 'checkgreen.svg', :class => "option-check" %>
 				<div class="option-title bold"><%= option["name"] %></div>

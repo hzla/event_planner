@@ -34,6 +34,22 @@
 	background: white;
 }
 
+@media (min-width: 1024px) {
+	body {
+		#create-poll {
+			width: 20vw;
+		}
+
+		#submit-poll{
+			width: 20vw;
+			bottom: 20vh;
+			left: 50%;
+			margin-left: -10vw;
+		}
+	}
+}
+
+
 
 /**** Poll Creator Elements ****/
 
@@ -63,6 +79,7 @@
 	border: none;
 	border-bottom: 1px solid $light-grey;
 	font-size: 16px;
+	font-family: 'Muli', sans-serif;
 }
 
 #submit-poll {
@@ -81,6 +98,7 @@
 	color: $turq;
 	border: 1px solid $turq;
 }
+
 
 /******** After Welcome Elements ********/
 
@@ -114,5 +132,4 @@ div.event {
 	height: 15px;
 	width: 15px;
 }
-
 

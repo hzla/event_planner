@@ -10,7 +10,7 @@
 .service-tab {
 	width: 50%;
 	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
 	background: white;
 	color: $turq;
 	border: 1px solid $turq;
@@ -71,7 +71,7 @@
 }
 
 .option-title {
-	margin-top: 20px;
+	margin-top: 30px;
 	margin-bottom: 10px;
 }
 
@@ -84,7 +84,14 @@
 	float: left;
 }
 
+@media (min-width: 1024px) {
+	.service-tabs {
+		height: 40px;
+		margin: 0;
+		width: 100%;
+	}
 
-
-
-
+	.service-tab {
+		line-height: 40px;
+	}
+}
