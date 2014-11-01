@@ -3,14 +3,21 @@
 @media (min-width: 1024px) {
 	body .landing .landing-text {
 		position: fixed;
-		top: 80vh;
+		top: 40vh;
 		text-align: center;
 		width: 100%;
 		font-size: 64px;
 	}
+	body .landing .fb-btn {
+		width: 20vw;
+		left: 50%;
+		margin-left: -10vw;
+		bottom: 40vh;
+		margin-bottom: -22px;
+		background: rgba(29, 207, 172, 0.85);
+	}
 
 }
-
 
 
 .landing {
@@ -31,4 +38,3 @@
 		font-weight: 600;
 	}
 }
-

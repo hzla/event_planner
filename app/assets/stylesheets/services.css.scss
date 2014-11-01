@@ -9,7 +9,7 @@
 	float: left;
 	cursor: pointer;
 	height: 50vw;
-	background: $turq;
+	background: #EE3124;
 }
 
 .service:hover {
@@ -33,7 +33,7 @@
 @media (min-width: 1024px) {
 	.service {
 		width: 320px;
-		height:	320px 
+		height:	320px
 	}
 
 }
