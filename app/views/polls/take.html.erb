@@ -56,15 +56,15 @@
 				</div>
 				<div class="content-row opaque footer">
 					<div class="content-column-2 text-left">
-						<div class="sub-text">Yes</div>
+						<div class="sub-text"><%= choice.yes_count %> Yes</div>
 					</div>
 					<div class="content-column-2 text-right">
-						<div class="sub-text">No</div>
+						<div class="sub-text"><%= choice.no_count %> No</div>
 					</div>
 				</div>
 				<div class="box-actions">
 					<%= link_to vote_path(id: choice.id, answer: "no"), remote: true do %>
-						<div id="red-circle" class="box-action no-action">No</div>
+						<div id="red-circle" class="box-action no-action"> No</div>
 					<% end %>
 					<%= link_to vote_path(id: choice.id, answer: "yes"), remote: true do %>
 						<div id="green-circle" class="box-action yes-action">Yes</div>

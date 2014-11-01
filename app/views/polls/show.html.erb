@@ -8,13 +8,11 @@
 		</div>
 			<%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
 			<div id="header-right" class="mobile">Static</div>
-			<div class="main-logo text">INSTAGATOR</div>
+			<div class="main-logo text mobile">INSTAGATOR</div>
 	<% end %>
 
 	<div id="content-box">
-
-			<%= image_tag @poll.user.profile_pic_url, id: 'profile-pic' %>
-
+		<%= image_tag @poll.user.profile_pic_url, id: 'profile-pic' %>
 		<div class="box-content profile-box">
 			<div class="content-row main-text profile-info">
 				<%= @poll.user.name %>
@@ -37,7 +35,7 @@
 					<div class="pic-container">
 						<div class="profile-tooltip"><%= taker.email %></div>
 						<div class="tail"></div>
-						<%= image_tag "p#{(i % 12) + 1}.png", :class => "small-profile-img" %>
+						<%= image_tag "p#{(i % 12) + 1}.png", :class => "small-profile-img #{'good' if taker.answered}" %>
 					</div>
 				<% end %>
 				<% if @poll.takers.length > 9 %>
@@ -46,7 +44,7 @@
 						<div class="pic-container">
 							<div class="profile-tooltip"><%= taker.email %></div>
 							<div class="tail"></div>
-							<%= image_tag "p#{(i % 12) + 1}.png", :class => "small-profile-img" %>
+							<%= image_tag "p#{(i % 12) + 1}.png", :class => "small-profile-img #{'good' if taker.answered}" %>
 						</div>
 					<% end %>
 				<% end %>

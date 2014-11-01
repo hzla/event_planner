@@ -10,5 +10,15 @@ module PollHelper
 		end
 	end
 
+	def suffixify n
+		if n == 2 
+			"2nd"
+		elsif n == 3
+			"3rd"
+		else
+			"#{n}th"
+		end
+	end
+
 
 end

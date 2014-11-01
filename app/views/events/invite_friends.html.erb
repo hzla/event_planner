@@ -1,10 +1,10 @@
 <%= content_for :header do %>
 	<div class="header-pic-container">
-		<div id="header-right-pic" class="submit-emails">Next</div>
+		<div id="header-right-pic" class="submit-emails hidden">Next</div>
 	</div>
 		<%= image_tag 'back.svg', id: 'header-left', :class => "mobile" %>
-		<div class="main-logo text">Invite Friends</div>
-		<div id="header-right" class="mobile submit-emails">Next</div>
+		<div class="main-logo text mobile">Invite Friends</div>
+		<div id="header-right" class="mobile submit-emails hidden">Next</div>
 <% end %>
 
 <%= form_tag polls_path(event_id: @event_id), id: "emails-form" do %>
@@ -24,7 +24,12 @@
 			Invitees
 		</div>
 		<div class="invitees">
-			<div class="invitee placeholder-invitee">No invitees yet</div>
+			<% @event.polls.each do |poll| %>
+				<div class="invitee real"><%= poll.email %></div>
+			<% end %>
+			<% if @event.polls.empty? %>
+				<div class="invitee placeholder-invitee">No invitees yet</div>
+			<% end %>
 		</div>
 	</div>
 	<div id="contacts-container" class="full-white-block">
@@ -37,6 +42,5 @@
 			<div class="invitee">walterwhite@gmail.com</div>
 		</div>
 	</div>
-
-
 </div>
+

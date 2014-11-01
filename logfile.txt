@@ -2,11 +2,12 @@ Tasks
 
 
 integrate with open table bot to book table
-view results
-confirm reservation
 set expiration for poll
-main dashboard
-displaying other peoples responses
+headers
+maybe fb login on taking polls?
 
 
+_____________________________________________
 
+validations
+open table bot

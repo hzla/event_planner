@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :services, only: [:index, :show]
   resources :events
   get '/events/:id/activate', to: 'events#activate', as: 'activate'
+  get '/events/:id/results', to: 'events#results', as: 'results'
 
   resources :polls 
   get '/polls/:id/take', to: 'polls#take', as: 'take'

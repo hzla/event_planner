@@ -1,6 +1,4 @@
 <%= content_for :header do %>
-	
-
 	<div class="header-pic-container">
 		<%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
 		<div class="profile-tooltip">Logout</div>
@@ -8,31 +6,68 @@
 	</div>
 		<div class="hidden" id="cancel-form">Cancel</div>
 		<%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
-		<div class="main-logo text">INSTAGATOR</div>
+		<div class="main-logo text mobile">INSTAGATOR</div>
 <% end %>
 
-<div id="content-container" class="welcome-dashboard gray-back generic">
-	<div id="welcome-text-container" class="full-white-block">
-		<%= image_tag 'instagatoricon.svg', id: "welcome-icon" %>
-		<div id="welcome-text" class="medium-text">
-			Welcome to Instagator, get started by creating a poll below.
+<% if @events.empty? %>
+
+	<div id="content-container" class="welcome-dashboard gray-back generic">
+		<div id="welcome-text-container" class="full-white-block">
+			<%= image_tag 'instagatoricon.svg', id: "welcome-icon" %>
+			<div id="welcome-text" class="medium-text">
+				Welcome to Instagator, get started by creating a poll below.
+			</div>
+		</div>
+
+		<div id="create-poll" class="btn-rnd">
+			Create Poll
+		</div>
+		<div id="poll-creator" class="hidden">
+			<%= form_for @event do |f| %>
+				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
+				<%= f.text_field :desc, placeholder: "Description", :class => "poll-field" %>
+				<%= f.datetime_field :start_time, placeholder: "Date", :class => "poll-field" %>
+				<%= f.submit "Continue", id: "submit-poll", :class => "btn" %>
+			<% end %>
+		</div>
+
+		
+	</div>
+
+<% else %>
+	<div id="content-container" class="generic">
+		<% @events.each do |event| %>
+			<%= link_to results_path(id: event.id, ongoing: !event.finished) do %>
+				<div class="full-white-block event">
+					<div class="event-info">
+						<div class="event-name"><%= event.name %></div>
+						<div class="event-status">
+							<% if event.voted %>
+								<%= image_tag 'checkgreen.svg', :class => "event-icon" %> 
+							<% else %>
+								<%= image_tag 'checkgrey.svg', :class => "event-icon" %> 
+							<% end %>
+
+							<%= "#{'You Instagated,' if event.user == current_user}"  %>
+							<%= event.vote_count %> Voted
+						</div>
+						<div class="event-time"><%= image_tag 'timered.svg', :class => "event-icon" %> Ongoing</div>
+					</div>
+					<%= image_tag event.user.profile_pic_url, :class => "event-pic" %>
+				</div>
+			<% end %>
+		<% end %>
+		<div id="create-poll" class="btn-rnd">
+			Create Poll
+		</div>
+
+		<div id="poll-creator" class="hidden">
+			<%= form_for @event do |f| %>
+				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
+				<%= f.text_field :desc, placeholder: "Description", :class => "poll-field" %>
+				<%= f.datetime_field :start_time, placeholder: "Date", :class => "poll-field" %>
+				<%= f.submit "Continue", id: "submit-poll", :class => "btn" %>
+			<% end %>
 		</div>
 	</div>
-
-	<div id="create-poll" class="btn-rnd">
-		Create Poll
-	</div>
-
-	<div id="poll-creator" class="hidden">
-		<%= form_for @event do |f| %>
-			<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
-			<%= f.text_field :desc, placeholder: "Description", :class => "poll-field" %>
-			<%= f.datetime_field :start_time, placeholder: "Date", :class => "poll-field" %>
-			<%= f.submit "Continue", id: "submit-poll", :class => "btn" %>
-
-		<% end %>
-
-	</div>
-
-
-</div>
+<% end %>

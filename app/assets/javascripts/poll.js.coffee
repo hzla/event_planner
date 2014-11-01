@@ -5,6 +5,7 @@ Poll =
     $('body').on 'click', '.yes-action', @acceptChoice
     $('body').on 'click', '.no-action', @declineChoice
     $('.choice').first().show()
+    @showNext() if $('.invitees .invitee.real').length > 0
 
   declineChoice: ->
     btn = $(@)
@@ -29,13 +30,21 @@ Poll =
     $('.invitees').append "<div class='invitee'>#{email}</div>"
     $('#invite-email').val ''
     $('.placeholder-invitee').remove()
-
     currentEmailList = $('#email-list').val()
     newEmailList =  currentEmailList + "#{email}, "
     $('#email-list').val newEmailList 
+    Poll.showNext()
 
   submitEmails: ->
     $('#emails-form').submit()
+
+  showNext: ->
+    if $(window).width() > 1024
+      $('.submit-emails').first().show() 
+    else
+      $('.mobile.submit-emails').show()
+    
+
 
 
 

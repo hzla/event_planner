@@ -85,11 +85,15 @@
 	display: none;
 }
 
-.small-profile-img.good {
+.invitee-pic {
+	border-radius: 100px;
+}
+
+.good {
 	border: solid 2px $green;
 }
 
-.small-profile-img.bad {
+.bad {
 	border: solid 2px $red;
 }
 

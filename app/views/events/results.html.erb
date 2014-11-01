@@ -1,0 +1,77 @@
+<%= content_for :header do %>
+
+	<div class="header-pic-container">
+		<%= image_tag 'back.svg', id: 'header-right-pic' %>
+	</div>
+		<%= image_tag 'back.svg', id: 'header-left', :class => "mobile" %>
+		<div class="main-logo text mobile">Results</div>
+<% end %>
+
+<div class="generic <%= 'ongoing' if @ongoing %>" id="content-container">
+	<div class="full-white-block event-field" id="event-name">
+		<%= @event.name %><br>
+		<span class="sub-text"><%= image_tag 'Time.svg', :class => "event-icon-small" %> <%= @event.start_time %> <%= image_tag 'hairblack.svg', :class => "event-icon-small" %> <%= @event.vote_count %> Voters</span>
+	</div>
+	<div class="full-white-block" id="winning-choice">
+		<div class="choice-pic-container">
+			<%= image_tag @choices.first.image_url, :class => "winning-choice-pic" %>
+			<div class="choice-rank">1st</div>
+			<div class="choice-pic-overlay">
+				<div class="winning-choice-title"><%= @choices.first.value %></div>
+				<div class="winning-choice-tally sub-text"><%= "#{@choices.first.yes_count} Yes, #{@choices.first.no_count} No" %></div>
+			</div>
+		</div>
+	</div>
+	<div class="full-white-block choice-voters">
+		<% @choices.first.voters.each_with_index do |voter, i| %>
+			<%= image_tag "p#{(i % 12) + 1}.png", :class => "invitee-pic #{'good' if voter.yes} #{'bad' if voter.yes == false}" %>
+		<% end %>
+	</div>
+
+	<div class="btn book-choice">
+		BOOK
+	</div>
+
+	<div class="btn sub-text" id="see-more-results">
+		See More Results
+	</div>
+
+	<div id="more-results" class="hidden">
+		<% @choices[1..-1].each_with_index do |choice, i| %>
+			<div class="option">
+				<%= image_tag choice.image_url, :class => "option-pic" %>
+				<div class="option-title bold"><%= choice.value %></div>
+				<div class="option-info">
+					<%= "#{choice.yes_count} Yes, #{choice.no_count} No" %>
+				</div>
+				<div class="choice-rank"><%= suffixify(i + 2) %></div>
+			</div>
+			<div class="full-white-block choice-voters">
+		<% choice.voters.each_with_index do |voter, i| %>
+				<%= image_tag "p#{(i % 12) + 1}.png", :class => "invitee-pic #{'good' if voter.yes} #{'bad' if voter.yes == false}" %>
+		<% end %>
+		</div>
+
+		<div class="btn book-choice">
+			BOOK
+		</div>
+		<% end %>
+		<div class="grey-header">Voters</div>
+		<div class="full-white-block" id="result-voter-list">
+		<% @choices.first.voters.each_with_index do |voter, i| %>
+				<%= image_tag "p#{(i % 12) + 1}.png", :class => "invitee-pic"  %>
+			<% end %>
+		</div>
+		<div class="grey-header">Description</div>
+		<div class="full-white-block" id="result-desc">
+			<%= description(@event.polls.first) %>
+		</div>
+		<div class="btn" id="closed">Closed</div>
+
+	</div>
+
+		
+		
+	</div>
+
+</div> 

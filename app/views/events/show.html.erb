@@ -1,15 +1,16 @@
 <%= content_for :header do %>
 	<div class="header-pic-container">
-		<div id="header-right-pic">Activate</div>
+		<div id="header-right-pic" class="activate-poll">Activate</div>
 	</div>
 		<%= image_tag 'cancel.png', id: 'header-left', :class => "mobile" %>
-		<div class="main-logo text">Your Poll</div>
+		<div class="main-logo text mobile">Your Poll</div>
 		<div id="header-right">Your Poll</div>
 <% end %>
 
 <div class="generic" id="content-container">
 	<div class="full-white-block event-field" id="event-name">
-		<%= @event.name %>
+		<%= @event.name %><br>
+		<span class="sub-text"><%= @event.start_time %></span>
 	</div>
 	<div class="grey-header">
 		<%= @invitee_count %> Invitees

@@ -22,6 +22,13 @@ class EventsController < ApplicationController
 
 	def invite_friends
 		@event_id = params[:event_id]
+		@event = Event.find @event_id
+	end
+
+	def results
+		@event = Event.find(params[:id])
+		@ongoing = params[:ongoing] == "true"
+		@choices = @event.top_choices
 	end
 
 end

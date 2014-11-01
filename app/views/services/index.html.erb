@@ -1,10 +1,10 @@
 <%= content_for :header do %>
 
 	<div class="header-pic-container">
-		<%= image_tag 'back.svg', id: 'header-right-pic' %>
+
 	</div>
-		<%= image_tag 'cat.png', id: 'header-left', :class => "mobile" %>
-		<div class="main-logo text">Add Options</div>
+		<%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
+		<div class="main-logo text mobile">Add Options</div>
 <% end %>
 
 <div id="content-container" class="generic">

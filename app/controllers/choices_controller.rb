@@ -7,9 +7,11 @@ class ChoicesController < ApplicationController
 		images = params[:image_url_list].split("<OPTION>")
 		titles = params[:title_list].split("<OPTION>")
 		infos = params[:info_list].split("<OPTION>")
-		polls = Event.find(@event_id).polls
+		event = Event.find(@event_id)
+		polls = event.polls
 
 		polls.each do |poll|
+			poll.choices.destroy_all
 			(0..(images.length - 1)).each do |i|
 				Choice.create poll_id: poll.id, image_url: images[i], value: titles[i], add_info: infos[i]
 			end
