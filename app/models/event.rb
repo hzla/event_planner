@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
 		update_attributes status: 'activated'
 		polls.each do |poll|
 			poll.generate_url
-			UserMailer.poll_email(poll).deliver
+			#UserMailer.poll_email(poll).deliver
 		end
 	end
 

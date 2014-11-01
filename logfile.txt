@@ -3,11 +3,4 @@ Tasks
 
 integrate with open table bot to book table
 set expiration for poll
-headers
 maybe fb login on taking polls?
-
-
-_____________________________________________
-
-validations
-open table bot

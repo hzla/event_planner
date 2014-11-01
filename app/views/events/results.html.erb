@@ -1,10 +1,8 @@
 <%= content_for :header do %>
 
 	<div class="header-pic-container">
-		<%= image_tag 'back.svg', id: 'header-right-pic' %>
 	</div>
-		<%= image_tag 'back.svg', id: 'header-left', :class => "mobile" %>
-		<div class="main-logo text mobile">Results</div>
+		<div class="main-logo text">Results</div>
 <% end %>
 
 <div class="generic <%= 'ongoing' if @ongoing %>" id="content-container">
