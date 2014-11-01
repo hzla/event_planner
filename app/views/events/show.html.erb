@@ -33,7 +33,7 @@
 		<% @choices.each do |choice| %>
 			<div class="event-option">
 					<%= image_tag choice.image_url , :class => "option-pic event-show" %>
-					<div class="option-title bold event-show"><%= choice.value %></div>
+					<div class="option-title bold event-show option-result"><%= choice.value %></div>
 			</div>
 		<% end %>
 	</div>
@@ -49,7 +49,7 @@
 	<% else %>
 		<div class="btn" id="poll-status">
 			ALREADY ACTIVATED
-		</div> 
+		</div>
 	<% end %>
 
 

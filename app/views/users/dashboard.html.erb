@@ -4,7 +4,7 @@
 		<div class="profile-tooltip">Logout</div>
 		<div class="tail"></div>
 	</div>
-		<div class="hidden" id="cancel-form">Cancel</div>
+		<div class="hidden desk-text" id="cancel-form">Cancel</div>
 		<%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
 		<div class="main-logo text mobile">INSTAGATOR</div>
 <% end %>
@@ -26,12 +26,12 @@
 			<%= form_for @event do |f| %>
 				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
 				<%= f.text_field :desc, placeholder: "Description", :class => "poll-field" %>
-				<%= f.datetime_field :start_time, placeholder: "Date", :class => "poll-field" %>
+				<%= f.text_field :start_time, placeholder: "Date", :class => "poll-field" %>
 				<%= f.submit "Continue", id: "submit-poll", :class => "btn" %>
 			<% end %>
 		</div>
 
-		
+
 	</div>
 
 <% else %>
@@ -43,9 +43,9 @@
 						<div class="event-name"><%= event.name %></div>
 						<div class="event-status">
 							<% if event.voted %>
-								<%= image_tag 'checkgreen.svg', :class => "event-icon" %> 
+								<%= image_tag 'checkgreen.svg', :class => "event-icon" %>
 							<% else %>
-								<%= image_tag 'checkgrey.svg', :class => "event-icon" %> 
+								<%= image_tag 'checkgrey.svg', :class => "event-icon" %>
 							<% end %>
 
 							<%= "#{'You Instagated,' if event.user == current_user}"  %>
