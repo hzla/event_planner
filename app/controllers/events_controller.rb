@@ -3,7 +3,6 @@ class EventsController < ApplicationController
 	include SessionsHelper
 
 	def create
-		p params
 		@event = Event.create params[:event]
 		current_user.events << @event
 		redirect_to invite_friends_path(event_id: @event.id)
@@ -12,6 +11,7 @@ class EventsController < ApplicationController
 	def activate
 		@event = Event.find(params[:id])
 		@event.activate_polls
+		@poll = @event.polls.where(email: current_user.email).first
 	end
 
 	def show

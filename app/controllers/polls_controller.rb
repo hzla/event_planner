@@ -7,6 +7,7 @@ class PollsController < ApplicationController
 
 	def create
 		email_list = params[:email_list].split(", ")
+		email_list << current_user.email
 		email_list.each do |email|
 			Poll.create email: email, event_id: @event_id
 		end
@@ -24,9 +25,10 @@ class PollsController < ApplicationController
 	def take
 		@poll = Poll.find(params[:id])
 		if params[:code] != @poll.url.split("?code=").last
+			p params[:code]
+			p @poll.url.split("?code=").last
 			redirect_to root_path and return
 		end
-
 		@choices = @poll.choices
 	end
 

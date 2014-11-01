@@ -12,7 +12,6 @@ class Opentable
 	end
 
 	def self.image_for restaurant
-		p restaurant
 		"http://www.opentable.com/img/restimages/#{restaurant["id"]}.jpg"
 	end
 end

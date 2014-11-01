@@ -3,4 +3,12 @@ Tasks
 
 integrate with open table bot to book table
 set expiration for poll
-maybe fb login on taking polls?
+
+
+take the poll button
+more opentable results/ search
+
+ADD Features
+
+fb login on taking polls
+opentable search on location
