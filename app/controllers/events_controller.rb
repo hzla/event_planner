@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
-	
+
 	include SessionsHelper
 
 	def create
+		p params
 		@event = Event.create params[:event]
 		current_user.events << @event
 		redirect_to invite_friends_path(event_id: @event.id)

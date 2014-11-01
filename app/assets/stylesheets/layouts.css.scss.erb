@@ -9,28 +9,34 @@
 	text-align: center;
 	line-height: 60px;
 	font-size: 32px;
-	z-index: 2;
+	z-index: 3;
 	background: white;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.09);
 }
 
 .main-logo {
 	position: absolute;
 	left: 40px;
-	top: 5px;
-	width:200px;
+	top: 13px;
+	width: 140px;
 }
 
 #header-right-pic {
-	width: 100%;
-	height: 100%;
-	font-size: 24px;
-	line-height: 24px;
+	width: auto;
+	height: auto;
+	font-size: 16px;
+	line-height: 40px;
 	color: $turq;
 	border-radius:	50px;
+	right: calc(50% - 360px);
+	position: fixed;
 }
 
 img#header-right-pic {
 	width: 40px;
+	height: 40px;
+	position: fixed;
+	right: calc(50% - 360px);
 }
 
 #header-right-pic.done{
@@ -55,12 +61,14 @@ img#header-right-pic {
 
 .header-pic-container .profile-tooltip {
 	width: 80px;
-	left: -30px;
+	right: calc(50vw - 430px);
+	left: auto;
 }
 
 
 .header-pic-container .tail {
-	left: 10px;
+	right: calc(50vw - 390px);
+	left: auto;
 }
 
 #counter-header {
@@ -80,6 +88,7 @@ img#header-right-pic {
 	top: 60px;
 	background-size: 100%;
 	background-position: center;
+	margin-top: 10px;
 }
 
 .s1 {
@@ -172,18 +181,22 @@ img#header-right-pic {
 	body {
 		#main-header {
 			font-size: 17px;
-			height: 40px;
+			height: 44px;
 			line-height: 40px;
+			box-shadow: none;
 		}
 		#header-right-pic {
 			display: none;
+			line-height: 26px;
+			right: 10px;
 		}
 		#content-container {
 			border-top: solid 1px $light-grey;
 			position: absolute;
 			width: 100%;
 			height: calc(100% - 50px);
-			top: 50px;
+			top: 44px;
+			margin-top:0px;
 		}
 		#content-container.default-img {
 			background-image: image_url("BG_2.png");
@@ -201,6 +214,7 @@ img#header-right-pic {
 		}
 		.main-logo {
 			display: none;
+			top: 5px;
 			// position: static;
 			// margin: 0 auto;
 			// margin-top: 5px;

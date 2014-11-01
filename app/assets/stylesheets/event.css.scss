@@ -62,7 +62,7 @@ div.event-field {
 }
 
 .activation-modal {
-	width: calc(100% - 40px);
+	width: 720px;
 	max-width: 960px;
 	border-radius: 5px;
 	z-index: 3;
@@ -75,7 +75,7 @@ div.event-field {
 	font-size: 32px;
 	font-weight: 600;
 	border-top-left-radius: 5px;
-	border-top-right-radius: 5px; 
+	border-top-right-radius: 5px;
 }
 
 .activation-action.btn {
@@ -96,5 +96,3 @@ div.event-field {
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 }
-
-
