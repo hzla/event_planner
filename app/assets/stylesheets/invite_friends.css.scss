@@ -18,6 +18,7 @@
 	background: $turq;
 	font-weight: 600;
 	border-radius: 0px;
+	box-sizing: border-box;
 }
 
 #invitees-container {
@@ -48,6 +49,20 @@
 		background: white;
 		border: 1px solid $turq;
 		color: $turq;
+		line-height: 38px;
+	}
+	#add-email-btn {
+		margin: 0 auto;
+		border-radius: none;
+	}
+	#invite-email{
+		height: 40px;
+	}
+	.invitee{
+		height: 40px;
+		line-height: 40px;
+	}
+	#invitees-container{
+		margin-top: 0;
 	}
 }
-
