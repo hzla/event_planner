@@ -1,10 +1,14 @@
 <%= content_for :header do %>
 	<div class="header-pic-container">
-		<div id="header-right-pic" class="activate-poll">Activate</div>
+		<%= link_to activate_path(@event) do %>
+			<div id="header-right-pic" class="activate-poll">Activate</div>
+		<% end %>
 	</div>
 		<%= image_tag 'cancel.png', id: 'header-left', :class => "mobile" %>
 		<div class="main-logo text">Your Poll</div>
-		<div id="header-right" class="acivate-poll mobile">Activate</div>
+		<%= link_to activate_path(@event) do %>
+			<div id="header-right" class="acivate-poll mobile">Activate</div>
+		<% end %>
 <% end %>
 
 <div class="generic" id="content-container">

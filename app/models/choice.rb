@@ -3,11 +3,15 @@ class Choice < ActiveRecord::Base
 	attr_accessible :value, :desc, :add_info, :poll_id, :replayer_name, :image_url, :yes
 
 	def yes_count
-		poll.choices.where(value: value, yes: true).count
+		event = poll.event
+		poll_ids = event.polls.map(&:id)
+		Choice.where(value: value, yes: true).where('poll_id in (?)', poll_ids).count
 	end
 
 	def no_count
-		poll.choices.where(value: value, yes: false).count
+		event = poll.event
+		poll_ids = event.polls.map(&:id)
+		Choice.where(value: value, yes: false).where('poll_id in (?)', poll_ids).count
 	end
 
 	def voters
