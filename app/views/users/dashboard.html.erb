@@ -1,8 +1,10 @@
 <%= content_for :header do %>
 	<div class="header-pic-container">
 		<%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
-		<div class="profile-tooltip">Logout</div>
-		<div class="tail"></div>
+		<%= link_to logout_path do %>
+			<div class="profile-tooltip">Logout</div>
+			<div class="tail"></div>
+		<% end %>
 	</div>
 		<div class="hidden desk-text" id="cancel-form">Cancel</div>
 		<%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
