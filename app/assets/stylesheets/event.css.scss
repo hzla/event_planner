@@ -62,8 +62,8 @@ div.event-field {
 }
 
 .activation-modal {
-	width: 720px;
-	max-width: 960px;
+	width: calc(100% - 40px);
+	max-width: 720px;
 	border-radius: 5px;
 	z-index: 3;
 	margin: 0 auto;

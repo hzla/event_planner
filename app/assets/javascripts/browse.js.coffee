@@ -1,10 +1,10 @@
 Browse =
   init: ->
-    $('body').on 'click', '.option', @toggleOptionSelect
-    $('body').on 'click', '.chosen.service-tab', @showChosenOptions
-    $('body').on 'click', '.browse.service-tab', @showAllOptions
-    $('body').on 'click', '.service-tab', @toggleActive
-    $('body').on 'click', '.submit-options', @submitOptions
+    $('body').on 'click touchend', '.option', @toggleOptionSelect
+    $('body').on 'click touchend', '.chosen.service-tab', @showChosenOptions
+    $('body').on 'click touchend', '.browse.service-tab', @showAllOptions
+    $('body').on 'click touchend', '.service-tab', @toggleActive
+    $('body').on 'click touchend', '.submit-options', @submitOptions
 
   toggleOptionSelect: ->
     $(@).toggleClass 'selected'

@@ -1,7 +1,7 @@
 Dashboard =
   init: ->
-    $('body').on 'click', '#create-poll', @showPollForm
-    $('body').on 'click', '#cancel-form', @hidePollForm
+    $('body').on 'click touchend', '#create-poll', @showPollForm
+    $('body').on 'click touchend', '#cancel-form', @hidePollForm
     $('body').on 'submit', '#new_event', @checkFields
 
   showPollForm: ->
