@@ -1,7 +1,7 @@
 Poll =
   init: ->
     $('body').on 'click', '#add-email-btn', @addEmail
-    $('body').on 'click', '.submit-emails', @submitEmails
+    $('body').on 'touchend click', '.submit-emails', @submitEmails
     $('body').on 'click', '.yes-action', @acceptChoice
     $('body').on 'click', '.no-action', @declineChoice
     $('.choice').first().show()
