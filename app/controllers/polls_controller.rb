@@ -8,6 +8,7 @@ class PollsController < ApplicationController
 	def create
 		email_list = params[:email_list].split(", ")
 		email_list << current_user.email
+		Event.find(@event_id).polls.destroy_all
 		email_list.each do |email|
 			Poll.create email: email, event_id: @event_id
 		end
