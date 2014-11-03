@@ -42,6 +42,7 @@
 		}
 
 		#submit-poll{
+			position: absolute;
 			width: 20vw;
 			bottom: 20vh;
 			left: 50%;
@@ -91,6 +92,7 @@
 	background: $turq;
 	color: white;
 	position: absolute;
+	left: 0;
 	bottom: 0;
 	width: 100%;
 	border: none;

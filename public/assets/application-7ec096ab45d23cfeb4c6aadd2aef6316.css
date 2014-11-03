@@ -1,0 +1,2177 @@
+@charset "UTF-8";
+
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+
+Copyright (c) 2013 Daniel Eden
+*/
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+.zoomOutLeft {
+  -webkit-animation-name: zoomOutLeft;
+  animation-name: zoomOutLeft;
+}
+
+@-webkit-keyframes zoomOutLeft {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale(.475) translateX(42px);
+    transform: scale(.475) translateX(42px);
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(.1) translateX(-2000px);
+    transform: scale(.1) translateX(-2000px);
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+  }
+}
+
+@keyframes zoomOutLeft {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale(.475) translateX(42px);
+    -ms-transform: scale(.475) translateX(42px);
+    transform: scale(.475) translateX(42px);
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(.1) translateX(-2000px);
+    -ms-transform: scale(.1) translateX(-2000px);
+    transform: scale(.1) translateX(-2000px);
+    -webkit-transform-origin: left center;
+    -ms-transform-origin: left center;
+    transform-origin: left center;
+  }
+}
+
+@-webkit-keyframes zoomOutRight {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale(.475) translateX(-42px);
+    transform: scale(.475) translateX(-42px);
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(.1) translateX(2000px);
+    transform: scale(.1) translateX(2000px);
+    -webkit-transform-origin: right center;
+    transform-origin: right center;
+  }
+}
+
+@keyframes zoomOutRight {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale(.475) translateX(-42px);
+    -ms-transform: scale(.475) translateX(-42px);
+    transform: scale(.475) translateX(-42px);
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(.1) translateX(2000px);
+    -ms-transform: scale(.1) translateX(2000px);
+    transform: scale(.1) translateX(2000px);
+    -webkit-transform-origin: right center;
+    -ms-transform-origin: right center;
+    transform-origin: right center;
+  }
+}
+
+.zoomOutRight {
+  -webkit-animation-name: zoomOutRight;
+  animation-name: zoomOutRight;
+}
+
+@-webkit-keyframes zoomOutUp {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale(.475) translateY(60px);
+    transform: scale(.475) translateY(60px);
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(.1) translateY(-2000px);
+    transform: scale(.1) translateY(-2000px);
+    -webkit-transform-origin: center top;
+    transform-origin: center top;
+  }
+}
+/* line 3, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.service-tabs {
+  width: calc(100% - 20px);
+  height: 30px;
+  margin: 0 auto;
+  padding: 20px 0px;
+}
+
+/* line 10, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.service-tab {
+  width: 50%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background: white;
+  color: #1dcfac;
+  border: 1px solid #1dcfac;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+  height: 100%;
+  line-height: 30px;
+}
+
+/* line 24, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.service-tab:nth-child(2n) {
+  border-radius: 0px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* line 30, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.service-tab.active, .service-tab:hover {
+  background: #1dcfac;
+  color: white;
+}
+
+/******* browsing options *******/
+/* line 37, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.option {
+  width: 100%;
+  border-bottom: 1px solid #eeeeee;
+  height: 100px;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+}
+
+/* line 47, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.option.selected .option-pic {
+  border: 3px solid #1dcfac;
+}
+/* line 50, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.option.selected .option-check {
+  display: block;
+}
+
+/* line 55, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.option-check {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 20px;
+  left: 60px;
+  display: none;
+}
+
+/* line 64, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.option div {
+  display: inline;
+}
+
+/* line 68, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.option-title, .option-info {
+  float: left;
+  width: calc(100% - 120px);
+}
+
+/* line 73, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.option-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+/* line 78, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.option-result {
+  margin-top: 20px;
+}
+
+/* line 82, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+.option-pic {
+  height: 60px;
+  width: 60px;
+  margin: 20px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  float: left;
+}
+
+@media (min-width: 1024px) {
+  /* line 92, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+  .service-tabs {
+    height: 40px;
+    margin: 0;
+    width: 100%;
+  }
+
+  /* line 98, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/browse.css.scss */
+  .service-tab {
+    line-height: 40px;
+  }
+}
+/* line 3, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+.cover-image-container {
+  width: 100%;
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  background: #eeeeee;
+}
+
+/* line 11, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+.choice {
+  width: 720px;
+  margin: 0 auto;
+  margin-top: 12vh;
+  position: relative;
+  border-radius: 3px;
+}
+
+/* line 19, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+#cover-image {
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* line 25, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+.content-row.header {
+  padding-top: 20px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+/* line 31, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+.content-row.footer {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* line 35, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+.content-column-3 {
+  width: 31%;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* line 41, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+.content-column-2 {
+  display: inline-block;
+  width: 48%;
+  height: 40px;
+  padding-top: 20px;
+}
+
+/* line 48, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+.ratings-container {
+  position: absolute;
+  bottom: 20px;
+  width: 160px;
+  left: calc(50% - 75px);
+}
+
+/* line 55, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+.star {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* line 62, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+.star:nth-child(5n) {
+  margin-right: 0px;
+}
+
+/* line 66, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+#poll-finished {
+  text-align: center;
+  font-size: 32px;
+  background: white;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 0px;
+  margin-top: 25vh;
+  box-sizing: border-box;
+}
+
+/************ Media Queries ***************/
+@media (max-width: 1023px) {
+  /* line 84, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .choice {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    margin-top: 20px;
+    background: #fcfcfc;
+  }
+  /* line 90, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .time-row {
+    display: none;
+  }
+  /* line 93, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body #counter-header {
+    position: fixed;
+    top: calc(100% - 40px);
+    z-index: 3;
+  }
+  /* line 100, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .s2 .content-row, body .s2 .box-content {
+    float: none;
+    padding-bottom: 0px;
+  }
+  /* line 104, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .s2 #content-box {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  /* line 109, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .s2 .content-row.header {
+    background: #eeeeee;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 0px;
+    padding: 10px 0px;
+  }
+  /* line 116, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .s2 .cover-image-container {
+    height: 160px;
+    overflow: hidden;
+    background: white;
+  }
+  /* line 121, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .s2 .content-column-3 {
+    width: 48%;
+  }
+  /* line 125, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .s2 .content-column-3.text-left {
+    float: left;
+  }
+  /* line 128, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .s2 .content-column-3.text-middle {
+    display: none;
+  }
+  /* line 131, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .s2 .text-icon {
+    position: static;
+    height: 10px;
+    width: 10px;
+  }
+  /* line 136, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .s2 .content-row.footer {
+    background: #eeeeee;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  /* line 141, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/choice.css.scss */
+  body .s2 .content-column-2 {
+    height: 25px;
+  }
+}
+/****** Main Elements ******/
+/* line 6, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+#welcome-icon {
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 0px;
+}
+
+/* line 14, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+#welcome-text {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* line 21, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+#create-poll {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  margin-bottom: 20px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 20px;
+  background: #1dcfac;
+  color: white;
+}
+
+/* line 32, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+#create-poll:hover {
+  border: 1px solid #1dcfac;
+  color: #1dcfac;
+  background: white;
+}
+
+@media (min-width: 1024px) {
+  /* line 40, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+  body #create-poll {
+    width: 20vw;
+  }
+  /* line 44, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+  body #submit-poll {
+    position: absolute;
+    width: 20vw;
+    bottom: 20vh;
+    left: 50%;
+    margin-left: -10vw;
+  }
+  /* line 51, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+  body #cancel-form {
+    line-height: 60px;
+    left: calc(50% - 360px);
+  }
+}
+/**** Poll Creator Elements ****/
+/* line 62, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+#cancel-form {
+  position: absolute;
+  left: 10px;
+  color: red;
+  height: 44px;
+  line-height: 44px;
+  cursor: pointer;
+}
+
+/* line 71, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+#poll-creator {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 2;
+}
+
+/* line 80, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+.poll-field {
+  width: 100%;
+  padding-left: 20px;
+  height: 40px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 16px;
+  font-family: 'Muli', sans-serif;
+}
+
+/* line 91, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+#submit-poll {
+  background: #1dcfac;
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border: none;
+  height: 44px;
+  font-size: 16px;
+}
+
+/* line 103, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+#submit-poll:hover {
+  background: white;
+  color: #1dcfac;
+  border: 1px solid #1dcfac;
+}
+
+/******** After Welcome Elements ********/
+/* line 112, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+div.event {
+  border-bottom: 1px solid #eeeeee;
+  height: 100px;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* line 119, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+.event-info {
+  padding-top: 20px;
+  padding-left: 10px;
+  float: left;
+  max-height: 80px;
+  max-width: calc(100% - 110px);
+}
+/* line 125, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+.event-info div {
+  margin-bottom: 5px;
+}
+
+/* line 130, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+.event-pic {
+  height: 75px;
+  width: 75px;
+  border-radius: 100px;
+  padding: 12.5px;
+  float: right;
+}
+
+/* line 138, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/dashboard.css.scss */
+.event-icon {
+  height: 15px;
+  width: 15px;
+}
+/* line 3, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+div.event-field {
+  padding: 10px 0px;
+  text-align: left;
+  padding-left: 5px;
+  box-sizing: border-box;
+}
+
+/* line 10, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+#event-name {
+  font-weight: 600;
+  text-align: center;
+}
+
+/* line 15, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+.invitee-pic {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* line 21, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+.event-option {
+  height: 60px;
+  width: 100%;
+}
+
+/* line 27, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+#invitee-list .profile-tooltip {
+  left: -50px;
+}
+/* line 30, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+#invitee-list .tail {
+  left: 10px;
+}
+
+/* line 34, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+.event-show.option-pic {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+  margin-left: 5px;
+}
+
+/* line 41, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+#poll-status {
+  width: 100%;
+  background: #1dcfac;
+  color: white;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-weight: 600;
+}
+
+/* line 52, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+#poll-status:hover {
+  border: 1px solid #1dcfac;
+  background: white;
+  color: #1dcfac;
+}
+
+/******** Activation Modal *******/
+/* line 61, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+.black-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: black;
+  z-index: 2;
+}
+
+/* line 71, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+.activation-modal {
+  width: calc(100% - 40px);
+  max-width: 720px;
+  border-radius: 5px;
+  z-index: 3;
+  margin: 0 auto;
+  margin-top: 30vh;
+}
+
+/* line 80, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+.activation-message {
+  padding: 20px 0px;
+  font-size: 32px;
+  font-weight: 600;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/* line 88, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+.activation-action.btn {
+  width: 100%;
+  height: 40px;
+  background: white;
+  color: #1b1b1b;
+  line-height: 40px;
+  border-radius: 0px;
+}
+
+/* line 97, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+#take-poll.activation-action {
+  color: white;
+  background: #1dcfac;
+}
+
+/* line 102, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/event.css.scss */
+#return-home {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+@media (min-width: 1024px) {
+  /* line 4, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/home.css.scss */
+  body .landing .landing-text {
+    position: fixed;
+    top: 40vh;
+    text-align: center;
+    width: 100%;
+    font-size: 64px;
+  }
+
+  /* line 11, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/home.css.scss */
+  body .landing .fb-btn {
+    width: 20vw;
+    left: 50%;
+    margin-left: -10vw;
+    bottom: 40vh;
+    margin-bottom: -22px;
+    background: rgba(29, 207, 172, 0.85);
+  }
+}
+/* line 24, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/home.css.scss */
+.landing .landing-text {
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  font-size: 32px;
+}
+/* line 30, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/home.css.scss */
+.landing .fb-btn {
+  background: rgba(29, 207, 172, 0.7);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 44px;
+  line-height: 44px;
+  font-size: 16px;
+  font-weight: 600;
+}
+/* line 3, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/invite_friends.css.scss */
+#invite-email {
+  width: calc(100% - 20px);
+  margin: 10px;
+  border: none;
+  text-align: center;
+  height: 30px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+/* line 13, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/invite_friends.css.scss */
+#add-email-btn {
+  height: 40px;
+  line-height: 40px;
+  color: white;
+  width: 100%;
+  background: #1dcfac;
+  font-weight: 600;
+  border-radius: 0px;
+  box-sizing: border-box;
+}
+
+/* line 24, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/invite_friends.css.scss */
+#invitees-container {
+  margin-top: 20px;
+  text-align: left;
+}
+
+/* line 29, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/invite_friends.css.scss */
+#contacts-container {
+  text-align: left;
+}
+
+/* line 33, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/invite_friends.css.scss */
+.grey-header.full-grey-block, .invitee {
+  box-sizing: border-box;
+  padding-left: 10px;
+  width: 100%;
+  text-align: left;
+  height: 30px;
+  line-height: 30px;
+}
+
+@media (min-width: 1024px) {
+  /* line 43, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/invite_friends.css.scss */
+  #add-email-btn:hover {
+    background: white;
+    border: 1px solid #1dcfac;
+    color: #1dcfac;
+    line-height: 38px;
+  }
+
+  /* line 49, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/invite_friends.css.scss */
+  #add-email-btn {
+    margin: 0 auto;
+    border-radius: none;
+  }
+
+  /* line 53, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/invite_friends.css.scss */
+  #invite-email {
+    height: 40px;
+  }
+
+  /* line 56, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/invite_friends.css.scss */
+  .invitee {
+    height: 40px;
+    line-height: 40px;
+  }
+
+  /* line 60, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/invite_friends.css.scss */
+  #invitees-container {
+    margin-top: 0;
+  }
+}
+/** Headers and Background **/
+/* line 4, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+#main-header {
+  position: fixed;
+  height: 60px;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 60px;
+  font-size: 32px;
+  z-index: 3;
+  background: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
+}
+
+/* line 17, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.main-logo {
+  position: absolute;
+  left: calc(50% - 360px);
+  top: 13px;
+  width: 140px;
+}
+
+/* line 24, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.main-logo.text {
+  left: calc(50% - 150px);
+  width: 300px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 60px;
+  height: 60px;
+  top: 0;
+}
+
+/* line 34, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+#header-right {
+  font-size: 16px;
+}
+
+/* line 38, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+#header-right-pic {
+  width: auto;
+  height: auto;
+  font-size: 16px;
+  line-height: 40px;
+  color: #1dcfac;
+  border-radius: 50px;
+  right: calc(50% - 360px);
+  position: fixed;
+}
+
+/* line 49, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+img#header-right-pic {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: calc(50% - 360px);
+}
+
+/* line 56, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+#header-right-pic.done {
+  display: none;
+}
+
+/* line 60, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.header-pic-container {
+  position: relative;
+  width: auto;
+  height: 40px;
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+/* line 71, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.header-pic-container:hover .profile-tooltip, .header-pic-container:hover .tail {
+  display: block;
+  font-size: 16px;
+}
+
+/* line 76, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.header-pic-container .profile-tooltip {
+  width: 80px;
+  height: 80px;
+  bottom: -80px;
+  right: calc(50vw - 430px);
+  left: auto;
+}
+
+/* line 84, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.logout {
+  color: white;
+}
+
+/* line 87, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.header-pic-container .tail {
+  right: calc(50vw - 390px);
+  left: auto;
+}
+
+/* line 92, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+#counter-header {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  background: #eeeeee;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+/* line 102, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+#content-container {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 60px);
+  top: 60px;
+  background-size: 100%;
+  background-position: center;
+  margin-top: 10px;
+}
+
+/* line 112, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.s1 {
+  background-image: url(/assets/BG_2.png);
+}
+
+/* line 115, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.default-img {
+  background-image: url(/assets/BG.png);
+}
+
+/* line 118, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.app-store-bg {
+  background-image: url(/assets/BG_3.jpg);
+}
+
+/* line 121, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+#content-container.landing {
+  background-image: url(/assets/landingpic.png);
+  top: 0px;
+  height: 100%;
+  background-size: cover;
+  margin-top: 0px;
+}
+
+/** General Layout Within Content Boxes **/
+/* line 131, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+#content-box {
+  width: 720px;
+  margin: 0 auto;
+  margin-top: 12vh;
+  position: relative;
+  border-radius: 3px;
+}
+
+/* line 139, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.box-content {
+  width: 100%;
+  background: white;
+}
+
+/* line 144, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.content-row {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* line 153, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.full-white-block {
+  width: 100%;
+  background: white;
+  text-align: center;
+}
+
+/* line 159, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.full-grey-block {
+  width: 100%;
+  background: #eeeeee;
+  text-align: center;
+}
+
+/* line 165, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.padded {
+  padding: 20px 0px;
+}
+
+/* line 169, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.small-padded {
+  padding: 10px 0px;
+}
+
+/* line 173, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+.grey-header {
+  box-sizing: border-box;
+  padding-left: 10px;
+  width: 100%;
+  text-align: left;
+  height: 30px;
+  line-height: 30px;
+  background: #eeeeee;
+}
+
+/********* Media Queries **************/
+@media (min-width: 1024px) {
+  /* line 188, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body #content-container.generic {
+    width: 720px;
+    left: calc(50% - 360px);
+  }
+}
+/********** Reduced font sizes, added styling for icons in the header  ************/
+@media (max-width: 1023px) {
+  /* line 201, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body #main-header {
+    font-size: 17px;
+    height: 44px;
+    line-height: 40px;
+    box-shadow: none;
+  }
+  /* line 207, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body #header-right-pic {
+    display: none;
+    line-height: 26px;
+    right: 10px;
+  }
+  /* line 212, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body #content-container {
+    border-top: solid 1px #eeeeee;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 50px);
+    top: 44px;
+    margin-top: 0px;
+  }
+  /* line 220, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body #content-container.default-img {
+    background-image: url(/assets/BG_2.png);
+    background-size: cover;
+    background-position: center;
+  }
+  /* line 225, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body .s1, body #content-container.s2.default-img {
+    background: white;
+  }
+  /* line 229, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body #content-container.landing.default-img {
+    border-top: none;
+    height: calc(100% - 60px);
+    top: 60px;
+  }
+  /* line 234, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body .main-logo {
+    display: none;
+    top: 5px;
+  }
+  /* line 243, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body .main-logo.text {
+    display: inline;
+    width: 200px;
+    text-align: center;
+    font-size: 17px;
+    height: 44px;
+    margin: 0;
+    position: absolute;
+    top: 0px;
+    line-height: 44px;
+    left: 40px;
+    left: calc(50% - 100px);
+  }
+  /* line 256, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body #sign-up-content, body #sign-up-box {
+    width: 100%;
+  }
+  /* line 259, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body #sign-up-circle, body #or, body .landing form {
+    display: none;
+  }
+  /* line 262, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body #header-left {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    left: 10px;
+    top: 8px;
+  }
+  /* line 270, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/layouts.css.scss.erb */
+  body #header-right {
+    position: absolute;
+    height: 44px;
+    font-size: 17px;
+    line-height: 44px;
+    right: 10px;
+    color: #00cc99;
+  }
+}
+/** Buttons and Form Elements **/
+/* line 5, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.btn {
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: 'Muli', sans-serif;
+}
+
+/* .btn are square in mobile */
+/* line 15, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.btn-rnd {
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* line 25, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/* line 29, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+input {
+  -webkit-appearance: none;
+}
+
+/* line 33, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+div, input {
+  -webkit-transition: background .5s;
+}
+
+/** Backgrounds **/
+/* line 39, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.white-back {
+  background: white;
+}
+
+/* line 43, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.gray-back {
+  background: #eeeeee;
+}
+
+/* line 49, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.opaque {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* line 53, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.hidden {
+  display: none;
+}
+
+/** Text Formatting **/
+/* line 60, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+a {
+  text-decoration: none;
+  color: #1b1b1b;
+}
+
+/* line 66, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.bold {
+  font-weight: 600;
+}
+
+/* line 70, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.main-text {
+  font-size: 30px;
+}
+
+/* line 74, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.medium-text {
+  font-size: 16px;
+}
+
+/* line 78, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.mobile-text {
+  font-size: 14px;
+}
+
+/* line 82, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.desk-text {
+  font-size: 16px;
+}
+
+/* line 86, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.sub-text {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* line 91, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 95, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.text-middle {
+  text-align: center;
+}
+
+/* line 99, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 103, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+.mobile {
+  display: none;
+}
+
+/***********  Media Queries *******************/
+@media (min-width: 1024px) {
+  /* line 112, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+  .gray-back.generic {
+    background: white;
+  }
+}
+/************** elements with the class mobile shown, no-mobile are hidden  *****************/
+@media (max-width: 1023px) {
+  /* line 121, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+  .no-mobile {
+    display: none;
+  }
+
+  /* line 124, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+  body {
+    font-weight: 300;
+  }
+  /* line 126, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+  body .main-text {
+    font-size: 18px;
+    font-weight: 300;
+  }
+  /* line 130, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+  body .sub-text {
+    font-weight: 300;
+    font-size: 12px;
+  }
+  /* line 134, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+  body .btn {
+    border-radius: 0px;
+  }
+  /* line 137, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+  body .mobile.hidden {
+    display: none;
+  }
+  /* line 140, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/master.css.scss */
+  body .mobile {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
+  /* line 5, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  #logout {
+    display: none;
+  }
+
+  /* line 8, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  #mobile-title {
+    width: 100%;
+    padding: 60px 0px;
+    font-size: 32px;
+    text-align: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  /* line 16, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  .check-title-img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+  }
+
+  /* line 23, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  #title-info {
+    text-align: center;
+    width: 100%;
+    background: white;
+    padding: 10px 0px;
+  }
+
+  /* line 29, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  #app-store-btn-container {
+    padding: 40px 0px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 60px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  /* line 37, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  .app-store {
+    width: 300px;
+    height: 90px;
+    cursor: pointer;
+  }
+}
+@media (max-width: 1023px) {
+  /* line 50, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  .app-box {
+    height: 100%;
+  }
+
+  /* line 53, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  #logout {
+    position: fixed;
+    height: 44px;
+    background: #eeeeee;
+    line-height: 44px;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    font-size: 24px;
+  }
+
+  /* line 64, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  #mobile-title {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    position: absolute;
+    top: 15vh;
+    line-height: 50px;
+    font-size: 42px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  /* line 76, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  #title-info {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 40vh;
+    font-size: 24px;
+  }
+
+  /* line 84, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  .check-title-img {
+    height: 50px;
+    width: 50px;
+    vertical-align: text-top;
+  }
+
+  /* line 90, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/mobile_home.css.scss */
+  .app-store {
+    width: 240px;
+    position: absolute;
+    left: calc(50% - 120px);
+    bottom: 84px;
+    height: 80px;
+  }
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input{
+	font-family: 'Muli', sans-serif;
+}
+
+body {
+	font-family: 'Muli', sans-serif;
+}
+/* line 3, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.event-icon-small {
+  height: 10px;
+  width: 10px;
+  margin-top: 10px;
+}
+
+/* line 9, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.choice-pic-container {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+/* line 17, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.winning-choice-pic {
+  height: 100%;
+  width: 100%;
+  border-radius: 160px;
+}
+
+/* line 23, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.choice-rank {
+  position: absolute;
+  top: -5px;
+  right: 15px;
+  background: #1dcfac;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  width: 40px;
+  z-index: 1;
+  border-radius: 50px;
+}
+
+/* line 37, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.choice-pic-overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  border-radius: 160px;
+  color: white;
+}
+
+/* line 49, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.winning-choice-title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* line 55, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+body .winning-choice-tally.sub-text {
+  font-weight: 600;
+}
+
+/* line 59, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.choice-voters {
+  margin: 20px 0px;
+}
+
+/* line 63, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.ongoing .book-choice {
+  display: none;
+}
+
+/* line 67, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.ongoing .choice-voters {
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+}
+
+/* line 73, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.book-choice {
+  width: 100%;
+  background: #1dcfac;
+  height: 40px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+/* line 81, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+.book-choice:hover {
+  background: white;
+  border: 1px solid #1dcfac;
+  color: #1dcfac;
+}
+
+/* line 87, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+#see-more-results {
+  width: 100%;
+  height: 40px;
+  background: #eeeeee;
+  line-height: 40px;
+  font-weight: 600;
+  color: #1b1b1b;
+  position: fixed;
+  bottom: 0;
+  max-width: 720px;
+}
+
+/* line 99, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+#more-results {
+  width: 100%;
+}
+/* line 101, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+#more-results .option {
+  position: relative;
+  border: none;
+}
+/* line 105, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+#more-results .option-title, #more-results .option-info {
+  max-width: 50%;
+}
+/* line 108, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+#more-results .choice-rank {
+  right: 20px;
+  top: 20px;
+}
+
+/* line 114, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+#result-voter-list {
+  margin: 20px 0px;
+}
+
+/* line 118, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+#result-desc {
+  text-align: left;
+  padding-left: 10px;
+  box-sizing: border-box;
+  margin: 20px 0px;
+}
+
+/* line 125, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+#closed {
+  width: 100%;
+  background: #ff0043;
+  height: 40px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  /* line 135, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/results.css.scss */
+  #see-more-results {
+    position: static;
+  }
+}
+/* line 3, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+#profile-pic {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+/* line 12, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.box-content.profile-box {
+  padding-top: 70px;
+  padding-bottom: 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+/* line 19, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+#time-header {
+  padding-top: 20px;
+}
+
+/* line 23, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.text-icon {
+  width: 20px;
+  height: 20px;
+  left: -30px;
+  position: absolute;
+  top: -4px;
+}
+
+/* line 31, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.time {
+  display: inline-block;
+  position: relative;
+  margin-left: 30px;
+}
+
+/* line 37, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.image-row {
+  padding-top: 20px;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+/* line 43, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.small-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0px 10px;
+  box-sizing: border-box;
+}
+
+/* line 53, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.pic-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* line 58, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.pic-container:hover .profile-tooltip, .pic-container:hover .tail {
+  display: block;
+}
+
+/* line 62, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.profile-tooltip {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  background: #1dcfac;
+  height: 40px;
+  width: 120px;
+  text-align: center;
+  line-height: 40px;
+  color: white;
+  display: none;
+  padding: 0px 10px;
+  z-index: 2;
+  font-size: 10px;
+}
+
+/* line 77, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.tail {
+  width: 0px;
+  height: 0px;
+  border: 10px solid;
+  border-color: transparent transparent #1dcfac transparent;
+  position: absolute;
+  left: 20px;
+  bottom: 0px;
+  display: none;
+}
+
+/* line 88, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.invitee-pic {
+  border-radius: 100px;
+}
+
+/* line 92, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.good {
+  border: solid 2px #00cc99;
+}
+
+/* line 96, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.bad {
+  border: solid 2px #ff0043;
+}
+
+/* line 100, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.see-more, .see-less {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* line 105, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.pic-container.hidden {
+  opacity: 0;
+  height: 0px;
+  height: 40px;
+  display: none;
+}
+
+/* line 112, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.read-more, .hide-text {
+  cursor: pointer;
+  color: #9c9c9c;
+}
+
+/* line 117, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.description {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 14px;
+}
+
+/* line 123, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.empty {
+  height: 70px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* line 129, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+.box-action {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: -40px;
+  text-align: center;
+  border-radius: 100px;
+  line-height: 100px;
+  background: white;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* line 142, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+#red-circle {
+  left: calc(50% - 120px);
+  border: solid 2px #ff0043;
+  color: #ff0043;
+  box-sizing: border-box;
+}
+
+/* line 149, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+#green-circle {
+  right: calc(50% - 120px);
+  border: solid 2px #00cc99;
+  color: #00cc99;
+  box-sizing: border-box;
+}
+
+/* line 156, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+#red-circle:hover {
+  background-color: #ff0043;
+  color: #fcfcfc;
+}
+
+/* line 161, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+#green-circle:hover {
+  background-color: #00cc99;
+  color: #fcfcfc;
+}
+
+/************* Media Queries ***************/
+@media (max-width: 1023px) {
+  /* line 171, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body #content-box {
+    width: 100%;
+    margin-top: 0;
+    background: #fcfcfc;
+  }
+  /* line 176, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body .box-content.profile-box {
+    padding-top: 0px;
+  }
+  /* line 179, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body #profile-pic {
+    top: 10px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+  }
+  /* line 185, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body .main-text.profile-info {
+    padding-top: 25px;
+    margin-right: 60px;
+  }
+  /* line 189, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body .content-row.profile-info {
+    float: right;
+    width: 50%;
+    text-align: left;
+    clear: right;
+    margin-right: 60px;
+  }
+  /* line 196, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body #time-header {
+    margin-top: 20px;
+  }
+  /* line 199, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body .content-row.empty.opaque {
+    display: none;
+  }
+  /* line 202, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body .box-actions {
+    position: relative;
+    height: 140px;
+  }
+  /* line 206, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body .box-action {
+    top: 20px;
+    margin-bottom: 20px;
+  }
+  /* line 210, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body .content-row, body .box-content {
+    float: left;
+  }
+  /* line 213, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body .small-profile-img {
+    margin: 2px;
+    height: 32px;
+    width: 32px;
+    box-sizing: border-box;
+  }
+  /* line 219, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body .light-gray {
+    background: #eeeeee;
+  }
+  /* line 222, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body .image-row {
+    padding: 10px 10px;
+  }
+  /* line 225, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body #red-circle {
+    left: calc(50% - 100px);
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    font-size: 14px;
+  }
+  /* line 233, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/screen_one.css.scss */
+  body #green-circle {
+    right: calc(50% - 100px);
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    font-size: 14px;
+  }
+}
+/* line 3, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/services.css.scss */
+.services {
+  width: 100%;
+}
+
+/* line 7, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/services.css.scss */
+.service {
+  width: 50vw;
+  float: left;
+  cursor: pointer;
+  height: 50vw;
+  background: #EE3124;
+  position: relative;
+}
+
+/* line 16, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/services.css.scss */
+.service.unavailable .service-image {
+  -webkit-filter: blur(2px);
+}
+
+/* line 20, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/services.css.scss */
+.service-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* line 28, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/services.css.scss */
+.service-text {
+  color: white;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+  line-height: 240px;
+}
+
+/* line 36, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/services.css.scss */
+.service:hover {
+  box-sizing: border-box;
+  border: 3px solid white;
+}
+
+/* line 41, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/services.css.scss */
+.service-image {
+  width: 100%;
+  height: 100%;
+}
+
+/********* *********/
+@media (min-width: 768px) {
+  /* line 49, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/services.css.scss */
+  body .service {
+    width: 33.3vw;
+    height: 33.3vw;
+  }
+}
+@media (min-width: 1024px) {
+  /* line 56, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/services.css.scss */
+  body .service {
+    width: 240px;
+    height: 240px;
+  }
+}
+/***************** The Sign Up Container **********************/
+/* line 4, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#sign-up-box {
+  width: 460px;
+  background: white;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 15vh;
+  border-radius: 3px;
+}
+
+/* line 13, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#sign-up-circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  top: -50px;
+  left: calc(50% - 50px);
+  background: white;
+}
+
+/* line 23, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#user-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 25px;
+  display: block;
+}
+
+/********************* Sign Up Buttons **************************/
+/* line 32, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#sign-up-content {
+  margin: 0 auto;
+  padding: 50px 0px;
+  width: calc(100% - 100px);
+}
+
+/* line 38, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+.form-row {
+  margin-bottom: 10px;
+  line-height: 50px;
+  text-align: center;
+}
+
+/* line 44, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#facebook {
+  background: #3b5998;
+  width: 100%;
+  height: 50px;
+}
+
+/* line 50, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#facebook:hover {
+  color: #3b5998;
+  border: 1px solid #3b5998;
+  background: white;
+  height: 50px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* line 59, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#or {
+  color: #9c9c9c;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 0px;
+}
+
+/* line 67, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#btn-container {
+  position: relative;
+}
+
+/* line 71, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#btn-line {
+  position: absolute;
+  width: 460px;
+  height: 1px;
+  background-color: #eeeeee;
+  bottom: 10px;
+  left: -50px;
+}
+
+/* line 80, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+.form-actions.btn {
+  width: calc(50% - 5px);
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  border: 1px solid #1dcfac;
+  color: #1dcfac;
+  height: 30px;
+  line-height: 30px;
+  box-sizing: border-box;
+}
+
+/* line 92, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+.form-actions.active.btn, .form-actions:hover {
+  background: #1dcfac;
+  color: white;
+}
+
+/********************* Sign Up Form **************************/
+/* line 99, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#user-form {
+  width: 100%;
+}
+/* line 101, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#user-form input {
+  font-size: 16px;
+  font-family: 'Muli', sans-serif;
+}
+
+/* line 107, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+.user-form-row {
+  position: relative;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* line 112, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+.check-icon {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 10px;
+  top: 15px;
+  display: none;
+}
+
+/* line 121, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+.user-field {
+  height: 50px;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* line 128, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#submit-user {
+  margin-top: 20px;
+  border: none;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  background: #1dcfac;
+}
+
+/* line 137, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+#submit-user:hover {
+  background: white;
+  border: 1px solid #1dcfac;
+  color: #1dcfac;
+}
+
+/********* Media Queries **************/
+@media (max-width: 1023px) {
+  /* line 149, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body {
+    /***** Changed Buttons to fixed positioning and moved them to the bottom *****/
+    /********** Everything Else is hidden ***********/
+  }
+  /* line 150, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body .form-actions.btn {
+    height: 44px;
+    line-height: 44px;
+    position: fixed;
+    bottom: 0;
+    background: white;
+  }
+  /* line 157, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body .user-form-row {
+    border: none;
+  }
+  /* line 160, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body #sign-up-box {
+    margin-top: 0;
+  }
+  /* line 166, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body #sign-up-content {
+    padding: 0;
+  }
+  /* line 169, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body #sign-up {
+    left: 0;
+    width: 50%;
+  }
+  /* line 173, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body #log-in {
+    right: 0;
+    width: 50%;
+  }
+  /* line 177, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body #facebook {
+    position: fixed;
+    bottom: 44px;
+    height: 44px;
+    margin: 0;
+    line-height: 44px;
+  }
+  /* line 184, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body .landing-text {
+    color: #fcfcfc;
+    position: fixed;
+    bottom: 100px;
+    width: calc(100% - 40px);
+    left: 20px;
+    text-align: center;
+  }
+  /* line 195, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body #user-form {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+  /* line 199, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body .user-field.add-photo {
+    text-align: center;
+    height: 120px;
+  }
+  /* line 203, /Users/andylee/Desktop/freelance/instagator/app/assets/stylesheets/sign_up.css.scss */
+  body #submit-user {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    margin: 0;
+  }
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
