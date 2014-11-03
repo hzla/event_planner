@@ -7,7 +7,7 @@
 <% end %>
 
 <%= form_tag polls_path(event_id: @event_id), id: "emails-form" do %>
-	<%= hidden_field_tag :email_list, nil, id: "email-list" %>
+	<%= hidden_field_tag :email_list, nil, id: "email-list", value: "#{current_user.email}, " %>
 <% end %>
 
 <div class="generic" id="content-container">
@@ -27,7 +27,7 @@
 				<div class="invitee real"><%= poll.email %></div>
 			<% end %>
 			<% if @event.polls.empty? %>
-				<div class="invitee placeholder-invitee">No invitees yet</div>
+				<div class="invitee"><%= current_user.email %></div>
 			<% end %>
 		</div>
 	</div>

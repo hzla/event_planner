@@ -6,7 +6,16 @@ Poll =
     $('body').on 'click', '.no-action', @declineChoice
     $('.choice').first().show()
     @showNext() if $('.invitees .invitee.real').length > 0
+    @addEmails()
 
+  addEmails: ->
+    invitees = $(".invitee").map ->
+      $(@).text()
+    .get().join(', ')
+    console.log invitees
+    $('#email-list').val invitees
+
+ 
   declineChoice: ->
     btn = $(@)
     $('.choice:visible').addClass('animated zoomOutLeft').one 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ->
@@ -32,7 +41,7 @@ Poll =
       $('#invite-email').val ''
       $('.placeholder-invitee').remove()
       currentEmailList = $('#email-list').val()
-      newEmailList =  currentEmailList + "#{email}, "
+      newEmailList =  currentEmailList + ", #{email}"
       $('#email-list').val newEmailList 
       Poll.showNext()
 
