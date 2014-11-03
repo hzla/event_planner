@@ -17,7 +17,8 @@ class EventsController < ApplicationController
 	def show
 		@event = Event.find(params[:id])
 		@service = Service.find @event.service_id
-		@invitee_count = @event.polls.count
+		@invitees = @event.polls
+		@invitee_count = @invitees.count
 		@choices = @event.polls.first.choices
 	end
 

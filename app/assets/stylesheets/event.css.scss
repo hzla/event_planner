@@ -21,9 +21,16 @@ div.event-field {
 .event-option {
 	height: 60px;
 	width: 100%;
-
 }
 
+#invitee-list {
+	.profile-tooltip {
+		left: -50px;
+	}
+	.tail {
+		left: 10px;
+	}
+}
 .event-show.option-pic {
 	height: 40px;
 	width: 40px;

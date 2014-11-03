@@ -1,8 +1,14 @@
 <%= content_for :header do %>
 
 	<div class="header-pic-container">
+	<a href="javascript:history.back()">
+		<%= image_tag 'back.svg', id: "header-right-pic" %>
+	</a>
 	</div>
-		<div class="main-logo text">Results</div>
+	<div class="main-logo text">Results</div>
+	<a href="javascript:history.back()">
+		<%= image_tag 'back.svg', id: 'header-left', :class => "mobile" %>
+	</a>
 <% end %>
 
 <div class="generic <%= 'ongoing' if @ongoing %>" id="content-container">

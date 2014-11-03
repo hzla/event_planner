@@ -30,10 +30,17 @@
 
 /********* *********/
 
+@media (min-width: 768px) {
+	body .service {
+		width: 33.3vw;
+		height: 33.3vw;
+	}
+}
+
 @media (min-width: 1024px) {
-	.service {
+	body .service {
 		width: 320px;
 		height:	320px
 	}
-
 }
+

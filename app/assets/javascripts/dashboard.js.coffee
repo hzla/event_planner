@@ -3,7 +3,12 @@ Dashboard =
     $('body').on 'click touchend', '#create-poll', @showPollForm
     $('body').on 'click touchend', '#cancel-form', @hidePollForm
     $('body').on 'submit', '#new_event', @checkFields
+    $('body').on 'focus', '#event_start_time', @convertEventTime
 
+  convertEventTime: ->
+    @.type = 'date'
+    $(@).focus
+    
   showPollForm: ->
     $('.main-logo.pic, #header-left').hide()
     $('#poll-creator, #cancel-form').show()

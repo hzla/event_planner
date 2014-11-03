@@ -129,3 +129,10 @@ body .winning-choice-tally.sub-text {
 	line-height: 40px;
 	font-weight: 600;
 }
+
+
+@media (min-width: 1024px) {
+	#see-more-results {
+		position: static;
+	}
+}

@@ -19,9 +19,14 @@
 		<%= @invitee_count %> Invitees
 	</div>
 	<div class="full-white-block event-field" id="invitee-list">
-		<% (1..@invitee_count).each do |invitee| %>
-			<%= image_tag "p#{(invitee % 12) + 1}.png", :class => "invitee-pic" %>
+		<% @invitees.each_with_index do |invitee, i| %>
+			<div class="pic-container">
+				<div class="profile-tooltip"><%= invitee.email %></div>
+				<div class="tail"></div>
+				<%= image_tag "p#{(i % 12) + 1}.png", :class => "invitee-pic" %>
+			</div>
 		<% end %>
+
 	</div>
 	<div class="grey-header">
 		Description
