@@ -6,7 +6,12 @@
 	<div id="content-container" class="s2 default-img">
 		<div id="poll-finished">
 			Congrats!<br>
-			<span class="main-text">You finished the poll!</span>
+			<span class="main-text">You finished the poll!</span><br>
+			<% if current_user %>
+				<%= link_to results_path(id: @event.id, ongoing: !@event.finished) do %>
+					<span class="view-results">View Results</span>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 <% else %>
@@ -73,7 +78,10 @@
 		<% end %>
 			<div id="poll-finished" class="hidden">
 				Congrats!<br>
-				<span class="main-text">You finished the poll!</span>
+				<span class="main-text">You finished the poll!</span><br>
+				<% if current_user %>
+					View Results
+				<% end %>
 			</div>
 	</div>
 <% end %>

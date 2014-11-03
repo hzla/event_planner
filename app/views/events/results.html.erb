@@ -12,6 +12,8 @@
 <% end %>
 
 <div class="generic <%= 'ongoing' if @ongoing %>" id="content-container">
+	
+
 	<div class="full-white-block event-field" id="event-name">
 		<%= @event.name %><br>
 		<span class="sub-text"><%= image_tag 'Time.svg', :class => "event-icon-small" %> <%= @event.start_time %> <%= image_tag 'hairblack.svg', :class => "event-icon-small" %> <%= @event.vote_count %> Voters</span>
@@ -73,6 +75,9 @@
 		<div class="btn" id="closed">Closed</div>
 
 	</div>
+	<%= link_to @poll.url do %>
+		<div id="take-poll" class="btn">Take Poll</div>
+	<% end %>
 
 		
 		

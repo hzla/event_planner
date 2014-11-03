@@ -25,9 +25,8 @@ class PollsController < ApplicationController
 
 	def take
 		@poll = Poll.find(params[:id])
+		@event = @poll.event
 		if params[:code] != @poll.url.split("?code=").last
-			p params[:code]
-			p @poll.url.split("?code=").last
 			redirect_to root_path and return
 		end
 		@choices = @poll.choices

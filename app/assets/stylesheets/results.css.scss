@@ -130,6 +130,21 @@ body .winning-choice-tally.sub-text {
 	font-weight: 600;
 }
 
+#take-poll {
+	width: 100%;
+	background: $turq;
+	height: 40px;
+	line-height: 40px;
+	font-weight: 600;
+	margin: 10px 0px;
+}
+
+#take-poll:hover {
+	background: white;
+	color: $turq;
+	border: 1px solid $turq;
+}
+
 
 @media (min-width: 1024px) {
 	#see-more-results {

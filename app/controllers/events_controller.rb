@@ -29,6 +29,7 @@ class EventsController < ApplicationController
 
 	def results
 		@event = Event.find(params[:id])
+		@poll = Poll.where(event_id: params[:id], email: current_user.email).first
 		@ongoing = params[:ongoing] == "true"
 		@choices = @event.top_choices
 	end
