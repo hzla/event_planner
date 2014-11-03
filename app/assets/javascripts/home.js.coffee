@@ -4,14 +4,16 @@ Home =
     $('#sign-up').click @showSignUpForm
     $('.back-icon').click @goBack
     $('.user-field').blur @checkForm
+    $(window).bind 'popstate', @confirmBack()
     @detectMobile()
     @initMobile()
+
+  confirmBack: ->
+    return false
 
   initMobile: -> 
     mobile = $(window).width() < 1024
     
-    
-
   goBack: ->
     location.reload()
 

@@ -10,11 +10,20 @@
 <div id="content-container" class="generic">
 	<div id="services">
 		<% @services.each do |service| %>
-			<div class="service">
-			<%= link_to service.event_url(@event_id) do %>
-				<%= image_tag "opentable.svg", :class => "service-image" %>
+			<% if !service.available %>
+				<div class="service unavailable">
+					<div class="service-overlay">
+						<div class="service-text">COMING SOON</div>
+					</div>
+					<%= image_tag service.image, :class => "service-image" %>
+				</div>
+			<% else %>
+				<div class="service ">
+					<%= link_to service.event_url(@event_id) do %>
+						<%= image_tag service.image, :class => "service-image" %>
+					<% end %>
+				</div>
 			<% end %>
-			</div>
 		<% end %>
 
 	</div>

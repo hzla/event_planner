@@ -1,6 +1,6 @@
 class Service < ActiveRecord::Base
 	has_many :events
-	attr_accessible :name, :image, :url
+	attr_accessible :name, :image, :url, :img_ext, :available
 
 	before_create :generate_url
 
@@ -10,6 +10,10 @@ class Service < ActiveRecord::Base
 
 	def event_url event_id
 		url + "?event_id=#{event_id}"
+	end
+
+	def image
+		name.downcase.gsub(' ', '') + "." + img_ext
 	end
 
 
