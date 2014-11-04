@@ -10,12 +10,16 @@
 					<div class="tail"></div>
 			</div>
 		<% end %>
+			
 			<%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
+
 			<div class="main-logo text mobile">INSTAGATOR</div>
 	<% end %>
 
 	<div id="content-box">
-		<%= image_tag @poll.user.profile_pic_url, id: 'profile-pic' %>
+		<div class="profile-pic-container">
+			<%= image_tag @poll.user.profile_pic_url, id: 'profile-pic', :class => 'pp-centered' %>
+		</div>
 		<div class="box-content profile-box">
 			<div class="content-row main-text profile-info">
 				<%= @poll.user.name %>

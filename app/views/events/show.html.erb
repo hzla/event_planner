@@ -23,7 +23,7 @@
 			<div class="pic-container">
 				<div class="profile-tooltip"><%= invitee.email %></div>
 				<div class="tail"></div>
-				<%= image_tag "p#{(i % 12) + 1}.png", :class => "invitee-pic" %>
+				<%= image_tag invitee.avatar, :class => "invitee-pic" %>
 			</div>
 		<% end %>
 

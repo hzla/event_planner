@@ -23,6 +23,16 @@ class Poll < ActiveRecord::Base
 		event.polls
 	end
 
+	def avatar
+		user = User.where(email: email)
+		if user.empty?
+			n = (1..12).to_a.sample
+			"p#{n}.png"
+		else
+			user.first.profile_pic_url
+		end
+	end
+
 end
 
 

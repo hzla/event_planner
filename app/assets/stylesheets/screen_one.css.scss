@@ -2,11 +2,9 @@
 
 #profile-pic {
 	position: absolute;
-	width: 100px;
-	height: 100px;
 	border-radius: 50px;
-	top: -50px;
-	left: calc(50% - 50px);
+	height: 100px;
+
 }
 
 .box-content.profile-box {
@@ -167,6 +165,16 @@
 	margin-top: 20px;
 	color: $turq;
 	text-decoration: underline;
+}
+
+.profile-pic-container {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	top: -50px;
+	left: calc(50% - 50px);
+	overflow: hidden;
 }
 
 

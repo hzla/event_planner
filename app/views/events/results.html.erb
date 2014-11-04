@@ -30,7 +30,7 @@
 	</div>
 	<div class="full-white-block choice-voters">
 		<% @choices.first.voters.each_with_index do |voter, i| %>
-			<%= image_tag "p#{(i % 12) + 1}.png", :class => "invitee-pic #{'good' if voter.yes} #{'bad' if voter.yes == false}" %>
+			<%= image_tag voter.poll.avatar, :class => "invitee-pic #{'good' if voter.yes} #{'bad' if voter.yes == false}" %>
 		<% end %>
 	</div>
 
@@ -54,7 +54,7 @@
 			</div>
 			<div class="full-white-block choice-voters">
 		<% choice.voters.each_with_index do |voter, i| %>
-				<%= image_tag "p#{(i % 12) + 1}.png", :class => "invitee-pic #{'good' if voter.yes} #{'bad' if voter.yes == false}" %>
+				<%= image_tag voter.poll.avatar, :class => "invitee-pic #{'good' if voter.yes} #{'bad' if voter.yes == false}" %>
 		<% end %>
 		</div>
 
@@ -65,13 +65,15 @@
 		<div class="grey-header">Voters</div>
 		<div class="full-white-block" id="result-voter-list">
 		<% @choices.first.voters.each_with_index do |voter, i| %>
-				<%= image_tag "p#{(i % 12) + 1}.png", :class => "invitee-pic"  %>
+				<%= image_tag voter.poll.avatar, :class => "invitee-pic"  %>
 			<% end %>
 		</div>
 		<div class="grey-header">Description</div>
 		<div class="full-white-block" id="result-desc">
 			<%= description(@event.polls.first) %>
 		</div>
+
+
 		<div class="btn" id="closed">Closed</div>
 
 	</div>

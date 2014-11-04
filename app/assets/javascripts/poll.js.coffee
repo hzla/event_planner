@@ -7,12 +7,17 @@ Poll =
     $('.choice').first().show()
     @showNext() if $('.invitees .invitee.real').length > 0
     @addEmails()
+    @centerProfile()
+
+  centerProfile: ->
+    setTimeout ->
+      $('.#profile-pic').css 'left', "-#{($('#profile-pic').width()-100)/2}px"
+    , 200
 
   addEmails: ->
     invitees = $(".invitee").map ->
       $(@).text()
     .get().join(', ')
-    console.log invitees
     $('#email-list').val invitees
 
  
