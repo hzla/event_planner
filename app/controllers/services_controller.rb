@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
 	before_filter :check_event_ownership
 
 	def index
-		@services = Service.all
+		@services = Service.order(:available).reverse
 	end
 
 	def opentable
