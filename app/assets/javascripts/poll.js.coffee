@@ -11,7 +11,7 @@ Poll =
 
   centerProfile: ->
     setTimeout ->
-      $('.#profile-pic').css 'left', "-#{($('#profile-pic').width()-100)/2}px"
+      $('#profile-pic').css 'left', "-#{($('#profile-pic').width()-100)/2}px"
     , 200
 
   addEmails: ->

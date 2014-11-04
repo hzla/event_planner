@@ -5,6 +5,10 @@ Browse =
     $('body').on 'click touchend', '.browse.service-tab', @showAllOptions
     $('body').on 'click touchend', '.service-tab', @toggleActive
     $('body').on 'click touchend', '.submit-options', @submitOptions
+    $('body').on 'click', '.movie', @toggleMovieSelect
+
+  toggleMovieSelect: ->
+    $(@).toggleClass 'selected' 
 
   toggleOptionSelect: ->
     $(@).toggleClass 'selected'

@@ -1,0 +1,116 @@
+@import 'variables';
+
+
+
+.additional-event-modal {
+	width: calc(100% - 40px);
+	height: calc(100% - 50px);
+	margin: 0 auto;
+	margin-top: 30px;
+	background: white;
+	border-radius: 5px;
+	z-index: 4;
+	overflow-y: scroll; 
+	max-width: 720px;
+}
+
+.modal-header, .modal-sub-header, .theatre {
+	box-sizing: border-box;
+	padding-left: 20px;
+	width: 100%;
+	font-size: 12px;
+}
+
+.modal-header {
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid $turq;
+}
+
+.modal-sub-header {
+	height: 30px;
+	margin-top: 10px;
+	color: $grey;
+}
+
+#theatres {
+	height: calc(100% - 150px);
+	overflow-y: scroll;
+}
+
+.theatre {
+	width: 100%;
+	border-bottom: 1px solid $turq;
+	overflow-x: scroll;
+	white-space: nowrap;
+	padding-bottom: 10px;
+}
+
+.theatre-name {
+	width: 100%;
+	font-weight: 600;
+	font-size: 16px;
+	margin: 10px 0px; 
+}
+
+.movie {
+	width: 60px;
+	height: 150px;
+	margin-right: 10px;
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+}
+
+.movie.selected .movie-overlay {
+	display: block;
+}
+
+.movie-overlay {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.7);
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+.movie-check {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: calc(50% - 10px);
+	top: calc(50% - 10px);
+}
+
+.movie-pic {
+	width: 60px;
+	height: 100px;
+	background: $light-grey;
+}
+
+.movie-time, .movie-name {
+	font-size: 12px;
+	white-space: normal;
+}
+
+.movie-time {
+	color: $turq;
+}
+
+
+.add-modal.btn-rnd {
+	line-height: 40px;
+	background: $turq;
+	width: calc(100% - 80px);
+	margin: 0 auto;
+	height: 40px;
+}
+
+.add-modal:hover {
+	color: $turq;
+	background: white;
+	border: 1px solid $turq;
+}
+

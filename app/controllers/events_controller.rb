@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		@event.activate_polls
 		@poll = @event.polls.where(email: current_user.email).first
+		@theatres = Fandango.movies
 	end
 
 	def show
@@ -32,6 +33,7 @@ class EventsController < ApplicationController
 		@poll = Poll.where(event_id: params[:id], email: current_user.email).first
 		@ongoing = params[:ongoing] == "true"
 		@choices = @event.top_choices
+		@movies = params[:movies] == "true"
 	end
 
 end

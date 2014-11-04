@@ -53,14 +53,14 @@
 				<div class="choice-rank"><%= suffixify(i + 2) %></div>
 			</div>
 			<div class="full-white-block choice-voters">
-		<% choice.voters.each_with_index do |voter, i| %>
-				<%= image_tag voter.poll.avatar, :class => "invitee-pic #{'good' if voter.yes} #{'bad' if voter.yes == false}" %>
-		<% end %>
-		</div>
+				<% choice.voters.each_with_index do |voter, i| %>
+						<%= image_tag voter.poll.avatar, :class => "invitee-pic #{'good' if voter.yes} #{'bad' if voter.yes == false}" %>
+				<% end %>
+			</div>
 
-		<div class="btn book-choice">
-			BOOK
-		</div>
+			<div class="btn book-choice">
+				BOOK
+			</div>
 		<% end %>
 		<div class="grey-header">Voters</div>
 		<div class="full-white-block" id="result-voter-list">
@@ -72,6 +72,19 @@
 		<div class="full-white-block" id="result-desc">
 			<%= description(@event.polls.first) %>
 		</div>
+
+		<% if @movies %>
+			<% @choices[1..-1].each_with_index do |choice, i| %>
+				<div class="option">
+					<%= image_tag 'cat.png', :class => "option-pic" %>
+					<div class="option-title bold">Some Movie</div>
+					<div class="option-info">
+						<%= "#{choice.yes_count} Yes, #{choice.no_count} No" %>
+					</div>
+					<div class="choice-rank"><%= suffixify(i + 1) %></div>
+				</div>
+			<% end %>
+		<% end %>
 
 
 		<div class="btn" id="closed">Closed</div>

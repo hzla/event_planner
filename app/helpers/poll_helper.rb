@@ -11,7 +11,9 @@ module PollHelper
 	end
 
 	def suffixify n
-		if n == 2 
+		if n == 1
+			"1st"
+		elsif n == 2 
 			"2nd"
 		elsif n == 3
 			"3rd"

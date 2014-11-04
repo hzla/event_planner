@@ -1,5 +1,5 @@
 <div class="black-overlay">
-	<div class="activation-modal">
+	<!-- <div class="activation-modal">
 		<div class="activation-message full-white-block">
 			Congrats!<br><span class="sub-text">Your poll has been sent</span>
 		</div>
@@ -9,7 +9,36 @@
 		<%= link_to dashboard_path do %>
 			<div class="btn activation-action" id="return-home">Do it Later</div>
 		<% end %>
-	</div>
-	
+	</div> -->
 
+	<div class="additional-event-modal">
+		<div class="modal-header">
+			Get after dinner movie tickets with Fandango
+		</div>
+		<div class="modal-sub-header">
+			Tap posters to add movies to your dinner option.
+		</div>
+		<div id="theatres">
+			<% @theatres.each do |theatre| %>
+				<div class="theatre">
+					<div class="theatre-name">
+						<%= theatre[0] %>
+					</div>
+					<% theatre[1].each do |movie| %>
+						<% p movie %>
+						<div class="movie">
+							<div class="movie-overlay">
+								<%= image_tag 'checkgreen.svg', :class => "movie-check" %>
+							</div>
+							<%= image_tag 'opentable.svg', :class => "movie-pic" %>
+							<div class="movie-time"><%= movie["dateTime"][-5..-1] %></div>
+							<div class="movie-name"><%= movie["title"][0..15] %></div>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+		<div class="skip-modal btn-rnd">Skip</div>
+		<div class="add-modal btn-rnd">Add</div>
+	</div>
 </div>
