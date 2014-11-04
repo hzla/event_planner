@@ -80,8 +80,10 @@
 				Congrats!<br>
 				<span class="main-text">You finished the poll!</span><br>
 				<% if current_user %>
-					View Results
+				<%= link_to results_path(id: @event.id, ongoing: !@event.finished) do %>
+					<span class="view-results">View Results</span>
 				<% end %>
+			<% end %>
 			</div>
 	</div>
 <% end %>
