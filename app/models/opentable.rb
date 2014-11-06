@@ -16,7 +16,7 @@ class Opentable
 	end
 
 	def self.reserve options=nil, event, choice, email
-		base_url = 'http://localhost:3001/api/v1/opentable/reserve?'
+		base_url = 'http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/reserve?'
 		options = {restaurant_id: 105223, date_time: "11/13/2014 21:30:00", party_size: 2, first_name: "Robert", last_name: "Gustavez", email: "neohzla@gmail.com", phone_number: "4157760400"} if !options
 		p options
 		puts " \n" * 10
@@ -42,7 +42,7 @@ class Opentable
 	end
 
 	def self.cancel c_id
-		url = "http://localhost:3001/api/v1/opentable/cancel?c_id=#{c_id}"
+		url = "http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/cancel?c_id=#{c_id}"
 		HTTParty.get(url).parsed_response
 	end
 
