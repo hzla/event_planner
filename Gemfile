@@ -33,6 +33,7 @@ gem 'pry'
 gem 'httparty'
 gem 'sidekiq'
 gem 'slim'
+gem 'redis'
 
 
 
