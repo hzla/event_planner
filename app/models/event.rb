@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :service
 
-	attr_accessible :finished, :user_id, :service_id, :desc, :start_time, :name, :status, :complete
+	attr_accessible :finished, :user_id, :service_id, :desc, :start_time, :name, :status, :complete, :confirmation_id, :threshold, :current_choice
 
 	def activate_polls
 		update_attributes status: 'activated'
@@ -26,6 +26,12 @@ class Event < ActiveRecord::Base
 			choice.yes_count
 		end.reverse
 	end
+
+	def create_threshold
+		count = (polls.count / 2) + 1
+		update_attributes threshold: count
+	end
+	
 
 
 end

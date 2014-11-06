@@ -7,13 +7,15 @@ class ChoicesController < ApplicationController
 		images = params[:image_url_list].split("<OPTION>")
 		titles = params[:title_list].split("<OPTION>")
 		infos = params[:info_list].split("<OPTION>")
+		service_ids = params[:id_list].split("<OPTION>")
+		p params
+		binding.pry
 		event = Event.find(@event_id)
 		polls = event.polls
-
 		polls.each do |poll|
 			poll.choices.destroy_all
 			(0..(images.length - 1)).each do |i|
-				Choice.create poll_id: poll.id, image_url: images[i], value: titles[i], add_info: infos[i]
+				Choice.create poll_id: poll.id, image_url: images[i], value: titles[i], add_info: infos[i], service_id: service_ids[i]
 			end
 		end
 		redirect_to event_path(@event_id)	
@@ -21,6 +23,7 @@ class ChoicesController < ApplicationController
 
 	def vote
 		@choice = Choice.find params[:id]
+		@event = @choice.poll.event
 		answer = params[:answer]
 		if answer == "yes"
 			@choice.update_attributes yes: true
@@ -30,6 +33,11 @@ class ChoicesController < ApplicationController
 		poll = @choice.poll
 		if @choice.poll.choices.where(yes: nil).empty?
 			poll.update_attributes answered: true
+		end
+		if @choice.yes_count >= @event.threshold && @event.confirmation_id == nil || (@choice.yes_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice != @choice.value) 
+			ReservationWorker.perform_async({restaurant_id: 105223, date_time: '11/13/2014 21:30:00',
+			party_size: @event.polls.count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
+			email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
 		end
 		render nothing: true
 	end
@@ -47,6 +55,4 @@ class ChoicesController < ApplicationController
 			end
 		end
 	end
-
-
 end

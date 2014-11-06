@@ -31,6 +31,8 @@ gem 'dotenv-rails'
 gem 'pry'
 
 gem 'httparty'
+gem 'sidekiq'
+gem 'slim'
 
 
 

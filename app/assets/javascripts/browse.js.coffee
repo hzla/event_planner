@@ -23,17 +23,22 @@ Browse =
     image = option.find('img').attr('src')
     title = option.find('.option-title').text()
     info = option.find('.option-info').text()
+    id = option.find('.option-id').text()
+    console.log id
     $('#image-url-list').val($('#image-url-list').val() + "#{image}<OPTION>")
     $('#title-list').val($('#title-list').val() + "#{title}<OPTION>")
     $('#info-list').val($('#info-list').val() + "#{info}<OPTION>")
+    $('#id-list').val($('#id-list').val() + "#{id}<OPTION>")
 
   removeOptionFromForm: (option) ->
     image = option.find('img').attr('src')
     title = option.find('.option-title').text()
     info = option.find('.option-info').text()
+    id = option.find('.option-id').text()
     $('#image-url-list').val($('#image-url-list').val().replace("#{image}<OPTION>", ""))
     $('#title-list').val($('#title-list').val().replace("#{title}<OPTION>", ""))
     $('#info-list').val($('#info-list').val().replace("#{info}<OPTION>", ""))
+    $('#id-list').val($('#id-list').val().replace("#{id}<OPTION>", ""))
 
   checkDone: ->
   	if $('.option.selected').length > 0

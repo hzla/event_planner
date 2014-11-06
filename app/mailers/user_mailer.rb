@@ -7,5 +7,11 @@ class UserMailer < ActionMailer::Base
     mail(to: poll.email, subject: "#{poll.event.name}")
   end
 
+  def reservation_info url, email
+  	@host = "http://localhost:3000"
+  	@url = url
+  	mail(to: email, subject: "Your Reservation")
+  end
+
   
 end

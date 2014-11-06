@@ -12,6 +12,15 @@ class User < ActiveRecord::Base
     user.authorizations.build :uid => auth_hash["uid"]
     user if user.save
 	end
+
+	def first_name
+		name.split(" ")[0]
+	end
+
+	def last_name
+		name.split(" ")[1]
+	end
+
 end
 
 

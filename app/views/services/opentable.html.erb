@@ -10,6 +10,7 @@
 	<%= hidden_field_tag :image_url_list, nil, id: "image-url-list" %>
 	<%= hidden_field_tag :title_list, nil, id: "title-list" %>
 	<%= hidden_field_tag :info_list, nil, id: "info-list" %>
+	<%= hidden_field_tag :id_list, nil, id: "id-list" %>
 <% end %>
 
 <div class="generic" id="content-container">
@@ -31,6 +32,7 @@
 				<%= image_tag 'checkgreen.svg', :class => "option-check" %>
 				<div class="option-title bold"><%= option["name"] %></div>
 				<div class="option-info"><%= option["address"] %></div>
+				<div class="option-id hidden"><%= option["id"] %></div>
 			</div>
 		<% end %>
 	</div>

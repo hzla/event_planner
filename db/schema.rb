@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103220914) do
+ActiveRecord::Schema.define(version: 20141106223206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,24 +25,29 @@ ActiveRecord::Schema.define(version: 20141103220914) do
   end
 
   create_table "choices", force: true do |t|
-    t.string  "value"
-    t.string  "desc"
-    t.text    "add_info"
-    t.integer "poll_id"
-    t.string  "replyer_name"
-    t.string  "image_url"
-    t.boolean "yes"
+    t.string   "value"
+    t.string   "desc"
+    t.text     "add_info"
+    t.integer  "poll_id"
+    t.string   "replyer_name"
+    t.string   "image_url"
+    t.boolean  "yes"
+    t.integer  "service_id"
+    t.datetime "time"
   end
 
   create_table "events", force: true do |t|
-    t.boolean "finished",   default: false
+    t.boolean "finished",        default: false
     t.integer "user_id"
     t.integer "service_id"
     t.string  "name"
     t.text    "desc"
     t.string  "start_time"
-    t.string  "status",     default: "dormant"
-    t.boolean "complete",   default: false
+    t.string  "status",          default: "dormant"
+    t.boolean "complete",        default: false
+    t.integer "confirmation_id"
+    t.string  "current_choice"
+    t.integer "threshold"
   end
 
   create_table "polls", force: true do |t|

@@ -12,6 +12,7 @@ class PollsController < ApplicationController
 		email_list.each do |email|
 			Poll.create email: email, event_id: @event_id
 		end
+		@event.create_threshold
 		redirect_to services_path(event_id: @event_id)
 	end
 

@@ -65,6 +65,10 @@
 	display: inline;
 }
 
+.option div.hidden {
+	display: none;
+}
+
 .option-title, .option-info {
 	float: left;
 	width: calc(100% - 120px);
