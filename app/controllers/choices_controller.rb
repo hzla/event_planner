@@ -35,7 +35,7 @@ class ChoicesController < ApplicationController
 			poll.update_attributes answered: true
 		end
 		if @choice.yes_count >= @event.threshold && @event.confirmation_id == nil || (@choice.yes_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice != @choice.value) 
-			ReservationWorker.perform_async({restaurant_id: 105223, date_time: '11/13/2014 21:30:00',
+			ReservationWorker.perform_async({restaurant_id: @choice.service_id, date_time: '11/20/2014 18:30:00',
 			party_size: @event.polls.count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
 			email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
 		end

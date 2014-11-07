@@ -17,7 +17,7 @@ class Opentable
 
 	def self.reserve options=nil, event, choice, email
 		base_url = 'http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/reserve?'
-		options = {restaurant_id: 105223, date_time: "11/13/2014 21:30:00", party_size: 2, first_name: "Robert", last_name: "Gustavez", email: "neohzla@gmail.com", phone_number: "4157760400"} if !options
+		options = {restaurant_id: choice.service_id, date_time: "11/13/2014 21:30:00", party_size: 2, first_name: "Robert", last_name: "Gustavez", email: "neohzla@gmail.com", phone_number: "4157760400"} if !options
 		p options
 		puts " \n" * 10
 		options['date_time'] = URI.encode(options['date_time']).gsub('/','%2F').gsub(':','%3A')

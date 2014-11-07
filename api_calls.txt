@@ -1,0 +1,10 @@
+POST
+
+instagator2014.herokuapp.com/events
+
+required params
+	user_id
+	service_id
+	name
+	desc
+	start_time (string)

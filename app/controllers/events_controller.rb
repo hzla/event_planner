@@ -1,11 +1,15 @@
 class EventsController < ApplicationController
 
 	include SessionsHelper
+	skip_before_filter  :verify_authenticity_token
+	skip_before_filter :require_login
 
 	def create
-		@event = Event.create params[:event]
-		current_user.events << @event
-		redirect_to invite_friends_path(event_id: @event.id)
+		@event = Event.create params
+		# @event = Event.create params[:event]
+		# current_user.events << @event
+		# redirect_to service_path(event_id: event_id)
+		render json: {success: true, event: @event.to_json}
 	end
 
 	def activate
