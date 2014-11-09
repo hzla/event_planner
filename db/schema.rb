@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20141106223206) do
 
   create_table "authorizations", force: true do |t|
     t.string   "provider",   default: "facebook"
-    t.string   "uid"
-    t.integer  "user_id"
+    t.string   "uid" #facebook_id
+    t.integer  "user_id" #inst_user_id
     t.datetime "created_at"
     t.datetime "updated_at"
   end

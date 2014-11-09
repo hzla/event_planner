@@ -8,3 +8,14 @@ required params
 	name
 	desc
 	start_time (string)
+
+
+get all events for a logged in user by user_id
+get all metadata for a single event by event_id
+get events and its users by user_id
+edit events by user_id and event params
+
+vote on events
+
+get users by user_id
+
