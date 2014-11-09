@@ -32,16 +32,17 @@ Rails.application.routes.draw do
       resources :users
       post '/users/:id', to: 'users#update' 
 
-
       resources :events
-      get '/events/:id/activate', to: 'events#activate', as: 'activate'
-      get '/events/:id/results', to: 'events#results', as: 'results'
-      resources :polls 
-      get '/polls/:id/take', to: 'polls#take', as: 'take'
-      resources :choices
-      get '/choices/:id/vote', to: 'choices#vote', as: 'vote'
-      get '/invite_friends', to: 'events#invite_friends', as: 'invite_friends'
-      get '/opentable', to: 'services#opentable', as: 'opentable'
+      post '/events/:id', to: 'events#update'
+      get '/events/search', to: 'events#search'
+
+
+      # resources :polls 
+      # get '/polls/:id/take', to: 'polls#take', as: 'take'
+      # resources :choices
+      # get '/choices/:id/vote', to: 'choices#vote', as: 'vote'
+      # get '/invite_friends', to: 'events#invite_friends', as: 'invite_friends'
+      # get '/opentable', to: 'services#opentable', as: 'opentable'
 
     end
   end

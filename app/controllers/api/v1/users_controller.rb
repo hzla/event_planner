@@ -5,7 +5,11 @@ class Api::V1::UsersController < ApplicationController
 	skip_before_filter :require_login
 
 	def index
-		render json: User.all.to_json
+		users = User.all.to_json
+		if params[:user]
+			users = User.where(params[:user]).to_json
+		end
+		users = User.all.to_json
 	end
 
 	def show
