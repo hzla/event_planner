@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		current_user.update_attributes active: false;
 		session[:user_id] = nil
 		redirect_to root_path
 	end
