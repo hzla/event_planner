@@ -22,7 +22,7 @@ class Api::V1::EventsController < ApplicationController
 				poll["choices"] = active_record_polls[i].choices.as_json
 			end
 			user = User.find(event.user_id)
-			render json: {event: full_metadata_event, user: user.to_json }
+			render json: {event: full_metadata_event, user: user.as_json }
 		else
 			render json: event.to_json
 		end
