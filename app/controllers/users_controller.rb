@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	
-	include SessionsHelpere
+	include SessionsHelper
 
 	def dashboard
 		@event = Event.new
