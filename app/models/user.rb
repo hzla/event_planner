@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 	has_many :authorizations, dependent: :destroy
 	has_many :events
 
-	attr_accessible :name, :email, :profile_pic_url, :location
+	attr_accessible :name, :email, :profile_pic_url, :location, :phone_number, :uu_id
 
 	def self.create_with_facebook auth_hash
 		timezone = auth_hash.extra.raw_info.timezone
@@ -19,6 +19,17 @@ class User < ActiveRecord::Base
 
 	def last_name
 		name.split(" ")[1]
+	end
+
+	def to_hash 
+		model = as_json
+		model.each do |k,v|
+			model.delete(k) if v == nil
+			if v.class == Fixnum
+				model[k] = v.to_s
+			end
+		end
+		model
 	end
 
 end
