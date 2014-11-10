@@ -7,26 +7,34 @@ class Api::V1::UsersController < ApplicationController
 
 	def index
 		users = User.all
-		if params[:user]
-			users = User.where(params[:user]).to_json
+		if params
+			users = User.where(extract_non_model_attributes(params, User))
 		end
-		render json: to_array_of_hashes(users)
+		render json: api_response("getAllUsers", to_array_of_hashes(users))
 	end
 
 	def show
-		user = User.find params[:id]
-		render json: user.to_hash
+		begin 
+			user = User.find params[:id]
+			render json: api_response("getUser", user.to_hash)
+		rescue
+			render json: api_error("getUser", "404", "Record not Found")
+		end
 	end
 
 	def update
-		user = User.find params[:id]
-		user.update_attributes params[:user]
-		render json: user.to_hash
+		begin 
+			user = User.find params[:id]
+			user.update_attributes extract_non_model_attributes(params, User)
+			render json: api_response("updateUser", user.to_hash)
+		rescue
+			render json: api_error("updateUser", "404", "Record not Found")
+		end
 	end
 
 	def create
-		user = User.create params[:user]
-		render json: user.to_hash
+		user = User.create extract_non_model_attributes(params, User)
+		render json: api_response("createUser", user.to_hash)
 	end
 
 end

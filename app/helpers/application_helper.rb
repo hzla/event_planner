@@ -16,4 +16,21 @@ module ApplicationHelper
 		end
 		converted_collection
 	end
+
+	def api_response request_name, result
+		{request_name: request_name, status: {code: "200", message: "OK"}, result: result }
+	end
+
+	def extract_non_model_attributes params, class_name
+		attrs = class_name.column_names
+		params.delete "id"
+		params.each do |k,v|
+			params.delete(k) if !attrs.include?(k)
+		end
+	end
+
+	def api_error request_name, code, message
+		{request_name: request_name, status: {code: code, message: message}}
+	end
+
 end
