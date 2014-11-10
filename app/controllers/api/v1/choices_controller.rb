@@ -1,24 +1,31 @@
-class ChoicesController < ApplicationController
+class Api::V1::ChoicesController < ApplicationController
 	
 	include SessionsHelper
-	before_filter :check_event_ownership
+	skip_before_action :require_login
+	skip_before_filter :verify_authenticity_token
 
 	def create
-		images = params[:image_url_list].split("<OPTION>")
-		titles = params[:title_list].split("<OPTION>")
-		infos = params[:info_list].split("<OPTION>")
-		service_ids = params[:id_list].split("<OPTION>")
-		p params
-		binding.pry
-		event = Event.find(@event_id)
-		polls = event.polls
-		polls.each do |poll|
-			poll.choices.destroy_all
-			(0..(images.length - 1)).each do |i|
-				Choice.create poll_id: poll.id, image_url: images[i], value: titles[i], add_info: infos[i], service_id: service_ids[i]
-			end
+		choice = Choice.create params[:choice]
+		render json: choice.to_json
+	end
+
+	def show
+		choice = Choice.find params[:id]
+		render json: choice.to_json
+	end
+
+	def update
+		choice = Choice.find params[:id]
+		choice.update_attributes params[:choice]
+		render json: choice.to_json
+	end
+
+	def index
+		choices = Choice.all
+		if params[:choice]
+			choices = Choice.where(params[:choice])
 		end
-		redirect_to event_path(@event_id)	
+		render json: choices.to_json
 	end
 
 	def vote
@@ -38,21 +45,8 @@ class ChoicesController < ApplicationController
 			ReservationWorker.perform_async({restaurant_id: @choice.service_id, date_time: '11/20/2014 18:30:00',
 			party_size: @event.polls.count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
 			email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
+			render json: {bot_action: true, choice: @choice.as_json} and return
 		end
-		render nothing: true
-	end
-
-	private
-
-
-	def check_event_ownership
-		if params[:event_id]
-			event = Event.find params[:event_id]
-			if event.user_id != session[:user_id]
-				redirect_to dashboard_path
-			else
-				@event_id = params[:event_id]
-			end
-		end
+		render json: {bot_action: false, choice: @choice.as_json}
 	end
 end

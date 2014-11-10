@@ -1,50 +1,44 @@
-class PollsController < ApplicationController
+class Api::V1::PollsController < ApplicationController
 	
 	include SessionsHelper
-	skip_before_action :require_login, only: "show"
-	before_filter :check_event_ownership
-
+	skip_before_action :require_login
+	skip_before_filter :verify_authenticity_token
 
 	def create
-		email_list = params[:email_list].split(", ")
-		@event = Event.find(@event_id)
-		@event.polls.destroy_all
-		email_list.each do |email|
-			Poll.create email: email, event_id: @event_id
-		end
-		@event.create_threshold
-		redirect_to services_path(event_id: @event_id)
+		poll = Poll.create params[:poll]
+		render json: poll.to_json
 	end
 
 	def show
-		@poll = Poll.find params[:id]
-		if params[:code] != @poll.url.split("?code=").last
-			redirect_to root_path and return
-		end
-		@code = params[:code]
-	end
-
-	def take
-		@poll = Poll.find(params[:id])
-		@event = @poll.event
-		if params[:code] != @poll.url.split("?code=").last
-			redirect_to root_path and return
-		end
-		@choices = @poll.choices
-	end
-
-	private
-
-	def check_event_ownership
-		if params[:event_id]
-			event = Event.find params[:event_id]
-			if event.user_id != session[:user_id]
-				redirect_to dashboard_path
+		poll = Poll.find params[:id]
+		if params[:show_metadata] == "true"
+			full_metadata_poll = poll.as_json
+			active_record_choices = poll.choices
+			full_metadata_poll["choices"] = active_record_choices.as_json
+			if poll.user_id
+				user = User.find poll.user_id
+			end
+			if poll.user_id
+				render json: {poll: full_metadata_poll.to_json, user: user.as_json} and return
 			else
-				@event_id = params[:event_id]
+				render json: {poll: full_metadata_poll} and return
 			end
 		end
+		render json: poll.to_json
 	end
 
+	def index
+		polls = Poll.all
+		if params[:poll]
+			polls = Poll.where(params[:poll])
+		end
+		render json: polls.to_json
+	end
+
+	def update
+		poll = Poll.find params[:id]
+		poll.update_attribute params[:poll]
+		render json: poll.to_json
+	end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109071408) do
+ActiveRecord::Schema.define(version: 20141110004748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,17 +26,15 @@ ActiveRecord::Schema.define(version: 20141109071408) do
 
   create_table "choices", force: true do |t|
     t.string   "value"
-    t.string   "desc"
     t.text     "add_info"
     t.integer  "poll_id"
-    t.string   "replyer_name"
     t.string   "image_url"
     t.boolean  "yes"
     t.integer  "service_id"
     t.datetime "time"
   end
 
-  create_table "events", force: true do |t|
+  create_table "events", force: true dos |t|
     t.boolean  "finished",        default: false
     t.integer  "user_id"
     t.integer  "service_id"
@@ -53,13 +51,12 @@ ActiveRecord::Schema.define(version: 20141109071408) do
   end
 
   create_table "polls", force: true do |t|
-    t.boolean  "answered",   default: false
-    t.string   "url"
-    t.integer  "event_id"
-    t.string   "name"
-    t.string   "desc"
-    t.datetime "start_time"
-    t.string   "email"
+    t.boolean "answered",     default: false
+    t.string  "url"
+    t.integer "event_id"
+    t.string  "email"
+    t.string  "phone_number"
+    t.integer "user_id"
   end
 
   create_table "services", force: true do |t|
@@ -80,6 +77,8 @@ ActiveRecord::Schema.define(version: 20141109071408) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "location"
+    t.string   "phone_number"
+    t.integer  "uu_id"
   end
 
 end
