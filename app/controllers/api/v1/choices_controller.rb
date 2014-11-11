@@ -34,7 +34,7 @@ class Api::V1::ChoicesController < ApplicationController
 		if params
 			choices = Choice.where(extract_non_model_attributes(params, Choice))
 		end
-		render json: api_error("getAllChoices", to_array_of_hashes(choices)
+		render json: api_error("getAllChoices", to_array_of_hashes(choices))
 	end
 
 	def vote
