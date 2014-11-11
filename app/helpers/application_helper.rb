@@ -1,5 +1,6 @@
 module ApplicationHelper
 	def to_hash model
+		model_id = model.id
 		model = model.as_json
 		model.each do |k,v|
 			model.delete(k) if v == nil
@@ -7,6 +8,8 @@ module ApplicationHelper
 				model[k] = v.to_s
 			end
 		end
+		model.delete("id")
+		model["record_id"] = model_id
 		model
 	end
 
