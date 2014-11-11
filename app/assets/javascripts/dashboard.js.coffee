@@ -24,11 +24,11 @@ Dashboard =
 
   checkFields: ->
     name = $('#event_name').val()
-    desc = $('#event_desc').val()
+    desc = $('#event_comment').val()
     startTime = $('#event_start_time').val()
     if name == "" || desc == "" || startTime == ""
       $('#event_name').css('border', '1px solid red') if name == ""
-      $('#event_desc').css('border', '1px solid red') if desc == ""
+      $('#event_comment').css('border', '1px solid red') if desc == ""
       $('#event_start_time').css('border', '1px solid red') if startTime == ""
       return false
     else

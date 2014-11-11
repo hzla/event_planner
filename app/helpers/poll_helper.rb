@@ -6,7 +6,7 @@ module PollHelper
 			"<span class='more-text hidden'>#{poll.event.desc[200..-1]}" + 
 			"<span class='hide-text'>Hide</span></span>").html_safe
 		else
-			poll.event.desc
+			poll.event.comment
 		end
 	end
 
