@@ -7,8 +7,9 @@ class Api::V1::UsersController < ApplicationController
 
 	def index
 		users = User.all
-		if params
-			users = User.where(extract_non_model_attributes(params, User, true))
+		new_params =  extract_non_model_attributes(params, User, true)
+		if new_params
+			users = User.where(new_params)
 		end
 		render json: api_response("getAllUsers", to_array_of_hashes(users))
 	end
@@ -32,9 +33,15 @@ class Api::V1::UsersController < ApplicationController
 		end
 	end
 
-	def create
-		user = User.create extract_non_model_attributes(params, User)
-		render json: api_response("createUser", user.to_hash)
+	def create 
+		if !params["record_id"]
+			user = User.create extract_non_model_attributes(params, User)
+			render json: api_response("createUser", user.to_hash) and return
+		else
+			user = User.find params["record_id"]
+			user.update_attributes extract_non_model_attributes(params, User)
+			render json: api_response("updateUser", user.to_hash) and return
+		end
 	end
 
 end

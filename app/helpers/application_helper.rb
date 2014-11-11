@@ -26,7 +26,10 @@ module ApplicationHelper
 
 	def extract_non_model_attributes params, class_name, include_id=false
 		attrs = class_name.column_names
-		params.delete "id" if !include_id
+		if include_id && params["record_id"]
+			params["id"] = params["record_id"]
+		else
+		end
 		params.each do |k,v|
 			params.delete(k) if !attrs.include?(k)
 		end
