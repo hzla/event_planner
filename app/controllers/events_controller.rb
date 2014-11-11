@@ -38,4 +38,6 @@ class EventsController < ApplicationController
 		@movies = params[:movies] == "true"
 	end
 
+	
+
 end

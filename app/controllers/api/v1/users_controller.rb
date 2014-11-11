@@ -44,4 +44,14 @@ class Api::V1::UsersController < ApplicationController
 		end
 	end
 
+	def delete
+		begin
+			user = User.find params["record_id"]
+			user.destroy
+			render json: api_response("deleteUser", to_hash(user))
+		rescue
+			render json: api_error("deleteUser", "404", "Record not Found")
+		end
+	end
+
 end

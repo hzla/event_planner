@@ -38,6 +38,10 @@ Rails.application.routes.draw do
       resources :choices
       get '/choices/:id/vote', to: 'choices#vote'
       resources :services, only: [:index]
+
+      ["users", "events", "polls", "choices"].each do |resource|
+        delete "/#{resource}", to: "#{resource}#delete"
+      end
     end
   end
 

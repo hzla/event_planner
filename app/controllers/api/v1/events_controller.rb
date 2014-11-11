@@ -55,5 +55,15 @@ class Api::V1::EventsController < ApplicationController
 		end
 	end
 
+	def delete
+		begin 
+			event = Event.find params["record_id"]
+			event.destroy
+			render json: api_response("deleteEvent", to_hash(event))
+		rescue
+			render json: api_error("deleteEvent", "404", "Record not Found")
+		end
+	end
+
 
 end
