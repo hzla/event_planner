@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
 		if new_params
 			users = User.where(new_params)
 		end
-		render json: api_response("getAllUsers", to_array_of_hashes(users))
+		render json: api_response("users", to_array_of_hashes(users))
 	end
 
 	def show

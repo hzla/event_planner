@@ -14,6 +14,7 @@ module ApplicationHelper
 	end
 
 	def to_array_of_hashes collection
+		p collection
 		converted_collection = collection.map do |model|
 			to_hash(model)
 		end

@@ -7,12 +7,11 @@ class Api::V1::EventsController < ApplicationController
 
 	def index
 		events = Event.all
-		new_params = Event.where(extract_non_model_attributes(params, Event, true))
+		new_params = extract_non_model_attributes(params, Event, true)
 		if new_params
 			events = Event.where(new_params)
 		end
-		p events
-		render json: api_response("getAllEvents", to_array_of_hashes(events))
+		render json: api_response("events", to_array_of_hashes(events))
 	end
 
 	def show
@@ -36,8 +35,14 @@ class Api::V1::EventsController < ApplicationController
 	end
 
 	def create
-		event = Event.create extract_non_model_attributes(params, Event)
-		render json: api_response("createEvent", to_hash(event))
+		if !params["record_id"]
+			event = Event.create extract_non_model_attributes(params, Event)
+			render json: api_response("createEvent", to_hash(event)) and return
+		else
+			event = Event.find params["record_id"]
+			event.update_attributes extract_non_model_attributes(params, Event)
+			render json: api_response("updateEvent", to_hash(event))
+		end
 	end
 
 	def update
