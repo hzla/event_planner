@@ -8,7 +8,7 @@ class Api::V1::EventsController < ApplicationController
 	def index
 		events = Event.all
 		if params
-			events = Event.where(extract_non_model_attributes(params, Event))
+			events = Event.where(extract_non_model_attributes(params, Event, true))
 		end
 		render json: api_response("getAllEvents", to_array_of_hashes(events))
 	end

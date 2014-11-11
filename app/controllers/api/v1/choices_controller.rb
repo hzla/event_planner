@@ -32,7 +32,7 @@ class Api::V1::ChoicesController < ApplicationController
 	def index
 		choices = Choice.all
 		if params
-			choices = Choice.where(extract_non_model_attributes(params, Choice))
+			choices = Choice.where(extract_non_model_attributes(params, Choice, true))
 		end
 		render json: api_response("getAllChoices", to_array_of_hashes(choices))
 	end

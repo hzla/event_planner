@@ -37,7 +37,7 @@ class Api::V1::PollsController < ApplicationController
 	def index
 		polls = Poll.all
 		if params
-			polls = Poll.where extract_non_model_attributes(params, Poll)
+			polls = Poll.where extract_non_model_attributes(params, Poll, true)
 		end
 		render json: api_response("getAllPolls", to_array_of_hashes(polls))
 	end

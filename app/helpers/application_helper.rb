@@ -21,9 +21,9 @@ module ApplicationHelper
 		{request_name: request_name, status: {code: "200", message: "OK"}, result: result }
 	end
 
-	def extract_non_model_attributes params, class_name
+	def extract_non_model_attributes params, class_name, include_id=false
 		attrs = class_name.column_names
-		params.delete "id"
+		params.delete "id" if !include_id
 		params.each do |k,v|
 			params.delete(k) if !attrs.include?(k)
 		end

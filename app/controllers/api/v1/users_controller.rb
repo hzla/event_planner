@@ -8,7 +8,7 @@ class Api::V1::UsersController < ApplicationController
 	def index
 		users = User.all
 		if params
-			users = User.where(extract_non_model_attributes(params, User))
+			users = User.where(extract_non_model_attributes(params, User, true))
 		end
 		render json: api_response("getAllUsers", to_array_of_hashes(users))
 	end
