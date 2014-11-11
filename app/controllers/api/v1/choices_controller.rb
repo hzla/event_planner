@@ -6,8 +6,13 @@ class Api::V1::ChoicesController < ApplicationController
 	skip_before_filter :verify_authenticity_token
 
 	def create
-		choice = Choice.create extract_non_model_attributes(params, Choice)
-		render json: api_response("createChoice", choice.to_hash)
+		if !params["record_id"]
+			choice = Choice.create extract_non_model_attributes(params, Choice)
+			render json: api_response("createChoice", choice.to_hash) and return
+		else
+			choice = Choice.find params["record_id"]
+			render json: api_response("updateChoice", pol.to_hash) and return
+ 		end
 	end
 
 	def show
@@ -31,10 +36,11 @@ class Api::V1::ChoicesController < ApplicationController
 
 	def index
 		choices = Choice.all
-		if params
+		new_params = extract_non_model_attributes(params, Choice, true)
+		if new_params
 			choices = Choice.where(extract_non_model_attributes(params, Choice, true))
 		end
-		render json: api_response("getAllChoices", to_array_of_hashes(choices))
+		render json: api_response("choices", to_array_of_hashes(choices))
 	end
 
 	def vote

@@ -6,7 +6,7 @@ class Api::V1::ServicesController < ApplicationController
 
 	def index
 		services = Service.order(:available).reverse
-		render json: api_response("getAllServices", to_array_of_hashes(services))
+		render json: api_response("services", to_array_of_hashes(services))
 	end
 
 end

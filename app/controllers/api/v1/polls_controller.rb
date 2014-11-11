@@ -6,8 +6,13 @@ class Api::V1::PollsController < ApplicationController
 	skip_before_filter :verify_authenticity_token
 
 	def create
-		poll = Poll.create extract_non_model_attributes(params, Poll)
-		render json: api_response("createPoll", poll.to_hash)
+		if !params["record_id"]
+			poll = Poll.create extract_non_model_attributes(params, Poll)
+			render json: api_response("createPoll", poll.to_hash) and return
+		else
+			poll = Poll.find params["record_id"]
+			render json: api_response("updatePoll", pol.to_hash) and return
+ 		end
 	end
 
 	def show
@@ -36,10 +41,11 @@ class Api::V1::PollsController < ApplicationController
 
 	def index
 		polls = Poll.all
-		if params
+		new_params = extract_non_model_attributes(params, Poll, true)
+		if new_params
 			polls = Poll.where extract_non_model_attributes(params, Poll, true)
 		end
-		render json: api_response("getAllPolls", to_array_of_hashes(polls))
+		render json: api_response("polls", to_array_of_hashes(polls))
 	end
 
 	def update
