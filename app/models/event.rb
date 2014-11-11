@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :service
 
-	attr_accessible :finished, :user_id, :service_id, :desc, :start_time, :name, :status, :complete, :confirmation_id, :threshold, :current_choice
+	attr_accessible :finished, :user_id, :service_id, :comment, :start_time, :name, :status, :complete, :confirmation_id, :threshold, :current_choice
 
 	def activate_polls
 		update_attributes status: 'activated'

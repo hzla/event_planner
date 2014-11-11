@@ -27,7 +27,7 @@
 		<div id="poll-creator" class="hidden">
 			<%= form_for @event do |f| %>
 				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
-				<%= f.text_field :desc, placeholder: "Description", :class => "poll-field" %>
+				<%= f.text_field :comment, placeholder: "Description", :class => "poll-field" %>
 				<%= f.text_field :start_time, placeholder: "Date", :class => "poll-field" %>
 				<%= f.submit "Continue", id: "submit-poll", :class => "btn" %>
 			<% end %>
@@ -66,7 +66,7 @@
 		<div id="poll-creator" class="hidden">
 			<%= form_for @event do |f| %>
 				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
-				<%= f.text_field :desc, placeholder: "Description", :class => "poll-field" %>
+				<%= f.text_field :comment, placeholder: "Description", :class => "poll-field" %>
 				<%= f.text_field :start_time, placeholder: "Date", :class => "poll-field" %>
 				<%= f.submit "Continue", id: "submit-poll", :class => "btn" %>
 			<% end %>
