@@ -68,9 +68,9 @@ class Api::V1::ChoicesController < ApplicationController
 				end
 				choices << @choice
 			end
-			render json: api_response("voteChoice", {bot_action: bot_action, choices: to_array_of_hashes(choices)})
+			render json: api_response("voteChoices", {bot_action: bot_action, choices: to_array_of_hashes(choices)})
 		rescue
-			render json: api_error("voteChoice", "404", "Record not Found")
+			render json: api_error("voteChoices", "404", "Record not Found")
 		end
 	end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112025925) do
+ActiveRecord::Schema.define(version: 20141112044452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20141112025925) do
     t.datetime "time"
   end
 
+  add_index "choices", ["poll_id"], name: "index_choices_on_poll_id", using: :btree
+
   create_table "events", force: true do |t|
     t.boolean  "finished",        default: false
     t.integer  "user_id"
@@ -50,10 +52,14 @@ ActiveRecord::Schema.define(version: 20141112025925) do
     t.datetime "updated_at"
   end
 
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
   create_table "outings", force: true do |t|
     t.integer "user_id"
     t.integer "event_id"
   end
+
+  add_index "outings", ["user_id", "event_id"], name: "index_outings_on_user_id_and_event_id", using: :btree
 
   create_table "polls", force: true do |t|
     t.boolean "answered",     default: false
@@ -63,6 +69,8 @@ ActiveRecord::Schema.define(version: 20141112025925) do
     t.string  "phone_number"
     t.integer "user_id"
   end
+
+  add_index "polls", ["event_id"], name: "index_polls_on_event_id", using: :btree
 
   create_table "services", force: true do |t|
     t.string  "name"
