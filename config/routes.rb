@@ -31,12 +31,16 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users
       post '/users/:id', to: 'users#update' 
+     
+      get '/events/activate', to: 'events#activate'
       resources :events
       post '/events/:id', to: 'events#update'
+
+
       get '/events/search', to: 'events#search'
       resources :polls 
       resources :choices
-      get '/choices/:id/vote', to: 'choices#vote'
+      post '/choices/vote', to: 'choices#vote'
       resources :services, only: [:index]
 
       ["users", "events", "polls", "choices"].each do |resource|

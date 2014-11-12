@@ -24,8 +24,8 @@ class Api::V1::EventsController < ApplicationController
 				full_metadata_event["polls"].each_with_index do |poll, i|
 					poll["choices"] = active_record_polls[i].choices.as_json
 				end
-				user = User.find(event.user_id)
-				render json: api_response("getEvent", {event: full_metadata_event, user: user.as_json }) and return
+				users = event.users
+				render json: api_response("getEvent", {event: full_metadata_event, users: to_array_of_hashes(users) }) and return
 			else
 				render json: api_response("getEvent", to_hash(event))
 			end
@@ -36,8 +36,26 @@ class Api::V1::EventsController < ApplicationController
 
 	def create
 		if !params["record_id"]
-			event = Event.create extract_non_model_attributes(params, Event)
-			render json: api_response("createEvent", to_hash(event)) and return
+			if !params["event"] 
+				event = Event.create extract_non_model_attributes(params, Event)
+				render json: api_response("createEvent", to_hash(event))
+			else
+				polls = []
+				choices = []
+				event = Event.create params["event"]
+				params["polls"].each do |poll_params|
+					poll = Poll.create poll_params
+					event.polls << poll
+					polls << poll
+					params["choices"].each do |choice_params|
+						choice = Choice.create choice_params
+						poll.choices << choice
+						choices << choice
+					end
+				end
+				result = {event: to_hash(event), polls: to_array_of_hashes(polls), choices: to_array_of_hashes(choices)}
+				render json: api_response("createEventWithMetadata", result)
+			end
 		else
 			event = Event.find params["record_id"]
 			event.update_attributes extract_non_model_attributes(params, Event)
@@ -65,5 +83,14 @@ class Api::V1::EventsController < ApplicationController
 		end
 	end
 
+	def activate
+		begin
+			event = Event.find params["record_id"]
+			created_users = event.activate_polls
+			render json: api_response("activateEvent", {event: to_hash(event), created_users: created_users} )
+		rescue
+			render json: api_error("activateEvent", "404", "Record not Found")
+		end
+	end
 
 end

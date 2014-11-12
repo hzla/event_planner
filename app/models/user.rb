@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	has_many :authorizations, dependent: :destroy
-	has_many :events
+	has_many :events, through: :outings
+	has_many :outings
+
 
 	attr_accessible :name, :email, :profile_pic_url, :location, :phone_number, :uu_id
 
@@ -15,6 +17,10 @@ class User < ActiveRecord::Base
 
 	def first_name
 		name.split(" ")[0]
+	end
+
+	def created_events
+		Event.where(user_id: id)
 	end
 
 	def last_name

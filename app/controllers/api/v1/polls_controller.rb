@@ -58,4 +58,14 @@ class Api::V1::PollsController < ApplicationController
 		end
 	end
 
+	def delete
+		begin
+			poll = Poll.find params["record_id"]
+			poll.destroy
+			render json: api_response("deletePoll", to_hash(poll))
+		rescue
+			render json: api_error("deletePoll", "404", "Record not Found")
+		end
+	end
+
 end

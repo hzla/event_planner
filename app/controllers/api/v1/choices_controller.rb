@@ -44,30 +44,33 @@ class Api::V1::ChoicesController < ApplicationController
 	end
 
 	def vote
+		bot_action = false
+		choices = []
 		begin
-			@choice = Choice.find params[:id]
-			@event = @choice.poll.event
-			answer = params[:answer]
-			if answer == "yes"
-				@choice.update_attributes yes: true
-			else
-				@choice.update_attributes yes: false
+			params["answers"].each do |answer|
+				@choice = Choice.find answer["record_id"]
+				@event = @choice.poll.event
+				answer = answer["answer"]
+				if answer == "yes"
+					@choice.update_attributes yes: true
+				else
+					@choice.update_attributes yes: false
+				end
+				poll = @choice.poll
+				if @choice.poll.choices.where(yes: nil).empty?
+					poll.update_attributes answered: true
+				end
+				if @choice.yes_count >= @event.threshold && @event.confirmation_id == nil || (@choice.yes_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice != @choice.value) 
+					# ReservationWorker.perform_async({restaurant_id: @choice.service_id, date_time: '11/20/2014 18:30:00',
+					# party_size: @event.polls.count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
+					# email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
+					bot_action = true
+				end
+				choices << @choice
 			end
-			poll = @choice.poll
-			if @choice.poll.choices.where(yes: nil).empty?
-				poll.update_attributes answered: true
-			end
-			if @choice.yes_count >= @event.threshold && @event.confirmation_id == nil || (@choice.yes_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice != @choice.value) 
-				ReservationWorker.perform_async({restaurant_id: @choice.service_id, date_time: '11/20/2014 18:30:00',
-				party_size: @event.polls.count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
-				email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
-				render json: api_response("voteChoice", {bot_action: true, choice: @choice.to_hash}) and return
-			end
-			render json: api_response("voteChoice", {bot_action: false, choice: @choice.to_hash})
+			render json: api_response("voteChoice", {bot_action: bot_action, choices: to_array_of_hashes(choices)})
 		rescue
 			render json: api_error("voteChoice", "404", "Record not Found")
 		end
 	end
-
-
 end
