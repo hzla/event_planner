@@ -50,13 +50,13 @@
 	</div> -->
 	<% if @event.status == "dormant" %>
 		<%= link_to activate_path(@event) do %>
-			<div class="btn activate-poll" id="poll-status">
-				ACTIVATE POLL
+			<div class="btn activate-poll blue-btn" id="poll-status">
+				Send Invites
 			</div>
 		<% end %>
 	<% else %>
-		<div class="btn" id="poll-status">
-			ALREADY ACTIVATED
+		<div class="btn blue-btn" id="poll-status">
+			Invites Sent
 		</div>
 	<% end %>
 

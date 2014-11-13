@@ -13,7 +13,7 @@ class PollsController < ApplicationController
 			Poll.create email: email, event_id: @event_id
 		end
 		@event.create_threshold
-		redirect_to services_path(event_id: @event_id)
+		redirect_to opentable_path(event_id: @event_id)
 	end
 
 	def show

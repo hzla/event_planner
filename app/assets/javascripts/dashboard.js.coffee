@@ -3,11 +3,6 @@ Dashboard =
     $('body').on 'click touchend', '#create-poll', @showPollForm
     $('body').on 'click touchend', '#cancel-form', @hidePollForm
     $('body').on 'submit', '#new_event', @checkFields
-    $('body').on 'focus touchstart', '#event_start_time', @convertEventTime
-
-  convertEventTime: ->
-    @.type = 'date'
-    $(@).focus()
     
   showPollForm: ->
     $('.main-logo.pic, #header-left').hide()
@@ -25,11 +20,9 @@ Dashboard =
   checkFields: ->
     name = $('#event_name').val()
     desc = $('#event_comment').val()
-    startTime = $('#event_start_time').val()
-    if name == "" || desc == "" || startTime == ""
+    if name == "" || desc == ""
       $('#event_name').css('border', '1px solid red') if name == ""
       $('#event_comment').css('border', '1px solid red') if desc == ""
-      $('#event_start_time').css('border', '1px solid red') if startTime == ""
       return false
     else
       return true

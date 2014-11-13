@@ -25,14 +25,7 @@
 	height: 40px;
 	line-height: 40px;
 	margin-top: 20px;
-	background: $turq;
 	color: white;
-}
-
-#create-poll:hover {
-	border: 1px solid $turq;
-	color: $turq;
-	background: white;
 }
 
 @media (min-width: 1024px) {
@@ -62,7 +55,7 @@
 #cancel-form {
 	position: absolute;
 	left: 10px;
-	color: red;
+	color: white;
 	height: 44px;
 	line-height: 44px;
 	cursor: pointer;
@@ -89,7 +82,6 @@
 }
 
 #submit-poll {
-	background: $turq;
 	color: white;
 	position: absolute;
 	left: 0;
@@ -99,13 +91,6 @@
 	height: 44px;
 	font-size: 16px;
 }
-
-#submit-poll:hover {
-	background: white;
-	color: $turq;
-	border: 1px solid $turq;
-}
-
 
 /******** After Welcome Elements ********/
 

@@ -10,6 +10,25 @@
 	box-sizing: border-box;
 	font-family: 'Muli', sans-serif;
 }
+
+.blue-btn {
+	background: $blue;
+}
+
+.turq-btn {
+	background: $turq;
+}
+
+.turq-btn:hover {
+	background: white;
+	border: 1px solid $turq;
+	color: $turq;
+}
+.blue-btn:hover {
+	background: white;
+	border: 1px solid $blue;
+	color: $blue;
+}
 /* .btn are square in mobile */
 
 .btn-rnd {

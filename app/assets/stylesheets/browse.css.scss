@@ -41,23 +41,29 @@
 	text-align: left;
 	position: relative;
 	cursor: pointer;
+	background: $light-turq;
+}
+
+body div.option-overlay {
+	background: rgba(29, 207, 172, .7);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	display: none;
 }
 
 .option.selected {
-	.option-pic {
-		border: 3px solid $turq;
-	}
-	.option-check {
+	.option-check, .option-overlay {
 		display: block;
 	}
 }
 
 .option-check {
-	height: 20px;
-	width: 20px;
+	height: 40px;
+	width: 40px;
 	position: absolute;
-	top: 20px;
-	left: 60px;
+	top: 30px;
+	right: 20px;
 	display: none;
 }
 
@@ -72,6 +78,8 @@
 .option-title, .option-info {
 	float: left;
 	width: calc(100% - 120px);
+	margin-left: 20px;
+
 }
 
 .option-title {
@@ -84,10 +92,8 @@
 }
 
 .option-pic {
-	height: 60px;
-	width: 60px;
-	margin: 20px;
-	border-radius: 50px;
+	height: 100px;
+	width: 100px;
 	box-sizing: border-box;
 	float: left;
 }

@@ -11,33 +11,21 @@
 		<div class="main-logo text mobile">INSTAGATOR</div>
 <% end %>
 
-<% if @events.empty? %>
+
 
 	<div id="content-container" class="welcome-dashboard gray-back generic">
+		<% if @events.empty? %>
 		<div id="welcome-text-container" class="full-white-block">
 			<%= image_tag 'instagatoricon.svg', id: "welcome-icon" %>
 			<div id="welcome-text" class="medium-text">
-				Welcome to Instagator, get started by creating a poll below.
+				Welcome to Instagator, the easiest way to plan events.
 			</div>
 		</div>
-
-		<div id="create-poll" class="btn-rnd">
-			Create Poll
+		<div id="create-poll" class="btn-rnd turq-btn">
+			Get Started
 		</div>
-		<div id="poll-creator" class="hidden">
-			<%= form_for @event do |f| %>
-				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
-				<%= f.text_field :comment, placeholder: "Description", :class => "poll-field" %>
-				<%= f.text_field :start_time, placeholder: "Date", :class => "poll-field" %>
-				<%= f.submit "Continue", id: "submit-poll", :class => "btn" %>
-			<% end %>
-		</div>
-
-
-	</div>
 
 <% else %>
-	<div id="content-container" class="generic">
 		<% @events.each do |event| %>
 			<%= link_to results_path(id: event.id, ongoing: !event.finished) do %>
 				<div class="full-white-block event">
@@ -59,17 +47,20 @@
 				</div>
 			<% end %>
 		<% end %>
-		<div id="create-poll" class="btn-rnd">
+		<div id="create-poll" class="btn-rnd turq-btn">
 			Create Poll
 		</div>
+	<% end %>
+		
 
 		<div id="poll-creator" class="hidden">
 			<%= form_for @event do |f| %>
 				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
 				<%= f.text_field :comment, placeholder: "Description", :class => "poll-field" %>
-				<%= f.text_field :start_time, placeholder: "Date", :class => "poll-field" %>
-				<%= f.submit "Continue", id: "submit-poll", :class => "btn" %>
+				<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
 			<% end %>
 		</div>
-	</div>
-<% end %>
+</div>
+
+
+

@@ -1,0 +1,20 @@
+@import 'variables';
+
+
+#datepair-separator {
+	width: 100%;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	border-bottom: 1px solid $light-grey;
+}
+
+#datepair input {
+	width: calc(100% - 20px);
+	margin-left: 10px; 
+	border: none;
+	height: 30px;
+	border-bottom: 1px solid $light-grey;
+	font-size: 16px;
+	padding: 0;
+}

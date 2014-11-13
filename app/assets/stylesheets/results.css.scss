@@ -132,18 +132,18 @@ body .winning-choice-tally.sub-text {
 
 #take-poll {
 	width: 100%;
-	background: $turq;
 	height: 40px;
 	line-height: 40px;
 	font-weight: 600;
 	margin: 10px 0px;
 }
 
-#take-poll:hover {
-	background: white;
-	color: $turq;
-	border: 1px solid $turq;
+.activation-action {
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
 }
+
 
 
 @media (min-width: 1024px) {

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/choices/:id/vote', to: 'choices#vote', as: 'vote'
 
   get '/invite_friends', to: 'events#invite_friends', as: 'invite_friends'
-
+  get '/booking_info', to: 'events#booking_info', as: 'booking_info'
   get '/opentable', to: 'services#opentable', as: 'opentable'
   
   get '/s1', to: 'pages#screen_one'
@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       resources :choices
       post '/choices/vote', to: 'choices#vote'
       resources :services, only: [:index]
+      resources :authorizations
 
       ["users", "events", "polls", "choices"].each do |resource|
         delete "/#{resource}", to: "#{resource}#delete"

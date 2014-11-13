@@ -2,12 +2,12 @@
 
 #invite-email {
 	width: calc(100% - 20px);
-	margin: 10px;
+	margin-left: 10px;
 	border: none;
 	text-align: center;
-	height: 30px;
+	height: 40px;
+	line-height: 40px;
 	font-size: 16px;
-	border-radius: 5px;
 }
 
 #add-email-btn {
@@ -15,14 +15,12 @@
 	line-height: 40px;
 	color: white;
 	width: 100%;
-	background: $turq;
 	font-weight: 600;
 	border-radius: 0px;
 	box-sizing: border-box;
 }
 
 #invitees-container {
-	margin-top: 20px;
 	text-align: left;
 }
 
@@ -35,15 +33,14 @@
 	padding-left: 10px;
 	width: 100%;
 	text-align: left;
-	height: 30px;
-	line-height: 30px;
+	height: 40px;
+	line-height: 40px;
+	background: $light-grey;
+	border-bottom: 1px solid white;
 }
 
 @media (min-width: 1024px) {
 	#add-email-btn:hover {
-		background: white;
-		border: 1px solid $turq;
-		color: $turq;
 		line-height: 38px;
 	}
 	#add-email-btn {

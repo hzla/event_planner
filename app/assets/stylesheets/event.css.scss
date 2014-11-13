@@ -40,21 +40,12 @@ div.event-field {
 
 #poll-status {
 	width: 100%;
-	background: $turq;
-	color: white;
 	height: 40px;
 	line-height: 40px;
 	font-size: 16px;
 	box-sizing: border-box;
 	font-weight: 600;
 }
-
-#poll-status:hover {
-	border: 1px solid $turq;
-	background: white;
-	color: $turq;
-}
-
 
 /******** Activation Modal *******/
 
@@ -75,6 +66,7 @@ div.event-field {
 	z-index: 3;
 	margin: 0 auto;
 	margin-top: 30vh;
+	background: white;
 }
 
 .activation-message {
@@ -88,16 +80,11 @@ div.event-field {
 .activation-action.btn {
 	width: 100%;
 	height: 40px;
-	background: white;
-	color: $black;
 	line-height: 40px;
 	border-radius: 0px;
 }
 
-#take-poll.activation-action {
-	color: white;
-	background: $turq;
-}
+
 
 #return-home {
 	border-bottom-right-radius: 5px;

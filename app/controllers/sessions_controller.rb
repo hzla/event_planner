@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 	def create
 	  redirect_to dashboard_path(signed_in: true) and return if current_user
 	  auth_hash = request.env['omniauth.auth']
-	  auth = Authorization.find_by_uid auth_hash['uid']
+	  auth = Authorization.find_by_uu_id auth_hash['uid']
 	  #redirect to user page if they've already authorized
 	  if auth
 	    session[:user_id] = auth.user.id

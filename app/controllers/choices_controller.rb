@@ -8,8 +8,6 @@ class ChoicesController < ApplicationController
 		titles = params[:title_list].split("<OPTION>")
 		infos = params[:info_list].split("<OPTION>")
 		service_ids = params[:id_list].split("<OPTION>")
-		p params
-		binding.pry
 		event = Event.find(@event_id)
 		polls = event.polls
 		polls.each do |poll|

@@ -1,20 +1,30 @@
 class EventsController < ApplicationController
 
 	include SessionsHelper
-	skip_before_filter  :verify_authenticity_token
-	skip_before_filter :require_login
 
 	def create
 		@event = Event.create params[:event]
-		current_user.events << @event
-		redirect_to service_path(event_id: event_id)
+		@event.users << current_user
+		@event.update_attributes user_id: current_user.id
+		redirect_to booking_info_path(event_id: @event.id)
+	end
+
+	def update
+		@event = Event.find params[:id]
+		@event.update_attributes params[:event]
+		redirect_to invite_friends_path(event_id: @event.id)
+	end
+
+	def booking_info
+		@event_id = params[:event_id]
+		@event = Event.find @event_id
 	end
 
 	def activate
 		@event = Event.find(params[:id])
 		@event.activate_polls
 		@poll = @event.polls.where(email: current_user.email).first
-		@theatres = Fandango.movies
+		# @theatres = Fandango.movies
 	end
 
 	def show

@@ -2,7 +2,7 @@
 	<div class="header-pic-container">
 		<div id="header-right-pic" class="submit-emails hidden">Next</div>
 	</div>
-		<div class="main-logo text">Invite Friends</div>
+		<div class="main-logo text">Who's Going?</div>
 		<div id="header-right" class="mobile submit-emails hidden">Next</div>
 <% end %>
 
@@ -11,17 +11,14 @@
 <% end %>
 
 <div class="generic" id="content-container">
-	<div class="full-grey-block">
+	<div class="full-white-block">
 		<%= text_field_tag :email, nil, id: "invite-email", placeholder: "Add an invitee's email.." %>
 	</div>
-	<div class="btn" id="add-email-btn">
+	<div class="btn blue-btn" id="add-email-btn">
 		Add
 	</div>
 
 	<div id="invitees-container" class="full-white-block">
-		<div class="grey-header full-grey-block">
-			Invitees
-		</div>
 		<div class="invitees">
 			<% @event.polls.each do |poll| %>
 				<div class="invitee real"><%= poll.email %></div>
@@ -29,13 +26,6 @@
 			<% if @event.polls.empty? %>
 				<div class="invitee"><%= current_user.email %></div>
 			<% end %>
-		</div>
-	</div>
-	<div id="contacts-container" class="full-white-block">
-		<div class="grey-header full-grey-block">
-			Recent Contacts
-		</div>
-		<div class="contacts">
 		</div>
 	</div>
 </div>

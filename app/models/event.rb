@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
 	has_many :outings
 	belongs_to :service
 
-	attr_accessible :finished, :user_id, :service_id, :comment, :start_time, :name, :status, :complete, :confirmation_id, :threshold, :current_choice
+	attr_accessible :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
 
 	def activate_polls 
 		update_attributes status: 'activated'

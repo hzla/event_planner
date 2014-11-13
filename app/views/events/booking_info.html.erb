@@ -1,0 +1,47 @@
+<%= content_for :header do %>
+	<div class="header-pic-container">
+		<%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
+			<div class="profile-tooltip">
+				<%= current_user.name %><br>
+				<%= link_to logout_path, class: "logout" do %>Logout<% end %></div>
+			<div class="tail"></div>
+	</div>
+		<div class="mobile desk-text" id="cancel-form">Cancel</div>
+		<div class="main-logo text mobile">Booking Info</div>
+<% end %>
+
+
+<div class="generic" id="content-container">
+	<div id="poll-creator">
+		<%= form_for @event do |f| %>
+			<div id="datepair">
+				<%= f.text_field :start_date, :class => "pick-date", placeholder: "Start Date" %>
+				<%= f.text_field :start_time, :class => "pick-time", placeholder: "Time Range Start" %>
+				<%= f.text_field :end_time, :class => "pick-time", placeholder: "Time Range End" %>
+				<%= f.text_field :threshold, placeholder: "Minimum Party Size" %>
+			</div>
+			<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
+		<% end %>
+	</div>
+</div>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+    	// initialize input widgets first
+    $('#datepair .pick-time').timepicker({
+        'showDuration': true,
+        'timeFormat': 'g:ia'
+    });
+
+    $('#datepair .pick-date').datepicker({
+        'format': 'yyyy-m-d',
+        'autoclose': true
+    });
+
+    })
+    
+</script>
