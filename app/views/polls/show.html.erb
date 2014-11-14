@@ -1,18 +1,15 @@
 <div id="content-container" class="s1">
 	<%= content_for :header do %>
-
 		<% if current_user %>
 			<div class="header-pic-container">
 				<%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
 					<div class="profile-tooltip">
-						<%= current_user.name %><br>
+						<%= current_user.name || "" %><br>
 						<%= link_to logout_path, class: "logout" do %>Logout<% end %></div>
 					<div class="tail"></div>
 			</div>
 		<% end %>
-			
 			<%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
-
 			<div class="main-logo text mobile">INSTAGATOR</div>
 	<% end %>
 
@@ -21,20 +18,23 @@
 			<%= image_tag @poll.user.profile_pic_url, id: 'profile-pic', :class => 'pp-centered' %>
 		</div>
 		<div class="box-content profile-box">
-			<div class="content-row main-text profile-info">
+			<div class="content-row medium-text poll-friend profile-info">
+				Your friend
+			</div>
+			<div class="content-row poll-username profile-info">
 				<%= @poll.user.name %>
 			</div>
 			<div class="content-row medium-text profile-info">
 				Invited you to take a poll
 			</div>
-
-			<div class="content-row main-text bold light-gray" id="time-header">
-				<%= @poll.name %>
-			</div>
-			<div class="content-row medium-text light-gray" id="time">
-				<div class="time"><%= image_tag 'clockicon.png', :class => "text-icon" %><%= @poll.start_time || "Some Random Time" %></div>
-			</div>
 		</div>
+
+		<div class="content-row main-text bold" id="time-header">
+				<%= @event.name %>
+			</div>
+			<div class="content-row medium-text" id="time">
+				<div class="time"><%= image_tag 'clockicon.png', :class => "text-icon" %><%= @event.start_time || "Some Random Time" %></div>
+			</div>
 
 
 			<div class="content-row image-row opaque">
@@ -57,18 +57,33 @@
 				<% end %>
 			</div>
 		<div class="box-content">
-			<div class="content-row description sub-text light-gray">
+			<div class="content-row description sub-text">
 				<%= description(@poll) %>
 			</div>
 		</div>
 
-		<div class="content-row empty opaque"></div>
-		<div class="content-row box-actions">
-			<div id="red-circle" class="box-action">Decline</div>
-			<%= link_to take_path(@poll, code: @code) do %>
-				<div id="green-circle" class="box-action">Take Poll</div>
-			<% end %>
-		</div>
+		<% if @fb_connected %>
 
+			<div class="content-row empty opaque"></div>
+			<div class="content-row box-actions">
+				<%= link_to delete_poll_path(@poll) do %>
+					<div id="red-circle" class="box-action">Decline</div>
+				<% end %>
+				<%= link_to take_path(@poll, code: @code) do %>
+					<div id="green-circle" class="box-action">Take Poll</div>
+				<% end %>
+			</div>
+
+		<% else %>
+			<%= link_to '/auth/facebook' do %>
+				<div class="btn blue-btn" id="fb-connect-poll">
+					Connect with Facebook to Vote
+				</div>
+			<% end %>
+		<% end %>
 	</div>
 </div>
+
+<script>
+	$('#main-header').css('background', 'white').css('color', 'black')
+</script>

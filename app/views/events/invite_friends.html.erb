@@ -1,9 +1,9 @@
 <%= content_for :header do %>
 	<div class="header-pic-container">
-		<div id="header-right-pic" class="submit-emails hidden">Next</div>
+<!-- 		<div id="header-right-pic" class="submit-emails hidden">Next</div> -->
 	</div>
 		<div class="main-logo text">Who's Going?</div>
-		<div id="header-right" class="mobile submit-emails hidden">Next</div>
+<!-- 		<div id="header-right" class="mobile submit-emails hidden">Next</div> -->
 <% end %>
 
 <%= form_tag polls_path(event_id: @event_id), id: "emails-form" do %>
@@ -28,4 +28,6 @@
 			<% end %>
 		</div>
 	</div>
+
+	<div class="submit-emails hidden btn blue-btn">Continue</div>
 </div>

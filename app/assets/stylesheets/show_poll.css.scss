@@ -177,18 +177,45 @@
 	overflow: hidden;
 }
 
+#fb-connect-poll {
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+}
+
 
 /************* Media Queries ***************/
 
 @media (max-width: 1023px) {
 	body {
+		#fb-connect-poll {
+			width: calc(100% - 40px);
+			position: fixed;
+			bottom: 20px;
+			left: 20px;
+			border-radius: 5px;
+		}
 		#content-box {
 			width: 100%;
 			margin-top: 0;
 			background: $white;
 		}
+		#time {
+			padding-bottom: 20px;
+			border-bottom: 1px solid $light-grey;
+		}
 		.box-content.profile-box {
 			padding-top: 0px;
+			background: $turq;
+			color: white;
+		}
+		#time-header, #time {
+			background: white;
+			color: $black;
+		}
+		.profile-pic-container {
+			top: 20px;
+			left: 0px;
 		}
 		#profile-pic {
 			top: 10px;
@@ -196,19 +223,23 @@
 			width: 80px;
 			height: 80px;
 		}
-		.main-text.profile-info {
-			padding-top: 25px;
+		.poll-username.profile-info {
 			margin-right: 60px;
+			font-size: 36px;
+			font-weight: 600;
+		}
+		.poll-friend.profile-info {
+			padding-top: 25px;
 		}
 		.content-row.profile-info {
 			float: right;
-			width: 50%;
+			width: 230px;
 			text-align: left;
 			clear: right;
-			margin-right: 60px;
+			margin-right: 0px;
 		}
 		#time-header {
-			margin-top: 20px;
+			border-top: 1px solid $light-grey;
 		}
 		.content-row.empty.opaque {
 			display: none;
@@ -234,7 +265,8 @@
 			background: $light-grey;
 		}
 		.image-row {
-			padding: 10px 10px;
+			padding: 20px 10px;
+			border-bottom: 1px solid $light-grey;
 		}
 		#red-circle {
 			left: calc(50% - 100px);

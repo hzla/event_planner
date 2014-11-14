@@ -13,7 +13,6 @@
 #add-email-btn {
 	height: 40px;
 	line-height: 40px;
-	color: white;
 	width: 100%;
 	font-weight: 600;
 	border-radius: 0px;
@@ -39,6 +38,16 @@
 	border-bottom: 1px solid white;
 }
 
+.submit-emails {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	height: 40px;
+	line-height: 40px;
+}
+
+
+
 @media (min-width: 1024px) {
 	#add-email-btn:hover {
 		line-height: 38px;
@@ -46,6 +55,13 @@
 	#add-email-btn {
 		margin: 0 auto;
 		border-radius: none;
+	}
+	.submit-emails {
+		position: absolute;
+		width: 20vw;
+		bottom: 20vh;
+		left: 50%;
+		margin-left: -10vw;
 	}
 	#invite-email{
 		height: 40px;

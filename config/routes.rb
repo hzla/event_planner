@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/events/:id/results', to: 'events#results', as: 'results'
 
   resources :polls 
+  get '/polls/:id/delete', to: 'polls#delete', as: 'delete_poll'
   get '/polls/:id/take', to: 'polls#take', as: 'take'
   resources :choices
 

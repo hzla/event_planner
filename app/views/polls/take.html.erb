@@ -4,12 +4,16 @@
 <% end %>
 <% if @poll.answered %>
 	<div id="content-container" class="s2 default-img">
-		<div id="poll-finished">
-			Congrats!<br>
-			<span class="main-text">You finished the poll!</span><br>
+		<div id="poll-finished" class="main-text">
+			Thanks for answering! We’ll email you notifications as the poll updates.<br><br>
+			In the mean time, you can download the app and start planning your own events for free!
+			<br><br>
 			<% if current_user %>
 				<%= link_to results_path(id: @event.id, ongoing: !@event.finished) do %>
 					<span class="view-results">View Results</span>
+				<% end %><br><br>
+				<%= link_to dashboard_path do %>
+					<div class="btn blue-btn" id="go-dashboard">Go to Dashboard</div>
 				<% end %>
 			<% end %>
 		</div>
@@ -76,13 +80,17 @@
 				</div>
 			</div>
 		<% end %>
-			<div id="poll-finished" class="hidden">
-				Congrats!<br>
-				<span class="main-text">You finished the poll!</span><br>
+			<div id="poll-finished" class="hidden main-text">
+				Thanks for answering! We’ll email you notifications as the poll updates.<br><br>
+				In the mean time, you can download the app and start planning your own events for free!<br><br>
 				<% if current_user %>
-				<%= link_to results_path(id: @event.id, ongoing: !@event.finished) do %>
-					<span class="view-results">View Results</span>
-				<% end %>
+					<%= link_to results_path(id: @event.id, ongoing: !@event.finished) do %>
+						<span class="view-results">View Results</span>
+
+					<% end %><br><br>
+					<% link_to dashboard_path do %>
+						<div class="btn blue-btn" id="go-dashboard">Go to Dashboard</div>
+					<% end %>
 			<% end %>
 			</div>
 	</div>

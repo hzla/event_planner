@@ -15,6 +15,10 @@ class Poll < ActiveRecord::Base
 		code.join
 	end
 
+	def code
+		url.split("code=")[-1]
+	end
+
 	def user
 		event.user
 	end

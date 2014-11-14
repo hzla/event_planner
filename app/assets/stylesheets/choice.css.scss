@@ -65,15 +65,23 @@
 
 #poll-finished {
 	text-align: center;
-	font-size: 32px;
+	font-size: 16px;
 	background: white;
-	width: 100%;
+	width: calc(100% - 20px);
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 40px 0px;
-	margin-top: 25vh;
+	margin-top: 10vh;
 	box-sizing: border-box;
+}
 
+#go-dashboard {
+	width: 20vw;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 20px;
 }
 
 
@@ -143,6 +151,13 @@
 			}
 
 
+		}
+		#go-dashboard {
+			position: fixed;
+			width: calc(100% - 40px);
+			border-radius: 5px;
+			bottom: 20px;
+			left: 20px;
 		}
 
 	}

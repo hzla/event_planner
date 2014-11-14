@@ -54,10 +54,8 @@ Poll =
     $('#emails-form').submit()
 
   showNext: ->
-    if $(window).width() > 1024
-      $('.submit-emails').first().show() 
-    else
-      $('.mobile.submit-emails').show()
+    $('.submit-emails').first().show() 
+
     
 
 

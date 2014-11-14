@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
 		polls.each do |poll|
 			poll.generate_url
 			if poll.email
-				user = User.create email: poll.email
+				user = User.create email: poll.email, activation: poll.code
 				users << user
 				created_users << user
 				# UserMailer.poll_email(poll).deliver 
