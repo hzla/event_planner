@@ -27,9 +27,6 @@ class PollsController < ApplicationController
 	def show
 		@poll = Poll.find params[:id]
 		@event = @poll.event
-		p current_user
-		puts "\n" * 5
-
 		if params[:code] != @poll.url.split("?code=").last
 			redirect_to root_path and return
 		end

@@ -1,0 +1,14 @@
+<% @options.each do |option| %>
+	<div class="option mobile-text">
+		<div class="option-overlay"></div>
+		<%= image_tag Opentable.image_for(option), :class => "option-pic" %>
+		<%= image_tag 'checkgreen.svg', :class => "option-check" %>
+		<div class="option-title bold"><%= option["name"] %></div>
+		<div class="option-info"><%= option["address"] %></div>
+		<div class="option-id hidden"><%= option["id"] %></div>
+	</div>
+<% end %>
+
+<script>
+	$('#service-location').text('<%= @location %>')
+</script>

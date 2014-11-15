@@ -33,6 +33,30 @@
 	color: white;
 }
 
+/*************** Searching *****************/
+
+#service-search-container {
+	width: 100%;
+}
+#service-search-container input {
+	font-size: 16px;
+}
+
+
+.service-search-field {
+	width: 100%;
+	text-align: center;
+	height: 40px;
+	border: none;
+	border-top: 1px solid $light-grey;
+}
+#submit-service-search {
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+}
+
+
 /******* browsing options *******/
 
 .option {

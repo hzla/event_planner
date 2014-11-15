@@ -1,32 +1,3 @@
-DashBoard:
-	Dashboard Event Types
-
-	New Event Invite Not yet Voted
-		- show expiration
-
-	Event Invite Already Voted
-		- show expiration
-		- show you voted
-
-	Your Event no history
-		- show expiration
-		- show num voters/ total
-
-	Your Event with history
-		- show last log 
-		- show num voters
-
-	_____________________________________________
-
-	Event Reserved by Self
-	Event Reserved by Other
-
-
-OpenTable: 
-	search by location
-	search by name after
-
-
 Bot
 	modify reservations
 	logging history and writing to events 
