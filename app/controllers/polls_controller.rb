@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-	
+
 	include SessionsHelper
 	skip_before_action :require_login, only: "show"
 	before_filter :check_event_ownership
@@ -15,9 +15,9 @@ class PollsController < ApplicationController
 		end
 		polls = @event.polls
 		polls.where(email: current_user.email).first.update_attributes user_id: current_user.id
-		Poll.where(event_id: @event.id).each do |poll| 
+		Poll.where(event_id: @event.id).each do |poll|
 			user = User.where(email: poll.email)
-			if user
+			if !user.empty?
 				poll.update_attributes user_id: user.first.id
 			end
 		end
