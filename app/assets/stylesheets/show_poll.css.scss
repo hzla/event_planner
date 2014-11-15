@@ -11,7 +11,7 @@
 	padding-top: 70px;
 	padding-bottom: 0px;
 	border-top-left-radius: 3px;
-	border-top-right-radius: 3px; 
+	border-top-right-radius: 3px;
 }
 
 #time-header {
@@ -126,7 +126,7 @@
 .empty {
 	height: 70px;
 	border-bottom-left-radius: 3px;
-	border-bottom-right-radius: 3px; 
+	border-bottom-right-radius: 3px;
 }
 
 .box-action {
@@ -199,7 +199,7 @@
 
 #fb-connect-poll {
 	border-top-left-radius: 0px;
-	border-top-right-radius: 0px; 
+	border-top-right-radius: 0px;
 	height: 40px;
 	width: 100%;
 	line-height: 40px;
@@ -242,7 +242,7 @@
 			text-align: center;
 			height: auto;
 			color: $red;
-			float: left; 
+			float: left;
 			line-height: 16px;
 			margin-top: 10px;
 		}
@@ -266,6 +266,7 @@
 			padding-top: 0px;
 			background: $turq;
 			color: white;
+			border-radius: 0px;
 		}
 		#time-header, #time {
 			background: $turq;
