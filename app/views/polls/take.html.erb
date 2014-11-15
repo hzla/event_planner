@@ -16,7 +16,7 @@
 				<%= image_tag choice.image_url, :class => "choice-pic" %>
 				<div class="choice-value"><%= choice.value %></div>
 				<div class="choice-time"><%= choice.time || "7:00PM" %></div>
-				<div class="choice-vote-container <%= choice.yes ? 'yes' : 'no' %>">
+				<div class="choice-vote-container <%= choice.yes ? 'yes' : '' %>">
 					<%= link_to vote_path(choice.id, answer: "yes"), remote: true, :class => "upvote-link" do %>
 						<%= image_tag 'upvotegrey.svg', :class => "choice-upvote choice-vote svg #{'chosen' if choice.yes}" %>
 					<% end %>
@@ -28,7 +28,7 @@
 			</div>
 		<% end %>
 	</div>
-	
+
 	<div id="poll-finished" class="hidden main-text">
 		Thanks for answering! We’ll email you notifications as the poll updates.<br><br>
 		In the mean time, you can download the app and start planning your own events for free!<br><br>
@@ -42,7 +42,7 @@
 			<% end %>
 		<% end %>
 	</div>
-	
+
 	<div id="finish-poll-take" class="btn blue-btn pull-bottom-btn">
 		Continue
 	</div>
