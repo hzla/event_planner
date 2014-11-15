@@ -29,10 +29,10 @@ class ChoicesController < ApplicationController
 			delta = 2
 		end
 		if answer == "yes"
-			changed = !@choice.yes
+			changed = !@choice.yes || @choice.yes == nil
 			@choice.update_attributes yes: true
 		else
-			changed = @choice.yes
+			changed = @choice.yes || @choice.yes == nil
 			@choice.update_attributes yes: false
 		end
 		poll = @choice.poll

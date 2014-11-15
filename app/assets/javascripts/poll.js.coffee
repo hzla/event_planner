@@ -49,6 +49,8 @@ Poll =
         new_score = parseInt(current_score.text()) - delta
         current_score.text new_score
 
+    console.log data
+
   addEmail: ->
     email = $('#invite-email').val()
     if email != ''
