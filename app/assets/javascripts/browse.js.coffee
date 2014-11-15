@@ -6,6 +6,21 @@ Browse =
     $('body').on 'click touchend', '.service-tab', @toggleActive
     $('body').on 'click touchend', '.submit-options', @submitOptions
     $('body').on 'click', '.movie', @toggleMovieSelect
+    $('body').on 'ajax:success', '#service-search-form', @showResults
+    $('body').on 'keyup', '#service-search-name', @filterResults
+
+  filterResults: ->
+    term = $(@).val()
+    reg = new RegExp(term, "i")
+    $('.option').each (i) ->
+      title = $(@).find('.option-title').text()
+      if reg.exec(title) != null
+        $(@).show()
+      else
+        $(@).hide()
+
+  showResults: (event, data) ->
+    $('.service-options').html data
 
   toggleMovieSelect: ->
     $(@).toggleClass 'selected' 

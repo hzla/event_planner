@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
 	
 	include SessionsHelper
-	before_filter :check_event_ownership
+	# before_filter :check_event_ownership
 
 	def index
 		@services = Service.order(:available).reverse
@@ -19,6 +19,12 @@ class ServicesController < ApplicationController
 			location = nil
 		end
 		@options = Opentable.options location
+	end
+
+	def opentable_search
+		@location = params[:location]
+		@options = Opentable.search params[:location]
+		render layout: false
 	end
 
 	private

@@ -4,28 +4,26 @@ Rails.application.routes.draw do
   ['help', 'contact', 'faq', 'about', 'terms'].each do |page|
     get "/#{page}", to: ("pages#" + "#{page}"), as: page 
   end
-
+ 
   
-  resources :services, only: [:index, :show]
+  get '/dashboard', to: 'users#dashboard', as: 'dashboard'
   resources :events
   get '/events/:id/activate', to: 'events#activate', as: 'activate'
   get '/events/:id/results', to: 'events#results', as: 'results'
-
   resources :polls 
   get '/polls/:id/delete', to: 'polls#delete', as: 'delete_poll'
   get '/polls/:id/take', to: 'polls#take', as: 'take'
   resources :choices
-
   get '/choices/:id/vote', to: 'choices#vote', as: 'vote'
-
   get '/invite_friends', to: 'events#invite_friends', as: 'invite_friends'
   get '/booking_info', to: 'events#booking_info', as: 'booking_info'
+
+
+  resources :services, only: [:index, :show]
   get '/opentable', to: 'services#opentable', as: 'opentable'
+  post '/opentable/search', to: 'services#opentable_search', as: 'opentable_search'
   
-  get '/s1', to: 'pages#screen_one'
-  get '/s2', to: 'pages#screen_two'
-  get '/appstore', to: 'pages#app_store'
-  get '/dashboard', to: 'users#dashboard', as: 'dashboard'
+
 
 
   namespace :api, :defaults => {:format => :json} do

@@ -3,10 +3,25 @@ class Opentable
 	def initialize
 	end
 
+	def self.search location
+		query = nil
+		location = location.gsub(' ', '%20')
+		if location.to_i > 0
+			query = "zip=#{location}&per_page=100"
+		else
+			query = "city=#{location}&per_page=100"
+		end
+		url = "http://opentable.herokuapp.com/api/restaurants?#{query}"
+		places = HTTParty.get(url)["restaurants"]
+		places
+	end
+
+
+
 	def self.options location=nil
 		location = "San Francisco" if !location
 		location = location.gsub(' ', '%20')
-		url = "http://opentable.herokuapp.com/api/restaurants?city=#{location}"
+		url = "http://opentable.herokuapp.com/api/restaurants?city=#{location}&per_page=100"
 		places = HTTParty.get(url)["restaurants"]
 		places
 	end

@@ -10,7 +10,6 @@ Dashboard =
     @showOngoing()
 
   showOngoing: ->
-    console.log "Asdfasdf"
     $('.event').show()
     $('.event.reserved').hide()
 
