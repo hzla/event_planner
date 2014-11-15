@@ -60,7 +60,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def last_log
-		logs.order('created desc').first if logs
+		logs.order('created_at desc').first if logs
 	end
 
 	def vote_url user
