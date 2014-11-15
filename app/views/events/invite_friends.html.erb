@@ -6,7 +6,7 @@
 <!-- 		<div id="header-right" class="mobile submit-emails hidden">Next</div> -->
 <% end %>
 
-<%= form_tag polls_path(event_id: @event_id), id: "emails-form" do %>
+<%= form_tag polls_path, id: "emails-form" do %>
 	<%= hidden_field_tag :email_list, nil, id: "email-list", value: "#{current_user.email}, " %>
 <% end %>
 

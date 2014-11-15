@@ -6,13 +6,13 @@ class EventsController < ApplicationController
 		@event = Event.create params[:event]
 		@event.users << current_user
 		@event.update_attributes user_id: current_user.id
-		redirect_to booking_info_path(event_id: @event.id)
+		redirect_to opentable_path(event_id: @event.id)
 	end
 
 	def update
 		@event = Event.find params[:id]
 		@event.update_attributes params[:event]
-		redirect_to invite_friends_path(event_id: @event.id)
+		redirect_to opentable_path(event_id: @event.id)
 	end
 
 	def booking_info

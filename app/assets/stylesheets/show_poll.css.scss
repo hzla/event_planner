@@ -16,6 +16,11 @@
 
 #time-header {
 	padding-top: 20px;
+	background: white;
+}
+
+#time {
+	background: white;
 }
 
 .text-icon {
@@ -177,22 +182,74 @@
 	overflow: hidden;
 }
 
+#decline {
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+	text-align: center;
+	background: $red;
+	color: white;
+}
+
+#decline:hover {
+	background: white;
+	border: 1px solid $red;
+	color: $red;
+}
+
 #fb-connect-poll {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px; 
 	height: 40px;
 	width: 100%;
 	line-height: 40px;
 }
 
 
+.venue-options {
+	background: white;
+}
+
+.row-header {
+	text-align: center;
+	color: $blue;
+	font-weight: 700;
+	width: 100%;
+	font-size: 16px;
+	padding: 10px 0px;
+
+}
+
+.poll-choice {
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 20px;
+	text-align: center;
+	margin: 10px 0px;
+}
+
+
+
+
+
 /************* Media Queries ***************/
 
 @media (max-width: 1023px) {
 	body {
+		#decline {
+			background: none;
+			width: 100%;
+			text-align: center;
+			height: auto;
+			color: $red;
+			float: left; 
+			line-height: 16px;
+			margin-top: 10px;
+		}
 		#fb-connect-poll {
 			width: calc(100% - 40px);
-			position: fixed;
-			bottom: 20px;
-			left: 20px;
+			margin: 10px 20px;
+			float: left;
 			border-radius: 5px;
 		}
 		#content-box {
@@ -200,6 +257,7 @@
 			margin-top: 0;
 			background: $white;
 		}
+
 		#time {
 			padding-bottom: 20px;
 			border-bottom: 1px solid $light-grey;
@@ -210,12 +268,14 @@
 			color: white;
 		}
 		#time-header, #time {
-			background: white;
-			color: $black;
+			background: $turq;
+			border-top: none;
+			color: white;
 		}
 		.profile-pic-container {
 			top: 20px;
 			left: 0px;
+			color: $black;
 		}
 		#profile-pic {
 			top: 10px;
@@ -223,13 +283,12 @@
 			width: 80px;
 			height: 80px;
 		}
-		.poll-username.profile-info {
-			margin-right: 60px;
+		.content-row.poll-username.profile-info {
+			margin-top: 40px;
+			// margin-right: 60px;
 			font-size: 36px;
+			color: white;
 			font-weight: 600;
-		}
-		.poll-friend.profile-info {
-			padding-top: 25px;
 		}
 		.content-row.profile-info {
 			float: right;
@@ -237,12 +296,13 @@
 			text-align: left;
 			clear: right;
 			margin-right: 0px;
-		}
-		#time-header {
-			border-top: 1px solid $light-grey;
+			color: $black;
 		}
 		.content-row.empty.opaque {
 			display: none;
+		}
+		.poll-choice {
+			text-align: left;
 		}
 		.box-actions {
 			position: relative;
@@ -265,8 +325,9 @@
 			background: $light-grey;
 		}
 		.image-row {
-			padding: 20px 10px;
+			padding: 10px 10px;
 			border-bottom: 1px solid $light-grey;
+			background: $light-grey;
 		}
 		#red-circle {
 			left: calc(50% - 100px);

@@ -1,41 +1,14 @@
 <%= content_for :header do %>
-	<div class="header-pic-container">
-		<%= link_to activate_path(@event) do %>
-			<div id="header-right-pic" class="activate-poll">Activate</div>
-		<% end %>
-	</div>
-		<div class="main-logo text">Your Poll</div>
-		<%= link_to activate_path(@event) do %>
-			<div id="header-right" class="acivate-poll mobile">Activate</div>
-		<% end %>
+		<div class="main-logo text">Review Your Poll</div>
 <% end %>
 
-<div class="generic" id="content-container">
+<div class="generic no-top" id="content-container">
 	<div class="full-white-block event-field" id="event-name">
 		<%= @event.name %><br>
 		<span class="sub-text"><%= @event.start_time %></span>
-	</div>
-	<div class="grey-header">
-		<%= @invitee_count %> Invitees
-	</div>
-	<div class="full-white-block event-field" id="invitee-list">
-		<% @invitees.each_with_index do |invitee, i| %>
-			<div class="pic-container">
-				<div class="profile-tooltip"><%= invitee.email %></div>
-				<div class="tail"></div>
-				<%= image_tag invitee.avatar, :class => "invitee-pic" %>
-			</div>
-		<% end %>
-
-	</div>
-	<div class="grey-header">
-		Description
-	</div>
-	<div class="full-white-block event-field" id="invitee-list">
-		<%= @event.comment %>
-	</div>
-	<div class="grey-header">
-		<%= @service.name %>
+		<div class="event-field" id="event-comment">
+			<%= @event.comment %>
+		</div>
 	</div>
 	<div class="full-white-block event-field" id="event-options">
 		<% @choices.each do |choice| %>
@@ -45,6 +18,16 @@
 			</div>
 		<% end %>
 	</div>
+	<div class="full-white-block event-field" id="invitee-list">
+		<% @invitees.each_with_index do |invitee, i| %>
+			<div class="pic-container">
+				<div class="profile-tooltip"><%= invitee.email %></div>
+				<div class="tail"></div>
+				<%= image_tag invitee.avatar, :class => "invitee-pic" %>
+			</div>
+		<% end %>
+	</div>
+
 	<!-- <div class="grey-header">
 		Other Options
 	</div> -->

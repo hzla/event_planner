@@ -23,9 +23,16 @@ class ChoicesController < ApplicationController
 		@choice = Choice.find params[:id]
 		@event = @choice.poll.event
 		answer = params[:answer]
+		if @choice.yes == nil
+			delta = 1 
+		else
+			delta = 2
+		end
 		if answer == "yes"
+			changed = !@choice.yes
 			@choice.update_attributes yes: true
 		else
+			changed = @choice.yes
 			@choice.update_attributes yes: false
 		end
 		poll = @choice.poll
@@ -37,7 +44,7 @@ class ChoicesController < ApplicationController
 			party_size: @event.polls.count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
 			email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
 		end
-		render nothing: true
+		render json: {changed: changed, answer: answer, delta: delta}
 	end
 
 	private

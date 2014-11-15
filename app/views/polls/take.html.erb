@@ -2,96 +2,72 @@
 	Take Poll
 	<div class="main-logo text mobile"></div>
 <% end %>
-<% if @poll.answered %>
-	<div id="content-container" class="s2 default-img">
-		<div id="poll-finished" class="main-text">
-			Thanks for answering! We’ll email you notifications as the poll updates.<br><br>
-			In the mean time, you can download the app and start planning your own events for free!
-			<br><br>
-			<% if current_user %>
-				<%= link_to results_path(id: @event.id, ongoing: !@event.finished) do %>
-					<span class="view-results">View Results</span>
-				<% end %><br><br>
-				<%= link_to dashboard_path do %>
-					<div class="btn blue-btn" id="go-dashboard">Go to Dashboard</div>
-				<% end %>
-			<% end %>
+<div id="content-container" class="generic">
+	<% if @tutorial %>
+	<%= render partial: "tutorial" %>
+	<% end %>
+	<div id="choices">
+		<div id="poll-take-header">
+			<div id="poll-take-name"><%= @event.name %></div>
+			<div id="poll-take-count"><%= @event.attending_count %> People Going</div>
 		</div>
-	</div>
-<% else %>
-
-	<div id="content-container" class="s2 default-img">
-		<div id="counter-header">
-			<span id="choice-counter">1</span> of <%= @choices.count %>
-		</div>
-
 		<% @choices.each do |choice| %>
-			<div class="choice hidden">
-			
-				<div class="content-row main-text bold header white-back">
-					<%= choice.value %>
-				</div>
-				<div class="content-row sub-text white-back time-row">
-					<div class="time"><%= image_tag 'Food.svg', :class => "text-icon" %><%= @poll.event.start_time || "Time not yet determined" %></div>
-				</div>
-				<div class="cover-image-container">
-					<%= image_tag choice.image_url, id: 'cover-image' %>
-					<!-- <div class="ratings-container">
-						<% 4.times do %>
-							<%= image_tag 'starfilled.png', :class => "star" %> 
-						<% end %>
-						<%= image_tag 'starunfilled.png', :class => "star" %> 
-					</div> -->
-				</div>
-
-				<div id="box-content" class="white-back">
-					<div class="content-row">
-					<!-- 	<div class="content-column-3 text-left">
-							<div class="sub-text bold no-mobile">Dynamic Text:</div>
-							<div class="sub-text no-mobile">This is Dynamic</div>
-							<div class="sub-text mobile time-info"><%= image_tag 'iconforkknife.png', :class => "text-icon" %> Dynamic Text</div>
-						</div> -->
-						<div class="content-column-3 text-middle">
-							<div class="sub-text bold">Additional Info:</div>
-							<div class="sub-text"><%= choice.add_info %></div>
-						</div>
-					<!-- 	<div class="content-column-3 text-right">
-							<div class="sub-text bold">Dynamic Text:</div>
-							<div class="sub-text">This is Dynamic</div>
-						</div> -->
-					</div>
-				
-				</div>
-				<div class="content-row opaque footer">
-					<div class="content-column-2 text-left">
-						<div class="sub-text"><%= choice.yes_count %> Yes</div>
-					</div>
-					<div class="content-column-2 text-right">
-						<div class="sub-text"><%= choice.no_count %> No</div>
-					</div>
-				</div>
-				<div class="box-actions">
-					<%= link_to vote_path(id: choice.id, answer: "no"), remote: true do %>
-						<div id="red-circle" class="box-action no-action"> No</div>
+			<div class="choice">
+				<%= image_tag choice.image_url, :class => "choice-pic" %>
+				<div class="choice-value"><%= choice.value %></div>
+				<div class="choice-time"><%= choice.time || "7:00PM" %></div>
+				<div class="choice-vote-container <%= choice.yes ? 'yes' : 'no' %>">
+					<%= link_to vote_path(choice.id, answer: "yes"), remote: true, :class => "upvote-link" do %>
+						<%= image_tag 'upvotegrey.svg', :class => "choice-upvote choice-vote svg #{'chosen' if choice.yes}" %>
 					<% end %>
-					<%= link_to vote_path(id: choice.id, answer: "yes"), remote: true do %>
-						<div id="green-circle" class="box-action yes-action">Yes</div>
+					<%= link_to vote_path(choice.id, answer: "no"), remote: true, :class => "downvote-link" do %>
+						<%= image_tag 'downvotegrey.svg', :class => "choice-downvote choice-vote svg #{'chosen' if choice.yes == false}" %>
 					<% end %>
+					<span class="choice-score"><%= choice.yes_count - choice.no_count %></span>
 				</div>
 			</div>
 		<% end %>
-			<div id="poll-finished" class="hidden main-text">
-				Thanks for answering! We’ll email you notifications as the poll updates.<br><br>
-				In the mean time, you can download the app and start planning your own events for free!<br><br>
-				<% if current_user %>
-					<%= link_to results_path(id: @event.id, ongoing: !@event.finished) do %>
-						<span class="view-results">View Results</span>
-
-					<% end %><br><br>
-					<% link_to dashboard_path do %>
-						<div class="btn blue-btn" id="go-dashboard">Go to Dashboard</div>
-					<% end %>
-			<% end %>
-			</div>
 	</div>
-<% end %>
+	
+	<div id="poll-finished" class="hidden main-text">
+		Thanks for answering! We’ll email you notifications as the poll updates.<br><br>
+		In the mean time, you can download the app and start planning your own events for free!<br><br>
+		<% if current_user %>
+			<%= link_to results_path(id: @event.id, ongoing: !@event.finished) do %>
+				<span class="view-results">View Results</span>
+
+			<% end %><br><br>
+			<%= link_to dashboard_path do %>
+				<div class="btn blue-btn" id="go-dashboard">Go to Dashboard</div>
+			<% end %>
+		<% end %>
+	</div>
+	
+	<div id="finish-poll-take" class="btn blue-btn pull-bottom-btn">
+		Continue
+	</div>
+</div>
+
+
+
+
+
+<script>
+  $('img.svg').each(function(){
+    var $img = $(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
+    $.get(imgURL, function(data) {
+        var $svg = $(data).find('svg');
+        if(typeof imgID !== 'undefined') {
+            $svg = $svg.attr('id', imgID);
+        }
+        if(typeof imgClass !== 'undefined') {
+            $svg = $svg.attr('class', imgClass+' replaced-svg');
+        }
+        $svg = $svg.removeAttr('xmlns:a');
+        $img.replaceWith($svg);
+    }, 'xml');
+  });
+</script>

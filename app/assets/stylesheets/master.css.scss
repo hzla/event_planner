@@ -15,6 +15,14 @@
 	background: $blue;
 }
 
+.pull-bottom-btn {
+	height: 40px;
+	line-height: 40px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
 .turq-btn {
 	background: $turq;
 }
@@ -123,6 +131,18 @@ a {
 	display: none;
 }
 
+.green {
+	color: $green;
+}
+
+.blue {
+	color: $blue
+}
+
+.red {
+	color: $red;
+}
+
 
 
 /***********  Media Queries *******************/
@@ -158,6 +178,18 @@ a {
 		}
 		.mobile {
 			display: block;
+		}
+	}
+}
+
+@media (min-width: 1024px) {
+	body {
+		.pull-bottom-btn {
+			position: absolute;
+			width: 20vw;
+			bottom: 20vh;
+			left: 50%;
+			margin-left: -10vw;
 		}
 	}
 }

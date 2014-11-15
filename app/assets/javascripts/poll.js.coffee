@@ -2,12 +2,21 @@ Poll =
   init: ->
     $('body').on 'click', '#add-email-btn', @addEmail
     $('body').on 'touchend click', '.submit-emails', @submitEmails
-    $('body').on 'click', '.yes-action', @acceptChoice
-    $('body').on 'click', '.no-action', @declineChoice
+    $('body').on 'ajax:success', '.upvote-link, .downvote-link', @choose
+    $('body').on 'click', '#finish-poll-take', @showPollFinished
+    $('body').on 'click', '#finish-tutorial', @finishTutorial
     $('.choice').first().show()
     @showNext() if $('.invitees .invitee.real').length > 0
     @addEmails()
     @centerProfile()
+
+  finishTutorial: ->
+    $('#poll-take-tutorial').hide()
+
+  showPollFinished: ->
+    $(@).hide()
+    $('#choices').hide()
+    $('#poll-finished').show()
 
   centerProfile: ->
     setTimeout ->
@@ -21,23 +30,24 @@ Poll =
     $('#email-list').val invitees
 
  
-  declineChoice: ->
-    btn = $(@)
-    $('.choice:visible').addClass('animated zoomOutLeft').one 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ->
-      $(@).hide()
-      btn.parents('.choice').next().show()
-      Poll.incrementChoiceCounter() if btn.parents('.choice').next().attr('id') != "poll-finished"
-
-  acceptChoice: ->
-    btn = $(@)
-    $('.choice:visible').addClass('animated zoomOutRight').one 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ->
-      $(@).hide()
-      btn.parents('.choice').next().show()
-      Poll.incrementChoiceCounter() if btn.parents('.choice').next().attr('id') != "poll-finished"
-
-  incrementChoiceCounter: ->
-    $('#choice-counter').text(parseInt($('#choice-counter').text()) + 1)
-
+  choose: (event, data) ->
+    count = $(@).parent()
+    delta = data.delta
+    if data.changed 
+      if data.answer == "yes"
+        $(@).parent().find('g').css('stroke', '#bebebe')
+        $(@).find('g').css('stroke', '#00CC99')
+        count.css('color', '#00CC99')
+        current_score = count.find('.choice-score')
+        new_score = parseInt(current_score.text()) + delta
+        current_score.text new_score
+      else
+        $(@).parent().find('g').css('stroke', '#bebebe')
+        $(@).find('g').css('stroke', '#FF0043')
+        count.css('color', '#FF0043')
+        current_score = count.find('.choice-score')
+        new_score = parseInt(current_score.text()) - delta
+        current_score.text new_score
 
   addEmail: ->
     email = $('#invite-email').val()

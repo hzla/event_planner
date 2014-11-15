@@ -1,0 +1,185 @@
+@import 'variables';
+
+/********* Header ***********/
+
+#poll-take-header {
+	width: 100%;
+	height: 40px;
+}
+
+#poll-take-name, #poll-take-count {
+	height: 40px;
+	line-height: 40px;
+}
+
+#poll-take-name {
+	font-weight: 700;
+	float: left;
+	margin-left: 20px;
+	font-size: 24px; 
+}
+
+#poll-take-count {
+	float: right;
+	margin-right: 20px;
+}
+
+/*************** Tutorial ****************/
+
+#poll-take-tutorial {
+	position: absolute;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+	background: white;
+}
+
+.tutorial-text {
+	width: calc(100% - 40px);
+	line-height: 1.2;
+	margin: 20px auto;
+}
+
+#finish-tutorial {
+	width: calc(100% - 40px);
+	height: 40px;
+	line-height: 40px;
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	border-radius: 5px;
+}
+
+@media (min-width: 1024px) {
+	body {
+		.tutorial-text {
+			text-align: center;
+			font-size: 30px;
+			margin-top: 40px;
+		}
+		#finish-tutorial {
+			position: absolute;
+			width: 20vw;
+			bottom: 20vh;
+			left: 50%;
+			margin-left: -10vw;
+		}
+	}
+}
+
+/************ Choices ***********/
+
+.choice {
+	width: 100%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	background: $light-grey;
+	height: 100px;
+	position: relative;
+}
+
+.choice-pic {
+	height: 60px;
+	width: 60px;
+	float: left;
+	margin: 20px;
+}
+
+.choice-value, .choice-time {
+	width: calc(100% - 140px);
+	margin-top: 20px;
+	font-weight: 700;
+	float: left;
+}
+
+.choice-time {
+	margin-top: 10px;
+}
+
+.choice-vote-container {
+	position: absolute;
+	width: 40px;
+	right: 10px;
+	height: 100%;
+	color: $grey;
+	line-height: 100px;
+	text-align: center;
+}
+
+.yes {
+	color: $green;
+}
+
+.no {
+	color: $red;
+}
+
+.choice-vote {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+
+.choice-upvote {
+	top: 10px;
+}
+
+.choice-upvote.chosen g {
+	stroke: $green;
+}
+
+.choice-downvote.chosen g {
+	stroke: $red;
+}
+
+.choice-downvote {
+	bottom: 10px;
+}
+
+#finish-poll-take {
+	height: 40px;
+
+}
+
+
+
+
+
+#poll-finished {
+	text-align: center;
+	font-size: 16px;
+	background: white;
+	width: calc(100% - 20px);
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 40px 0px;
+	margin-top: 10vh;
+	box-sizing: border-box;
+}
+
+#go-dashboard {
+	width: 20vw;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 20px;
+}
+
+
+/************ Media Queries ***************/
+
+@media (max-width: 1023px) {
+	body {
+		#go-dashboard {
+			position: fixed;
+			width: calc(100% - 40px);
+			border-radius: 5px;
+			bottom: 20px;
+			left: 20px;
+		}
+
+	}
+}

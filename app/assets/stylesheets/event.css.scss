@@ -8,19 +8,47 @@ div.event-field {
 }
 
 #event-name {
-	font-weight: 600;
+	font-weight: 700;
 	text-align: center;
+	font-size: 32px;
+	color: white;
+	background: $green;
 }
 
+#event-comment {
+	font-size: 14px;
+	color: $black;
+	text-align: left;
+}
+
+#invitee-list.event-field {
+	text-align: center;
+}
 .invitee-pic {
 	width: 40px;
 	height: 40px;
 	margin-right: 10px;
 }
 
+#event-options {
+	background: $light-grey;
+	border-radius: 10px;
+	width: calc(100% - 40px);
+	margin: 20px auto;
+	padding: 0px; 
+}
+
 .event-option {
-	height: 60px;
+	height: 80px;
 	width: 100%;
+}
+
+#event-options {
+	.option-pic {
+		border-radius: 100px;
+		height: 60px;
+		width: 60px;
+	}
 }
 
 #invitee-list {

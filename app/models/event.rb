@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
 	belongs_to :user
 	has_many :users, through: :outings
 	has_many :outings
+	has_many :logs
 	belongs_to :service
 
 	attr_accessible :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
@@ -39,6 +40,10 @@ class Event < ActiveRecord::Base
 	def create_threshold
 		count = (polls.count / 2) + 1
 		update_attributes threshold: count
+	end
+
+	def attending_count
+		polls.where(confirmed_attending: true).count
 	end
 	
 

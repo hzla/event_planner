@@ -7,13 +7,13 @@ class PollsController < ApplicationController
 
 	def create
 		email_list = params[:email_list].split(", ")
-		@event = Event.find(@event_id)
+		@event = Event.create(user_id: current_user.id)
 		@event.polls.destroy_all
 		email_list.each do |email|
-			Poll.create email: email, event_id: @event_id
+			Poll.create email: email, event_id: @event.id
 		end
 		@event.create_threshold
-		redirect_to opentable_path(event_id: @event_id)
+		redirect_to booking_info_path(event_id: @event.id)
 	end
 
 	def show
@@ -26,8 +26,9 @@ class PollsController < ApplicationController
 		user = User.where(activation: @poll.code).first
 		session[:user_id] = user.id
 		session[:user_exists] = true
-		session[:poll_url] = @poll.url
+		session[:poll_url] = "/polls/#{@poll.id}/take?code=#{@poll.code}&tutorial=true"
 		@is_owner = (current_user.id == @event.user_id)
+		p current_user
 		@fb_connected = !!current_user.profile_pic_url
 		@poll.update_attributes user_id: user.id
 		@code = params[:code]
@@ -35,6 +36,8 @@ class PollsController < ApplicationController
 
 	def take
 		@poll = Poll.find(params[:id])
+		@tutorial = params[:tutorial] == "true"
+		@poll.update_attributes confirmed_attending: true
 		@event = @poll.event
 		if params[:code] != @poll.url.split("?code=").last
 			redirect_to root_path and return

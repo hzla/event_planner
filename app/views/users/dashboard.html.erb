@@ -26,6 +26,12 @@
 		</div>
 
 <% else %>
+		<div class="service-header full-white-block">
+			<div class="service-tabs">
+				<div class="browse service-tab active">Ongoing Polls</div>
+				<div class="chosen service-tab">Reservations</div>
+			</div>
+		</div>
 		<% @events.each do |event| %>
 			<%= link_to results_path(id: event.id, ongoing: !event.finished) do %>
 				<div class="full-white-block event">
@@ -43,7 +49,6 @@
 						</div>
 						<div class="event-time"><%= image_tag 'timegray.svg', :class => "event-icon" %> Ongoing</div>
 					</div>
-					<%= image_tag event.user.profile_pic_url, :class => "event-pic" %>
 				</div>
 			<% end %>
 		<% end %>
@@ -52,15 +57,26 @@
 		</div>
 	<% end %>
 		
+		<%= form_tag polls_path, id: "emails-form" do %>
+			<%= hidden_field_tag :email_list, nil, id: "email-list", value: "#{current_user.email}, " %>
+		<% end %>
 
 		<div id="poll-creator" class="hidden">
-			<%= form_for @event do |f| %>
-				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
-				<%= f.text_field :comment, placeholder: "Description", :class => "poll-field" %>
-				<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
-			<% end %>
+			<div class="full-white-block">
+				<%= text_field_tag :email, nil, id: "invite-email", placeholder: "Add an invitee's email.." %>
+			</div>
+			<div class="btn blue-btn" id="add-email-btn">
+				Add
+			</div>
+
+			<div id="invitees-container" class="full-white-block">
+				<div class="invitees">
+					<div class="invitee"><%= current_user.email %></div>
+				</div>
+			</div>
+
+			<div class="submit-emails hidden btn blue-btn">Continue</div>
 		</div>
 </div>
-
 
 

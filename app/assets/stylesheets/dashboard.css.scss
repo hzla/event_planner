@@ -71,6 +71,7 @@
 
 .poll-field {
 	width: 100%;
+	padding: 10px 0px;
 	padding-left: 10px;
 	height: 40px;
 	box-sizing: border-box;
@@ -78,10 +79,10 @@
 	border-bottom: 1px solid $light-grey;
 	font-size: 16px;
 	font-family: 'Muli', sans-serif;
+
 }
 
 #submit-poll {
-	color: white;
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -89,6 +90,10 @@
 	border: none;
 	height: 44px;
 	font-size: 16px;
+}
+
+#submit-poll:hover {
+	border: 1px solid $blue;
 }
 
 /******** After Welcome Elements ********/

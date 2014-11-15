@@ -13,35 +13,38 @@
 
 <div class="generic" id="content-container">
 	<div id="poll-creator">
-		<%= form_for @event do |f| %>
-			<div id="datepair">
-				<%= f.text_field :start_date, :class => "pick-date", placeholder: "Start Date" %>
-				<%= f.text_field :start_time, :class => "pick-time", placeholder: "Time Range Start" %>
-				<%= f.text_field :end_time, :class => "pick-time", placeholder: "Time Range End" %>
-				<%= f.text_field :threshold, placeholder: "Minimum Party Size" %>
-			</div>
-			<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
-		<% end %>
-	</div>
+			<%= form_for @event do |f| %>
+				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
+				<% if !@browser.mobile? %>
+					<div id="datepair">
+						<%= f.text_field :start_date, :class => "pick-date poll-field", placeholder: "Start Date" %>
+						<%= f.text_field :start_time, :class => "pick-time poll-field", placeholder: "Time Range Start" %>
+						<%= f.text_field :end_time, :class => "pick-time poll-field", placeholder: "Time Range End" %>
+						<%= f.text_field :expiration, :class => "pick-date poll-field", placeholder: "When do people have until to respond?" %>
+						<script>
+						  $(document).ready(function(){
+						    $('#datepair .pick-time').timepicker({
+						        'showDuration': true,
+						        'timeFormat': 'g:ia'
+						    });
+						    $('#datepair .pick-date').datepicker({
+						        'format': 'yyyy-m-d',
+						        'autoclose': true
+						    });
+						  })
+						</script>
+					</div>
+				<% else %>
+					<%= f.text_field :start_date, :class => "poll-field", placeholder: "Start Date" %>
+					<%= f.text_field :start_time, :class => "poll-field", placeholder: "Time Range Start" %>
+					<%= f.text_field :end_time, :class => "poll-field", placeholder: "Time Range End" %>
+					<%= f.text_field :expiration, :class => "poll-field", placeholder: "When do people have until to respond?" %>
+				<% end %>
+
+					<%= f.text_field :threshold, placeholder: "Minimum Party Size", :class => "poll-field" %>
+				
+				<%= f.text_field :comment, placeholder: "Description (Optional)", :class => "poll-field" %>
+				<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
+			<% end %>
+		</div>
 </div>
-
-
-
-
-
-<script>
-    $(document).ready(function(){
-    	// initialize input widgets first
-    $('#datepair .pick-time').timepicker({
-        'showDuration': true,
-        'timeFormat': 'g:ia'
-    });
-
-    $('#datepair .pick-date').datepicker({
-        'format': 'yyyy-m-d',
-        'autoclose': true
-    });
-
-    })
-    
-</script>

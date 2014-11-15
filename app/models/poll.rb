@@ -2,7 +2,7 @@ class Poll < ActiveRecord::Base
 	has_many :choices, dependent: :destroy
 	belongs_to :event
 
-	attr_accessible :answered, :url, :event_id, :name, :desc, :start_time, :email, :phone_number
+	attr_accessible :confirmed_attending, :answered, :url, :user_id, :event_id, :name, :desc, :start_time, :email, :phone_number
 
 	def generate_url
 		update_attributes url: "/polls/#{id}?code=#{generate_code}"

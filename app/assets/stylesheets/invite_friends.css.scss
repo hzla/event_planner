@@ -2,7 +2,6 @@
 
 #invite-email {
 	width: calc(100% - 20px);
-	margin-left: 10px;
 	border: none;
 	text-align: center;
 	height: 40px;
@@ -55,6 +54,7 @@
 	#add-email-btn {
 		margin: 0 auto;
 		border-radius: none;
+		margin-top: 20px;
 	}
 	.submit-emails {
 		position: absolute;
