@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115005556) do
+ActiveRecord::Schema.define(version: 20141115064309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20141115005556) do
     t.integer  "service_id"
     t.string   "name"
     t.text     "comment"
-    t.string   "start_time"
     t.string   "status",          default: "dormant"
     t.boolean  "complete",        default: false
     t.integer  "confirmation_id"
@@ -54,6 +53,7 @@ ActiveRecord::Schema.define(version: 20141115005556) do
     t.datetime "end_time"
     t.datetime "expiration"
     t.string   "recurring"
+    t.datetime "start_time"
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree

@@ -13,7 +13,7 @@
 
 
 
-	<div id="content-container" class="welcome-dashboard gray-back generic">
+	<div id="content-container" class="welcome-dashboard generic">
 		<% if @events.empty? %>
 		<div id="welcome-text-container" class="full-white-block">
 			<%= image_tag 'instagatoricon.svg', id: "welcome-icon" %>
@@ -28,31 +28,73 @@
 <% else %>
 		<div class="service-header full-white-block">
 			<div class="service-tabs">
-				<div class="browse service-tab active">Ongoing Polls</div>
-				<div class="chosen service-tab">Reservations</div>
+				<div class="ongoing-tab service-tab active">Ongoing Polls</div>
+				<div class="reserved-tab service-tab">Reservations</div>
 			</div>
 		</div>
 		<% @events.each do |event| %>
-			<%= link_to results_path(id: event.id, ongoing: !event.finished) do %>
-				<div class="full-white-block event">
-					<div class="event-info">
-						<div class="event-name"><%= event.name %></div>
-						<div class="event-status">
-							<% if event.voted %>
-								<%= image_tag 'checkgreen.svg', :class => "event-icon" %>
-							<% else %>
-								<%= image_tag 'checkgrey.svg', :class => "event-icon" %>
-							<% end %>
-
-							<%= "#{'You Instagated,' if event.user == current_user}"  %>
-							<%= event.vote_count %> Voted
+			<%= link_to event.vote_url(current_user) do %>
+				<% if event.owned_by?(current_user) %>
+					<div class="event <%= event.html_classes(current_user) %>">
+						<div class="event-line-text bold event-name <%= 'turq' if event.voted_on_by?(current_user) %>">
+							<%= event.name %>
 						</div>
-						<div class="event-time"><%= image_tag 'timegray.svg', :class => "event-icon" %> Ongoing</div>
+						<div class="event-line-text">
+							<%= event.time_info %>
+						</div>
+						<% if @event.last_log %>
+							<%= @event.last_log %>
+						<% else %>
+							<div class="event-line-text bottom-line">
+								<% if event.ongoing? %>
+									<% if event.last_log %>
+										<%= event.last_log %>
+									<% else %>
+										<span class="red"><%= event.time_left %> hours</span> to expiration
+									<% end %>
+								<% else %>
+									<span class="green"><%= event.vote_count %> voters </span>
+								<% end %>
+							</div>
+						<% end %>
+						<div class="event-voters">
+							<% if event.current_choice %>
+								<span class="grey"><%= event.vote_count %> voters </span>
+							<% else %>
+								<span class="red"><%= event.vote_count %>/<%= event.polls.count %> Responded</span>
+							<% end %>
+						</div>
 					</div>
-				</div>
+				<% else %>
+					<div class="event <%= event.html_classes(current_user) %>">
+						<div class="event-line-text event-name">
+							<span class="bold"><%= event.user.name %> invited you to</span>
+						</div>
+						<div class="event-line-text bold <%= 'green' if event.voted_on_by?(current_user) %>">
+							<%= event.name %>
+						</div>
+						<div class="event-line-text">
+							<%= event.time_info %>
+						</div>
+						<div class="event-line-text bottom-line">
+							<% if event.ongoing? %>
+								<% if event.last_log %>
+									<%= event.last_log %>
+								<% else %>
+									<span class="red"><%= event.time_left %> hours</span> to expiration
+								<% end %>
+							<% end %>
+						</div>
+						<div class="event-voters">
+							<% if event.voted_on_by?(current_user) %>
+								<span class="green">You Voted</span>	
+							<% end %>
+						</div>
+					</div>
+				<% end %>					
 			<% end %>
 		<% end %>
-		<div id="create-poll" class="btn-rnd turq-btn">
+		<div id="create-poll" class="btn-rnd turq-btn pull-down">
 			Create Poll
 		</div>
 	<% end %>

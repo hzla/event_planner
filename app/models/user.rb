@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 	has_many :events, through: :outings
 	has_many :outings
 
+	# validates :email, :uniqueness => true
+
 
 	attr_accessible :name, :email, :profile_pic_url, :location, :phone_number, :uu_id, :activation
 
@@ -11,7 +13,7 @@ class User < ActiveRecord::Base
 		profile = auth_hash['info']
 		fb_token = auth_hash.credentials.token
 		user = User.new name: profile['name'], email: profile['email'], profile_pic_url: profile['image'], location: profile['location']
-    user.authorizations.build :uid => auth_hash["uid"]
+    user.authorizations.build :uu_id => auth_hash["uid"]
     user if user.save
 	end
 
@@ -45,6 +47,15 @@ class User < ActiveRecord::Base
 			end
 		end
 		model
+	end
+
+	def ordered_events
+		event_list = events
+		reserved = event_list.where("current_choice is not null")
+
+
+
+
 	end
 
 

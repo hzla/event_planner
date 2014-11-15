@@ -1,14 +1,35 @@
-Tasks
+DashBoard:
+	Dashboard Event Types
+
+	New Event Invite Not yet Voted
+		- show expiration
+
+	Event Invite Already Voted
+		- show expiration
+		- show you voted
+
+	Your Event no history
+		- show expiration
+		- show num voters/ total
+
+	Your Event with history
+		- show last log 
+		- show num voters
+
+	_____________________________________________
+
+	Event Reserved by Self
+	Event Reserved by Other
 
 
-integrate with open table bot to book table
-set expiration for poll
+OpenTable: 
+	search by location
+	search by name after
 
 
-take the poll button
-more opentable results/ search
+Bot
+	modify reservations
+	logging history and writing to events 
+	emailing
 
-ADD Features
 
-fb login on taking polls
-opentable search on location

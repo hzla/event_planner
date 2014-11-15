@@ -5,6 +5,19 @@ Dashboard =
     $('body').on 'submit', '.edit_event', @checkFields
     $('body').on 'touchstart', '#event_start_date, #event_expiration', @convertEventDate
     $('body').on 'touchstart', '#event_start_time, #event_end_time', @convertEventTime
+    $('body').on 'click', '.ongoing-tab', @showOngoing
+    $('body').on 'click', '.reserved-tab', @showReserved
+    @showOngoing()
+
+  showOngoing: ->
+    console.log "Asdfasdf"
+    $('.event').show()
+    $('.event.reserved').hide()
+
+  showReserved: ->
+    $('.event').hide()
+    $('.event.reserved').show()
+
 
   convertEventTime: ->
     if $(window).width() < 1024

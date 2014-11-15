@@ -13,10 +13,15 @@ class Event < ActiveRecord::Base
 		created_users = []
 		polls.each do |poll|
 			poll.generate_url
-			if poll.email
-				user = User.create email: poll.email, activation: poll.code
+			if poll.email 
+				user = nil
+				if poll.user_id
+					user = User.find poll.user_id
+				else
+					user = User.create email: poll.email, activation: poll.code
+					created_users << user
+				end
 				users << user
-				created_users << user
 				# UserMailer.poll_email(poll).deliver 
 			end
 		end
@@ -24,7 +29,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def vote_count
-		polls.where(answered: true).count
+		polls.where(confirmed_attending: true).count
 	end
 
 	def voted
@@ -45,8 +50,46 @@ class Event < ActiveRecord::Base
 	def attending_count
 		polls.where(confirmed_attending: true).count
 	end
-	
 
+	def voted_on_by? user
+		!polls.where(user_id: user.id, confirmed_attending: true).empty?
+	end
+
+	def owned_by? user
+		user_id == user.id
+	end
+
+	def last_log
+		logs.order('created desc').first if logs
+	end
+
+	def vote_url user
+		polls.where(user_id: user.id).first.url
+	end
+
+	def html_classes user
+		classes = " "
+		classes += "reserved " if current_choice != nil && !ongoing?
+		classes += "top " if !owned_by?(user) && !voted_on_by?(user)
+		classes += "ongoing " if ongoing?
+		classes
+	end
+
+	def ongoing?
+		expiration > Time.now
+	end
+
+	def time_info
+		date = start_date.strftime("%b %d, %Y at ")
+		time = start_time.strftime("%l:%M %p")
+		date + time
+	end
+
+	def time_left
+		p self
+		puts "\n" * 10
+		((expiration - Time.now) / 3600).round
+	end
 
 end
 
