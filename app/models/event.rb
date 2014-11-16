@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
 	has_many :logs
 	belongs_to :service
 
-	attr_accessible :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
+	attr_accessible :processing_choice, :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
 
 	def activate_polls 
 		update_attributes status: 'activated'
@@ -26,6 +26,14 @@ class Event < ActiveRecord::Base
 			end
 		end
 		created_users
+	end
+
+	def update_times
+		new_start = start_time
+		new_start = new_start.change day: start_date.day, month: start_date.month
+		new_end = end_time
+		new_end = new_end.change day: start_date.day, month: start_date.month
+		self.update_attributes start_time: new_start, end_time: new_end
 	end
 
 	def parsed_start_time

@@ -78,6 +78,16 @@
 	position: relative;
 }
 
+.choice.grey-back {
+	background: #dadada;
+}
+
+.choice-status {
+	position: absolute;
+	bottom: 10px;
+	left: 100px;
+}
+
 .choice-pic {
 	height: 60px;
 	width: 60px;

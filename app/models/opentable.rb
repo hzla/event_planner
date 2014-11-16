@@ -31,7 +31,7 @@ class Opentable
 	end
 
 	def self.reserve options=nil, event=nil, choice=nil, email=nil
-		base_url = 'http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/reserve?'
+		base_url = 'http://localhost:3001/api/v1/opentable/reserve?'
 		event = Event.last if !event
 		choice = Choice.last if !choice
 		email = "andylee.hzl@gmail.com" if !email
@@ -45,13 +45,15 @@ class Opentable
 		url = base_url + options_url
 		response = HTTParty.get(url).parsed_response
 		parsed_response = JSON.parse(response["success"])
+		puts parsed_response
+		puts "\n" * 20
 		if parsed_response["id"]
 			c_id = parsed_response["confirmation_id"]
 			cancel(event.confirmation_id) if event.confirmation_id
-			new_threshold = event.threshold + 1
-			event.update_attributes confirmation_id: c_id.to_i, current_choice: choice.value, threshold: new_threshold
+			event.update_attributes confirmation_id: c_id.to_i, current_choice: choice.value
 		else
 			url =  parsed_response["url"]
+			event.update_attributes processing_choice: choice.value
 			UserMailer.reservation_info(url, email).deliver
 		end
 		parsed_response

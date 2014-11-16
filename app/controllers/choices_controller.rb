@@ -44,18 +44,19 @@ class ChoicesController < ApplicationController
 	end
 
 	def decide_vote
-		@choice = Choice.find params[:id]
-		@event = @choice.poll.event
+		@poll = Poll.find(params[:id])
+		@event = @poll.event
+		@choice = @poll.top_choice
 
-		if (@event.vote_count >= @event.threshold && @event.confirmation_id == nil)|| (@event.vote_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice != @top_choice.value) 
+		if (@event.vote_count >= @event.threshold && @event.current_choice == nil)|| (@event.vote_count >= @event.threshold && @event.current_choice != nil && @event.current_choice != @choice.value) 
 			ReservationWorker.perform_async({restaurant_id: @choice.service_id, start_time: @event.parsed_start_time,
 			end_time: @event.parsed_end_time, party_size: @event.vote_count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
 			email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
-		elsif (@event.vote_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice == @top_choice.value)
-			#modify reservation
-		else
-		
+		# elsif (@event.vote_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice == @top_choice.value)
+		# 	#modify reservation
+		# else
 		end	
+		render nothing: true
 	end
 
 

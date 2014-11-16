@@ -26,4 +26,12 @@ class Choice < ActiveRecord::Base
 		value.gsub('&', 'and').downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-")
 	end
 
+	def is_current
+		poll.event.current_choice == value
+	end
+
+	def is_processing
+		poll.event.processing_choice == value
+	end
+
 end

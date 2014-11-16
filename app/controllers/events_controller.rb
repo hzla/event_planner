@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 	def update
 		@event = Event.find params[:id]
 		@event.update_attributes params[:event]
+		@event.update_times
 		redirect_to opentable_path(event_id: @event.id)
 	end
 
