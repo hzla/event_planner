@@ -17,10 +17,10 @@
 				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
 				<% if !@browser.mobile? %>
 					<div id="datepair">
-						<%= f.text_field :start_date, :class => "pick-date poll-field", placeholder: "Start Date" %>
-						<%= f.text_field :start_time, :class => "pick-time poll-field", placeholder: "Time Range Start" %>
-						<%= f.text_field :end_time, :class => "pick-time poll-field", placeholder: "Time Range End" %>
-						<%= f.text_field :expiration, :class => "pick-date poll-field", placeholder: "When do people have until to respond?" %>
+						<%= f.text_field :start_date, :class => "pick-date poll-field", placeholder: "Reservation Date" %>
+						<%= f.text_field :start_time, :class => "pick-time poll-field", placeholder: "Earliest Time" %>
+						<%= f.text_field :end_time, :class => "pick-time poll-field", placeholder: "Latest Time" %>
+						<%= f.text_field :expiration, :class => "pick-date poll-field", placeholder: "When do people need to respond by?" %>
 						<script>
 						  $(document).ready(function(){
 						    $('#datepair .pick-time').timepicker({
@@ -42,7 +42,7 @@
 				<% end %>
 
 					<%= f.text_field :threshold, placeholder: "Minimum Party Size", :class => "poll-field" %>
-				
+
 				<%= f.text_field :comment, placeholder: "Description (Optional)", :class => "poll-field" %>
 				<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
 			<% end %>

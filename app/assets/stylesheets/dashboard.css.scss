@@ -19,18 +19,21 @@
 }
 
 #create-poll {
-	width: calc(100% - 40px);
+	width: calc(100% - 30px);
 	margin: 0 auto;
-	margin-bottom: 20px;
-	height: 40px;
-	line-height: 40px;
-	margin-top: 20px;
+	margin-bottom: $mg;
+	height: 44px;
+	line-height: 44px;
+	margin-top: $mg;
 }
 
 @media (min-width: 1024px) {
 	body {
 		#create-poll {
 			width: 20vw;
+			height: 40px;
+			margin-top: $dg;
+			line-height: 40px;
 		}
 
 		#submit-poll{
@@ -105,7 +108,8 @@ div.event {
 	position: relative;
 	background: $light-grey;
 	box-sizing: border-box;
-	padding: 20px;
+	padding: $dg;
+	margin-bottom: 10px;
 }
 
 .event-line-text {
@@ -118,18 +122,36 @@ div.event {
 
 .event-voters {
 	position: absolute;
-	bottom: 20px;
-	right: 20px;
+	bottom: $dg;
+	right: $dg;
 }
 
 .event-line-text.bottom-line {
 	position: absolute;
-	bottom: 20px;
+	bottom: $dg;
 	width: auto;
-	left: 20px;
+	left: $dg;
 }
 
 .event-icon {
 	height: 15px;
 	width: 15px;
+}
+
+@media (max-width: 1023px) {
+	body {
+		div.event{
+			padding: 10px $mg;
+			margin-bottom: 8px;
+			height: 100px;
+		}
+		.event-voters {
+			bottom: 10px;
+			right: $mg;
+		}
+		.event-line-text.bottom-line {
+			bottom: 10px;
+			left: $mg;
+		}
+	}
 }
