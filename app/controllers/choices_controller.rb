@@ -48,8 +48,8 @@ class ChoicesController < ApplicationController
 		@event = @choice.poll.event
 
 		if (@event.vote_count >= @event.threshold && @event.confirmation_id == nil)|| (@event.vote_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice != @top_choice.value) 
-			ReservationWorker.perform_async({restaurant_id: @choice.service_id, date_time: '11/20/2014 18:30:00',
-			party_size: @event.vote_count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
+			ReservationWorker.perform_async({restaurant_id: @choice.service_id, start_time: @event.parsed_start_time,
+			end_time: @event.parsed_end_time, party_size: @event.vote_count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
 			email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
 		elsif (@event.vote_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice == @top_choice.value)
 			#modify reservation
@@ -58,7 +58,7 @@ class ChoicesController < ApplicationController
 		end	
 	end
 
-	
+
 
 	private
 

@@ -28,6 +28,14 @@ class Event < ActiveRecord::Base
 		created_users
 	end
 
+	def parsed_start_time
+		start_time.strftime("%m/%d/%Y %H:%M:00")
+	end
+
+	def parsed_end_time
+		end_time.strftime("%m/%d/%Y %H:%M:00")
+	end
+
 
 	def vote_count
 		polls.where(confirmed_attending: true).count
