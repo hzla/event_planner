@@ -28,6 +28,7 @@ class Event < ActiveRecord::Base
 		created_users
 	end
 
+
 	def vote_count
 		polls.where(confirmed_attending: true).count
 	end

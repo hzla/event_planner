@@ -39,13 +39,26 @@ class ChoicesController < ApplicationController
 		if @choice.poll.choices.where(yes: nil).empty?
 			poll.update_attributes answered: true
 		end
-		if @choice.yes_count >= @event.threshold && @event.confirmation_id == nil || (@choice.yes_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice != @choice.value) 
-			ReservationWorker.perform_async({restaurant_id: @choice.service_id, date_time: '11/20/2014 18:30:00',
-			party_size: @event.polls.count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
-			email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
-		end
+		
 		render json: {changed: changed, answer: answer, delta: delta}
 	end
+
+	def decide_vote
+		@choice = Choice.find params[:id]
+		@event = @choice.poll.event
+
+		if (@event.vote_count >= @event.threshold && @event.confirmation_id == nil)|| (@event.vote_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice != @top_choice.value) 
+			ReservationWorker.perform_async({restaurant_id: @choice.service_id, date_time: '11/20/2014 18:30:00',
+			party_size: @event.vote_count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
+			email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
+		elsif (@event.vote_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice == @top_choice.value)
+			#modify reservation
+		else
+		
+		end	
+	end
+
+	
 
 	private
 

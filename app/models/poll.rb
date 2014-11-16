@@ -15,6 +15,10 @@ class Poll < ActiveRecord::Base
 		code.join
 	end
 
+	def top_choice
+		choices.sort_by(&:score).reverse.first
+	end
+
 	def code
 		url.split("code=")[-1]
 	end

@@ -14,8 +14,16 @@ class Choice < ActiveRecord::Base
 		Choice.where(value: value, yes: false).where('poll_id in (?)', poll_ids).count
 	end
 
+	def score
+		yes_count - no_count
+	end
+
 	def voters
 		poll.choices.where(value: value)
+	end
+
+	def opentable_name
+		value.gsub('&', 'and').downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-")
 	end
 
 end

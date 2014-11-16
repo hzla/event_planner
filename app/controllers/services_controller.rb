@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
 	
 	include SessionsHelper
-	# before_filter :check_event_ownership
+	before_filter :check_event_ownership
 
 	def index
 		@services = Service.order(:available).reverse

@@ -30,9 +30,13 @@ class Opentable
 		"http://www.opentable.com/img/restimages/#{restaurant["id"]}.jpg"
 	end
 
-	def self.reserve options=nil, event, choice, email
-		base_url = 'http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/reserve?'
-		options = {restaurant_id: choice.service_id, date_time: "11/13/2014 21:30:00", party_size: 2, first_name: "Robert", last_name: "Gustavez", email: "neohzla@gmail.com", phone_number: "4157760400"} if !options
+	def self.reserve options=nil, event=nil, choice=nil, email=nil
+		base_url = 'http://localhost:3001/api/v1/opentable/reserve?'
+		event = Event.last if !event
+		choice = Choice.last if !choice
+		email = "andylee.hzl@gmail.com" if !email
+		options = {'restaurant_id' => choice.service_id, 'date_time' => "11/22/2014 20:30:00", 'party_size' => 2, 'first_name' => "Robert", 'last_name' => "Gustavez", 'email' => "neohzla@gmail.com", 'phone_number' => "4157760400"} if !options
+
 		p options
 		puts " \n" * 10
 		options['date_time'] = URI.encode(options['date_time']).gsub('/','%2F').gsub(':','%3A')
@@ -43,6 +47,7 @@ class Opentable
 		url = base_url + options_url
 		response = HTTParty.get(url).parsed_response
 		p response
+		
 		if response["success"] == "true"
 			c_id = response["confirmation_id"]
 			cancel(event.c_id) if event.c_id
@@ -54,6 +59,11 @@ class Opentable
 			UserMailer.reservation_info(url, email).deliver
 		end
 		response
+	end
+
+	def self.modify c_id, time
+		url = "http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/cancel?c_id=#{c_id}&time=#{time}"
+		HTTParty.get(url).parsed_response
 	end
 
 	def self.cancel c_id

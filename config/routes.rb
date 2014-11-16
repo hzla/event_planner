@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/polls/:id/take', to: 'polls#take', as: 'take'
   resources :choices
   get '/choices/:id/vote', to: 'choices#vote', as: 'vote'
+  get '/choices/:id/decide_vote', to:'choices#decide_vote', as: 'decide_vote'
+
   get '/invite_friends', to: 'events#invite_friends', as: 'invite_friends'
   get '/booking_info', to: 'events#booking_info', as: 'booking_info'
 
