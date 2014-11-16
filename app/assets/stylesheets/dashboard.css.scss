@@ -103,30 +103,30 @@ div.event {
 	text-align: left;
 	cursor: pointer;
 	position: relative;
-	background: $light-grey
+	background: $light-grey;
+	box-sizing: border-box;
+	padding: 20px;
 }
 
 .event-line-text {
-	width: calc(100% - 20px);
-	margin: 10px auto;
+	width: auto;
+	line-height: 20px;
 }
 
 .event-name {
-	padding-top: 20px;
 }
 
 .event-voters {
 	position: absolute;
-	bottom: 0px;
-	right: 10px;
-	margin: 10px auto;
+	bottom: 20px;
+	right: 20px;
 }
 
 .event-line-text.bottom-line {
 	position: absolute;
-	bottom: 0px;
-	width: 70%;
-	left: 10px;
+	bottom: 20px;
+	width: auto;
+	left: 20px;
 }
 
 .event-icon {
