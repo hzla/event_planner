@@ -1,7 +1,7 @@
 @import 'variables';
 
 #invite-email {
-	width: calc(100% - 20px);
+	width: 100%;
 	border: none;
 	text-align: center;
 	height: 40px;
@@ -28,7 +28,7 @@
 
 .grey-header.full-grey-block, .invitee {
 	box-sizing: border-box;
-	padding-left: 10px;
+	padding-left: 15px;
 	width: 100%;
 	text-align: left;
 	height: 40px;
@@ -68,6 +68,7 @@
 	.invitee{
 		height: 40px;
 		line-height: 40px;
+		padding-left: 20px;
 	}
 	#invitees-container{
 		margin-top: 0;

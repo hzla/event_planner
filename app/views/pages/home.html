@@ -4,24 +4,73 @@
 	})
 </script>
 
-<div id="content-container" class="landing">
-	<div class="landing-text">
-		The Best Way to Organize Groups
+<div class="blur-container">
+	<div class="blur-image">
 	</div>
-
-	<%= link_to '/auth/facebook' do %>
-		<div class="fb-btn btn">
-			Facebook Connect
-		</div>
-	<% end %>
-
+	<div class="glass"></div>
 </div>
 
+
+<div id="landing-header">
+	<%= image_tag 'dinnerpoll.svg', id: 'landing-logo' %>
+	<div class="header-link">instagator</div>
+	<div class="header-link">poll</div>
+	<div class="header-link active">home</div>
+</div>
+
+<div id="mid-container">
+	<div class="container-gradient"></div>
+	<div class="mid-section">
+		<div class="title-text" id="fade-1">Group dinner next week?</div>
+	</div>
+	<div class="mid-section" id="fade-2">
+		<div class="title-text">We'll take care of everything.</div>
+		<div class="mid-sub-text">Instagator takes out the pain of coordination so you can enjoy the reward of revelry</div>
+	</div>
+</div>
+
+<div id="showcase-container">
+	<div class="mid-section" id="fade-3">
+		<div class="showcase-title-text green">All you need is:</div>
+		<div class="showcase-subtext">
+			A couple of restauraunts in mind<br><br>
+			Friends to join you<br><br>
+			...that's pretty much it
+		</div>
+	</div>
+	<div class="mid-section">
+		<div id="phone-info">
+			<div id="phone-info-header" class="green">We do it all:</div>
+			<div class="phone-info-item">
+				<div class="info-item-name">Track RSVPs</div>
+				<div class="info-item-desc hidden">not so novel, but oh-so efficient RSVP system.</div>
+			</div>
+			<div class="phone-info-item">
+				<div class="info-item-name">Build Consensus</div>
+				<div class="info-item-desc hidden">not so novel, but oh-so efficient RSVP system.</div>
+			</div>
+			<div class="phone-info-item">
+				<div class="info-item-name">Track Reservations</div>
+				<div class="info-item-desc hidden">not so novel, but oh-so efficient RSVP system.</div>
+			</div>
+		</div>
+		<%= image_tag 'iphone.png', id: "iphone-1" %>
+		<div id="phone-side-text" class="blue">
+			or, you could just use a google spreadsheet. people always fill those out promptly.<br><br>
+			While you're at it[]<br><br>
+			Manual spreadsheets are for the birds.
+		</div>
+		<div id="get-started-button" class="btn turq-btn hidden">Get Started</div>
+	</div>
+</div>
+
+
+
  <script>
-		$('body').hide()
-		var pw = window.prompt("password");
-		console.log(pw)
-		if (pw == "gator"){
-			$('body').show()
-		}
+		// $('body').hide()
+		// var pw = window.prompt("password");
+		// console.log(pw)
+		// if (pw == "gator"){
+		// 	$('body').show()
+		// }
  </script>

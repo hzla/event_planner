@@ -1,73 +1,56 @@
 Home =
   init: ->
-    $('#log-in').click @showLogInForm
-    $('#sign-up').click @showSignUpForm
-    $('.back-icon').click @goBack
-    $('.user-field').blur @checkForm
-    $(window).bind 'popstate', @confirmBack()
-    @detectMobile()
-    @initMobile()
+    $(window).scroll @fadeElements
+    @height = $(window).height()
+    @halfHeight = ($(window).height() / 2)
+    @threeHalfHeight = @halfHeight * 3
+    @trigger = false
+    $('.phone-info-item').click @showActive
 
-  confirmBack: ->
-    return false
+  showActive: ->
+    $('.active').removeClass('active')
+    $(@).addClass('active')
 
-  initMobile: -> 
-    mobile = $(window).width() < 1024
-    
-  goBack: ->
-    location.reload()
+  fadeElements: ->
+    currentHeight = $(window).scrollTop()
 
-  detectMobile: ->
-    Home.mobile = $('.mobile:visible').length > 0
+    if currentHeight < (Home.height * 3)
+      if currentHeight < Home.halfHeight
+        fade2 = 0
+        fade1 = Math.round((1 - (currentHeight / (Home.halfHeight))) * 100) / 100 
+      else if currentHeight > Home.halfHeight && currentHeight < Home.threeHalfHeight
+        fade2 = Math.round((1 - ((currentHeight - Home.height)  / (Home.height))) * 100) / 100 
+        fade1 = 0
+        fade3 = 0
+      else 
+        fade3 = Math.round((1 - ((currentHeight - Home.threeHalfHeight)  / (Home.height * 3 ))) * 100) / 100 
+      $('#fade-1').css('opacity', fade1)
+      $('#fade-2').css('opacity', fade2)
+      $('#fade-3').css('opacity', fade3)
+    else
+      if Home.trigger == false
+        Home.trigger = true
+        setTimeout ->
+          Home.trigger = false
+        , 1000
+        Home.showcasePhone()
 
-  showLogInForm: ->
-    $('#content-container').removeClass 'landing'
-    $('.form-actions').removeClass 'active'
-    $(@).addClass 'active'
-    $('#name, #phone_number').css 'border-bottom', 'none'
-    $('#name, #phone_number').animate
-    	height: '0px'
-    	opacity: 0;
-    , 250, ->
-    	$(@).hide()
-    Home.handleMobileLogin() if Home.mobile
+  showcasePhone: ->
+    if $('.phone-info-item.active').length < 1
+      $('.phone-info-item').first().addClass('active')
+    else
+      console.log "done"
+      next = $('.active').next()
+      $('.active').removeClass('active')
+      next.addClass('active')
+      if next.length < 1
+        $('#get-started-button').show().addClass('animated fadeIn')
 
-  handleMobileLogin: ->
-    $('#main-logo, .add-photo').hide()
-    $('#header-left, form').show()
-    $('#content-container, #sign-up-box').css('background', 'white')
-    $('.landing-text, #facebook, .form-actions').hide()
-
-  showSignUpForm: ->
-    $('#content-container').removeClass 'landing'
-    $('.form-actions').removeClass 'active'
-    $(@).addClass 'active'
-    $('#name, #phone_number').show()
-    $('#name, #phone_number').animate
-    	height: '40px'
-    	opacity: 1;
-    , 250, ->
-    	$('#name, #phone_number').css('border-bottom', '1px solid lightgray')
-    Home.handleMobileSignUp() if Home.mobile
-
-  handleMobileSignUp: ->
-    $('.main-logo').hide()
-    $('header .mobile, form').show()
-    $('#content-container, #sign-up-box').css('background', 'white')
-    $('.landing-text, #facebook, .form-actions, #submit-user').hide()
-
-  checkForm: ->
-    if $('#sign-up.active').length > 0
-      Home.showCheck $('#name') if $('#name').val() != ""
-      Home.showCheck $('#password') if $('#password').val() != "" && $('#password').val().length > 6
-      Home.showCheck $('#email') if /.+\@.+\..+/.exec $('#email').val()
-      Home.showCheck $('#phone_number') if /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/.exec $('#phone_number').val()
-
-
-  showCheck: (field) ->
-    field.parent().children('.check-icon').show()
 
 ready = ->
-  Home.init()
+  Home.init() if $('#landing-header').length > 0
 $(document).ready ready
 $(document).on 'page:load', ready
+
+
+

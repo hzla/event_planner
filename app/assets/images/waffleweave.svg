@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="940px" height="700px" viewBox="0 0 940 700" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>New Mask Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="940" height="700"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-7" sketch:type="MSArtboardGroup" transform="translate(-170.000000, 0.000000)">
+            <g id="New-Mask-Group" sketch:type="MSLayerGroup" transform="translate(170.000000, 0.000000)">
+                <mask id="mask-2" sketch:name="Mask" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                <g id="Group" mask="url(#mask-2)" stroke-linecap="square" sketch:type="MSShapeGroup">
+                    <g transform="translate(-721.000000, -22.000000)">
+                        <path d="M260.5,0.656360424 L826.185425,743.243411" id="Line-16" stroke="#F7F7F7"></path>
+                        <path d="M280.5,0.656360424 L846.185425,743.243411" id="Line-3" stroke="#F7F7F7"></path>
+                        <path d="M300.5,0.656360424 L866.185425,743.243411" id="Line-8" stroke="#E3FFF8"></path>
+                        <path d="M180.5,0.656360424 L746.185425,743.243411" id="Line-12" stroke="#F7F7F7"></path>
+                        <path d="M200.5,0.656360424 L766.185425,743.243411" id="Line-10" stroke="#F7F7F7"></path>
+                        <path d="M220.5,0.656360424 L786.185425,743.243411" id="Line-13" stroke="#F7F7F7"></path>
+                        <path d="M160.5,0.656360424 L726.185425,743.243411" id="Line-14" stroke="#F7F7F7"></path>
+                        <path d="M240.5,0.656360424 L806.185425,743.243411" id="Line-15" stroke="#F7F7F7"></path>
+                        <path d="M420.5,0.656360424 L986.185425,743.243411" id="Line-32" stroke="#F7F7F7"></path>
+                        <path d="M440.5,0.656360424 L1006.18542,743.243411" id="Line-17" stroke="#F7F7F7"></path>
+                        <path d="M460.5,0.656360424 L1026.18542,743.243411" id="Line-18" stroke="#E3FFF8"></path>
+                        <path d="M340.5,0.656360424 L906.185425,743.243411" id="Line-19" stroke="#F7F7F7"></path>
+                        <path d="M360.5,0.656360424 L926.185425,743.243411" id="Line-20" stroke="#F7F7F7"></path>
+                        <path d="M380.5,0.656360424 L946.185425,743.243411" id="Line-21" stroke="#F7F7F7"></path>
+                        <path d="M320.5,0.656360424 L886.185425,743.243411" id="Line-22" stroke="#F7F7F7"></path>
+                        <path d="M400.5,0.656360424 L966.185425,743.243411" id="Line-23" stroke="#F7F7F7"></path>
+                        <path d="M580.5,0.656360424 L1146.18542,743.243411" id="Line-24" stroke="#F7F7F7"></path>
+                        <path d="M600.5,0.656360424 L1166.18542,743.243411" id="Line-25" stroke="#F7F7F7"></path>
+                        <path d="M620.5,0.656360424 L1186.18542,743.243411" id="Line-26" stroke="#E3FFF8"></path>
+                        <path d="M500.5,0.656360424 L1066.18542,743.243411" id="Line-27" stroke="#F7F7F7"></path>
+                        <path d="M520.5,0.656360424 L1086.18542,743.243411" id="Line-28" stroke="#F7F7F7"></path>
+                        <path d="M540.5,0.656360424 L1106.18542,743.243411" id="Line-29" stroke="#F7F7F7"></path>
+                        <path d="M480.5,0.656360424 L1046.18542,743.243411" id="Line-30" stroke="#F7F7F7"></path>
+                        <path d="M560.5,0.656360424 L1126.18542,743.243411" id="Line-31" stroke="#F7F7F7"></path>
+                        <path d="M740.5,0.656360424 L1306.18542,743.243411" id="Line-64" stroke="#F7F7F7"></path>
+                        <path d="M760.5,0.656360424 L1326.18542,743.243411" id="Line-33" stroke="#F7F7F7"></path>
+                        <path d="M780.5,0.656360424 L1346.18542,743.243411" id="Line-34" stroke="#E3FFF8"></path>
+                        <path d="M660.5,0.656360424 L1226.18542,743.243411" id="Line-35" stroke="#F7F7F7"></path>
+                        <path d="M680.5,0.656360424 L1246.18542,743.243411" id="Line-36" stroke="#F7F7F7"></path>
+                        <path d="M700.5,0.656360424 L1266.18542,743.243411" id="Line-37" stroke="#F7F7F7"></path>
+                        <path d="M640.5,0.656360424 L1206.18542,743.243411" id="Line-38" stroke="#F7F7F7"></path>
+                        <path d="M720.5,0.656360424 L1286.18542,743.243411" id="Line-39" stroke="#F7F7F7"></path>
+                        <path d="M900.5,0.656360424 L1466.18542,743.243411" id="Line-40" stroke="#F7F7F7"></path>
+                        <path d="M920.5,0.656360424 L1486.18542,743.243411" id="Line-41" stroke="#F7F7F7"></path>
+                        <path d="M940.5,0.656360424 L1506.18542,743.243411" id="Line-42" stroke="#E3FFF8"></path>
+                        <path d="M820.5,0.656360424 L1386.18542,743.243411" id="Line-43" stroke="#F7F7F7"></path>
+                        <path d="M840.5,0.656360424 L1406.18542,743.243411" id="Line-44" stroke="#F7F7F7"></path>
+                        <path d="M860.5,0.656360424 L1426.18542,743.243411" id="Line-45" stroke="#F7F7F7"></path>
+                        <path d="M800.5,0.656360424 L1366.18542,743.243411" id="Line-46" stroke="#F7F7F7"></path>
+                        <path d="M880.5,0.656360424 L1446.18542,743.243411" id="Line-47" stroke="#F7F7F7"></path>
+                        <path d="M1060.5,0.656360424 L1626.18542,743.243411" id="Line-48" stroke="#F7F7F7"></path>
+                        <path d="M1080.5,0.656360424 L1646.18542,743.243411" id="Line-49" stroke="#F7F7F7"></path>
+                        <path d="M1100.5,0.656360424 L1666.18542,743.243411" id="Line-50" stroke="#E3FFF8"></path>
+                        <path d="M980.5,0.656360424 L1546.18542,743.243411" id="Line-51" stroke="#F7F7F7"></path>
+                        <path d="M1000.5,0.656360424 L1566.18542,743.243411" id="Line-52" stroke="#F7F7F7"></path>
+                        <path d="M1020.5,0.656360424 L1586.18542,743.243411" id="Line-53" stroke="#F7F7F7"></path>
+                        <path d="M960.5,0.656360424 L1526.18542,743.243411" id="Line-54" stroke="#F7F7F7"></path>
+                        <path d="M1040.5,0.656360424 L1606.18542,743.243411" id="Line-55" stroke="#F7F7F7"></path>
+                        <path d="M1220.5,0.656360424 L1786.18542,743.243411" id="Line-56" stroke="#F7F7F7"></path>
+                        <path d="M1240.5,0.656360424 L1806.18542,743.243411" id="Line-57" stroke="#F7F7F7"></path>
+                        <path d="M1260.5,0.656360424 L1826.18542,743.243411" id="Line-58" stroke="#E3FFF8"></path>
+                        <path d="M1140.5,0.656360424 L1706.18542,743.243411" id="Line-59" stroke="#F7F7F7"></path>
+                        <path d="M1160.5,0.656360424 L1726.18542,743.243411" id="Line-60" stroke="#F7F7F7"></path>
+                        <path d="M1180.5,0.656360424 L1746.18542,743.243411" id="Line-61" stroke="#F7F7F7"></path>
+                        <path d="M1120.5,0.656360424 L1686.18542,743.243411" id="Line-62" stroke="#F7F7F7"></path>
+                        <path d="M1200.5,0.656360424 L1766.18542,743.243411" id="Line-63" stroke="#F7F7F7"></path>
+                        <path d="M1380.5,0.656360424 L1946.18542,743.243411" id="Line-88" stroke="#F7F7F7"></path>
+                        <path d="M1400.5,0.656360424 L1966.18542,743.243411" id="Line-65" stroke="#F7F7F7"></path>
+                        <path d="M1420.5,0.656360424 L1986.18542,743.243411" id="Line-66" stroke="#E3FFF8"></path>
+                        <path d="M1300.5,0.656360424 L1866.18542,743.243411" id="Line-67" stroke="#F7F7F7"></path>
+                        <path d="M1320.5,0.656360424 L1886.18542,743.243411" id="Line-68" stroke="#F7F7F7"></path>
+                        <path d="M1340.5,0.656360424 L1906.18542,743.243411" id="Line-69" stroke="#F7F7F7"></path>
+                        <path d="M1280.5,0.656360424 L1846.18542,743.243411" id="Line-70" stroke="#F7F7F7"></path>
+                        <path d="M1360.5,0.656360424 L1926.18542,743.243411" id="Line-71" stroke="#F7F7F7"></path>
+                        <path d="M1540.5,0.656360424 L2106.18542,743.243411" id="Line-72" stroke="#F7F7F7"></path>
+                        <path d="M1560.5,0.656360424 L2126.18542,743.243411" id="Line-73" stroke="#F7F7F7"></path>
+                        <path d="M1580.5,0.656360424 L2146.18542,743.243411" id="Line-74" stroke="#E3FFF8"></path>
+                        <path d="M1460.5,0.656360424 L2026.18542,743.243411" id="Line-75" stroke="#F7F7F7"></path>
+                        <path d="M1480.5,0.656360424 L2046.18542,743.243411" id="Line-76" stroke="#F7F7F7"></path>
+                        <path d="M1500.5,0.656360424 L2066.18542,743.243411" id="Line-77" stroke="#F7F7F7"></path>
+                        <path d="M1440.5,0.656360424 L2006.18542,743.243411" id="Line-78" stroke="#F7F7F7"></path>
+                        <path d="M1520.5,0.656360424 L2086.18542,743.243411" id="Line-79" stroke="#F7F7F7"></path>
+                        <path d="M1620.5,0.656360424 L2186.18542,743.243411" id="Line-83" stroke="#F7F7F7"></path>
+                        <path d="M1640.5,0.656360424 L2206.18542,743.243411" id="Line-84" stroke="#F7F7F7"></path>
+                        <path d="M1660.5,0.656360424 L2226.18542,743.243411" id="Line-85" stroke="#F7F7F7"></path>
+                        <path d="M1600.5,0.656360424 L2166.18542,743.243411" id="Line-86" stroke="#F7F7F7"></path>
+                    </g>
+                </g>
+                <g id="Group-3" mask="url(#mask-2)" stroke-linecap="square" sketch:type="MSShapeGroup">
+                    <g transform="translate(439.000000, 349.500000) scale(-1, 1) translate(-439.000000, -349.500000) translate(-714.000000, -22.000000)">
+                        <path d="M100.5,0.656360424 L666.185425,743.243411" id="Line" stroke="#F7F7F7"></path>
+                        <path d="M120.5,0.656360424 L686.185425,743.243411" id="Line-2" stroke="#F7F7F7"></path>
+                        <path d="M140.5,0.656360424 L706.185425,743.243411" id="Line-4" stroke="#E3FFF8"></path>
+                        <path d="M260.5,0.656360424 L826.185425,743.243411" id="Line-16" stroke="#F7F7F7"></path>
+                        <path d="M280.5,0.656360424 L846.185425,743.243411" id="Line-3" stroke="#F7F7F7"></path>
+                        <path d="M300.5,0.656360424 L866.185425,743.243411" id="Line-8" stroke="#E3FFF8"></path>
+                        <path d="M180.5,0.656360424 L746.185425,743.243411" id="Line-12" stroke="#F7F7F7"></path>
+                        <path d="M200.5,0.656360424 L766.185425,743.243411" id="Line-10" stroke="#F7F7F7"></path>
+                        <path d="M220.5,0.656360424 L786.185425,743.243411" id="Line-13" stroke="#F7F7F7"></path>
+                        <path d="M160.5,0.656360424 L726.185425,743.243411" id="Line-14" stroke="#F7F7F7"></path>
+                        <path d="M240.5,0.656360424 L806.185425,743.243411" id="Line-15" stroke="#F7F7F7"></path>
+                        <path d="M420.5,0.656360424 L986.185425,743.243411" id="Line-32" stroke="#F7F7F7"></path>
+                        <path d="M440.5,0.656360424 L1006.18542,743.243411" id="Line-17" stroke="#F7F7F7"></path>
+                        <path d="M460.5,0.656360424 L1026.18542,743.243411" id="Line-18" stroke="#E3FFF8"></path>
+                        <path d="M340.5,0.656360424 L906.185425,743.243411" id="Line-19" stroke="#F7F7F7"></path>
+                        <path d="M360.5,0.656360424 L926.185425,743.243411" id="Line-20" stroke="#F7F7F7"></path>
+                        <path d="M380.5,0.656360424 L946.185425,743.243411" id="Line-21" stroke="#F7F7F7"></path>
+                        <path d="M320.5,0.656360424 L886.185425,743.243411" id="Line-22" stroke="#F7F7F7"></path>
+                        <path d="M400.5,0.656360424 L966.185425,743.243411" id="Line-23" stroke="#F7F7F7"></path>
+                        <path d="M580.5,0.656360424 L1146.18542,743.243411" id="Line-24" stroke="#F7F7F7"></path>
+                        <path d="M600.5,0.656360424 L1166.18542,743.243411" id="Line-25" stroke="#F7F7F7"></path>
+                        <path d="M620.5,0.656360424 L1186.18542,743.243411" id="Line-26" stroke="#E3FFF8"></path>
+                        <path d="M500.5,0.656360424 L1066.18542,743.243411" id="Line-27" stroke="#F7F7F7"></path>
+                        <path d="M520.5,0.656360424 L1086.18542,743.243411" id="Line-28" stroke="#F7F7F7"></path>
+                        <path d="M540.5,0.656360424 L1106.18542,743.243411" id="Line-29" stroke="#F7F7F7"></path>
+                        <path d="M480.5,0.656360424 L1046.18542,743.243411" id="Line-30" stroke="#F7F7F7"></path>
+                        <path d="M560.5,0.656360424 L1126.18542,743.243411" id="Line-31" stroke="#F7F7F7"></path>
+                        <path d="M740.5,0.656360424 L1306.18542,743.243411" id="Line-64" stroke="#F7F7F7"></path>
+                        <path d="M760.5,0.656360424 L1326.18542,743.243411" id="Line-33" stroke="#F7F7F7"></path>
+                        <path d="M780.5,0.656360424 L1346.18542,743.243411" id="Line-34" stroke="#E3FFF8"></path>
+                        <path d="M660.5,0.656360424 L1226.18542,743.243411" id="Line-35" stroke="#F7F7F7"></path>
+                        <path d="M680.5,0.656360424 L1246.18542,743.243411" id="Line-36" stroke="#F7F7F7"></path>
+                        <path d="M700.5,0.656360424 L1266.18542,743.243411" id="Line-37" stroke="#F7F7F7"></path>
+                        <path d="M640.5,0.656360424 L1206.18542,743.243411" id="Line-38" stroke="#F7F7F7"></path>
+                        <path d="M720.5,0.656360424 L1286.18542,743.243411" id="Line-39" stroke="#F7F7F7"></path>
+                        <path d="M900.5,0.656360424 L1466.18542,743.243411" id="Line-40" stroke="#F7F7F7"></path>
+                        <path d="M920.5,0.656360424 L1486.18542,743.243411" id="Line-41" stroke="#F7F7F7"></path>
+                        <path d="M940.5,0.656360424 L1506.18542,743.243411" id="Line-42" stroke="#E3FFF8"></path>
+                        <path d="M820.5,0.656360424 L1386.18542,743.243411" id="Line-43" stroke="#F7F7F7"></path>
+                        <path d="M840.5,0.656360424 L1406.18542,743.243411" id="Line-44" stroke="#F7F7F7"></path>
+                        <path d="M860.5,0.656360424 L1426.18542,743.243411" id="Line-45" stroke="#F7F7F7"></path>
+                        <path d="M800.5,0.656360424 L1366.18542,743.243411" id="Line-46" stroke="#F7F7F7"></path>
+                        <path d="M880.5,0.656360424 L1446.18542,743.243411" id="Line-47" stroke="#F7F7F7"></path>
+                        <path d="M1060.5,0.656360424 L1626.18542,743.243411" id="Line-48" stroke="#F7F7F7"></path>
+                        <path d="M1080.5,0.656360424 L1646.18542,743.243411" id="Line-49" stroke="#F7F7F7"></path>
+                        <path d="M1100.5,0.656360424 L1666.18542,743.243411" id="Line-50" stroke="#E3FFF8"></path>
+                        <path d="M980.5,0.656360424 L1546.18542,743.243411" id="Line-51" stroke="#F7F7F7"></path>
+                        <path d="M1000.5,0.656360424 L1566.18542,743.243411" id="Line-52" stroke="#F7F7F7"></path>
+                        <path d="M1020.5,0.656360424 L1586.18542,743.243411" id="Line-53" stroke="#F7F7F7"></path>
+                        <path d="M960.5,0.656360424 L1526.18542,743.243411" id="Line-54" stroke="#F7F7F7"></path>
+                        <path d="M1040.5,0.656360424 L1606.18542,743.243411" id="Line-55" stroke="#F7F7F7"></path>
+                        <path d="M1220.5,0.656360424 L1786.18542,743.243411" id="Line-56" stroke="#F7F7F7"></path>
+                        <path d="M1240.5,0.656360424 L1806.18542,743.243411" id="Line-57" stroke="#F7F7F7"></path>
+                        <path d="M1260.5,0.656360424 L1826.18542,743.243411" id="Line-58" stroke="#E3FFF8"></path>
+                        <path d="M1140.5,0.656360424 L1706.18542,743.243411" id="Line-59" stroke="#F7F7F7"></path>
+                        <path d="M1160.5,0.656360424 L1726.18542,743.243411" id="Line-60" stroke="#F7F7F7"></path>
+                        <path d="M1180.5,0.656360424 L1746.18542,743.243411" id="Line-61" stroke="#F7F7F7"></path>
+                        <path d="M1120.5,0.656360424 L1686.18542,743.243411" id="Line-62" stroke="#F7F7F7"></path>
+                        <path d="M1200.5,0.656360424 L1766.18542,743.243411" id="Line-63" stroke="#F7F7F7"></path>
+                        <path d="M1380.5,0.656360424 L1946.18542,743.243411" id="Line-88" stroke="#F7F7F7"></path>
+                        <path d="M1400.5,0.656360424 L1966.18542,743.243411" id="Line-65" stroke="#F7F7F7"></path>
+                        <path d="M1420.5,0.656360424 L1986.18542,743.243411" id="Line-66" stroke="#E3FFF8"></path>
+                        <path d="M1300.5,0.656360424 L1866.18542,743.243411" id="Line-67" stroke="#F7F7F7"></path>
+                        <path d="M1320.5,0.656360424 L1886.18542,743.243411" id="Line-68" stroke="#F7F7F7"></path>
+                        <path d="M1340.5,0.656360424 L1906.18542,743.243411" id="Line-69" stroke="#F7F7F7"></path>
+                        <path d="M1280.5,0.656360424 L1846.18542,743.243411" id="Line-70" stroke="#F7F7F7"></path>
+                        <path d="M1360.5,0.656360424 L1926.18542,743.243411" id="Line-71" stroke="#F7F7F7"></path>
+                        <path d="M1540.5,0.656360424 L2106.18542,743.243411" id="Line-72" stroke="#F7F7F7"></path>
+                        <path d="M1560.5,0.656360424 L2126.18542,743.243411" id="Line-73" stroke="#F7F7F7"></path>
+                        <path d="M1580.5,0.656360424 L2146.18542,743.243411" id="Line-74" stroke="#E3FFF8"></path>
+                        <path d="M1460.5,0.656360424 L2026.18542,743.243411" id="Line-75" stroke="#F7F7F7"></path>
+                        <path d="M1480.5,0.656360424 L2046.18542,743.243411" id="Line-76" stroke="#F7F7F7"></path>
+                        <path d="M1500.5,0.656360424 L2066.18542,743.243411" id="Line-77" stroke="#F7F7F7"></path>
+                        <path d="M1440.5,0.656360424 L2006.18542,743.243411" id="Line-78" stroke="#F7F7F7"></path>
+                        <path d="M1520.5,0.656360424 L2086.18542,743.243411" id="Line-79" stroke="#F7F7F7"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

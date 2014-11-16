@@ -1,5 +1,5 @@
 class ChoicesController < ApplicationController
-	
+
 	include SessionsHelper
 	before_filter :check_event_ownership
 
@@ -8,7 +8,7 @@ class ChoicesController < ApplicationController
 		titles = params[:title_list].split("<OPTION>")
 		infos = params[:info_list].split("<OPTION>")
 		service_ids = params[:id_list].split("<OPTION>")
-		event = Event.find(@event_id)
+		event = Event.find(params[:event_id])
 		polls = event.polls
 		polls.each do |poll|
 			poll.choices.destroy_all
@@ -16,7 +16,7 @@ class ChoicesController < ApplicationController
 				Choice.create poll_id: poll.id, image_url: images[i], value: titles[i], add_info: infos[i], service_id: service_ids[i]
 			end
 		end
-		redirect_to event_path(@event_id)	
+		redirect_to event_path(@event_id)
 	end
 
 	def vote
@@ -24,7 +24,7 @@ class ChoicesController < ApplicationController
 		@event = @choice.poll.event
 		answer = params[:answer]
 		if @choice.yes == nil
-			delta = 1 
+			delta = 1
 		else
 			delta = 2
 		end
@@ -39,7 +39,6 @@ class ChoicesController < ApplicationController
 		if @choice.poll.choices.where(yes: nil).empty?
 			poll.update_attributes answered: true
 		end
-		
 		render json: {changed: changed, answer: answer, delta: delta}
 	end
 

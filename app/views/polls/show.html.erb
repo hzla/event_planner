@@ -1,4 +1,5 @@
-<div id="content-container" class="s1">
+<div class="results-bg s1"> </div>
+<div id="content-container">
 	<%= content_for :header do %>
 		<% if current_user %>
 			<div class="header-pic-container">
@@ -66,7 +67,7 @@
 				<% end %>
 			</div>
 
-		<% if @fb_connected %>	
+		<% if @fb_connected %>
 			<div class="box-content">
 				<div class="content-row description sub-text">
 					<%= description(@poll) %>
