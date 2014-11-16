@@ -50,7 +50,7 @@ class Opentable
 		if parsed_response["id"]
 			c_id = parsed_response["confirmation_id"]
 			cancel(event.confirmation_id) if event.confirmation_id
-			event.update_attributes confirmation_id: c_id.to_i, current_choice: choice.value
+			event.update_attributes confirmation_id: c_id.to_i, current_choice: choice.value, processing_choice: nil
 		else
 			url =  parsed_response["url"]
 			event.update_attributes processing_choice: choice.value

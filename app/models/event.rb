@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
 					created_users << user
 				end
 				users << user
-				# UserMailer.poll_email(poll).deliver 
+				UserMailer.poll_email(poll).deliver 
 			end
 		end
 		created_users
