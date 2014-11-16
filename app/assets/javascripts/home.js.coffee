@@ -2,6 +2,8 @@ Home =
   init: ->
     $(window).scroll @fadeElements
     @height = $(window).height()
+    @doubleHeight = @height * 2
+    @tripleHeight = @height * 3
     @halfHeight = ($(window).height() / 2)
     @threeHalfHeight = @halfHeight * 3
     @trigger = false
@@ -14,7 +16,16 @@ Home =
   fadeElements: ->
     currentHeight = $(window).scrollTop()
 
-    if currentHeight < (Home.height * 3)
+    if currentHeight < Home.height + 100 && currentHeight > Home.height - 100
+      console.log "tried"
+      $(window).scrollTop(Home.height)
+    else if currentHeight < Home.doubleHeight + 100 && currentHeight > Home.doubleHeight - 100
+      $(window).scrollTop(Home.doubleHeight)
+    else if currentHeight < Home.tripleHeight + 300 && currentHeight > Home.tripleHeight - 100
+      $(window).scrollTop(Home.tripleHeight)
+    else
+
+    if currentHeight < (Home.height * 3) - 5
       if currentHeight < Home.halfHeight
         fade2 = 0
         fade1 = Math.round((1 - (currentHeight / (Home.halfHeight))) * 100) / 100 
