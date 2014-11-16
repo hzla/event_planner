@@ -25,7 +25,7 @@
 	</div>
 	<div class="mid-section" id="fade-2">
 		<div class="title-text">We'll take care of everything.</div>
-		<div class="mid-sub-text">Instagator takes out the pain of coordination so you can enjoy the reward of revelry</div>
+		<div class="mid-sub-text">dinnerPoll takes out the pain of coordination so you can enjoy the reward of revelry</div>
 	</div>
 </div>
 
@@ -60,17 +60,19 @@
 			While you're at it[]<br><br>
 			Manual spreadsheets are for the birds.
 		</div>
-		<div id="get-started-button" class="btn turq-btn hidden">Get Started</div>
+		<%= link_to '/auth/facebook' do %>
+			<div id="get-started-button" class="btn turq-btn hidden">Get Started</div>
+		<% end %>
 	</div>
 </div>
 
 
 
  <script>
-		// $('body').hide()
-		// var pw = window.prompt("password");
-		// console.log(pw)
-		// if (pw == "gator"){
-		// 	$('body').show()
-		// }
+		$('body').hide()
+		var pw = window.prompt("password");
+		console.log(pw)
+		if (pw == "gator"){
+			$('body').show()
+		}
  </script>
