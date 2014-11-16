@@ -13,9 +13,9 @@
 
 <div id="landing-header">
 	<%= image_tag 'dinnerpoll.svg', id: 'landing-logo' %>
-	<div class="header-link">instagator</div>
-	<div class="header-link">poll</div>
-	<div class="header-link active">home</div>
+	<div class="header-link no-mobile">instagator</div>
+	<div class="header-link no-mobile">poll</div>
+	<div class="header-link active no-mobile">home</div>
 </div>
 
 <div id="mid-container">
@@ -30,15 +30,15 @@
 </div>
 
 <div id="showcase-container">
-	<div class="mid-section" id="fade-3">
-		<div class="showcase-title-text green">All you need is:</div>
-		<div class="showcase-subtext">
+	<div class="mid-section">
+		<div class="showcase-title-text green fade-3">All you need is:</div>
+		<div class="showcase-subtext fade-3">
 			A couple of restauraunts in mind<br><br>
 			Friends to join you<br><br>
 			...that's pretty much it
 		</div>
 	</div>
-	<div class="mid-section">
+	<div class="mid-section last">
 		<div id="phone-info">
 			<div id="phone-info-header" class="green">We do it all:</div>
 			<div class="phone-info-item">
@@ -55,7 +55,7 @@
 			</div>
 		</div>
 		<%= image_tag 'iphone.png', id: "iphone-1" %>
-		<div id="phone-side-text" class="blue">
+		<div id="phone-side-text" class="blue no-mobile">
 			or, you could just use a google spreadsheet. people always fill those out promptly.<br><br>
 			While you're at it[]<br><br>
 			Manual spreadsheets are for the birds.

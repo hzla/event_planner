@@ -26,7 +26,7 @@ Home =
         fade3 = Math.round((1 - ((currentHeight - Home.threeHalfHeight)  / (Home.height * 3 ))) * 100) / 100 
       $('#fade-1').css('opacity', fade1)
       $('#fade-2').css('opacity', fade2)
-      $('#fade-3').css('opacity', fade3)
+      $('.fade-3').css('opacity', fade3)
     else
       if Home.trigger == false
         Home.trigger = true

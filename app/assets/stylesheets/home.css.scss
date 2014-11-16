@@ -152,14 +152,16 @@
 	top: 200%;
 	width: 960px;
 	left: calc(50% - 480px);
-	background: white;
+	background-size: cover;
 	z-index: 3;
 	height: 200%;
+	background: white;
 }
 
 #showcase-container {
 	.mid-section {
 		height: 100vh;
+		background: image-url('waffleweave.png');
 	}
 }
 
@@ -264,5 +266,58 @@
 	left: 40px;
 	bottom: 80px;
 }
+
+
+/***********  Media Queries   *****************/
+
+@media (max-width: 1023px) {
+	body {
+		#landing-header {
+			width: 100%;
+			left: 0;
+		}
+		#landing-logo {
+			left: calc(50% - 120px);
+		}
+		#showcase-container, #mid-container {
+			width: 100%;
+			left: 0;
+			right: 0;
+		}	
+		.showcase-title-text {
+			top: 25vh;
+		}
+		.showcase-subtext {
+			width: 100%;
+			left: 0;
+			top: 50vh;
+		}
+		.blur-image {
+			width: 100vw;
+			height: 100vh;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+		#fade-2 .title-text {
+			top: 20vh;
+		}
+		.mid-sub-text {
+			width: calc(100% - 40px);
+			left: 20px;
+		} 
+		#showcase-container .mid-section.last {
+			height: 260vh;
+		}
+		#phone-info {
+			top: 750px;
+		}
+		.showcase-title-text, .title-text, .showcase-subtext {
+			width: calc(100% - 20px);
+			left: 10px;
+		}
+	}
+}
+
 
 
