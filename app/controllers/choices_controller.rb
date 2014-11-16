@@ -1,5 +1,5 @@
 class ChoicesController < ApplicationController
-	
+
 	include SessionsHelper
 	before_filter :check_event_ownership
 
@@ -8,7 +8,7 @@ class ChoicesController < ApplicationController
 		titles = params[:title_list].split("<OPTION>")
 		infos = params[:info_list].split("<OPTION>")
 		service_ids = params[:id_list].split("<OPTION>")
-		event = Event.find(@event_id)
+		event = Event.find(params[:event_id])
 		polls = event.polls
 		polls.each do |poll|
 			poll.choices.destroy_all
@@ -16,7 +16,7 @@ class ChoicesController < ApplicationController
 				Choice.create poll_id: poll.id, image_url: images[i], value: titles[i], add_info: infos[i], service_id: service_ids[i]
 			end
 		end
-		redirect_to event_path(@event_id)	
+		redirect_to event_path(@event_id)
 	end
 
 	def vote
@@ -24,7 +24,7 @@ class ChoicesController < ApplicationController
 		@event = @choice.poll.event
 		answer = params[:answer]
 		if @choice.yes == nil
-			delta = 1 
+			delta = 1
 		else
 			delta = 2
 		end
@@ -39,9 +39,9 @@ class ChoicesController < ApplicationController
 		if @choice.poll.choices.where(yes: nil).empty?
 			poll.update_attributes answered: true
 		end
-		if @choice.yes_count >= @event.threshold && @event.confirmation_id == nil || (@choice.yes_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice != @choice.value) 
+		if @choice.yes_count >= @event.threshold && @event.confirmation_id == nil || (@choice.yes_count >= @event.threshold && @event.confirmation_id != nil && @event.current_choice != @choice.value)
 			ReservationWorker.perform_async({restaurant_id: @choice.service_id, date_time: '11/20/2014 18:30:00',
-			party_size: @event.polls.count , first_name: @event.user.first_name, last_name: @event.user.last_name, 
+			party_size: @event.polls.count , first_name: @event.user.first_name, last_name: @event.user.last_name,
 			email: @event.user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
 		end
 		render json: {changed: changed, answer: answer, delta: delta}
