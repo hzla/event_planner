@@ -9,7 +9,7 @@
 	<div id="choices">
 		<div id="poll-take-header">
 			<div id="poll-take-name"><%= @event.name %></div>
-			<div id="poll-take-count"><%= @event.attending_count %> People Going</div>
+			<div id="poll-take-count"><%= @event.attending_count %> RSVP(s)</div>
 		</div>
 		<% @choices.each do |choice| %>
 			<div class="choice <%= 'grey-back' if choice.is_processing || choice.is_current %> ">
