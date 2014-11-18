@@ -37,8 +37,9 @@
       max: 1439,
       values: [540, 1020],
       slide: slideTime,
-      step: 30, 
+      step: 30 <% if @event.start_time %>, 
       values: <%= @event.time_range_values %>
+      <% end %>
   });
   function slideTime(event, ui){
 	    var val0 = $("#slider-range").slider("values", 0),
