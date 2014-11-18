@@ -82,8 +82,46 @@
 	border-bottom: 1px solid $light-grey;
 	font-size: 16px;
 	font-family: 'Muli', sans-serif;
-
 }
+
+#event-timepicker {
+	text-align: center;
+	font-size: 16px;
+	width: 100%;
+	#timepicker-header, #time-range {
+		height: 40px;
+		line-height: 40px;
+	}
+	#slider-range {
+		height: 3px;
+		background: $grey;
+		border: none;
+		margin: 20px 0px;
+	}
+	.ui-slider-range {
+		background: $green;
+		border: none;
+		height: 3px;
+	}
+	.ui-slider-handle {
+		top: -10px;
+		border: none;
+		background: $green;
+		border-radius: 0px;
+		height: 20px;
+		width: 30px;
+		cursor: pointer;
+	}
+	.ui-slider-handle:focus {
+		outline:0;
+	}
+	.ui-slider-handle:hover {
+		height: 30px;
+		top: -15px;
+	}
+}
+
+
 
 #submit-poll {
 	position: absolute;
@@ -165,6 +203,10 @@ div.event {
 		.event-line-text.bottom-line {
 			bottom: 10px;
 			left: $mg;
+		}
+		#slider-range {
+			width: 80%;
+			left: 10%;
 		}
 	}
 }

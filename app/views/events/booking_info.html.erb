@@ -15,33 +15,69 @@
 	<div id="poll-creator">
 			<%= form_for @event do |f| %>
 				<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
-				<% if !@browser.mobile? %>
-					<div id="datepair">
-						<%= f.text_field :start_date, :class => "pick-date poll-field", placeholder: "Reservation Date" %>
-						<%= f.text_field :start_time, :class => "pick-time poll-field", placeholder: "Earliest Time" %>
-						<%= f.text_field :end_time, :class => "pick-time poll-field", placeholder: "Latest Time" %>
-						<script>
-						  $(document).ready(function(){
-						    $('#datepair .pick-time').timepicker({
-						        'showDuration': true,
-						        'timeFormat': 'g:ia',
-						        'scrollDefault': 'now'
-						    });
-						    $('#datepair .pick-date').datepicker({
-						        'format': 'yyyy-m-d',
-						        'autoclose': true
-						    });
-						  })
-						</script>
+				<div id="datepair">
+					<%= f.text_field :start_date, :class => "pick-date poll-field", placeholder: "Reservation Date" %>
+					<%= f.text_field :start_time, :class => "pick-time poll-field hidden", placeholder: "Earliest Time" %>
+					<%= f.text_field :end_time, :class => "pick-time poll-field hidden", placeholder: "Latest Time" %>
+					<div id="event-timepicker">
+						<div id="timepicker-header">What time range should we try to book in?</div>
+						<div id="slider-range"></div>
+						<div id="time-range"></div>
 					</div>
-				<% else %>
-					<%= f.text_field :start_date, :class => "poll-field", placeholder: "Start Date" %>
-					<%= f.text_field :start_time, :class => "poll-field", placeholder: "Time Range Start" %>
-					<%= f.text_field :end_time, :class => "poll-field", placeholder: "Time Range End" %>
-				<% end %>
-
-					<%= f.select :threshold, options_for_select((2..16).to_a), prompt: "Minimum Party Size", :class => "poll-field" %>
-				<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
-			<% end %>
+				</div>
+				<%= f.select :threshold, options_for_select((2..16).to_a), prompt: "Minimum Party Size", :class => "poll-field" %>
+			<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
+		<% end %>
 		</div>
 </div>
+<script>
+	$("#slider-range").slider({
+      range: true,
+      min: 0,
+      max: 1439,
+      values: [540, 1020],
+      slide: slideTime,
+      step: 30, 
+      values: <%= @event.time_range_values %>
+  });
+  function slideTime(event, ui){
+	    var val0 = $("#slider-range").slider("values", 0),
+	        val1 = $("#slider-range").slider("values", 1),
+	        minutes0 = parseInt(val0 % 60, 10),
+	        hours0 = parseInt(val0 / 60 % 24, 10),
+	        minutes1 = parseInt(val1 % 60, 10),
+	        hours1 = parseInt(val1 / 60 % 24, 10);
+	    startTime = getTime(hours0, minutes0);
+	    endTime = getTime(hours1, minutes1);
+	    $("#time-range").text(startTime + ' - ' + endTime);
+	    $('#event_start_time').val(startTime)
+	    $('#event_end_time').val(endTime)
+	    console.log($('#event_start_time').val())
+
+	}
+	function getTime(hours, minutes) {
+    var time = null;
+    minutes = minutes + "";
+    if (hours < 12) {
+        time = "AM";
+    }
+    else {
+        time = "PM";
+    }
+    if (hours == 0) {
+        hours = 12;
+    }
+    if (hours > 12) {
+        hours = hours - 12;
+    }
+    if (minutes.length == 1) {
+        minutes = "0" + minutes;
+    }
+    return hours + ":" + minutes + " " + time;
+	}
+	slideTime();
+	$('.pick-date').datepicker({
+      'format': 'yyyy-m-d',
+      'autoclose': true
+  });
+</script>

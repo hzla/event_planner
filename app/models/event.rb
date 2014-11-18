@@ -106,6 +106,10 @@ class Event < ActiveRecord::Base
 		((expiration - Time.now) / 3600).round
 	end
 
+	def time_range_values
+		[start_time.hour * 60 + start_time.min , end_time.hour * 60 + start_time.min]
+	end
+
 end
 
 
