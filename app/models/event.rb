@@ -4,9 +4,12 @@ class Event < ActiveRecord::Base
 	has_many :users, through: :outings
 	has_many :outings
 	has_many :logs
+	has_many :choices
 	belongs_to :service
 
-	attr_accessible :processing_choice, :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
+	after_create :generate_routing_url
+
+	attr_accessible :routing_url, :processing_choice, :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
 
 	def activate_polls 
 		update_attributes status: 'activated'
@@ -26,6 +29,17 @@ class Event < ActiveRecord::Base
 			end
 		end
 		created_users
+	end
+
+	def generate_routing_url
+		update_attributes routing_url: "/events/#{id}/take?code=#{generate_code}"
+	end
+
+	def generate_code
+		random = (48..122).map {|x| x.chr}
+		characters = (random - random[43..48] - random[10..16])
+		code = characters.map {|c| characters.sample}
+		code.join
 	end
 
 	def update_times
@@ -93,7 +107,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def ongoing?
-		expiration > Time.now
+		(end_time - 24.hours) > Time.now
 	end
 
 	def time_info
@@ -103,7 +117,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def time_left
-		((expiration - Time.now) / 3600).round
+		(((end_time - 24.hours) - Time.now) / 3600).round
 	end
 
 	def time_range_values

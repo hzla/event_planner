@@ -96,31 +96,12 @@
 				<% end %>					
 			<% end %>
 		<% end %>
+	<%= link_to booking_info_path do %>
 		<div id="create-poll" class="btn-rnd turq-btn pull-down">
 			Create Poll
 		</div>
 	<% end %>
-		
-		<%= form_tag polls_path, id: "emails-form" do %>
-			<%= hidden_field_tag :email_list, nil, id: "email-list", value: "#{current_user.email}, " %>
-		<% end %>
-
-		<div id="poll-creator" class="hidden">
-			<div class="full-white-block">
-				<%= text_field_tag :email, nil, id: "invite-email", placeholder: "Add an invitee's email.." %>
-			</div>
-			<div class="btn blue-btn" id="add-email-btn">
-				Add
-			</div>
-
-			<div id="invitees-container" class="full-white-block">
-				<div class="invitees">
-					<div class="invitee"><%= current_user.email %></div>
-				</div>
-			</div>
-
-			<div class="submit-emails hidden btn blue-btn">Continue</div>
-		</div>
+	<% end %>
 </div>
 
 

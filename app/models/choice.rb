@@ -1,6 +1,7 @@
 class Choice < ActiveRecord::Base
 	belongs_to :poll
-	attr_accessible :value, :desc, :add_info, :poll_id, :replayer_name, :image_url, :yes, :service_id
+	belongs_to :event
+	attr_accessible :event_id, :value, :desc, :add_info, :poll_id, :replayer_name, :image_url, :yes, :service_id
 
 	def yes_count
 		event = poll.event

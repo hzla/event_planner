@@ -9,12 +9,11 @@ class ChoicesController < ApplicationController
 		infos = params[:info_list].split("<OPTION>")
 		service_ids = params[:id_list].split("<OPTION>")
 		event = Event.find(params[:event_id])
-		polls = event.polls
-		polls.each do |poll|
-			poll.choices.destroy_all
-			(0..(images.length - 1)).each do |i|
-				Choice.create poll_id: poll.id, image_url: images[i], value: titles[i], add_info: infos[i], service_id: service_ids[i]
-			end
+		(0..(images.length - 1)).each do |i|
+			Choice.create event_id: event.id, image_url: images[i], value: titles[i], add_info: infos[i], service_id: service_ids[i]
+		end
+		event.polls.each do |poll|
+			poll.choices << event.choices
 		end
 		redirect_to event_path(@event_id)
 	end

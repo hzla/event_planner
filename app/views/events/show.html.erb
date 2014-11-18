@@ -18,28 +18,20 @@
 			</div>
 		<% end %>
 	</div>
-	<div class="full-white-block event-field" id="invitee-list">
-		<% @invitees.each_with_index do |invitee, i| %>
-			<div class="pic-container">
-				<div class="profile-tooltip"><%= invitee.email %></div>
-				<div class="tail"></div>
-				<%= image_tag invitee.avatar, :class => "invitee-pic" %>
-			</div>
-		<% end %>
+
+	<div class="poll-url hidden">
+		<%= "instagator2014.herokuapp.com" + @event.routing_url %>
 	</div>
 
-	<!-- <div class="grey-header">
-		Other Options
-	</div> -->
 	<% if @event.status == "dormant" %>
-		<%= link_to activate_path(@event) do %>
+		<%= link_to activate_path(@event), remote: true do %>
 			<div class="btn activate-poll blue-btn" id="poll-status">
-				Send Invites
+				Get Poll Url
 			</div>
 		<% end %>
 	<% else %>
-		<div class="btn blue-btn" id="poll-status">
-			Invites Sent
+		<div class="poll-url">
+			<%= "instagator2014.herokuapp.com" + @event.routing_url %>
 		</div>
 	<% end %>
 

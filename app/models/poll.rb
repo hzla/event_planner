@@ -2,8 +2,8 @@ class Poll < ActiveRecord::Base
 	has_many :choices, dependent: :destroy
 	belongs_to :event
 
-	attr_accessible :confirmed_attending, :answered, :url, :user_id, :event_id, :name, :desc, :start_time, :email, :phone_number
-
+	attr_accessible :routing_url, :confirmed_attending, :answered, :url, :user_id, :event_id, :name, :desc, :start_time, :email, :phone_number
+	after_create :generate_url
 	def generate_url
 		update_attributes url: "/polls/#{id}?code=#{generate_code}"
 	end
@@ -14,6 +14,7 @@ class Poll < ActiveRecord::Base
 		code = characters.map {|c| characters.sample}
 		code.join
 	end
+
 
 	def top_choice
 		choices.sort_by(&:score).reverse.first

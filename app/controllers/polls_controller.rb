@@ -11,7 +11,6 @@ class PollsController < ApplicationController
 		@event.polls.destroy_all
 		email_list.each do |email|
 			poll = Poll.create email: email, event_id: @event.id
-			poll.generate_url
 		end
 		polls = @event.polls
 		polls.where(email: current_user.email).first.update_attributes user_id: current_user.id
@@ -24,13 +23,12 @@ class PollsController < ApplicationController
 		redirect_to booking_info_path(event_id: @event.id)
 	end
 
+
 	def show
 		@poll = Poll.find params[:id]
-		
 		if @poll.confirmed_attending
 			redirect_to take_path(code: params[:code]) and return
 		end
-
 		@event = @poll.event
 		if params[:code] != @poll.url.split("?code=").last
 			redirect_to root_path and return

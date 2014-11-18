@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :events
   get '/events/:id/activate', to: 'events#activate', as: 'activate'
   get '/events/:id/results', to: 'events#results', as: 'results'
+  get '/events/:id/take', to: 'events#route', as: 'route_event'
+  get '/events/:id/generate_poll', to: 'events#generate_poll', as: 'generate_poll'
+
+
   resources :polls 
   get '/polls/:id/delete', to: 'polls#delete', as: 'delete_poll'
   get '/polls/:id/take', to: 'polls#take', as: 'take'

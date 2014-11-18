@@ -68,12 +68,20 @@ div.event-field {
 }
 
 #poll-status {
-	width: 100%;
+	width: 20vw;
+	margin: 40px auto;
 	height: 40px;
 	line-height: 40px;
 	font-size: 16px;
 	box-sizing: border-box;
 	font-weight: 600;
+}
+
+.poll-url {
+	text-align: center;
+	margin: 20px 0px;
+	font-size: 24px;
+	word-break: break-all;
 }
 
 /******** Activation Modal *******/
@@ -128,6 +136,7 @@ div.event-field {
 			position: fixed;
 			bottom: 0;
 			z-index: 40;
+			width: 100%;
 		}
 	}
 }

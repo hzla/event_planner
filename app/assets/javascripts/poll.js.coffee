@@ -6,9 +6,16 @@ Poll =
     $('body').on 'click', '#finish-poll-take', @showPollFinished
     $('body').on 'click', '#finish-tutorial', @finishTutorial
     $('.choice').first().show()
+    $('#poll-status').click @showUrl
+
+
     @showNext() if $('.invitees .invitee.real').length > 0
     @addEmails()
     @centerProfile()
+
+  showUrl: -> 
+    $('.poll-url').show()
+    $(window).scrollTop $(document).height()
 
   finishTutorial: ->
     $('#poll-take-tutorial').hide()
