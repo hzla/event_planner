@@ -23,9 +23,11 @@
 				Welcome to Instagator, the easiest way to plan events.
 			</div>
 		</div>
-		<div id="create-poll" class="btn-rnd turq-btn">
-			Get Started
-		</div>
+		<%= link_to booking_info_path do %>
+			<div id="create-poll" class="btn-rnd turq-btn pull-down">
+				Create Poll
+			</div>
+		<% end %>
 
 <% else %>
 		<div class="service-header full-white-block">
