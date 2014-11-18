@@ -26,6 +26,11 @@ class PollsController < ApplicationController
 
 	def show
 		@poll = Poll.find params[:id]
+		
+		if @poll.confirmed_attending
+			redirect_to take_path(code: params[:code]) and return
+		end
+
 		@event = @poll.event
 		if params[:code] != @poll.url.split("?code=").last
 			redirect_to root_path and return

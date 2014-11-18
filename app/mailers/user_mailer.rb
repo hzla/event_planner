@@ -3,12 +3,12 @@ class UserMailer < ActionMailer::Base
  
   def poll_email poll
     @poll = poll
-    @host = "http://localhost:3000"
+    @host = "http://instagator2014.herokuapp.com"
     mail(to: poll.email, subject: "#{poll.event.name}")
   end
 
   def reservation_info url, email
-  	@host = "http://localhost:3000"
+  	@host = "http://instagator2014.herokuapp.com"
   	@url = url
   	mail(to: email, subject: "Your Reservation")
   end

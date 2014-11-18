@@ -5,7 +5,7 @@
 			<div class="header-pic-container">
 				<%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
 					<div class="profile-tooltip">
-						<%= current_user.name || "" %><br>
+						<%= current_user.name %><br>
 						<%= link_to logout_path, class: "logout" do %>Logout<% end %></div>
 					<div class="tail"></div>
 			</div>
@@ -31,14 +31,11 @@
 				<%= @event.name %>
 			</div>
 			<div class="content-row medium-text" id="time">
-				<div class="time"><%= image_tag 'clockicon.png', :class => "text-icon" %><%= @event.start_time || "Some Random Time" %></div>
+				<div class="time"><%= image_tag 'clockicon.png', :class => "text-icon" %><%= @event.time_info %></div>
 			</div>
 			<div class="content-row venue-options">
 				<div class="row-header">Venue Options</div>
 				<% @poll.choices.each do |choice| %>
-					<div class="poll-choice">
-						<%= choice.value %>
-					</div>
 					<div class="poll-choice">
 						<%= choice.value %>
 					</div>

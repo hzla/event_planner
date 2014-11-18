@@ -16,6 +16,10 @@
 
 }
 
+.desk-text-header {
+	display: inline;
+}
+
 .main-logo {
 	position: absolute;
 	left: calc(50% - 360px);
@@ -23,7 +27,18 @@
 	width: 140px;
 }
 
-.main-logo.text {
+.whos-going {
+	position: absolute;
+	left: calc(50% - 360px);
+	top: 13px;
+	width: 140px;
+}
+
+.whos-going.desk-text-header {
+	position: static;
+}
+
+.main-logo.text, .whos-going.text {
 	left: calc(50% - 150px);
 	width: 300px;
 	text-align: center;
@@ -248,7 +263,7 @@ img#header-right-pic {
 			display: none;
 			top: 5px;
 		}
-		.main-logo.text {
+		.main-logo.text, .whos-going.text {
 			display: inline;
 			width: 200px;
 			text-align: center;

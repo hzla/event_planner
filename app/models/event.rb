@@ -98,13 +98,11 @@ class Event < ActiveRecord::Base
 
 	def time_info
 		date = start_date.strftime("%b %d, %Y at ")
-		time = start_time.strftime("%l:%M %p")
+		time = start_time.strftime("%l:%M %p - ") + end_time.strftime("%l:%M %p")
 		date + time
 	end
 
 	def time_left
-		p self
-		puts "\n" * 10
 		((expiration - Time.now) / 3600).round
 	end
 
