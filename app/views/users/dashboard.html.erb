@@ -108,10 +108,9 @@
 					<%= f.text_field :start_time, :class => "pick-time poll-field hidden", placeholder: "Earliest Time" %>
 					<%= f.text_field :end_time, :class => "pick-time poll-field hidden", placeholder: "Latest Time" %>
 					<div id="range"></div>
-					<div class="value-1 hidden"></div>
-					<div class="value-2 hidden"></div>
-					<div class="shown-value-1"></div>
-					<div class="shown-value-2"></div>
+					<div class="value-1 hidden">1020</div>
+					<div class="value-2 hidden">1140</div>
+					<div class="shown-values"></div>
 			</div>
 			<%= f.select :threshold, options_for_select((2..16).to_a), prompt: "Minimum Party Size", :class => "poll-field" %>
 			<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>

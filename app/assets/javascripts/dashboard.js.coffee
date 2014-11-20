@@ -8,38 +8,29 @@ Dashboard =
     $('body').on 'click', '.ongoing-tab', @showOngoing
     $('body').on 'click', '.reserved-tab', @showReserved
     @initSlider()
-    $('#range').on 'slide', @slide
-    $('body').on 'change', '.value-1', @changeShownValue1
+    $('#range').on 'slide', @changeShownValues
+    @changeShownValues()
     @showOngoing()
 
   initSlider: ->
     $('#range').noUiSlider 
-      start: [1080, 1140]
+      start: [1020, 1140]
       connect: true
       range: 
-        'min': 0
+        'min': 420
         'max': 1439
       step: 30
-
-
     $('#range').Link('lower').to($('.value-1'))
     $('#range').Link('upper').to($('.value-2'))
 
-  slide: ->
-    Dashboard.changeShownValue1()
-    Dashboard.changeShownValue2()
-
-  changeShownValue1: ->
-    value = $('.value-1').text()
-    console.log value
-    convertedValue = Dashboard.slideTime(value)
-    $('.shown-value-1').text convertedValue
-
-  changeShownValue2: ->
-    value = $('.value-2').text()
-    console.log value
-    convertedValue = Dashboard.slideTime(value)
-    $('.shown-value-2').text convertedValue
+  changeShownValues: ->
+    value1 = $('.value-1').text()
+    convertedValue1 = Dashboard.slideTime(value1)
+    $('#event_start_time').val convertedValue1
+    value2 = $('.value-2').text()
+    convertedValue2 = Dashboard.slideTime(value2)
+    $('#event-end-time').val convertedValue2
+    $('.shown-values').text "#{convertedValue1} - #{convertedValue2}"
 
   slideTime: (value) ->
     minutes0 = parseInt(value % 60, 10)

@@ -83,6 +83,36 @@
 	font-size: 16px;
 }
 
+#range {
+	height: 3px;
+	margin: 40px 0px;
+	border: none;
+	.noUi-background, .noUi-base {
+		background: $grey;
+	}
+	.noUi-connect {
+		background: $green;
+	}
+	.noUi-handle {
+		background: $green;
+		border: none;
+		box-shadow: none;
+		height: 40px;
+		top: -17px;
+		width: 20px;
+	}
+	.noUi-handle:before, .noUi-handle:after {
+		display: none;
+	}
+}
+
+.shown-values {
+	text-align: center;
+	width: 100%;
+	font-size: 16px;
+}
+
+
 #event-timepicker {
 	text-align: center;
 	font-size: 16px;
@@ -96,27 +126,6 @@
 		background: $grey;
 		border: none;
 		margin: 20px 0px;
-	}
-	.ui-slider-range {
-		background: $green;
-		border: none;
-		height: 3px;
-	}
-	.ui-slider-handle {
-		top: -20px;
-		border: none;
-		background: $green;
-		border-radius: 0px;
-		height: 40px;
-		width: 15px;
-		cursor: pointer;
-	}
-	.ui-slider-handle:focus {
-		outline:0;
-	}
-	.ui-slider-handle:hover {
-		height: 50px;
-		top: -25px;
 	}
 }
 
@@ -203,39 +212,18 @@ div.event {
 			bottom: 10px;
 			left: $mg;
 		}
-		.time-slider {
-			margin: 20px;
-			width: 100%;
-		}
-		.ui-slider {
-			height: 10px;
-		}
-		div.ui-slider:before, div.ui-slider:after {
-			content: "";
-			display: table;
-		}
-		.ui-slider-track {
-			background-color: $light-grey;
-			border: none;
-			height: 100%;
+		#range {
 			width: calc(100% - 40px);
-			margin-left: 20px;
+			left: 20px;
+			.noUi-handle {
+				background: $green;
+				border: none;
+				box-shadow: none;
+				height: 40px;
+				top: -17px;
+				width: 20px;
+			}
 		}
-		.ui-slider-bg {
-			background-color: $green;
-			border: none;
-			height: 100%;
-		}
-		.ui-slider-handle {
-			position: absolute;
-			z-index: 1;
-			top: 50%;
-			width: 28px;
-			height: 28px;
-			margin: -15px 0 0 -15px;
-			outline: 0;
-			padding: 0;
-			background: black;
-		}
+		
 	}
 }
