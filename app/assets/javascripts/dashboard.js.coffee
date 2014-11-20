@@ -7,7 +7,62 @@ Dashboard =
     $('body').on 'touchstart', '#event_start_time, #event_end_time', @convertEventTime
     $('body').on 'click', '.ongoing-tab', @showOngoing
     $('body').on 'click', '.reserved-tab', @showReserved
+    @initSlider()
+    $('#range').on 'slide', @slide
+    $('body').on 'change', '.value-1', @changeShownValue1
     @showOngoing()
+
+  initSlider: ->
+    $('#range').noUiSlider 
+      start: [1080, 1140]
+      connect: true
+      range: 
+        'min': 0
+        'max': 1439
+      step: 30
+
+
+    $('#range').Link('lower').to($('.value-1'))
+    $('#range').Link('upper').to($('.value-2'))
+
+  slide: ->
+    Dashboard.changeShownValue1()
+    Dashboard.changeShownValue2()
+
+  changeShownValue1: ->
+    value = $('.value-1').text()
+    console.log value
+    convertedValue = Dashboard.slideTime(value)
+    $('.shown-value-1').text convertedValue
+
+  changeShownValue2: ->
+    value = $('.value-2').text()
+    console.log value
+    convertedValue = Dashboard.slideTime(value)
+    $('.shown-value-2').text convertedValue
+
+  slideTime: (value) ->
+    minutes0 = parseInt(value % 60, 10)
+    hours0 = parseInt(value / 60 % 24, 10)
+    time = Dashboard.getTime(hours0, minutes0);
+
+  getTime: (hours, minutes) ->
+    minutes = minutes + ""
+    if hours < 12
+      time = "AM";
+    else 
+      time = "PM";
+
+    if hours == 0 
+        hours = 12
+
+    if hours > 12 
+      hours = hours - 12
+
+    if minutes.length == 1
+      minutes = "0" + minutes
+    
+    hours + ":" + minutes + " " + time;
 
   showOngoing: ->
     $('.event').show()
