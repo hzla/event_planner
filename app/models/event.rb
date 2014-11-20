@@ -11,26 +11,6 @@ class Event < ActiveRecord::Base
 
 	attr_accessible :routing_url, :processing_choice, :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
 
-	def activate_polls 
-		update_attributes status: 'activated'
-		created_users = []
-		polls.each do |poll|
-			poll.generate_url
-			if poll.email 
-				user = nil
-				if poll.user_id
-					user = User.find poll.user_id
-				else
-					user = User.create email: poll.email, activation: poll.code
-					created_users << user
-				end
-				users << user
-				UserMailer.poll_email(poll).deliver 
-			end
-		end
-		created_users
-	end
-
 	def generate_routing_url
 		update_attributes routing_url: "/events/#{id}/take?code=#{generate_code}"
 	end
@@ -50,21 +30,20 @@ class Event < ActiveRecord::Base
 		self.update_attributes start_time: new_start, end_time: new_end
 	end
 
-	def parsed_start_time
-		start_time.strftime("%m/%d/%Y %H:%M:00")
+	def populate_polls_with_choices
+		polls.each do |poll|
+			poll.choices << choices
+		end
 	end
 
-	def parsed_end_time
-		end_time.strftime("%m/%d/%Y %H:%M:00")
+	def assign_user_and_create_first_poll user
+		users << user
+		update_attributes user_id: user.id
+		Poll.create email: user.email, event_id: id, user_id: user.id, confirmed_attending: true
 	end
 
-
-	def vote_count
+	def rsvps
 		polls.where(confirmed_attending: true).count
-	end
-
-	def voted
-		vote_count = polls.count
 	end
 
 	def top_choices
@@ -73,29 +52,12 @@ class Event < ActiveRecord::Base
 		end.reverse
 	end
 
-	def create_threshold
-		count = (polls.count / 2) + 1
-		update_attributes threshold: count
+	def should_book? choice #if first quorum has been reached or if quorum has been reached on a new choice
+		(rsvps >= threshold && current_choice == nil) || (rsvps >= threshold && current_choice != nil && current_choice != choice.value)
 	end
 
 	def attending_count
 		polls.where(confirmed_attending: true).count
-	end
-
-	def voted_on_by? user
-		!polls.where(user_id: user.id, confirmed_attending: true).empty?
-	end
-
-	def owned_by? user
-		user_id == user.id
-	end
-
-	def last_log
-		logs.order('created_at desc').first if logs
-	end
-
-	def vote_url user
-		polls.where(user_id: user.id).first.url
 	end
 
 	def html_classes user
@@ -106,8 +68,24 @@ class Event < ActiveRecord::Base
 		classes
 	end
 
+	def voted_on_by? user
+		!polls.where(user_id: user.id, confirmed_attending: true).empty?
+	end
+
+	def owned_by? user
+		user_id == user.id
+	end
+
 	def ongoing?
 		(end_time - 24.hours) > Time.now
+	end
+
+	def last_log
+		logs.order('created_at desc').first if logs
+	end
+
+	def vote_url user
+		polls.where(user_id: user.id).first.url
 	end
 
 	def time_info
@@ -124,6 +102,13 @@ class Event < ActiveRecord::Base
 		[start_time.hour * 60 + start_time.min , end_time.hour * 60 + start_time.min]
 	end
 
+	def parsed_start_time
+		start_time.strftime("%m/%d/%Y %H:%M:00")
+	end
+
+	def parsed_end_time
+		end_time.strftime("%m/%d/%Y %H:%M:00")
+	end
 end
 
 

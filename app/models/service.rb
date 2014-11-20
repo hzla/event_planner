@@ -16,8 +16,4 @@ class Service < ActiveRecord::Base
 		name.downcase.gsub(' ', '') + "." + img_ext
 	end
 
-
-
-
-
 end

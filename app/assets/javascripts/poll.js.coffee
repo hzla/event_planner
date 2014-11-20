@@ -7,11 +7,10 @@ Poll =
     $('body').on 'click', '#finish-tutorial', @finishTutorial
     $('.choice').first().show()
     $('#poll-status').click @showUrl
-
-
     @showNext() if $('.invitees .invitee.real').length > 0
     @addEmails()
     @centerProfile()
+    @sortChoices()
 
   showUrl: -> 
     $('.poll-url').show()
@@ -57,6 +56,7 @@ Poll =
         current_score.text new_score
 
     console.log data
+    Poll.sortChoices()
 
   addEmail: ->
     email = $('#invite-email').val()
@@ -74,6 +74,21 @@ Poll =
 
   showNext: ->
     $('.submit-emails').first().show() 
+
+  sortChoices: ->
+    sortedChoices = $('.choice').sort (a,b) -> 
+      aScore = parseInt($(a).find('.choice-score').text())
+      bScore = parseInt($(b).find('.choice-score').text())
+      console.log aScore
+      console.log bScore
+      if aScore > bScore 
+        return -1
+      else if bScore > aScore
+        return 1
+      else 
+        return 0
+
+    sortedChoices.detach().appendTo('#choices')
 
     
 

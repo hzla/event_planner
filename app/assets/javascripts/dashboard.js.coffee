@@ -2,7 +2,7 @@ Dashboard =
   init: ->
     $('body').on 'click touchend', '#create-poll', @showPollForm
     $('body').on 'click touchend', '#cancel-form', @hidePollForm
-    $('body').on 'submit', '.edit_event', @checkFields
+    $('body').on 'submit', '.new_event, .edit_event', @checkFields
     $('body').on 'touchstart', '#event_start_date, #event_expiration', @convertEventDate
     $('body').on 'touchstart', '#event_start_time, #event_end_time', @convertEventTime
     $('body').on 'click', '.ongoing-tab', @showOngoing

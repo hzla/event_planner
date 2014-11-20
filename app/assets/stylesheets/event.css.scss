@@ -77,6 +77,17 @@ div.event-field {
 	font-weight: 600;
 }
 
+#back-to-dashboard {
+	background: $black;
+	color: white;
+	width: 20vw;
+	margin: 0 auto;
+	height: 40px;
+	font-weight: 600;
+	line-height: 40px;
+	margin-bottom: 20px;
+}
+
 .poll-url {
 	text-align: center;
 	margin: 20px 0px;
@@ -126,6 +137,10 @@ div.event-field {
 	border-bottom-left-radius: 5px;
 }
 
+.send-link {
+	font-size: 14px;
+}
+
 @media (max-width: 1023px) {
 	body {
 		#event-options{
@@ -133,10 +148,17 @@ div.event-field {
 			margin: $mg auto;
 		}
 		#poll-status{
-			position: fixed;
+			margin-bottom: 10px;
 			bottom: 0;
 			z-index: 40;
 			width: 100%;
+		}
+		#back-to-dashboard {
+			width: 100%;
+		}
+		.poll-url {
+			width: calc(100% - 40px);
+			margin: 20px auto;
 		}
 	}
 }

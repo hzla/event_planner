@@ -6,7 +6,9 @@
 				<%= link_to logout_path, class: "logout" do %>Logout<% end %></div>
 			<div class="tail"></div>
 	</div>
-		<div class="mobile desk-text" id="cancel-form">Cancel</div>
+		<%= link_to :back do %>
+			<div class="mobile desk-text" id="back-link">Back</div>
+		<% end %>
 		<div class="main-logo text mobile">Booking Info</div>
 <% end %>
 
@@ -30,7 +32,17 @@
 		<% end %>
 		</div>
 </div>
+
 <script>
+	 Date.prototype.yyyymmdd = function() {
+	   var yyyy = this.getFullYear().toString();
+	   var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+	   var dd  = this.getDate().toString();
+	   return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
+	  };
+	  var d = new Date();
+		
+
 	$("#slider-range").slider({
       range: true,
       min: 0,
@@ -53,8 +65,6 @@
 	    $("#time-range").text(startTime + ' - ' + endTime);
 	    $('#event_start_time').val(startTime)
 	    $('#event_end_time').val(endTime)
-	    console.log($('#event_start_time').val())
-
 	}
 	function getTime(hours, minutes) {
     var time = null;
@@ -79,6 +89,7 @@
 	slideTime();
 	$('.pick-date').datepicker({
       'format': 'yyyy-m-d',
-      'autoclose': true
-  });
+      'autoclose': true,
+      'startDate': d.yyyymmdd()
+    });
 </script>

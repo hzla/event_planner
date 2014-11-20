@@ -41,10 +41,7 @@
 		Thanks for answering! We’ll email you notifications as the poll updates.<br><br>
 		In the mean time, you can download the app and start planning your own events for free!<br><br>
 		<% if current_user %>
-			<%= link_to results_path(id: @event.id, ongoing: !@event.finished) do %>
-				<span class="view-results">View Results</span>
-
-			<% end %><br><br>
+			<br>
 			<%= link_to dashboard_path do %>
 				<div class="btn blue-btn" id="go-dashboard">Go to Dashboard</div>
 			<% end %>
@@ -57,9 +54,6 @@
 		</div>
 	<% end %>
 </div>
-
-
-
 
 
 <script>

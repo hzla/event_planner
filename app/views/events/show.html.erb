@@ -18,24 +18,18 @@
 			</div>
 		<% end %>
 	</div>
-
-	<div class="poll-url hidden">
+	<div class="poll-url">
+		<div class="no-break send-link">Send this link to anyone you'd like to take your poll:</div><br> 
 		<%= "instagator2014.herokuapp.com" + @event.routing_url %>
 	</div>
-
-	<% if @event.status == "dormant" %>
-		<%= link_to activate_path(@event), remote: true do %>
-			<div class="btn activate-poll blue-btn" id="poll-status">
-				Get Poll Url
-			</div>
-		<% end %>
-	<% else %>
-		<div class="poll-url">
-			<%= "instagator2014.herokuapp.com" + @event.routing_url %>
+	<%= link_to @poll.url do %>
+		<div class="btn activate-poll blue-btn" id="poll-status">
+			Take Your Poll
 		</div>
 	<% end %>
-
-
-
-
+	<%= link_to dashboard_path do %>
+		<div class="btn activate-poll" id="back-to-dashboard">
+			Back to Dashboard
+		</div>
+	<% end %>
 </div>

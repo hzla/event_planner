@@ -89,6 +89,9 @@ a {
 	color: $black;
 }
 
+.no-break {
+	word-break: normal;
+}
 
 .bold {
 	font-weight: 700;

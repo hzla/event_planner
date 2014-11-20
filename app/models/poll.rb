@@ -4,6 +4,7 @@ class Poll < ActiveRecord::Base
 
 	attr_accessible :routing_url, :confirmed_attending, :answered, :url, :user_id, :event_id, :name, :desc, :start_time, :email, :phone_number
 	after_create :generate_url
+
 	def generate_url
 		update_attributes url: "/polls/#{id}?code=#{generate_code}"
 	end
@@ -15,7 +16,6 @@ class Poll < ActiveRecord::Base
 		code.join
 	end
 
-
 	def top_choice
 		choices.sort_by(&:score).reverse.first
 	end
@@ -24,12 +24,8 @@ class Poll < ActiveRecord::Base
 		url.split("code=")[-1]
 	end
 
-	def user
-		event.user
-	end
-
 	def takers
-		event.polls
+		Poll.where event_id: event_id
 	end
 
 	def avatar

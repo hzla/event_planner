@@ -2,33 +2,26 @@ class EventsController < ApplicationController
 
 	include SessionsHelper
 
+	before_filter :get_event, only: [:activate, :route, :generate_poll, :show]
+
 	def create
 		@event = Event.create params[:event]
-		@event.users << current_user
-		@event.update_attributes user_id: current_user.id
-		poll = Poll.create email: current_user.email, event_id: @event.id, user_id: current_user.id, confirmed_attending: true
-		redirect_to opentable_path(event_id: @event.id)
-	end
-
-	def update
-		@event = Event.find params[:id]
-		@event.update_attributes params[:event]
 		@event.update_times
+		@event.assign_user_and_create_first_poll current_user
 		redirect_to opentable_path(event_id: @event.id)
-	end
-
-	def activate
-		Event.find(params[:id]).update_attributes status: "activated"
-		render nothing: true
 	end
 
 	def booking_info
 		@event = Event.new
 	end
 
+	def activate
+		@event.update_attributes status: "activated"
+		render nothing: true
+	end
+
 	def route
 		session[:user_id] = nil
-		@event = Event.find params[:id]
 		if params[:code] != @event.routing_url.split("?code=").last
 			redirect_to root_path and return
 		end
@@ -38,39 +31,26 @@ class EventsController < ApplicationController
 	end
 
 	def generate_poll
-		event = Event.find params[:id]
-		if event.user_id == current_user.id
+		if @event.user_id == current_user.id
 			poll = event.polls.where(user_id: current_user.id).first
 			redirect_to poll.url and return
 		else
-			poll = Poll.create event_id: event.id, confirmed_attending: true ,email: current_user.email, user_id: current_user.id
-			poll.choices << event.choices
-			event.users << current_user
+			poll = Poll.create event_id: @event.id, confirmed_attending: true ,email: current_user.email, user_id: current_user.id
+			poll.choices << @event.choices
+			@event.users << current_user
 			redirect_to poll.url
 		end
 	end
 
 	def show
-		@event = Event.find(params[:id])
+		@poll = @event.polls.where(user_id: current_user.id).first
 		@service = Service.find @event.service_id
-		@invitees = @event.polls
-		@invitee_count = @invitees.count
 		@choices = @event.choices
 	end
 
-	def invite_friends
-		@event_id = params[:event_id]
-		@event = Event.find @event_id
-	end
+	private
 
-	def results
+	def get_event
 		@event = Event.find(params[:id])
-		@poll = Poll.where(event_id: params[:id], email: current_user.email).first
-		@ongoing = params[:ongoing] == "true"
-		@choices = @event.top_choices
-		@movies = params[:movies] == "true"
 	end
-
-	
-
 end
