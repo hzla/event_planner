@@ -13,55 +13,42 @@
 
 <div id="landing-header">
 	<%= image_tag 'dinnerpoll.svg', id: 'landing-logo' %>
+	<%= link_to '/auth/facebook' do %>
+		<div class="header-link no-mobile">Connect with Facebook</div>
+	<% end %>
 	<div class="header-link no-mobile">instagator</div>
 	<div class="header-link no-mobile">poll</div>
-	<div class="header-link active no-mobile">home</div>
 </div>
 
 <div id="mid-container">
-	<div class="container-gradient"></div>
 	<div class="mid-section">
-		<div class="title-text" id="fade-1">Group dinner next week?</div>
-	</div>
-	<div class="mid-section" id="fade-2">
-		<div class="title-text">We'll take care of everything.</div>
-		<div class="mid-sub-text">dinnerPoll takes out the pain of coordination so you can enjoy the reward of revelry</div>
+		<div class="title-text" id="fade-1">Planning a group dinner?</div>
+		<div class="showcase-subtext">We'll take care of everything.</div>
+		<div id="section-footer">Scroll down to see how</div>
 	</div>
 </div>
 
 <div id="showcase-container">
-	<div class="mid-section">
-		<div class="showcase-title-text green fade-3">All you need is:</div>
-		<div class="showcase-subtext fade-3">
-			A couple of restauraunts in mind<br><br>
-			Friends to join you<br><br>
-			...that's pretty much it
-		</div>
-	</div>
 	<div class="mid-section last">
 		<div id="phone-info">
-			<div id="phone-info-header" class="green">We do it all:</div>
 			<div class="phone-info-item">
-				<div class="info-item-name">Track RSVPs</div>
-				<div class="info-item-desc hidden">not so novel, but oh-so efficient RSVP system.</div>
+				<div class="info-item-name">Set your timing.</div>
+				<div class="info-item-desc">We'll do the agonizing reservation cross check for you.</div>
 			</div>
 			<div class="phone-info-item">
-				<div class="info-item-name">Build Consensus</div>
-				<div class="info-item-desc hidden">not so novel, but oh-so efficient RSVP system.</div>
+				<div class="info-item-name">Pick your restaurants.</div>
+				<div class="info-item-desc">Near, far, wherever you are.</div>
 			</div>
 			<div class="phone-info-item">
-				<div class="info-item-name">Track Reservations</div>
-				<div class="info-item-desc hidden">not so novel, but oh-so efficient RSVP system.</div>
+				<div class="info-item-name">Poll your friends.</div>
+				<div class="info-item-desc">Your reservation will be updated as soon as people respond.</div>
 			</div>
 		</div>
 		<%= image_tag 'iphone.png', id: "iphone-1" %>
-		<div id="phone-side-text" class="blue no-mobile">
-			or, you could just use a google spreadsheet. people always fill those out promptly.<br><br>
-			While you're at it[]<br><br>
-			Manual spreadsheets are for the birds.
-		</div>
+		
+		<div id="sit-back">Sit back, dinnerPoll will book your reservation for you.</div>
 		<%= link_to '/auth/facebook' do %>
-			<div id="get-started-button" class="btn turq-btn hidden">Get Started</div>
+			<div id="get-started-button" class="btn blue-btn">Connect with Facebook to get started</div>
 		<% end %>
 	</div>
 </div>

@@ -37,7 +37,7 @@
 	background-size: cover;
 	width:102%;
 	height: 102%;
-	@extend .blur;
+	// @extend .blur;
 	position: fixed;
 	left: -10px;
 	top: -10px;
@@ -56,9 +56,8 @@
 
 #landing-header{
 	height: 80px;
-	width: 960px;
-	left: calc(50% - 480px);
-	background-color: rgba(255,255,255, 0.85);
+	width: 100%;
+	left: 0;
 	position: fixed;
 	z-index: 4;
 }
@@ -67,33 +66,36 @@
 	position: fixed;
 	z-index: 4;
 	height: 60px;
-	left: calc(50% - 440px);
+	left: 40px;
 	top: 10px;
 	width: 240px;
 }
 
 .header-link {
-	height: 100%;
+	height: 60px;
 	float: right;
-	width: 200px;
-	line-height: 80px;
+	line-height: 60px;
 	text-align: center;
-	color: $turq;
+	color: white;
 	font-size: 24px;
 	cursor: pointer;
+	font-weight: 700;
+	padding: 0px 20px;
+	margin: 10px 40px;
 }
 
-.header-link.active {
+.header-link:hover {
 	color: $black;
+	background: white;
 }
 
 
 /********  Mid Content **********/
 #mid-container{
-	width: 960px;
+	width: 100%;
 	height: 100%;
 	position: absolute;
-	left: calc(50% - 480px);
+	left: 0;
 	top: 0;
 }
 
@@ -117,17 +119,19 @@
 	font-weight: 700;
 	width: 100%;
 	text-align: center;
-	top: 45vh;
+	top: 40vh;
 }
 
-.mid-sub-text {
+.showcase-subtext {
+	width: 500px;
+	left: calc(50% - 250px);
+	text-align: center;
+	font-size: 30px;
+	top: 50vh;
+	color: white;
 	position: absolute;
-	font-size: 24px;
-	font-weight: 500;
-	width: calc(100% - 200px);
-	left: 100px;
-	top: 60vh;
 }
+
 
 .container-gradient{
 	@extend .gradient;
@@ -144,17 +148,30 @@
 	vertical-align: center;
 }
 
+#section-footer {
+	position: absolute;
+	bottom: 0;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	color: $green;
+	width: 100%;
+	background: white;
+	border-bottom: 1px solid $grey;
+	font-size: 24px;
+}
+
 /************  Showcase Content *************/
 
 
 #showcase-container {
 	position: absolute;
-	top: 200%;
-	width: 960px;
-	left: calc(50% - 480px);
+	top: 100%;
+	width: 100%;
+	left: 0;
 	background-size: cover;
 	z-index: 3;
-	height: 200%;
+	height: 100%;
 	background: white;
 }
 
@@ -165,85 +182,39 @@
 	}
 }
 
-.showcase-title-text {
-	width: 100%;
-	text-align: center;
-	font-size: 48px;
-	font-weight: 700;
-	top: 30vh;
-	position: absolute;
-}
-
-.showcase-subtext {
-	width: 500px;
-	left: calc(50% - 250px);
-	text-align: center;
-	font-size: 30px;
-	top: 45vh;
-	color: $black;
-	position: absolute;
-}
-
 #phone-info {
 	position: absolute;
-	left: 40px;
-	top: 30vh;
-	width: 250px;
+	right: 0px;
+	top: 20vh;
+	width: 50%;
 	text-align: left;
 }
 
-#phone-info-header {
-	margin-left: 20px;
-	font-weight: 700;
-	font-size: 30px;
-	padding: 20px 0px;
-}
 
 .phone-info-item {
-	padding:	20px 0px; 
+	padding:	20px 0px;
+	padding-left: 60px; 
 	cursor: pointer;
-}
-
-.phone-info-item.active {
-	background: $green;
-	color: white;
-	.info-item-desc {
-		display: block;
-		color: white;
-		margin-left: 20px;
-	}
-	.info-item-name {
-		color: white;
-	}
-}
-
-.phone-info-item:hover {
-	background: $green;
-	color: white;
-	div {
-		color: white;
-	}
 }
 
 .info-item-name {
 	font-size: 30px;
-	color: $grey;
-	margin-left: 20px;
+	color: $turq;
+	font-weight: 700;
 }
 
 .info-item-desc {
-	color: white;
-	margin-left: 20px;
+	color: $black;
 	font-size: 16px;
-	margin: 10px 0px;
+	margin: 20px 0px;
 }
 
 #iphone-1 {
-	width: 300px;
-	height: 600px;
+	width: 250px;
+	height: 500px;
 	position: absolute;
-	left: calc(50% - 150px);
-	top: 20vh;
+	right: calc(50% + 60px);
+	top: 10vh;
 }
 
 #phone-side-text {
@@ -255,16 +226,26 @@
 	font-size: 24px;
 }
 
+#sit-back {
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	color: $black;
+	font-weight: 700;
+	font-size: 30px;
+	bottom: 20vh;
+}
+
 
 #get-started-button {
-	width: 250px;
+	width: 500px;
+	left: calc(50% - 250px);
 	height: 80px;
 	line-height: 80px;
 	font-weight: 700;
-	font-size: 30px;
+	font-size: 24px;
 	position: absolute;
-	left: 40px;
-	bottom: 80px;
+	bottom: 40px;
 }
 
 
