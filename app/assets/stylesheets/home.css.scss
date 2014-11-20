@@ -251,15 +251,42 @@
 
 /***********  Media Queries   *****************/
 
+@media (max-width: 320px) {
+	body {
+		div#landing-header {
+			width: 320px;
+		}
+	}
+}
+
 @media (max-width: 1023px) {
 	body {
 		#landing-header {
 			width: 100%;
 			left: 0;
 		}
+		#section-footer {
+			height: 40px;
+			line-height: 40px;
+		}
 		#landing-logo {
 			left: calc(50% - 120px);
+			height: 40px;
 		}
+		.mid-section {
+			.title-text {
+				top: 25vh;
+				left: 0;
+			}	
+		}
+		#iphone-1 {
+			float: left;
+			margin: 40px 0px;
+			margin-left: calc(50% - 125px);
+			position: static;
+			clear: left;
+		}
+		
 		#showcase-container, #mid-container {
 			width: 100%;
 			left: 0;
@@ -288,10 +315,23 @@
 			left: 20px;
 		} 
 		#showcase-container .mid-section.last {
-			height: 260vh;
+			height: auto;
 		}
 		#phone-info {
-			top: 750px;
+			position: static;
+			width: calc(100% - 40px);
+			text-align: center;
+			clear: left;
+		}
+		#sit-back {
+			position: static;
+			width: calc(100% - 40px);
+			margin: 40px 20px;
+		}
+		#get-started-button {
+			width: 100%;
+			position: static;
+			font-size: 16px;
 		}
 		.showcase-title-text, .title-text, .showcase-subtext {
 			width: calc(100% - 20px);

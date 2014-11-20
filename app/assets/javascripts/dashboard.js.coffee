@@ -7,7 +7,7 @@ Dashboard =
     $('body').on 'touchstart', '#event_start_time, #event_end_time', @convertEventTime
     $('body').on 'click', '.ongoing-tab', @showOngoing
     $('body').on 'click', '.reserved-tab', @showReserved
-    @initSlider()
+    @initSlider() if $("#range").length > 0
     $('#range').on 'slide', @changeShownValues
     @changeShownValues()
     @showOngoing()
@@ -29,7 +29,7 @@ Dashboard =
     $('#event_start_time').val convertedValue1
     value2 = $('.value-2').text()
     convertedValue2 = Dashboard.slideTime(value2)
-    $('#event-end-time').val convertedValue2
+    $('#event_end_time').val convertedValue2
     $('.shown-values').text "#{convertedValue1} - #{convertedValue2}"
 
   slideTime: (value) ->
@@ -102,6 +102,9 @@ Dashboard =
       $('#event_start_time').css('border', '1px solid red') if st == ""
       $('#event_end_time').css('border', '1px solid red') if et == ""
       $('#event_threshold').css('border', '1px solid red') if th == ""
+      console.log "error"
+      console.log st
+      console.log et
       return false
     else
       return true
