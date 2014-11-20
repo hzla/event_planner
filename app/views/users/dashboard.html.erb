@@ -14,7 +14,7 @@
 <% end %>
 
 <div id="content-container" class="welcome-dashboard generic">
-	<% if @events.empty? %>
+	<% if @tutorial %>
 		<div id="welcome-text-container" class="full-white-block">
 			<%= image_tag 'instagatoricon.svg', id: "welcome-icon" %>
 			<div id="welcome-text" class="medium-text">
@@ -100,17 +100,30 @@
 		<%= form_for @event do |f| %>
 			<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
 			<div id="datepair">
-				<%= f.text_field :start_date, :class => "pick-date poll-field", placeholder: "Reservation Date" %>
-				<%= f.text_field :start_time, :class => "pick-time poll-field hidden", placeholder: "Earliest Time" %>
-				<%= f.text_field :end_time, :class => "pick-time poll-field hidden", placeholder: "Latest Time" %>
-				<div id="event-timepicker">
-					<div id="timepicker-header">What time range should we try to book in?</div>
-					<div id="slider-range"></div>
-					<div id="time-range"></div>
-				</div>
+				<% if browser.mobile? %>
+					<%= f.date_field :start_date, :class => "poll-field", placeholder: "Reservation Date" %>
+					<div data-role="rangeslider">
+					  <label for="range-1a">Rangeslider:</label>
+					  <input name="range-1a" id="range-1a" min="0" max="100" value="0" type="range" />
+					  <label for="range-1b">Rangeslider:</label>
+					  <input name="range-1b" id="range-1b" min="0" max="100" value="100" type="range" />
+					</div>
+				<% else %>
+					<%= f.text_field :start_date, :class => "pick-date poll-field", placeholder: "Reservation Date" %>
+					<%= f.text_field :start_time, :class => "pick-time poll-field hidden", placeholder: "Earliest Time" %>
+					<%= f.text_field :end_time, :class => "pick-time poll-field hidden", placeholder: "Latest Time" %>
+					<div id="event-timepicker">
+						<div id="timepicker-header">What time range should we try to book in?</div>
+						<div id="slider-range"></div>
+						<div id="time-range"></div>
+					</div>
+				<% end %>
 			</div>
 			<%= f.select :threshold, options_for_select((2..16).to_a), prompt: "Minimum Party Size", :class => "poll-field" %>
 			<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
+		<% end %>
+		<% if @tutorial %>
+
 		<% end %>
 	</div>
 </div>
@@ -119,6 +132,22 @@
 
 
 <script>
+	$(document).on("pagecreate", "#page1", function(){       
+	    $("#sliderTime").on("change", function(){
+	        var time = IntToTime($(this).val());
+	        $("#theTime .timeLabel").val(time);
+	        $("#theTime .ui-slider-handle").prop("title", time);
+	    });    
+	});
+
+	function IntToTime(val){
+	    var hours = parseInt( val / 60 );
+	    var min = val - (hours * 60);
+	    var time = hours + ':' + (min < 10 ? '0' + min : min);
+	    return time;
+	}
+
+
 	 Date.prototype.yyyymmdd = function() {
 	   var yyyy = this.getFullYear().toString();
 	   var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
@@ -129,15 +158,19 @@
 		
 
 	$("#slider-range").slider({
-      range: true,
-      min: 0,
-      max: 1439,
-      values: [1080, 1140],
-      slide: slideTime,
-      step: 30 <% if @event.start_time %>, 
-      values: <%= @event.time_range_values %>
-      <% end %>
-  });
+		  from: 480,
+		  to: 1020,
+		  step: 15,
+		  dimension: '',
+		  scale: ['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+		  limits: false,
+		  calculate: function( value ){
+		    var hours = Math.floor( value / 60 );
+		    var mins = ( value - hours*60 );
+		    return (hours < 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
+		  },
+		  onstatechange: slideTime
+		});
   function slideTime(event, ui){
 	    var val0 = $("#slider-range").slider("values", 0),
 	        val1 = $("#slider-range").slider("values", 1),

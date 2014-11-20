@@ -203,9 +203,39 @@ div.event {
 			bottom: 10px;
 			left: $mg;
 		}
-		#slider-range {
-			width: 80%;
-			left: 10%;
+		.time-slider {
+			margin: 20px;
+			width: 100%;
+		}
+		.ui-slider {
+			height: 10px;
+		}
+		div.ui-slider:before, div.ui-slider:after {
+			content: "";
+			display: table;
+		}
+		.ui-slider-track {
+			background-color: $light-grey;
+			border: none;
+			height: 100%;
+			width: calc(100% - 40px);
+			margin-left: 20px;
+		}
+		.ui-slider-bg {
+			background-color: $green;
+			border: none;
+			height: 100%;
+		}
+		.ui-slider-handle {
+			position: absolute;
+			z-index: 1;
+			top: 50%;
+			width: 28px;
+			height: 28px;
+			margin: -15px 0 0 -15px;
+			outline: 0;
+			padding: 0;
+			background: black;
 		}
 	}
 }
