@@ -1,0 +1,62 @@
+<% @events.each do |event| %>
+	<%= link_to event.vote_url(current_user) do %>
+		<% if event.owned_by?(current_user) %>
+			<div class="event <%= event.html_classes(current_user) %>">
+				<div class="event-line-text bold event-name <%= 'turq' if event.voted_on_by?(current_user) %>">
+					<%= event.name %>
+				</div>
+				<div class="event-line-text">
+					<%= event.time_info %>
+				</div>
+				<% if @event.last_log %>
+					<%= @event.last_log %>
+				<% else %>
+					<div class="event-line-text bottom-line">
+						<% if event.ongoing? %>
+							<% if event.last_log %>
+								<%= event.last_log %>
+							<% else %>
+								<span class="red"><%= event.time_left %> hours</span> to expiration
+							<% end %>
+						<% else %>
+							<span class="green"><%= event.rsvps %> voters </span>
+						<% end %>
+					</div>
+				<% end %>
+				<div class="event-voters">
+					<% if event.current_choice %>
+						<span class="grey"><%= event.rsvps %> voters </span>
+					<% else %>
+						<span class="red"><%= event.rsvps %>/<%= event.polls.count %> Responded</span>
+					<% end %>
+				</div>
+			</div>
+		<% else %>
+			<div class="event <%= event.html_classes(current_user) %>">
+				<div class="event-line-text event-name">
+					<span class="bold"><%= event.user.name %> invited you to</span>
+				</div>
+				<div class="event-line-text bold <%= 'green' if event.voted_on_by?(current_user) %>">
+					<%= event.name %>
+				</div>
+				<div class="event-line-text">
+					<%= event.time_info %>
+				</div>
+				<div class="event-line-text bottom-line">
+					<% if event.ongoing? %>
+						<% if event.last_log %>
+							<%= event.last_log %>
+						<% else %>
+							<span class="red"><%= event.time_left %> hours</span> to expiration
+						<% end %>
+					<% end %>
+				</div>
+				<div class="event-voters">
+					<% if event.voted_on_by?(current_user) %>
+						<span class="green">You Voted</span>	
+					<% end %>
+				</div>
+			</div>
+		<% end %>					
+	<% end %>
+<% end %>

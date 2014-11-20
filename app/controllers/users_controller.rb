@@ -9,6 +9,9 @@ class UsersController < ApplicationController
 		if params[:code]
 			session[:user_id] = params[:monkey].to_i
 		end
+		if params[:tutorial]
+			@tutorial = params[:tutorial] == "true"
+		end
 	end
 
 end

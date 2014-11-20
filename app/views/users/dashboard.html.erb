@@ -13,6 +13,7 @@
 		<div class="desk-text-header whos-going hidden">Who's Going?</div>
 <% end %>
 
+
 <div id="content-container" class="welcome-dashboard generic">
 	<% if @tutorial %>
 		<div id="welcome-text-container" class="full-white-block">
@@ -21,120 +22,17 @@
 				Welcome to Instagator, the easiest way to plan events.
 			</div>
 		</div>
-		<%= link_to booking_info_path do %>
 			<div id="create-poll" class="btn-rnd turq-btn pull-down">
 				Create Poll
 			</div>
-		<% end %>
-
 	<% else %>
-		<% @events.each do |event| %>
-			<%= link_to event.vote_url(current_user) do %>
-				<% if event.owned_by?(current_user) %>
-					<div class="event <%= event.html_classes(current_user) %>">
-						<div class="event-line-text bold event-name <%= 'turq' if event.voted_on_by?(current_user) %>">
-							<%= event.name %>
-						</div>
-						<div class="event-line-text">
-							<%= event.time_info %>
-						</div>
-						<% if @event.last_log %>
-							<%= @event.last_log %>
-						<% else %>
-							<div class="event-line-text bottom-line">
-								<% if event.ongoing? %>
-									<% if event.last_log %>
-										<%= event.last_log %>
-									<% else %>
-										<span class="red"><%= event.time_left %> hours</span> to expiration
-									<% end %>
-								<% else %>
-									<span class="green"><%= event.rsvps %> voters </span>
-								<% end %>
-							</div>
-						<% end %>
-						<div class="event-voters">
-							<% if event.current_choice %>
-								<span class="grey"><%= event.rsvps %> voters </span>
-							<% else %>
-								<span class="red"><%= event.rsvps %>/<%= event.polls.count %> Responded</span>
-							<% end %>
-						</div>
-					</div>
-				<% else %>
-					<div class="event <%= event.html_classes(current_user) %>">
-						<div class="event-line-text event-name">
-							<span class="bold"><%= event.user.name %> invited you to</span>
-						</div>
-						<div class="event-line-text bold <%= 'green' if event.voted_on_by?(current_user) %>">
-							<%= event.name %>
-						</div>
-						<div class="event-line-text">
-							<%= event.time_info %>
-						</div>
-						<div class="event-line-text bottom-line">
-							<% if event.ongoing? %>
-								<% if event.last_log %>
-									<%= event.last_log %>
-								<% else %>
-									<span class="red"><%= event.time_left %> hours</span> to expiration
-								<% end %>
-							<% end %>
-						</div>
-						<div class="event-voters">
-							<% if event.voted_on_by?(current_user) %>
-								<span class="green">You Voted</span>	
-							<% end %>
-						</div>
-					</div>
-				<% end %>					
-			<% end %>
-		<% end %>
-
-			<div id="create-poll" class="btn-rnd turq-btn pull-down">
-				Create Poll
-			</div>
-
+		<%= render partial: 'events/index' %>
+		<div id="create-poll" class="btn-rnd turq-btn pull-down">
+			Create Poll
+		</div>
 	<% end %>
-	<div id="poll-creator" class="hidden">
-		<%= form_for @event do |f| %>
-			<%= f.text_field :name, placeholder: "Poll Name", :class => "poll-field" %>
-			<div id="datepair">
-				<% if browser.mobile? %>
-					<%= f.date_field :start_date, :class => "poll-field", placeholder: "Reservation Date" %>
-				<% else %>
-					<%= f.text_field :start_date, :class => "pick-date poll-field", placeholder: "Reservation Date" %>
-				<% end %>
-					<%= f.text_field :start_time, :class => "pick-time poll-field hidden", placeholder: "Earliest Time" %>
-					<%= f.text_field :end_time, :class => "pick-time poll-field hidden", placeholder: "Latest Time" %>
-					<div id="range"></div>
-					<div class="value-1 hidden">1020</div>
-					<div class="value-2 hidden">1140</div>
-					<div class="shown-values"></div>
-			</div>
-			<%= f.select :threshold, options_for_select((2..16).to_a), prompt: "Minimum Party Size", :class => "poll-field" %>
-			<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
-		<% end %>
-		<% if @tutorial %>
-
-		<% end %>
-	</div>
+	<%= render partial: 'events/new' %>
 </div>
 
-<script>
-	 Date.prototype.yyyymmdd = function() {
-	   var yyyy = this.getFullYear().toString();
-	   var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
-	   var dd  = this.getDate().toString();
-	   return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
-	  };
-	  var d = new Date();
-		
-		
-	$('.pick-date').datepicker({
-      'format': 'yyyy-m-d',
-      'autoclose': true,
-      'startDate': d.yyyymmdd()
-    });
-</script>
+
 

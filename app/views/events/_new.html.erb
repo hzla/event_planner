@@ -1,0 +1,52 @@
+<div id="poll-creator" class="hidden">
+		<%= form_for @event do |f| %>
+			<%= f.text_field :name, placeholder: "Event Name", :class => "poll-field" %>
+			<%= f.select :threshold, options_for_select((2..16).to_a), prompt: "Minimum Party Size", :class => "poll-field" %>
+			<% if browser.mobile? %>
+				<%= f.date_field :start_date, :class => "poll-field", placeholder: "Reservation Date" %>
+			<% else %>
+				<%= f.text_field :start_date, :class => "pick-date poll-field", placeholder: "Reservation Date" %>
+			<% end %>
+			<%= f.text_field :start_time, :class => "pick-time poll-field hidden", placeholder: "Earliest Time" %>
+			<%= f.text_field :end_time, :class => "pick-time poll-field hidden", placeholder: "Latest Time" %>
+			<div id="range"></div>
+			<div class="value-1 hidden">1020</div>
+			<div class="value-2 hidden">1140</div>
+			<div class="shown-values"></div>
+			
+			<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
+		<% end %>
+		<% if @tutorial %>
+				<div class="tut-blocker-top blocker tut-1"></div>
+				<div class="tut-blocker-bottom blocker tut-1">
+					<%= image_tag 'arrowtutup.svg', id: 'tut-up' %>
+					<div class="blocker-text">A reservation is automatically booked the moment the minimum number of guests RSVP.</div>
+					<%= image_tag 'arrowright.svg', id: 'tut-right', :class => "hidden" %>
+				</div>
+				<div class="tut-blocker-top blocker tut-2 hidden">
+					<%= image_tag 'arrowtutdown.svg', id: 'tut-down' %>
+					<div class="blocker-text">Your reservation is automatically booked in this timeframe.</div>
+				</div>
+				<div class="tut-blocker-bottom blocker tut-2 hidden">
+					<%= image_tag 'arrowleft.svg', id: 'tut-left'%>
+					<%= image_tag 'arrowright.svg', id: 'tut-right' %>
+				</div>
+		<% end %>
+	</div>
+
+<script>
+	 Date.prototype.yyyymmdd = function() {
+	   var yyyy = this.getFullYear().toString();
+	   var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+	   var dd  = this.getDate().toString();
+	   return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
+	  };
+	  var d = new Date();
+		
+
+	$('.pick-date').datepicker({
+      'format': 'yyyy-m-d',
+      'autoclose': true,
+      'startDate': d.yyyymmdd()
+    });
+</script>
