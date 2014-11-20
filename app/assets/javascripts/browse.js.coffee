@@ -26,12 +26,17 @@ Browse =
     $(@).toggleClass 'selected' 
 
   toggleOptionSelect: ->
-    $(@).toggleClass 'selected'
+    id = $(@).attr('id')
+    $(".#{id}").toggleClass 'selected'
     Browse.checkDone()
     
     if $(@).hasClass('selected')
+      clone = $(@).clone()
+      clone.appendTo('.selected-options')
       Browse.addOptionToForm $(@)
     else
+      id = $(@).attr('id')
+      $('.selected-options').find(".#{id}").remove()
       Browse.removeOptionFromForm $(@)
 
   addOptionToForm: (option) ->
@@ -61,13 +66,14 @@ Browse =
   	else
   		$('#header-right-pic.done').hide()
 
-
   showChosenOptions: ->
-  	$('.option').hide()
-  	$('.option.selected').show()
+  	$('.service-options').hide()
+  	$('.selected-options').show()
 
   showAllOptions: ->
-  	$('.option').show()
+    $('.service-options').show()
+    $('.selected-options').hide()
+
 
   toggleActive: ->
   	$('.service-tab').removeClass('active')

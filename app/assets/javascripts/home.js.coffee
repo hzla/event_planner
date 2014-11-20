@@ -13,7 +13,7 @@ Home =
     if currentHeight > (Home.height - 80)
       $('.header-link').css('color', 'black')
     else
-      $('.header-link').css('color', 'white')
+      $('.header-link').attr('style', '')
 
 
 

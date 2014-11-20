@@ -36,9 +36,9 @@
 		All restaurants near me in <span id="service-location"><%= current_user.location || "San Francisco, California" %></span>
 	</div>
 
-	<div class="service-options full-white-block">
+	<div class='service-options full-white-block choosable'>
 		<% @options.each do |option| %>
-			<div class="option mobile-text">
+			<div class="option mobile-text <%= "o-#{option["id"]}" %>" id='<%= "o-#{option["id"]}" %>'>
 				<div class="option-overlay"></div>
 				<%= image_tag Opentable.image_for(option), :class => "option-pic" %>
 				<%= image_tag 'checkgreen.svg', :class => "option-check" %>
@@ -47,5 +47,8 @@
 				<div class="option-id hidden"><%= option["id"] %></div>
 			</div>
 		<% end %>
+	</div>
+
+	<div class="service-options full-white-block selected-options hidden">
 	</div>
 </div>
