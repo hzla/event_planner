@@ -3,4 +3,9 @@ Bot
 	logging history and writing to events 
 	emailing
 
+Refactoring
 
+Make controllers more restful
+	- extract votes out of choices
+	- events booking info change to new
+	

@@ -32,7 +32,7 @@ class EventsController < ApplicationController
 
 	def generate_poll
 		if @event.user_id == current_user.id
-			poll = event.polls.where(user_id: current_user.id).first
+			poll = @event.polls.where(user_id: current_user.id).first
 			redirect_to poll.url and return
 		else
 			poll = Poll.create event_id: @event.id, confirmed_attending: true ,email: current_user.email, user_id: current_user.id
