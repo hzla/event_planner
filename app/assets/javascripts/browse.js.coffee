@@ -9,6 +9,8 @@ Browse =
     $('body').on 'ajax:success', '#service-search-form', @showResults
     $('body').on 'keyup', '#service-search-name', @filterResults
 
+  selected_options: {}
+
   filterResults: ->
     term = $(@).val()
     reg = new RegExp(term, "i")
@@ -21,6 +23,9 @@ Browse =
 
   showResults: (event, data) ->
     $('.service-options.choosable').html data
+    $.each(Browse.selected_options, (key, value) ->
+      $("#o-" + key).toggleClass 'selected'
+    )
 
   toggleMovieSelect: ->
     $(@).toggleClass 'selected' 
@@ -44,7 +49,9 @@ Browse =
     title = option.find('.option-title').text()
     info = option.find('.option-info').text()
     id = option.find('.option-id').text()
-    console.log id
+
+    @selected_options[id] = true
+
     $('#image-url-list').val($('#image-url-list').val() + "#{image}<OPTION>")
     $('#title-list').val($('#title-list').val() + "#{title}<OPTION>")
     $('#info-list').val($('#info-list').val() + "#{info}<OPTION>")
@@ -55,6 +62,9 @@ Browse =
     title = option.find('.option-title').text()
     info = option.find('.option-info').text()
     id = option.find('.option-id').text()
+
+    delete @selected_options[id]
+
     $('#image-url-list').val($('#image-url-list').val().replace("#{image}<OPTION>", ""))
     $('#title-list').val($('#title-list').val().replace("#{title}<OPTION>", ""))
     $('#info-list').val($('#info-list').val().replace("#{info}<OPTION>", ""))
