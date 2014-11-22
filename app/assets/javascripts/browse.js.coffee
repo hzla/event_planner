@@ -23,7 +23,10 @@ Browse =
 
   showResults: (event, data) ->
     $('.service-options.choosable').html data
-    Browse.markSelectedOptions()
+    # change selected tab to 'browse'
+    $('.chosen.service-tab').removeClass('active')
+    $('.browse.service-tab').addClass('active')
+    Browse.showAllOptions()
 
   toggleMovieSelect: ->
     $(@).toggleClass 'selected' 
