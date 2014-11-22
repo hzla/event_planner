@@ -23,9 +23,7 @@ Browse =
 
   showResults: (event, data) ->
     $('.service-options.choosable').html data
-    $.each(Browse.selected_options, (key, value) ->
-      $("#o-" + key).toggleClass 'selected'
-    )
+    Browse.markSelectedOptions()
 
   toggleMovieSelect: ->
     $(@).toggleClass 'selected' 
@@ -79,15 +77,23 @@ Browse =
   showChosenOptions: ->
   	$('.service-options').hide()
   	$('.selected-options').show()
+  	Browse.markSelectedOptions()
 
   showAllOptions: ->
     $('.service-options').show()
     $('.selected-options').hide()
+    Browse.markSelectedOptions()
 
 
   toggleActive: ->
   	$('.service-tab').removeClass('active')
   	$(@).addClass('active')
+
+  markSelectedOptions: ->
+    $.each(Browse.selected_options, (key, value) ->
+      $(".option.o-" + key).addClass 'selected'
+    )
+
 
   submitOptions: ->
     $('#options-form').submit()
