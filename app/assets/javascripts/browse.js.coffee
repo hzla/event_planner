@@ -44,7 +44,6 @@ Browse =
     title = option.find('.option-title').text()
     info = option.find('.option-info').text()
     id = option.find('.option-id').text()
-    console.log id
     $('#image-url-list').val($('#image-url-list').val() + "#{image}<OPTION>")
     $('#title-list').val($('#title-list').val() + "#{title}<OPTION>")
     $('#info-list').val($('#info-list').val() + "#{info}<OPTION>")

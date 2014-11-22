@@ -16,8 +16,6 @@ class Opentable
 		places
 	end
 
-
-
 	def self.options location=nil
 		location = "San Francisco" if !location
 		location = location.gsub(' ', '%20')

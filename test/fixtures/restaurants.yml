@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  review_count: 1
+  pricing: 1
+  rating: 1.5
+  city: MyString
+  state: MyString
+
+two:
+  name: MyString
+  address: MyString
+  review_count: 1
+  pricing: 1
+  rating: 1.5
+  city: MyString
+  state: MyString

@@ -43,6 +43,7 @@ class EventsController < ApplicationController
 		@poll = @event.polls.where(user_id: current_user.id).first
 		@service = Service.find @event.service_id
 		@choices = @event.choices
+		@event.update_attributes status: "activated"
 	end
 
 	private
