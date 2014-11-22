@@ -1,5 +1,5 @@
 <% @options.each do |option| %>
-	<div class="option mobile-text">
+	<div class="option mobile-text <%= "o-#{option["id"]}" %>" id='<%= "o-#{option["id"]}" %>'>
 		<div class="option-overlay"></div>
 		<%= image_tag Opentable.image_for(option), :class => "option-pic" %>
 		<%= image_tag 'checkgreen.svg', :class => "option-check" %>

@@ -74,7 +74,7 @@ Dashboard =
 
   showPollForm: ->
     setTimeout ->
-      $('.main-logo.pic, #header-left').hide()
+      $('.main-logo.pic, #header-left, .event').hide()
       $('.main-header-text').hide()
       $('#poll-creator, #cancel-form').show()
       $('.whos-going').removeClass("hidden")
@@ -82,7 +82,7 @@ Dashboard =
     , 300
 
   hidePollForm: ->
-    $('.main-logo.pic').show()
+    $('.main-logo.pic, .event').show()
     $('#poll-creator, #cancel-form, #header-left, .main-logo.txt').hide()
     if $(window).width() < 1024
     	$('.main-logo.pic').hide()

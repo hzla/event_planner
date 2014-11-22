@@ -20,7 +20,7 @@ Browse =
         $(@).hide()
 
   showResults: (event, data) ->
-    $('.service-options').html data
+    $('.service-options.choosable').html data
 
   toggleMovieSelect: ->
     $(@).toggleClass 'selected' 
