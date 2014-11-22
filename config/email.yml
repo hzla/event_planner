@@ -9,6 +9,7 @@ production:
     :host: localhost:3000
   :authentication: plain
   :domain: cliqwith.me
+
 development:
   :address: smtp.mandrillapp.com
   :port: 587

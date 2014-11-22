@@ -4,7 +4,8 @@ development:
   database: instagator
   host: localhost
   username: instagator
-  password: 
+  password:
+
 test:
   adapter: postgresql
   encoding: unicode
@@ -13,6 +14,7 @@ test:
   pool: 5
   username: instagator
   password:
+
 production:
   adapter: postgresql
   encoding: unicode

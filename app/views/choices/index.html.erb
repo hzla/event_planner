@@ -1,58 +1,58 @@
 <%= content_for :header do %>
-	Take Poll
-	<div class="main-logo text mobile"></div>
+  Take Poll
+  <div class="main-logo text mobile"></div>
 <% end %>
 <div id="content-container" class="generic">
-	<% if @tutorial %>
-	<%= render partial: "tutorial" %>
-	<% end %>
-	<div id="choices">
-		<div id="poll-take-header">
-			<div id="poll-take-name"><%= @event.name %></div>
-			<div id="poll-take-count"><%= @event.attending_count %> RSVP(s)</div>
-		</div>
-		<% @choices.each do |choice| %>
-			<div class="choice <%= 'grey-back' if choice.is_processing || choice.is_current %> ">
-				<%= image_tag choice.image_url, :class => "choice-pic" %>
-				<div class="choice-value"><%= choice.value %></div>
-				<div class="choice-time"><%= choice.time || "7:00PM" %></div>
-				<div class="choice-status">
-					<% if choice.is_processing %>
-						<span class="grey">New Reservation Processing</span>
-					<% end %>
-					<% if choice.is_current %>
-						<span class="green">Current Reservation</span>
-					<% end %>
-				</div>
-				<div class="choice-vote-container <%= choice.yes ? 'yes' : '' %>">
-					<%= link_to vote_path(choice.id, answer: "yes"), remote: true, :class => "vote-link upvote-link" do %>
-						<%= image_tag 'upvotegrey.svg', :class => "choice-vote svg #{'chosen' if choice.yes}" %>
-					<% end %>
-					<%= link_to vote_path(choice.id, answer: "no"), remote: true, :class => "vote-link downvote-link" do %>
-						<%= image_tag 'downvotegrey.svg', :class => "choice-vote svg #{'chosen' if choice.yes == false}" %>
-					<% end %>
-					<span class="choice-score"><%= choice.yes_count - choice.no_count %></span>
-				</div>
-			</div>
-		<% end %>
-	</div>
+  <% if @tutorial %>
+  <%= render partial: "tutorial" %>
+  <% end %>
+  <div id="choices">
+    <div id="poll-take-header">
+      <div id="poll-take-name"><%= @event.name %></div>
+      <div id="poll-take-count"><%= @event.attending_count %> RSVP(s)</div>
+    </div>
+    <% @choices.each do |choice| %>
+      <div class="choice <%= 'grey-back' if choice.is_processing || choice.is_current %> ">
+        <%= image_tag choice.image_url, :class => "choice-pic" %>
+        <div class="choice-value"><%= choice.value %></div>
+        <div class="choice-time"><%= choice.time || "7:00PM" %></div>
+        <div class="choice-status">
+          <% if choice.is_processing %>
+            <span class="grey">New Reservation Processing</span>
+          <% end %>
+          <% if choice.is_current %>
+            <span class="green">Current Reservation</span>
+          <% end %>
+        </div>
+        <div class="choice-vote-container <%= choice.yes ? 'yes' : '' %>">
+          <%= link_to vote_path(choice.id, answer: "yes"), remote: true, :class => "vote-link upvote-link" do %>
+            <%= image_tag 'upvotegrey.svg', :class => "choice-vote svg #{'chosen' if choice.yes}" %>
+          <% end %>
+          <%= link_to vote_path(choice.id, answer: "no"), remote: true, :class => "vote-link downvote-link" do %>
+            <%= image_tag 'downvotegrey.svg', :class => "choice-vote svg #{'chosen' if choice.yes == false}" %>
+          <% end %>
+          <span class="choice-score"><%= choice.yes_count - choice.no_count %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-	<div id="poll-finished" class="hidden main-text">
-		Thanks for answering! We’ll email you notifications as the poll updates.<br><br>
-		In the mean time, you can download the app and start planning your own events for free!<br><br>
-		<% if current_user %>
-			<br>
-			<%= link_to dashboard_path do %>
-				<div class="btn blue-btn" id="go-dashboard">Go to Dashboard</div>
-			<% end %>
-		<% end %>
-	</div>
-	
-	<%= link_to decide_vote_path(@poll), remote: true do %>
-		<div id="finish-poll-take" class="btn blue-btn pull-bottom-btn">
-			Submit
-		</div>
-	<% end %>
+  <div id="poll-finished" class="hidden main-text">
+    Thanks for answering! We’ll email you notifications as the poll updates.<br><br>
+    In the mean time, you can download the app and start planning your own events for free!<br><br>
+    <% if current_user %>
+      <br>
+      <%= link_to dashboard_path do %>
+        <div class="btn blue-btn" id="go-dashboard">Go to Dashboard</div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= link_to decide_vote_path(@poll), remote: true do %>
+    <div id="finish-poll-take" class="btn blue-btn pull-bottom-btn">
+      Submit
+    </div>
+  <% end %>
 </div>
 
 

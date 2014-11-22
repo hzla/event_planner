@@ -29,13 +29,13 @@ Options =
     Options.showAllOptions()
 
   toggleMovieSelect: ->
-    $(@).toggleClass 'selected' 
+    $(@).toggleClass 'selected'
 
   toggleOptionSelect: ->
     id = $(@).attr('id')
     $(".#{id}").toggleClass 'selected'
     Options.checkDone()
-    
+
     if $(@).hasClass('selected')
       clone = $(@).clone()
       clone.appendTo('.selected-options')
@@ -71,15 +71,15 @@ Options =
     $('#id-list').val($('#id-list').val().replace("#{id}<OPTION>", ""))
 
   checkDone: ->
-  	if $('.option.selected').length > 0
-  		$('#header-right-pic.done').show()
-  	else
-  		$('#header-right-pic.done').hide()
+    if $('.option.selected').length > 0
+      $('#header-right-pic.done').show()
+    else
+      $('#header-right-pic.done').hide()
 
   showChosenOptions: ->
-  	$('.service-options').hide()
-  	$('.selected-options').show()
-  	Options.markSelectedOptions()
+    $('.service-options').hide()
+    $('.selected-options').show()
+    Options.markSelectedOptions()
 
   showAllOptions: ->
     $('.service-options').show()
@@ -87,8 +87,8 @@ Options =
     Options.markSelectedOptions()
 
   toggleActive: ->
-  	$('.service-tab').removeClass('active')
-  	$(@).addClass('active')
+    $('.service-tab').removeClass('active')
+    $(@).addClass('active')
 
   markSelectedOptions: ->
     $.each(Options.selected_options, (key, value) ->
@@ -100,5 +100,6 @@ Options =
 
 ready = ->
   Options.init()
+
 $(document).ready ready
 $(document).on 'page:load', ready

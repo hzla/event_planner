@@ -1,54 +1,54 @@
 <%= content_for :header do %>
-	<div class="header-pic-container">
-		<div id="header-right-pic" class="done submit-options">Done</div>
-	</div>
-	<%= link_to :back do %>
-		<div class="mobile desk-text" id="back-link">Back</div>
-	<% end %>
-		<div class="main-logo text mobile">Open Table</div>
-		<div id="header-right" class="no-mobile">Open Table</div>
+  <div class="header-pic-container">
+    <div id="header-right-pic" class="done submit-options">Done</div>
+  </div>
+  <%= link_to :back do %>
+    <div class="mobile desk-text" id="back-link">Back</div>
+  <% end %>
+    <div class="main-logo text mobile">Open Table</div>
+    <div id="header-right" class="no-mobile">Open Table</div>
 <% end %>
 
 <%= form_tag choices_path(event_id: @event_id), id: 'options-form' do %>
-	<%= hidden_field_tag :image_url_list, nil, id: "image-url-list" %>
-	<%= hidden_field_tag :title_list, nil, id: "title-list" %>
-	<%= hidden_field_tag :info_list, nil, id: "info-list" %>
-	<%= hidden_field_tag :id_list, nil, id: "id-list" %>
+  <%= hidden_field_tag :image_url_list, nil, id: "image-url-list" %>
+  <%= hidden_field_tag :title_list, nil, id: "title-list" %>
+  <%= hidden_field_tag :info_list, nil, id: "info-list" %>
+  <%= hidden_field_tag :id_list, nil, id: "id-list" %>
 <% end %>
 
 <div class="generic" id="content-container">
-	<div class="service-header full-white-block">
-		<div class="service-tabs">
-			<div class="browse service-tab active">Browse</div>
-			<div class="chosen service-tab">Selected</div>
-		</div>
-	</div>
+  <div class="service-header full-white-block">
+    <div class="service-tabs">
+      <div class="browse service-tab active">Browse</div>
+      <div class="chosen service-tab">Selected</div>
+    </div>
+  </div>
 
-	<div id="service-search-container">
-		<%= form_tag opentable_search_path, remote: true, id: "service-search-form" do %>
-			<%= text_field_tag :location, nil, placeholder: "Search by city or zipcode", :class => "service-search-field" %>
-			<%= submit_tag "Search", id: "submit-service-search", :class => "btn blue-btn" %>
-		<% end %>
-		<%= text_field_tag :name, nil, placeholder: "Filter your results by name", :class => "service-search-field", id:  "service-search-name" %>
-	</div>
+  <div id="service-search-container">
+    <%= form_tag opentable_search_path, remote: true, id: "service-search-form" do %>
+      <%= text_field_tag :location, nil, placeholder: "Search by city or zipcode", :class => "service-search-field" %>
+      <%= submit_tag "Search", id: "submit-service-search", :class => "btn blue-btn" %>
+    <% end %>
+    <%= text_field_tag :name, nil, placeholder: "Filter your results by name", :class => "service-search-field", id:  "service-search-name" %>
+  </div>
 
-	<div class="full-grey-block small-padded">
-		All restaurants near me in <span id="service-location"><%= current_user.location || "San Francisco, California" %></span>
-	</div>
+  <div class="full-grey-block small-padded">
+    All restaurants near me in <span id="service-location"><%= current_user.location || "San Francisco, California" %></span>
+  </div>
 
-	<div class='service-options full-white-block choosable'>
-		<% @options.each do |option| %>
-			<div class="option mobile-text <%= "o-#{option.opentable_id}" %>" id='<%= "o-#{option.opentable_id}" %>'>
-				<div class="option-overlay"></div>
-				<%= image_tag Opentable.image_for(option), :class => "option-pic" %>
-				<%= image_tag 'checkgreen.svg', :class => "option-check" %>
-				<div class="option-title bold"><%= option.name %></div>
-				<div class="option-info"><%= option.address %></div>
-				<div class="option-id hidden"><%= option.opentable_id %></div>
-			</div>
-		<% end %>
-	</div>
+  <div class='service-options full-white-block choosable'>
+    <% @options.each do |option| %>
+      <div class="option mobile-text <%= "o-#{option.opentable_id}" %>" id='<%= "o-#{option.opentable_id}" %>'>
+        <div class="option-overlay"></div>
+        <%= image_tag Opentable.image_for(option), :class => "option-pic" %>
+        <%= image_tag 'checkgreen.svg', :class => "option-check" %>
+        <div class="option-title bold"><%= option.name %></div>
+        <div class="option-info"><%= option.address %></div>
+        <div class="option-id hidden"><%= option.opentable_id %></div>
+      </div>
+    <% end %>
+  </div>
 
-	<div class="service-options full-white-block selected-options hidden">
-	</div>
+  <div class="service-options full-white-block selected-options hidden">
+  </div>
 </div>

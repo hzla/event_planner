@@ -1,66 +1,66 @@
 
 
 <div class="blur-container">
-	<div class="blur-image">
-	</div>
-	<div class="glass"></div>
+  <div class="blur-image">
+  </div>
+  <div class="glass"></div>
 </div>
 
 
 <div id="landing-header">
-	<%= image_tag 'dinnerpoll.svg', id: 'landing-logo' %>
-	<%= link_to '/auth/facebook' do %>
-		<div class="header-link no-mobile">Connect with Facebook</div>
-	<% end %>
-	<div class="header-link no-mobile">instagator</div>
-	<div class="header-link no-mobile">poll</div>
+  <%= image_tag 'dinnerpoll.svg', id: 'landing-logo' %>
+  <%= link_to '/auth/facebook' do %>
+    <div class="header-link no-mobile">Connect with Facebook</div>
+  <% end %>
+  <div class="header-link no-mobile">instagator</div>
+  <div class="header-link no-mobile">poll</div>
 </div>
 
 <div id="mid-container">
-	<div class="mid-section">
-		<div class="title-text" id="fade-1">Planning a group dinner?</div>
-		<div class="showcase-subtext">We'll take care of everything.</div>
-		<div id="section-footer">SCROLL DOWN TO SEE HOW</div>
-	</div>
+  <div class="mid-section">
+    <div class="title-text" id="fade-1">Planning a group dinner?</div>
+    <div class="showcase-subtext">We'll take care of everything.</div>
+    <div id="section-footer">SCROLL DOWN TO SEE HOW</div>
+  </div>
 </div>
 
 <div id="showcase-container">
-	<div class="mid-section last">
-		<%= image_tag 'iphone.png', id: "iphone-1" %>
-		<div id="phone-info">
-			<div class="phone-info-item">
-				<div class="info-item-name">Set your timing.</div>
-				<div class="info-item-desc">We'll take care of the agonizing reservation cross check for you.</div>
-			</div>
-			<div class="phone-info-item">
-				<div class="info-item-name">Pick your restaurants.</div>
-				<div class="info-item-desc">Near, far, wherever you are.</div>
-			</div>
-			<div class="phone-info-item">
-				<div class="info-item-name">Poll your friends.</div>
-				<div class="info-item-desc">Your reservation will be updated as soon as people respond.</div>
-			</div>
-		</div>
+  <div class="mid-section last">
+    <%= image_tag 'iphone.png', id: "iphone-1" %>
+    <div id="phone-info">
+      <div class="phone-info-item">
+        <div class="info-item-name">Set your timing.</div>
+        <div class="info-item-desc">We'll take care of the agonizing reservation cross check for you.</div>
+      </div>
+      <div class="phone-info-item">
+        <div class="info-item-name">Pick your restaurants.</div>
+        <div class="info-item-desc">Near, far, wherever you are.</div>
+      </div>
+      <div class="phone-info-item">
+        <div class="info-item-name">Poll your friends.</div>
+        <div class="info-item-desc">Your reservation will be updated as soon as people respond.</div>
+      </div>
+    </div>
 
-		<div id="sit-back">Sit back. dinnerPoll will book your reservation for you.</div>
-		<%= link_to '/auth/facebook' do %>
-			<div id="get-started-button" class="btn blue-btn">Connect with Facebook to get started</div>
-		<% end %>
-	</div>
+    <div id="sit-back">Sit back. dinnerPoll will book your reservation for you.</div>
+    <%= link_to '/auth/facebook' do %>
+      <div id="get-started-button" class="btn blue-btn">Connect with Facebook to get started</div>
+    <% end %>
+  </div>
 </div>
 
 
 
   <script>
-	// 	$('body').hide()
-	// 	var pw = window.prompt("password");
-	// 	console.log(pw)
-	// 	if (pw == "gator"){
-	// 		$('body').show()
-	// 	}
+  //  $('body').hide()
+  //  var pw = window.prompt("password");
+  //  console.log(pw)
+  //  if (pw == "gator"){
+  //    $('body').show()
+  //  }
  </script>
 <script>
-	$(document).ready(function(){
-		$('#main-header').css('display', 'none')
-	})
+  $(document).ready(function(){
+    $('#main-header').css('display', 'none')
+  })
 </script>

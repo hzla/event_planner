@@ -1,35 +1,35 @@
 <%= content_for :header do %>
-		<div class="main-logo text">Review Your Poll</div>
+    <div class="main-logo text">Review Your Poll</div>
 <% end %>
 
 <div class="generic no-top" id="content-container">
-	<div class="full-white-block event-field" id="event-name">
-		<%= @event.name %><br>
-		<span class="sub-text"><%= @event.time_info %></span>
-		<div class="event-field" id="event-comment">
-			<%= @event.comment %>
-		</div>
-	</div>
-	<div class="full-white-block event-field" id="event-options">
-		<% @choices.each do |choice| %>
-			<div class="event-option">
-					<%= image_tag choice.image_url , :class => "option-pic event-show" %>
-					<div class="option-title bold event-show option-result"><%= choice.value %></div>
-			</div>
-		<% end %>
-	</div>
-	<div class="poll-url">
-		<div class="no-break send-link">Send this link to anyone you'd like to take your poll:</div><br> 
-		<%= "instagator2014.herokuapp.com" + @event.routing_url %>
-	</div>
-	<%= link_to @poll.url do %>
-		<div class="btn activate-poll blue-btn" id="poll-status">
-			Take Your Poll
-		</div>
-	<% end %>
-	<%= link_to dashboard_path do %>
-		<div class="btn activate-poll" id="back-to-dashboard">
-			Back to Dashboard
-		</div>
-	<% end %>
+  <div class="full-white-block event-field" id="event-name">
+    <%= @event.name %><br>
+    <span class="sub-text"><%= @event.time_info %></span>
+    <div class="event-field" id="event-comment">
+      <%= @event.comment %>
+    </div>
+  </div>
+  <div class="full-white-block event-field" id="event-options">
+    <% @choices.each do |choice| %>
+      <div class="event-option">
+          <%= image_tag choice.image_url , :class => "option-pic event-show" %>
+          <div class="option-title bold event-show option-result"><%= choice.value %></div>
+      </div>
+    <% end %>
+  </div>
+  <div class="poll-url">
+    <div class="no-break send-link">Send this link to anyone you'd like to take your poll:</div><br> 
+    <%= "instagator2014.herokuapp.com" + @event.routing_url %>
+  </div>
+  <%= link_to @poll.url do %>
+    <div class="btn activate-poll blue-btn" id="poll-status">
+      Take Your Poll
+    </div>
+  <% end %>
+  <%= link_to dashboard_path do %>
+    <div class="btn activate-poll" id="back-to-dashboard">
+      Back to Dashboard
+    </div>
+  <% end %>
 </div>

@@ -1,124 +1,120 @@
 class Event < ActiveRecord::Base
-	has_many :polls, dependent: :destroy
-	belongs_to :user
-	has_many :users, through: :outings
-	has_many :outings
-	has_many :logs
-	has_many :choices
-	belongs_to :service
+  has_many :polls, dependent: :destroy
+  belongs_to :user
+  has_many :users, through: :outings
+  has_many :outings
+  has_many :logs
+  has_many :choices
+  belongs_to :service
 
-	after_create :generate_routing_url
-	after_create :update_times
+  after_create :generate_routing_url
+  after_create :update_times
 
-	attr_accessible :routing_url, :processing_choice, :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
+  attr_accessible :routing_url, :processing_choice, :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
 
-	
-	def populate_polls_with_choices
-		polls.each do |poll|
-			poll.choices << choices
-		end
-	end
 
-	def assign_user_and_create_first_poll user
-		users << user
-		update_attributes user_id: user.id
-		Poll.create email: user.email, event_id: id, user_id: user.id, confirmed_attending: true
-	end
+  def populate_polls_with_choices
+    polls.each do |poll|
+      poll.choices << choices
+    end
+  end
 
-	def rsvps
-		polls.where(confirmed_attending: true).count
-	end
+  def assign_user_and_create_first_poll user
+    users << user
+    update_attributes user_id: user.id
+    Poll.create email: user.email, event_id: id, user_id: user.id, confirmed_attending: true
+  end
 
-	def top_choices
-		polls.first.choices.sort_by do |choice|
-			choice.yes_count
-		end.reverse
-	end
+  def rsvps
+    polls.where(confirmed_attending: true).count
+  end
 
-	def should_book? choice #if first quorum has been reached or if quorum has been reached on a new choice
-		(rsvps >= threshold && current_choice == nil) || (rsvps >= threshold && current_choice != nil && current_choice != choice.value)
-	end
+  def top_choices
+    polls.first.choices.sort_by do |choice|
+      choice.yes_count
+    end.reverse
+  end
 
-	def attending_count
-		polls.where(confirmed_attending: true).count
-	end
+  def should_book? choice #if first quorum has been reached or if quorum has been reached on a new choice
+    (rsvps >= threshold && current_choice == nil) || (rsvps >= threshold && current_choice != nil && current_choice != choice.value)
+  end
 
-	def html_classes user
-		classes = " "
-		classes += "reserved " if current_choice != nil && !ongoing?
-		classes += "top " if !owned_by?(user) && !voted_on_by?(user)
-		classes += "ongoing " if ongoing?
-		classes
-	end
+  def attending_count
+    polls.where(confirmed_attending: true).count
+  end
 
-	def voted_on_by? user
-		!polls.where(user_id: user.id, confirmed_attending: true).empty?
-	end
+  def html_classes user
+    classes = " "
+    classes += "reserved " if current_choice != nil && !ongoing?
+    classes += "top " if !owned_by?(user) && !voted_on_by?(user)
+    classes += "ongoing " if ongoing?
+    classes
+  end
 
-	def owned_by? user
-		user_id == user.id
-	end
+  def voted_on_by? user
+    !polls.where(user_id: user.id, confirmed_attending: true).empty?
+  end
 
-	def ongoing?
-		(end_time - 24.hours) > Time.now
-	end
+  def owned_by? user
+    user_id == user.id
+  end
 
-	def last_log
-		logs.order('created_at desc').first if logs
-	end
+  def ongoing?
+    (end_time - 24.hours) > Time.now
+  end
 
-	def vote_url user
-		polls.where(user_id: user.id).first.url
-	end
+  def last_log
+    logs.order('created_at desc').first if logs
+  end
 
-	def code
-		routing_url.split("?code=").last
-	end
+  def vote_url user
+    polls.where(user_id: user.id).first.url
+  end
 
-	def time_info
-		date = start_date.strftime("%b %d, %Y at ")
-		time = start_time.strftime("%l:%M %p - ") + end_time.strftime("%l:%M %p")
-		date + time
-	end
+  def code
+    routing_url.split("?code=").last
+  end
 
-	def time_left
-		(((end_time - 24.hours) - Time.now) / 3600).round
-	end
+  def time_info
+    date = start_date.strftime("%b %d, %Y at ")
+    time = start_time.strftime("%l:%M %p - ") + end_time.strftime("%l:%M %p")
+    date + time
+  end
 
-	def time_range_values
-		[start_time.hour * 60 + start_time.min , end_time.hour * 60 + start_time.min]
-	end
+  def time_left
+    (((end_time - 24.hours) - Time.now) / 3600).round
+  end
 
-	def parsed_start_time
-		start_time.strftime("%m/%d/%Y %H:%M:00")
-	end
+  def time_range_values
+    [start_time.hour * 60 + start_time.min , end_time.hour * 60 + start_time.min]
+  end
 
-	def parsed_end_time
-		end_time.strftime("%m/%d/%Y %H:%M:00")
-	end
+  def parsed_start_time
+    start_time.strftime("%m/%d/%Y %H:%M:00")
+  end
 
-	private
+  def parsed_end_time
+    end_time.strftime("%m/%d/%Y %H:%M:00")
+  end
 
-	def generate_routing_url
-		update_attributes routing_url: "/events/#{id}/take?code=#{generate_code}"
-	end
+  private
 
-	def generate_code
-		random = (48..122).map {|x| x.chr}
-		characters = (random - random[43..48] - random[10..16])
-		code = characters.map {|c| characters.sample}
-		code.join
-	end
+  def generate_routing_url
+    update_attributes routing_url: "/events/#{id}/take?code=#{generate_code}"
+  end
 
-	def update_times
-		new_start = start_time
-		new_start = new_start.change day: start_date.day, month: start_date.month
-		new_end = end_time
-		new_end = new_end.change day: start_date.day, month: start_date.month
-		self.update_attributes start_time: new_start, end_time: new_end
-	end
+  def generate_code
+    random = (48..122).map {|x| x.chr}
+    characters = (random - random[43..48] - random[10..16])
+    code = characters.map {|c| characters.sample}
+    code.join
+  end
+
+  def update_times
+    new_start = start_time
+    new_start = new_start.change day: start_date.day, month: start_date.month
+    new_end = end_time
+    new_end = new_end.change day: start_date.day, month: start_date.month
+    self.update_attributes start_time: new_start, end_time: new_end
+  end
 end
-
-
-
-

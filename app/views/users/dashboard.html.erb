@@ -1,38 +1,36 @@
 <%= content_for :header do %>
-	<div class="header-pic-container">
-		<%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
-			<div class="profile-tooltip">
-				<%= current_user.name %><br>
-				<%= link_to logout_path, class: "logout" do %>Logout<% end %></div>
-			<div class="tail"></div>
-	</div>
-		<div class="hidden desk-text" id="cancel-form">Cancel</div>
-		<%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
-		<div class="main-logo text mobile main-header-text">INSTAGATOR</div>
-		<div class="text mobile hidden whos-going">Who's Going?</div>
-		<div class="desk-text-header whos-going hidden">Who's Going?</div>
+  <div class="header-pic-container">
+    <%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
+    <div class="profile-tooltip">
+      <%= current_user.name %><br>
+      <%= link_to logout_path, class: "logout" do %>Logout<% end %>
+    </div>
+    <div class="tail"></div>
+  </div>
+    <div class="hidden desk-text" id="cancel-form">Cancel</div>
+    <%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
+    <div class="main-logo text mobile main-header-text">INSTAGATOR</div>
+    <div class="text mobile hidden whos-going">Who's Going?</div>
+    <div class="desk-text-header whos-going hidden">Who's Going?</div>
 <% end %>
 
 
 <div id="content-container" class="welcome-dashboard generic">
-	<% if @tutorial %>
-		<div id="welcome-text-container" class="full-white-block">
-			<%= image_tag 'instagatoricon.svg', id: "welcome-icon" %>
-			<div id="welcome-text" class="medium-text">
-				Welcome to Instagator, the easiest way to plan events.
-			</div>
-		</div>
-			<div id="create-poll" class="btn-rnd turq-btn pull-down">
-				Create Poll
-			</div>
-	<% else %>
-		<%= render partial: 'events/index' %>
-		<div id="create-poll" class="btn-rnd turq-btn pull-down">
-			Create Poll
-		</div>
-	<% end %>
-	<%= render partial: 'events/new' %>
+  <% if @tutorial %>
+    <div id="welcome-text-container" class="full-white-block">
+      <%= image_tag 'instagatoricon.svg', id: "welcome-icon" %>
+      <div id="welcome-text" class="medium-text">
+        Welcome to Instagator, the easiest way to plan events.
+      </div>
+    </div>
+      <div id="create-poll" class="btn-rnd turq-btn pull-down">
+        Create Poll
+      </div>
+  <% else %>
+    <%= render partial: 'events/index' %>
+    <div id="create-poll" class="btn-rnd turq-btn pull-down">
+      Create Poll
+    </div>
+  <% end %>
+  <%= render partial: 'events/new' %>
 </div>
-
-
-

@@ -19,10 +19,10 @@ NewEvent =
     @changeShownValues()
 
   initSlider: ->
-    $('#range').noUiSlider 
+    $('#range').noUiSlider
       start: [1020, 1140]
       connect: true
-      range: 
+      range:
         'min': 420
         'max': 1439
       step: 30
@@ -41,35 +41,35 @@ NewEvent =
   slideTime: (value) ->
     minutes0 = parseInt(value % 60, 10)
     hours0 = parseInt(value / 60 % 24, 10)
-    time = NewEvent.getTime(hours0, minutes0);
+    time = NewEvent.getTime(hours0, minutes0)
 
   getTime: (hours, minutes) ->
     minutes = minutes + ""
     if hours < 12
-      time = "AM";
-    else 
-      time = "PM";
-    if hours == 0 
+      time = "AM"
+    else
+      time = "PM"
+    if hours == 0
         hours = 12
-    if hours > 12 
+    if hours > 12
       hours = hours - 12
     if minutes.length == 1
       minutes = "0" + minutes
-    hours + ":" + minutes + " " + time;
+    hours + ":" + minutes + " " + time
 
   finishTut: ->
-  	$('.tut-1, .tut-2').hide()
+    $('.tut-1, .tut-2').hide()
 
   showNextArrow: ->
-  	$('.tut-1 #tut-right').show()
+    $('.tut-1 #tut-right').show()
 
   goNextTutStep: ->
-  	$('.tut-1').hide()
-  	$('.tut-2').show()
+    $('.tut-1').hide()
+    $('.tut-2').show()
 
   goBackTutStep: ->
-  	$('.tut-1').show()
-  	$('.tut-2').hide()
+    $('.tut-1').show()
+    $('.tut-2').hide()
 
   checkFields: ->
     name = $('#event_name').val()
@@ -96,9 +96,7 @@ NewEvent =
       @.type = 'date'
 
 ready = ->
-  NewEvent.init() 
+  NewEvent.init()
+
 $(document).ready ready
 $(document).on 'page:load', ready
-
-
-
