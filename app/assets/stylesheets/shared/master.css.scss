@@ -1,4 +1,4 @@
-@import 'variables';
+@import '../variables';
 
 /** Buttons and Form Elements **/
 
@@ -188,11 +188,9 @@ a {
 @media (min-width: 1024px) {
 	body {
 		.pull-bottom-btn {
-			position: absolute;
+			position: static;
 			width: 20vw;
-			bottom: 20vh;
-			left: 50%;
-			margin-left: -10vw;
+			margin: 40px auto;
 		}
 	}
 }

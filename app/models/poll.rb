@@ -1,12 +1,13 @@
 class Poll < ActiveRecord::Base
 	has_many :choices, dependent: :destroy
 	belongs_to :event
+	belongs_to :user
 
 	attr_accessible :routing_url, :confirmed_attending, :answered, :url, :user_id, :event_id, :name, :desc, :start_time, :email, :phone_number
 	after_create :generate_url
 
 	def generate_url
-		update_attributes url: "/polls/#{id}?code=#{generate_code}"
+		update_attributes url: "/polls/#{id}/choices?code=#{generate_code}"
 	end
 
 	def generate_code
@@ -36,6 +37,10 @@ class Poll < ActiveRecord::Base
 		else
 			user.first.profile_pic_url
 		end
+	end
+
+	def self.update_urls
+		all.each(&:generate_url)
 	end
 
 end

@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20141122060658) do
     t.string   "lat"
     t.string   "long"
     t.string   "pricing_info"
-    t.integer  "populartiy"
+    t.integer  "popularity"
   end
 
   create_table "services", force: true do |t|

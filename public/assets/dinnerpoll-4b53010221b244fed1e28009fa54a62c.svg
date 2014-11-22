@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="157px" height="36px" viewBox="0 0 157 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>logo@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Main-Attraction" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desk-Landing" sketch:type="MSArtboardGroup" transform="translate(-52.000000, -27.000000)" fill="#FFFFFF">
+            <g id="logo" sketch:type="MSLayerGroup" transform="translate(52.000000, 23.000000)">
+                <text id="dinnerPoll" sketch:type="MSTextLayer" font-family="Avenir Next" font-size="25.0526316" font-weight="bold">
+                    <tspan x="33.1518987" y="25">dinnerPoll</tspan>
+                </text>
+                <text id="an-instagator,-inc.-" sketch:type="MSTextLayer" font-family="Avenir Next" font-size="8.72727273" font-weight="normal">
+                    <tspan x="33.1518987" y="36.281194">an instagator, inc. innovation</tspan>
+                </text>
+                <path d="M3.76536119,13.0224288 C0.477150536,9.57603643 -0.499348858,5.45089977 1.00118418,4.24956737 L25.7482584,28.7699514 C25.7482584,28.7699514 26.8172582,32.2496855 23.1199472,31.2341574 C23.1199474,31.2341579 11.5265373,17.4008734 11.5265376,17.400873 C8.38526751,17.0855452 5.63610001,14.9831608 3.76536119,13.0224288 Z M14.1597205,15.6476904 L15.8165284,17.3466089 L18.1809708,14.8980627 C18.1809708,14.8980627 19.6802096,15.9780757 21.3256978,14.4029035 C21.346492,14.3829979 27.2578753,8.44893952 27.2578753,8.44893952 L26.4724971,7.65087644 L22.2602471,11.7972909 L21.5043431,11.0401919 L25.6970302,6.90984086 L24.8270726,6.03703691 L20.6292471,10.1395172 L19.8304547,9.33767754 L24.0162812,5.22069829 L23.1432173,4.33467407 C23.1432173,4.33467407 17.1004918,10.3484578 17.1004917,10.3484579 C15.6498116,11.7972909 16.5537263,13.3416475 16.5537263,13.3416475 L14.1597205,15.6476904 Z M11.0682374,18.571137 L12.7571322,20.5819481 L2.53741493,31.3152678 C2.53741493,31.3152678 1.23738497,31.8678546 0.427926783,31.0358001 C-0.381531405,30.2037457 0.205966888,28.8413222 0.205966888,28.8413222 L11.0682374,18.571137 Z" id="Path-1329" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

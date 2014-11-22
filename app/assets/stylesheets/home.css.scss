@@ -284,9 +284,10 @@
 		#iphone-1 {
 			float: left;
 			margin: 40px 0px;
-			margin-left: calc(50% - 125px);
+			margin-left: 10vw;
 			position: static;
 			clear: left;
+			width: 80vw;
 		}
 		
 		#showcase-container, #mid-container {
@@ -334,6 +335,7 @@
 			width: 100%;
 			position: static;
 			font-size: 16px;
+			border-radius: 0px;
 		}
 		.showcase-title-text, .title-text, .showcase-subtext {
 			width: calc(100% - 20px);

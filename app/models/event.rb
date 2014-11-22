@@ -8,28 +8,11 @@ class Event < ActiveRecord::Base
 	belongs_to :service
 
 	after_create :generate_routing_url
+	after_create :update_times
 
 	attr_accessible :routing_url, :processing_choice, :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
 
-	def generate_routing_url
-		update_attributes routing_url: "/events/#{id}/take?code=#{generate_code}"
-	end
-
-	def generate_code
-		random = (48..122).map {|x| x.chr}
-		characters = (random - random[43..48] - random[10..16])
-		code = characters.map {|c| characters.sample}
-		code.join
-	end
-
-	def update_times
-		new_start = start_time
-		new_start = new_start.change day: start_date.day, month: start_date.month
-		new_end = end_time
-		new_end = new_end.change day: start_date.day, month: start_date.month
-		self.update_attributes start_time: new_start, end_time: new_end
-	end
-
+	
 	def populate_polls_with_choices
 		polls.each do |poll|
 			poll.choices << choices
@@ -88,6 +71,10 @@ class Event < ActiveRecord::Base
 		polls.where(user_id: user.id).first.url
 	end
 
+	def code
+		routing_url.split("?code=").last
+	end
+
 	def time_info
 		date = start_date.strftime("%b %d, %Y at ")
 		time = start_time.strftime("%l:%M %p - ") + end_time.strftime("%l:%M %p")
@@ -108,6 +95,27 @@ class Event < ActiveRecord::Base
 
 	def parsed_end_time
 		end_time.strftime("%m/%d/%Y %H:%M:00")
+	end
+
+	private
+
+	def generate_routing_url
+		update_attributes routing_url: "/events/#{id}/take?code=#{generate_code}"
+	end
+
+	def generate_code
+		random = (48..122).map {|x| x.chr}
+		characters = (random - random[43..48] - random[10..16])
+		code = characters.map {|c| characters.sample}
+		code.join
+	end
+
+	def update_times
+		new_start = start_time
+		new_start = new_start.change day: start_date.day, month: start_date.month
+		new_end = end_time
+		new_end = new_end.change day: start_date.day, month: start_date.month
+		self.update_attributes start_time: new_start, end_time: new_end
 	end
 end
 

@@ -1,20 +1,11 @@
 Poll =
   init: ->
-    $('body').on 'click', '#add-email-btn', @addEmail
-    $('body').on 'touchend click', '.submit-emails', @submitEmails
     $('body').on 'ajax:success', '.upvote-link, .downvote-link', @choose
     $('body').on 'click', '#finish-poll-take', @showPollFinished
     $('body').on 'click', '#finish-tutorial', @finishTutorial
     $('.choice').first().show()
-    $('#poll-status').click @showUrl
-    @showNext() if $('.invitees .invitee.real').length > 0
-    @addEmails()
     @centerProfile()
     @sortChoices()
-
-  showUrl: -> 
-    $('.poll-url').show()
-    $(window).scrollTop $(document).height()
 
   finishTutorial: ->
     $('#poll-take-tutorial').hide()
@@ -28,15 +19,9 @@ Poll =
     setTimeout ->
       $('#profile-pic').css 'left', "-#{($('#profile-pic').width()-100)/2}px"
     , 200
-
-  addEmails: ->
-    invitees = $(".invitee").map ->
-      $(@).text()
-    .get().join(', ')
-    $('#email-list').val invitees
-
  
   choose: (event, data) ->
+    #REFACTOR add css to achieve same effects, only use js to add class
     count = $(@).parent()
     delta = data.delta
     if data.changed 
@@ -55,48 +40,19 @@ Poll =
         new_score = parseInt(current_score.text()) - delta
         current_score.text new_score
 
-    console.log data
     Poll.sortChoices()
-
-  addEmail: ->
-    email = $('#invite-email').val()
-    if email != ''
-      $('.invitees').append "<div class='invitee'>#{email}</div>"
-      $('#invite-email').val ''
-      $('.placeholder-invitee').remove()
-      currentEmailList = $('#email-list').val()
-      newEmailList =  currentEmailList + ", #{email}"
-      $('#email-list').val newEmailList 
-      Poll.showNext()
-
-  submitEmails: ->
-    $('#emails-form').submit()
-
-  showNext: ->
-    $('.submit-emails').first().show() 
 
   sortChoices: ->
     sortedChoices = $('.choice').sort (a,b) -> 
       aScore = parseInt($(a).find('.choice-score').text())
       bScore = parseInt($(b).find('.choice-score').text())
-      console.log aScore
-      console.log bScore
       if aScore > bScore 
         return -1
       else if bScore > aScore
         return 1
       else 
         return 0
-
     sortedChoices.detach().appendTo('#choices')
-
-    
-
-
-
-
-  
-    
 
 
 ready = ->

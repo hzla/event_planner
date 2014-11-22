@@ -16,14 +16,13 @@ success = 0
 failure = 0
 popularity = 1
 
-
 restaurants[1..-1].each do |r|
-	# begin 
+	begin 
 		prefix = "{\"Id\":"
 		suffix = "}"
 		fixed =  prefix + r + suffix
 		r = JSON.parse(fixed)
-		rest = Restauraunt.create(name: r["Name"], address: r["Address"], lat: r["Lat"],
+		rest = Restaurant.create(name: r["Name"], address: r["Address"], lat: r["Lat"],
 		long: r["Lon"], opentable_id: r["Id"], popularity: popularity)
 		if r["Reviews"]
 			rest.update_attributes rating: r["Reviews"]["Rating"], review_count: r["Reviews"]["Total"]
@@ -31,13 +30,14 @@ restaurants[1..-1].each do |r|
 		if r["PriceBand"]
 			rest.update_attributes pricing: r["PriceBand"]["Id"]
 		end
+		binding.pry
 		p rest.name
 		popularity += 1
 		success += 1
-	# rescue
-	# 	failure += 1
-	# end
+	rescue
+		failure += 1
+	end
 end
 
-p success.to_s + "successes"
-p failure.to_s + "failures"
+p success.to_s + " successes"
+p failure.to_s + " failures"

@@ -2,11 +2,6 @@ Home =
   init: ->
     $(window).scroll @fadeElements
     @height = $(window).height()
-    $('.phone-info-item').click @showActive
-
-  showActive: ->
-    $('.active').removeClass('active')
-    $(@).addClass('active')
 
   fadeElements: ->
     currentHeight = $(window).scrollTop()

@@ -4,24 +4,21 @@ class PollsController < ApplicationController
 	skip_before_action :require_login, only: "show"
 	before_filter :check_event_ownership
 
-
-	def show #this action is kind of useless right now, to be removed
-		redirect_to take_path(code: params[:code])
-	end
-
-	def take
-		@poll = Poll.find(params[:id])
-		@tutorial = params[:tutorial] == "true"
-		@poll.update_attributes confirmed_attending: true
-		@event = @poll.event
-		if params[:code] != @poll.url.split("?code=").last
-			redirect_to root_path
+	def find_or_create
+		@event = Event.find params[:event_id]
+		if @event.user_id == current_user.id
+			poll = @event.polls.where(user_id: current_user.id).first
+			redirect_to poll.url and return
+		else
+			poll = Poll.create event_id: @event.id, confirmed_attending: true ,email: current_user.email, user_id: current_user.id
+			#REFACTOR: confirmed_attending should default to true 
+			poll.choices << @event.choices
+			@event.users << current_user
+			redirect_to poll.url
 		end
-		@choices = @poll.choices
 	end
 
 	private
-
 	def check_event_ownership
 		if params[:event_id]
 			event = Event.find params[:event_id]

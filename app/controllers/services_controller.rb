@@ -14,12 +14,12 @@ class ServicesController < ApplicationController
 			Event.find(@event_id).update_attributes(service_id: opentable_id)
 		end 
 		location = current_user.location ? current_user.location.split(',')[0] : nil
-		@options = Opentable.options location
+		@options = Opentable.local_options(location).sort_by(&:rating).reverse
 	end
 
 	def opentable_search
 		@location = params[:location]
-		@options = Opentable.search params[:location]
+		@options = Opentable.search(params[:location]).sort_by(&:rating).reverse
 		render layout: false
 	end
 

@@ -4,32 +4,34 @@ Rails.application.routes.draw do
  
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
   
-  resources :events
-  get '/events/:id/activate', to: 'events#activate', as: 'activate'
+  resources :events, only: [:create, :show] do 
+    get '/polls/find_or_create', to: 'polls#find_or_create', as: 'find_or_create_poll'
+  end
   get '/events/:id/take', to: 'events#route', as: 'route_event'
   get '/events/:id/generate_poll', to: 'events#generate_poll', as: 'generate_poll'
-  get '/invite_friends', to: 'events#invite_friends', as: 'invite_friends'
-  get '/booking_info', to: 'events#booking_info', as: 'booking_info'
 
-  resources :polls 
-  get '/polls/:id/delete', to: 'polls#delete', as: 'delete_poll'
-  get '/polls/:id/take', to: 'polls#take', as: 'take'
+  resources :polls, only: [:show] do 
+    resources :choices, only: [:index]
+  end
 
-  resources :choices
+  resources :choices, only: [:create]
   get '/choices/:id/vote', to: 'choices#vote', as: 'vote'
   get '/polls/:id/decide_vote', to:'choices#decide_vote', as: 'decide_vote'
 
-
-  resources :services, only: [:index, :show]
+  resources :services, only: [:index]
   get '/opentable', to: 'services#opentable', as: 'opentable'
   post '/opentable/search', to: 'services#opentable_search', as: 'opentable_search'
   
+
+
+
+  # API ROUTES
+
   namespace :api, :defaults => {:format => :json} do
     namespace :v1 do
       resources :users
       post '/users/:id', to: 'users#update' 
      
-      
       resources :events
       post '/events/:id', to: 'events#update'
       get '/events/search', to: 'events#search'
@@ -44,6 +46,7 @@ Rails.application.routes.draw do
       
       resources :authorizations
 
+      resources :restaurants, only: [:index]
       ["users", "events", "polls", "choices"].each do |resource|
         delete "/#{resource}", to: "#{resource}#delete"
       end

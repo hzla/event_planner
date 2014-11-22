@@ -1,4 +1,4 @@
-Profile = 
+EventReview = 
   init: ->
     $('.read-more').click @showMore
     $('.hide-text').click @hideText
@@ -31,6 +31,6 @@ Profile =
     $(@).parent().hide().parent().find('.read-more').show()
 
 ready = ->
-  Profile.init()
+  EventReview.init()
 $(document).ready ready
 $(document).on 'page:load', ready

@@ -5,7 +5,7 @@ class AddOpentableIdToRestaurants < ActiveRecord::Migration
     add_column :restaurants, :lat, :string
     add_column :restaurants, :long, :string
     add_column :restaurants, :pricing_info, :string
-    add_column :restaurants, :populartiy, :integer
+    add_column :restaurants, :popularity, :integer
 
   end
 end

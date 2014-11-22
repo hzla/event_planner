@@ -1,4 +1,4 @@
-Browse =
+Options =
   init: ->
     $('body').on 'click', '.option', @toggleOptionSelect
     $('body').on 'click touchend', '.chosen.service-tab', @showChosenOptions
@@ -26,7 +26,7 @@ Browse =
     # change selected tab to 'browse'
     $('.chosen.service-tab').removeClass('active')
     $('.browse.service-tab').addClass('active')
-    Browse.showAllOptions()
+    Options.showAllOptions()
 
   toggleMovieSelect: ->
     $(@).toggleClass 'selected' 
@@ -34,16 +34,16 @@ Browse =
   toggleOptionSelect: ->
     id = $(@).attr('id')
     $(".#{id}").toggleClass 'selected'
-    Browse.checkDone()
+    Options.checkDone()
     
     if $(@).hasClass('selected')
       clone = $(@).clone()
       clone.appendTo('.selected-options')
-      Browse.addOptionToForm $(@)
+      Options.addOptionToForm $(@)
     else
       id = $(@).attr('id')
       $('.selected-options').find(".#{id}").remove()
-      Browse.removeOptionFromForm $(@)
+      Options.removeOptionFromForm $(@)
 
   addOptionToForm: (option) ->
     image = option.find('img').attr('src')
@@ -79,32 +79,26 @@ Browse =
   showChosenOptions: ->
   	$('.service-options').hide()
   	$('.selected-options').show()
-  	Browse.markSelectedOptions()
+  	Options.markSelectedOptions()
 
   showAllOptions: ->
     $('.service-options').show()
     $('.selected-options').hide()
-    Browse.markSelectedOptions()
+    Options.markSelectedOptions()
 
   toggleActive: ->
   	$('.service-tab').removeClass('active')
   	$(@).addClass('active')
 
   markSelectedOptions: ->
-    $.each(Browse.selected_options, (key, value) ->
+    $.each(Options.selected_options, (key, value) ->
       $(".option.o-" + key).addClass 'selected'
     )
 
   submitOptions: ->
     $('#options-form').submit()
 
-
-
-
-    
-
-
 ready = ->
-  Browse.init()
+  Options.init()
 $(document).ready ready
 $(document).on 'page:load', ready

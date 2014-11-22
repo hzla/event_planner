@@ -6,10 +6,6 @@ Results =
     $('#more-results').show()
     $(@).hide()
     
-  
-    
-
-
 ready = ->
   Results.init()
 $(document).ready ready

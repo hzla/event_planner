@@ -4,28 +4,25 @@ class Opentable
 	end
 
 	def self.search location
-		query = nil
-		location = location.gsub(' ', '%20')
-		if location.to_i > 0
-			query = "zip=#{location}&per_page=100"
-		else
-			query = "city=#{location}&per_page=100"
-		end
-		url = "http://opentable.herokuapp.com/api/restaurants?#{query}"
-		places = HTTParty.get(url)["restaurants"]
-		places
+		Restaurant.where("lower(address) like (?)", "%#{location.downcase}%")
 	end
 
-	def self.options location=nil
+	def self.local_options location=nil
 		location = "San Francisco" if !location
-		location = location.gsub(' ', '%20')
-		url = "http://opentable.herokuapp.com/api/restaurants?city=#{location}&per_page=100"
-		places = HTTParty.get(url)["restaurants"]
-		places
+		Restaurant.where("lower(address) like (?)", "%#{location.downcase}%")
 	end
+
+
+	# def self.options location=nil
+	# 	location = "San Francisco" if !location
+	# 	location = location.gsub(' ', '%20')
+	# 	url = "http://opentable.herokuapp.com/api/restaurants?city=#{location}&per_page=100"
+	# 	places = HTTParty.get(url)["restaurants"]
+	# 	places
+	# end
 
 	def self.image_for restaurant
-		"http://www.opentable.com/img/restimages/#{restaurant["id"]}.jpg"
+		"http://www.opentable.com/img/restimages/#{restaurant["opentable_id"]}.jpg"
 	end
 
 	def self.reserve options=nil, event=nil, choice=nil, email=nil

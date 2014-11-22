@@ -5,6 +5,17 @@ class ChoicesController < ApplicationController
 	before_filter :check_event_ownership
 	#REFACTOR: extract vote and decide_vote into own controller to make more restful
 
+	def index
+		@poll = Poll.find(params[:poll_id])
+		@tutorial = params[:tutorial] == "true"
+		@poll.update_attributes confirmed_attending: true
+		@event = @poll.event
+		if params[:code] != @poll.url.split("?code=").last
+			redirect_to root_path
+		end
+		@choices = @poll.choices
+	end
+
 	def create
 		choice_info = extract_choice_attribute_arrays_from params
 		Choice.create_choices_using_list_of_attributes choice_info, @event

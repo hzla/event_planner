@@ -11,14 +11,14 @@ class SessionsController < ApplicationController
 	  if auth
 	    session[:user_id] = auth.user.id
 	    if session[:route_poll] #if they're coming from the take poll page
-	    	redirect_to generate_poll_path(id: session[:event_id]) and return
+	    	redirect_to event_find_or_create_poll_path(event_id: session[:event_id]) and return
 	    end
 	    redirect_to dashboard_path(sign_in: true) and return
 	  else #create new user if not authorized
 	    user = User.create_with_facebook auth_hash
 	    session[:user_id] = user.id 
 	    if session[:route_poll] #if they're coming from the take poll page
-	    	redirect_to generate_poll_path(id: session[:event_id]) and return
+	    	redirect_to event_find_or_create_poll_path(event_id: session[:event_id]) and return
 	    end
 	    redirect_to dashboard_path({welcome: true})
 	  end
