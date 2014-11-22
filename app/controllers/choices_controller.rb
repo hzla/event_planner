@@ -3,6 +3,7 @@ class ChoicesController < ApplicationController
 	include SessionsHelper
 	include ParamsHelper
 	before_filter :check_event_ownership
+	#REFACTOR: extract vote and decide_vote into own controller to make more restful
 
 	def create
 		choice_info = extract_choice_attribute_arrays_from params

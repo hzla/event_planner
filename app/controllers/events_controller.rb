@@ -6,23 +6,19 @@ class EventsController < ApplicationController
 
 	def create
 		@event = Event.create params[:event]
-		@event.update_times
+		@event.update_times #should move this to an after_create callback
 		@event.assign_user_and_create_first_poll current_user
 		redirect_to opentable_path(event_id: @event.id)
 	end
 
-	def booking_info
-		@event = Event.new
-	end
-
-	def activate
+	def activate #REFACTOR: change to update to make more restful, only allow status through strong params
 		@event.update_attributes status: "activated"
 		render nothing: true
 	end
 
 	def route
 		session[:user_id] = nil
-		if params[:code] != @event.routing_url.split("?code=").last
+		if params[:code] != @event.routing_url.split("?code=").last #REFACTOR: should just create a code method/attribute for events
 			redirect_to root_path and return
 		end
 		@polls = @event.polls
@@ -36,6 +32,7 @@ class EventsController < ApplicationController
 			redirect_to poll.url and return
 		else
 			poll = Poll.create event_id: @event.id, confirmed_attending: true ,email: current_user.email, user_id: current_user.id
+			#REFACTOR: confirmed_attending should default to true 
 			poll.choices << @event.choices
 			@event.users << current_user
 			redirect_to poll.url

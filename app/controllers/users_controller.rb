@@ -6,10 +6,11 @@ class UsersController < ApplicationController
 		@event = Event.new
 		@events = current_user.events.where(status: "activated").uniq
 		@tutorial = @events.empty?
-		if params[:code]
+		
+		if params[:code] #quick user switching for bug testing purposes
 			session[:user_id] = params[:monkey].to_i
 		end
-		if params[:tutorial]
+		if params[:tutorial] #for bug testing tutorial
 			@tutorial = params[:tutorial] == "true"
 		end
 	end

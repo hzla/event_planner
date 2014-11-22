@@ -5,7 +5,7 @@ class PollsController < ApplicationController
 	before_filter :check_event_ownership
 
 
-	def show
+	def show #this action is kind of useless right now, to be removed
 		redirect_to take_path(code: params[:code])
 	end
 
