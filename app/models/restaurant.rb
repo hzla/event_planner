@@ -34,7 +34,7 @@ class Restaurant < ActiveRecord::Base
 				prefix = "{\"Id\":"
 				suffix = "}"
 				json_ready =  prefix + r + suffix
-				r = JSON.parse(fixed)
+				r = JSON.parse(json_ready)
 				rest = create(name: r["Name"], address: r["Address"], lat: r["Lat"],
 				long: r["Lon"], opentable_id: r["Id"], popularity: popularity)
 				# remember to add cuisine
