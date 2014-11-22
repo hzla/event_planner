@@ -25,11 +25,11 @@
 					<% end %>
 				</div>
 				<div class="choice-vote-container <%= choice.yes ? 'yes' : '' %>">
-					<%= link_to vote_path(choice.id, answer: "yes"), remote: true, :class => "upvote-link" do %>
-						<%= image_tag 'upvotegrey.svg', :class => "choice-upvote choice-vote svg #{'chosen' if choice.yes}" %>
+					<%= link_to vote_path(choice.id, answer: "yes"), remote: true, :class => "vote-link upvote-link" do %>
+						<%= image_tag 'upvotegrey.svg', :class => "choice-vote svg #{'chosen' if choice.yes}" %>
 					<% end %>
-					<%= link_to vote_path(choice.id, answer: "no"), remote: true, :class => "downvote-link" do %>
-						<%= image_tag 'downvotegrey.svg', :class => "choice-downvote choice-vote svg #{'chosen' if choice.yes == false}" %>
+					<%= link_to vote_path(choice.id, answer: "no"), remote: true, :class => "vote-link downvote-link" do %>
+						<%= image_tag 'downvotegrey.svg', :class => "choice-vote svg #{'chosen' if choice.yes == false}" %>
 					<% end %>
 					<span class="choice-score"><%= choice.yes_count - choice.no_count %></span>
 				</div>

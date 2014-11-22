@@ -130,29 +130,34 @@
 	color: $red;
 }
 
-.choice-vote {
-	width: 20px;
-	height: 20px;
+.vote-link {
 	position: absolute;
 	right: 10px;
-	cursor: pointer;
+  width: 20px;
+  height: 20px;
+  .svg {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: -34px;
+  }
 }
 
-.choice-upvote {
-	top: 10px;
+.upvote-link {
+  top: 10px;
+  .svg.chosen g {
+    stroke: $green;
+  }
 }
 
-.choice-upvote.chosen g {
-	stroke: $green;
+.downvote-link {
+  bottom: 10px;
+  .svg.chosen g {
+    stroke: $red;
+  }
 }
 
-.choice-downvote.chosen g {
-	stroke: $red;
-}
 
-.choice-downvote {
-	bottom: 10px;
-}
 
 #finish-poll-take {
 	height: 40px;
