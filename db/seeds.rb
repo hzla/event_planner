@@ -18,7 +18,7 @@ popularity = 1
 
 
 restaurants[1..-1].each do |r|
-	begin 
+	# begin 
 		prefix = "{\"Id\":"
 		suffix = "}"
 		fixed =  prefix + r + suffix
@@ -34,9 +34,9 @@ restaurants[1..-1].each do |r|
 		p rest.name
 		popularity += 1
 		success += 1
-	rescue
-		failure += 1
-	end
+	# rescue
+	# 	failure += 1
+	# end
 end
 
 p success.to_s + "successes"

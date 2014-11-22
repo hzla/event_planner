@@ -9,6 +9,8 @@ Browse =
     $('body').on 'ajax:success', '#service-search-form', @showResults
     $('body').on 'keyup', '#service-search-name', @filterResults
 
+  selected_options: {}
+
   filterResults: ->
     term = $(@).val()
     reg = new RegExp(term, "i")
@@ -21,6 +23,10 @@ Browse =
 
   showResults: (event, data) ->
     $('.service-options.choosable').html data
+    # change selected tab to 'browse'
+    $('.chosen.service-tab').removeClass('active')
+    $('.browse.service-tab').addClass('active')
+    Browse.showAllOptions()
 
   toggleMovieSelect: ->
     $(@).toggleClass 'selected' 
@@ -44,6 +50,8 @@ Browse =
     title = option.find('.option-title').text()
     info = option.find('.option-info').text()
     id = option.find('.option-id').text()
+
+    @selected_options[id] = true
     $('#image-url-list').val($('#image-url-list').val() + "#{image}<OPTION>")
     $('#title-list').val($('#title-list').val() + "#{title}<OPTION>")
     $('#info-list').val($('#info-list').val() + "#{info}<OPTION>")
@@ -54,6 +62,9 @@ Browse =
     title = option.find('.option-title').text()
     info = option.find('.option-info').text()
     id = option.find('.option-id').text()
+
+    delete @selected_options[id]
+
     $('#image-url-list').val($('#image-url-list').val().replace("#{image}<OPTION>", ""))
     $('#title-list').val($('#title-list').val().replace("#{title}<OPTION>", ""))
     $('#info-list').val($('#info-list').val().replace("#{info}<OPTION>", ""))
@@ -68,15 +79,21 @@ Browse =
   showChosenOptions: ->
   	$('.service-options').hide()
   	$('.selected-options').show()
+  	Browse.markSelectedOptions()
 
   showAllOptions: ->
     $('.service-options').show()
     $('.selected-options').hide()
-
+    Browse.markSelectedOptions()
 
   toggleActive: ->
   	$('.service-tab').removeClass('active')
   	$(@).addClass('active')
+
+  markSelectedOptions: ->
+    $.each(Browse.selected_options, (key, value) ->
+      $(".option.o-" + key).addClass 'selected'
+    )
 
   submitOptions: ->
     $('#options-form').submit()
