@@ -22,13 +22,17 @@
 				Welcome to Instagator, the easiest way to plan events.
 			</div>
 		</div>
-			<div id="create-poll" class="btn-rnd turq-btn pull-down">
+			<div id="create-poll" class="btn-rnd blue-btn pull-down">
 				Create Poll
 			</div>
 	<% else %>
-		<%= render partial: 'events/index' %>
-		<div id="create-poll" class="btn-rnd turq-btn pull-down">
-			Create Poll
+		<div id="events">
+			<%= render partial: 'events/index' %>
+		</div>
+		<div class="bottom-btn-container">
+			<div id="create-poll" class="btn-rnd blue-btn pull-down">
+				Create Poll
+			</div>
 		</div>
 	<% end %>
 	<%= render partial: 'events/new' %>

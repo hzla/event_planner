@@ -1,35 +1,25 @@
 @import 'variables';
 
 .service-tabs {
-	width: calc(100% - 30px);
-	height: 31px;
+	width: 100%;
+	height: 40px;
 	margin:  0 auto;
-	padding: 15px 0px;
 }
 
 .service-tab {
 	width: 50%;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-	background: white;
-	color: $turq;
-	border: 1px solid $turq;
+	background: $light-grey;
+	color: $grey;
 	text-align: center;
 	box-sizing: border-box;
 	float: left;
 	height: 100%;
-	line-height: 30px;
+	line-height: 40px;
 	cursor: pointer;
 }
 
-.service-tab:nth-child(2n) {
-	border-radius: 0px;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-
 .service-tab.active, .service-tab:hover {
-	background: $turq;
+	background: $dark-grey;
 	color: white;
 }
 
@@ -126,12 +116,20 @@ body div.option-overlay {
 
 @media (min-width: 1024px) {
 	.service-tabs {
-		height: 40px;
+		height: 80px;
 		margin: 0;
 		width: 100%;
 	}
+	.service-options {
+		max-height: calc(100vh - 380px);
+		overflow-y: scroll;
+	}
 
 	.service-tab {
-		line-height: 40px;
+		line-height: 80px;
+	}
+	.service-search-field {
+		height: 80px;
+		font-size: 24px;
 	}
 }

@@ -25,32 +25,29 @@
 	height: 44px;
 	line-height: 44px;
 	margin-top: $mg;
+	position: static;
 }
 
 @media (min-width: 1024px) {
 	body {
-		#create-poll {
-			width: 20vw;
-			height: 40px;
-			margin-top: $dg;
-			line-height: 40px;
-		}
-
-		#submit-poll{
-			position: absolute;
-			width: 20vw;
-			bottom: 20vh;
-			left: 50%;
-			margin-left: -10vw;
-		}
 		#cancel-form{
 			line-height: 60px;
 			left: calc(50% - 360px);
+		}
+		#create-poll {
+			width: 300px;
+			margin: 20px calc(50% - 150px);
+			position: absolute;
 		}
 	}
 }
 
 /******** After Welcome Elements ********/
+
+#events {
+	height: calc(100vh - 120px);
+	overflow-y: scroll;
+}
 
 div.event {
 	height: 120px;
@@ -60,7 +57,7 @@ div.event {
 	background: $light-grey;
 	box-sizing: border-box;
 	padding: $dg;
-	margin-bottom: 10px;
+	border-bottom: 1px solid $border-grey;
 }
 
 .event-line-text {

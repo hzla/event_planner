@@ -9,12 +9,18 @@
 			<% end %>
 			<%= f.text_field :start_time, :class => "pick-time poll-field hidden", placeholder: "Earliest Time" %>
 			<%= f.text_field :end_time, :class => "pick-time poll-field hidden", placeholder: "Latest Time" %>
-			<div id="range"></div>
+			<div class="range-placeholder">What time range should we try to book in?</div>
+			<div class="shown-values"></div>
+			<div id="range">
+				<div id="start-border"></div>
+				<div id="end-border"></div>
+			</div>
 			<div class="value-1 hidden">1020</div>
 			<div class="value-2 hidden">1140</div>
-			<div class="shown-values"></div>
 			
-			<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
+			<div class="bottom-btn-container">
+				<%= f.submit "Continue", id: "submit-poll", :class => "btn blue-btn" %>
+			</div>
 		<% end %>
 		<% if @tutorial %>
 				<div class="tut-blocker-top blocker tut-1"></div>

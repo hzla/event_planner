@@ -72,9 +72,9 @@ Options =
 
   checkDone: ->
   	if $('.option.selected').length > 0
-  		$('#header-right-pic.done').show()
+  		$('.done').show()
   	else
-  		$('#header-right-pic.done').hide()
+  		$('.done').hide()
 
   showChosenOptions: ->
   	$('.service-options').hide()

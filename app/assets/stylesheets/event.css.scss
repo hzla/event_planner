@@ -6,6 +6,15 @@ div.event-field {
 	box-sizing: border-box;
 }
 
+.event-field-header {
+	color: $blue;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+	font-weight: 600;
+}
+
 #event-name {
 	font-weight: 700;
 	text-align: center;
@@ -34,7 +43,6 @@ div.event-field {
 	background: $light-grey;
 	border-radius: 10px;
 	width: 100%;
-	margin-top: 20px;
 	padding: 10px 20px;
 	box-sizing: border-box;
 }
@@ -43,13 +51,23 @@ div.event-field {
 	height: 60px;
 	width: 100%;
 	padding: 10px 0;
+	text-align: center;
+	position: relative;
 }
+
 
 #event-options {
 	.option-pic {
-		border-radius: 100px;
 		height: 60px;
 		width: 60px;
+		position: absolute;
+		left: 120px;
+	}
+	.option-title {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		line-height: 60px;
 	}
 }
 
@@ -68,24 +86,8 @@ div.event-field {
 }
 
 #poll-status {
-	width: 20vw;
-	margin: 40px auto;
-	height: 40px;
-	line-height: 40px;
 	font-size: 16px;
-	box-sizing: border-box;
 	font-weight: 600;
-}
-
-#back-to-dashboard {
-	background: $black;
-	color: white;
-	width: 20vw;
-	margin: 0 auto;
-	height: 40px;
-	font-weight: 600;
-	line-height: 40px;
-	margin-bottom: 20px;
 }
 
 .poll-url {
@@ -132,10 +134,6 @@ div.event-field {
 	border-radius: 0px;
 }
 
-#return-home {
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
 
 .send-link {
 	font-size: 14px;
@@ -161,4 +159,21 @@ div.event-field {
 			margin: 20px auto;
 		}
 	}
+}
+
+@media (min-width: 1024px) {
+	body {
+		#event-options {
+			max-height: 260px;
+			overflow-y: scroll;
+			border-bottom: 1px solid $border-grey;
+		}
+		.poll-url {
+			width: 60%;
+			margin-left: 20%;
+		}
+
+	}
+
+
 }

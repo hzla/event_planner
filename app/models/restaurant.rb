@@ -62,5 +62,7 @@ class Restaurant < ActiveRecord::Base
 	end
 end
 
+# Foodspotting Opentable API Key: gApqnQV9AZOMKEkNAtV9
+
 
 

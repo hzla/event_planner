@@ -9,10 +9,22 @@
 	text-align: center;
 	box-sizing: border-box;
 	font-family: 'Lato', sans-serif;
+	font-size: 16px;
+	font-weight: 300;
 }
 
 .blue-btn {
 	background: $blue;
+}
+
+.black-btn {
+	background: $dark-grey;
+}
+
+.black-btn:hover {
+	background: white;
+	color: $dark-grey;
+	border: 1px solid $dark-grey;
 }
 
 .pull-bottom-btn {

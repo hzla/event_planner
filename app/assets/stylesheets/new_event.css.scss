@@ -20,6 +20,10 @@
 	z-index: 2;
 }
 
+.range-placeholder {
+	display: none;
+}
+
 .poll-field {
 	width: 100%;
 	padding: 10px 0px;
@@ -29,6 +33,7 @@
 	border: none;
 	border-bottom: 1px solid $light-grey;
 	font-size: 16px;
+	font-weight: 300;
 }
 
 #range {
@@ -58,6 +63,7 @@
 	text-align: center;
 	width: 100%;
 	font-size: 16px;
+	margin: 20px 0px;
 }
 
 #event-timepicker {
@@ -76,15 +82,6 @@
 	}
 }
 
-#submit-poll {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	border: none;
-	height: 44px;
-	font-size: 16px;
-}
 
 #submit-poll:hover {
 	border: 1px solid $blue;
@@ -189,5 +186,52 @@
 			width: 200px;
 		}
 	}
+}
 
+@media (min-width: 1024px) {
+	body {
+		.poll-field {
+			height: 80px;
+			text-align: center;
+			font-size: 24px;
+		}
+		 #event_threshold {
+			 	width: 300px;
+				margin-left: calc(50% - 110px);
+				padding-left: 0px;
+				font-size: 24px;
+				height: 80px;
+				font-weight: 300;
+		 }
+		 #event_start_date {
+		 	border-top: 1px solid $border-grey;
+		 }
+		 #range {
+		 	width: 50%;
+		 	left: 25%;
+		 	position: relative;
+		 }
+		 #start-border, #end-border {
+		 	position: absolute;
+		 	right: 0px;
+		 	height: 40px;
+		 	width: 1px;
+		 	background: $grey;
+		 	top: -20px;
+		 }
+		 #end-border {
+		 	right: 100%;
+		 }
+		 .shown-values {
+		 	font-size: 30px;
+		 }
+		 .range-placeholder {
+		 	width: 100%;
+		 	text-align: center;
+		 	font-size: 24px;
+		 	color: $grey;
+		 	margin: 20px 0px;
+		 	display: block;
+		 }
+	}
 }

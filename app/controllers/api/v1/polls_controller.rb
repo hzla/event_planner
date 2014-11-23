@@ -40,7 +40,7 @@ class Api::V1::PollsController < ApplicationController
 	end
 
 	def index
-		polls = Poll.all
+	  polls = Poll.all
 		new_params = extract_non_model_attributes(params, Poll, true)
 		if new_params
 			polls = Poll.where extract_non_model_attributes(params, Poll, true)

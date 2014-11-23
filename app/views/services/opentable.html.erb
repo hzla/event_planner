@@ -27,13 +27,9 @@
 	<div id="service-search-container">
 		<%= form_tag opentable_search_path, remote: true, id: "service-search-form" do %>
 			<%= text_field_tag :location, nil, placeholder: "Search by city or zipcode", :class => "service-search-field" %>
-			<%= submit_tag "Search", id: "submit-service-search", :class => "btn blue-btn" %>
+			<%= submit_tag "Search", id: "submit-service-search", :class => "btn blue-btn hidden" %>
 		<% end %>
 		<%= text_field_tag :name, nil, placeholder: "Filter your results by name", :class => "service-search-field", id:  "service-search-name" %>
-	</div>
-
-	<div class="full-grey-block small-padded">
-		All restaurants near me in <span id="service-location"><%= current_user.location || "San Francisco, California" %></span>
 	</div>
 
 	<div class='service-options full-white-block choosable'>
@@ -50,5 +46,8 @@
 	</div>
 
 	<div class="service-options full-white-block selected-options hidden">
+	</div>
+	<div class="bottom-btn-container done hidden">
+		<div class="btn blue-btn submit-options">Done</div>
 	</div>
 </div>
