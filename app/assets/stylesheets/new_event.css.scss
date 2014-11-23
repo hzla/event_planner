@@ -25,7 +25,6 @@
 }
 
 .poll-field {
-<<<<<<< HEAD
 	width: 100%;
 	padding: 10px 0px;
 	padding-left: 10px;
@@ -35,16 +34,6 @@
 	border-bottom: 1px solid $light-grey;
 	font-size: 16px;
 	font-weight: 300;
-=======
-  width: 100%;
-  padding: 10px 0px;
-  padding-left: 10px;
-  height: 40px;
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid $light-grey;
-  font-size: 16px;
->>>>>>> 0980f0242569cb2b4c47d1d56e3f8f79dd2d73d0
 }
 
 #range {
@@ -71,16 +60,10 @@
 }
 
 .shown-values {
-<<<<<<< HEAD
 	text-align: center;
 	width: 100%;
 	font-size: 16px;
 	margin: 20px 0px;
-=======
-  text-align: center;
-  width: 100%;
-  font-size: 16px;
->>>>>>> 0980f0242569cb2b4c47d1d56e3f8f79dd2d73d0
 }
 
 #event-timepicker {
@@ -98,19 +81,6 @@
     margin: 20px 0px;
   }
 }
-
-<<<<<<< HEAD
-=======
-#submit-poll {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  border: none;
-  height: 44px;
-  font-size: 16px;
-}
->>>>>>> 0980f0242569cb2b4c47d1d56e3f8f79dd2d73d0
 
 #submit-poll:hover {
   border: 1px solid $blue;
@@ -210,20 +180,12 @@
 
 
 @media (max-width: 1023px) {
-<<<<<<< HEAD
 	body {
 		.blocker-text {
 			width: 200px;
 		}
 	}
 }
-=======
-  body {
-    .blocker-text {
-      width: 200px;
-    }
-  }
->>>>>>> 0980f0242569cb2b4c47d1d56e3f8f79dd2d73d0
 
 @media (min-width: 1024px) {
 	body {

@@ -49,7 +49,6 @@
 }
 
 div.event {
-<<<<<<< HEAD
 	height: 120px;
 	text-align: left;
 	cursor: pointer;
@@ -58,16 +57,6 @@ div.event {
 	box-sizing: border-box;
 	padding: $dg;
 	border-bottom: 1px solid $border-grey;
-=======
-  height: 120px;
-  text-align: left;
-  cursor: pointer;
-  position: relative;
-  background: $light-grey;
-  box-sizing: border-box;
-  padding: $dg;
-  margin-bottom: 10px;
->>>>>>> 0980f0242569cb2b4c47d1d56e3f8f79dd2d73d0
 }
 
 .event-line-text {
