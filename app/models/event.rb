@@ -118,7 +118,3 @@ class Event < ActiveRecord::Base
 		self.update_attributes start_time: new_start, end_time: new_end
 	end
 end
-
-
-
-

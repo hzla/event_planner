@@ -5,8 +5,9 @@ Results =
   seeMoreResults: ->
     $('#more-results').show()
     $(@).hide()
-    
+
 ready = ->
   Results.init()
+
 $(document).ready ready
 $(document).on 'page:load', ready

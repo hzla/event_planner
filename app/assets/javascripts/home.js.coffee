@@ -10,9 +10,8 @@ Home =
     else
       $('.header-link').attr('style', '')
 
-
-
 ready = ->
   Home.init() if $('#landing-header').length > 0
+
 $(document).ready ready
 $(document).on 'page:load', ready

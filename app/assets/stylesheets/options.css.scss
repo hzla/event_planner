@@ -26,92 +26,92 @@
 /*************** Searching *****************/
 
 #service-search-container {
-	width: 100%;
+  width: 100%;
 }
 #service-search-container input {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 
 .service-search-field {
-	width: 100%;
-	text-align: center;
-	height: 40px;
-	border: none;
-	border-top: 1px solid $light-grey;
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  border: none;
+  border-top: 1px solid $light-grey;
 }
 #submit-service-search {
-	height: 44px;
-	width: 100%;
-	line-height: 40px;
-	border: none;
+  height: 44px;
+  width: 100%;
+  line-height: 40px;
+  border: none;
 }
 
 
 /******* browsing options *******/
 
 .option {
-	width: 100%;
-	border-bottom: 1px solid $light-grey;
-	height: 100px;
-	text-align: left;
-	position: relative;
-	cursor: pointer;
-	background: $light-turq;
+  width: 100%;
+  border-bottom: 1px solid $light-grey;
+  height: 100px;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  background: $light-turq;
 }
 
 body div.option-overlay {
-	background: rgba(29, 207, 172, .7);
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	display: none;
+  background: rgba(29, 207, 172, .7);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: none;
 }
 
 .option.selected {
-	.option-check, .option-overlay {
-		display: block;
-	}
+  .option-check, .option-overlay {
+    display: block;
+  }
 }
 
 .option-check {
-	height: 40px;
-	width: 40px;
-	position: absolute;
-	top: 30px;
-	right: 20px;
-	display: none;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  display: none;
 }
 
 .option div {
-	display: inline;
+  display: inline;
 }
 
 .option div.hidden {
-	display: none;
+  display: none;
 }
 
 .option-title, .option-info {
-	float: left;
-	width: calc(100% - 120px);
-	margin-left: 20px;
+  float: left;
+  width: calc(100% - 120px);
+  margin-left: 20px;
 
 }
 
 .option-title {
-	margin-top: 30px;
-	margin-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .option-result{
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .option-pic {
-	height: 100px;
-	width: 100px;
-	box-sizing: border-box;
-	float: left;
+  height: 100px;
+  width: 100px;
+  box-sizing: border-box;
+  float: left;
 }
 
 @media (min-width: 1024px) {

@@ -1,4 +1,4 @@
-EventReview = 
+EventReview =
   init: ->
     $('.read-more').click @showMore
     $('.hide-text').click @hideText
@@ -6,22 +6,22 @@ EventReview =
     $('.see-less').click @removeRow
 
   addRow: ->
-  	$(@).hide()
-  	$(@).parent().find('.pic-container.hidden').css('display', 'inline-block').animate 
-  		height: "40px"
-  	, 250
-  	$(@).parent().find('.pic-container.hidden').css('display', 'inline-block').animate 
-  		opacity: '1'
-  	, 500, ->
-  		$(@).addClass('shown')
-  	$('')
+    $(@).hide()
+    $(@).parent().find('.pic-container.hidden').css('display', 'inline-block').animate
+      height: "40px"
+    , 250
+    $(@).parent().find('.pic-container.hidden').css('display', 'inline-block').animate
+      opacity: '1'
+    , 500, ->
+      $(@).addClass('shown')
+    $('')
 
   removeRow: ->
-  	$('.shown').animate 
-  		opacity: '0'
-  	, 250, ->
-  		$(@).hide().attr('style', '')
-  		$('.see-more').show()
+    $('.shown').animate
+      opacity: '0'
+    , 250, ->
+      $(@).hide().attr('style', '')
+      $('.see-more').show()
 
   showMore: ->
     $(@).hide()
@@ -32,5 +32,6 @@ EventReview =
 
 ready = ->
   EventReview.init()
+
 $(document).ready ready
 $(document).on 'page:load', ready

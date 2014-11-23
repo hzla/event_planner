@@ -19,12 +19,12 @@ Poll =
     setTimeout ->
       $('#profile-pic').css 'left', "-#{($('#profile-pic').width()-100)/2}px"
     , 200
- 
+
   choose: (event, data) ->
     #REFACTOR add css to achieve same effects, only use js to add class
     count = $(@).parent()
     delta = data.delta
-    if data.changed 
+    if data.changed
       if data.answer == "yes"
         $(@).parent().find('g').css('stroke', '#bebebe')
         $(@).find('g').css('stroke', '#00CC99')
@@ -43,19 +43,20 @@ Poll =
     Poll.sortChoices()
 
   sortChoices: ->
-    sortedChoices = $('.choice').sort (a,b) -> 
+    sortedChoices = $('.choice').sort (a,b) ->
       aScore = parseInt($(a).find('.choice-score').text())
       bScore = parseInt($(b).find('.choice-score').text())
-      if aScore > bScore 
+      if aScore > bScore
         return -1
       else if bScore > aScore
         return 1
-      else 
+      else
         return 0
     sortedChoices.detach().appendTo('#choices')
 
 
 ready = ->
   Poll.init()
+
 $(document).ready ready
 $(document).on 'page:load', ready

@@ -1,29 +1,28 @@
 <%= content_for :header do %>
-	<div class="header-pic-container">
-		<div id="header-right-pic" class="done submit-options">Done</div>
-	</div>
-	<%= link_to :back do %>
-		<div class="mobile desk-text" id="back-link">Back</div>
-	<% end %>
-		<div class="main-logo text mobile">Open Table</div>
-		<div id="header-right" class="no-mobile">Open Table</div>
+  <div class="header-pic-container">
+    <div id="header-right-pic" class="done submit-options">Done</div>
+  </div>
+  <%= link_to :back do %>
+    <div class="mobile desk-text" id="back-link">Back</div>
+  <% end %>
+    <div class="main-logo text mobile">Open Table</div>
+    <div id="header-right" class="no-mobile">Open Table</div>
 <% end %>
 
 <%= form_tag choices_path(event_id: @event_id), id: 'options-form' do %>
-	<%= hidden_field_tag :image_url_list, nil, id: "image-url-list" %>
-	<%= hidden_field_tag :title_list, nil, id: "title-list" %>
-	<%= hidden_field_tag :info_list, nil, id: "info-list" %>
-	<%= hidden_field_tag :id_list, nil, id: "id-list" %>
+  <%= hidden_field_tag :image_url_list, nil, id: "image-url-list" %>
+  <%= hidden_field_tag :title_list, nil, id: "title-list" %>
+  <%= hidden_field_tag :info_list, nil, id: "info-list" %>
+  <%= hidden_field_tag :id_list, nil, id: "id-list" %>
 <% end %>
 
 <div class="generic" id="content-container">
-	<div class="service-header full-white-block">
-		<div class="service-tabs">
-			<div class="browse service-tab active">Browse</div>
-			<div class="chosen service-tab">Selected</div>
-		</div>
-	</div>
-
+  <div class="service-header full-white-block">
+    <div class="service-tabs">
+      <div class="browse service-tab active">Browse</div>
+      <div class="chosen service-tab">Selected</div>
+    </div>
+  </div>
 	<div id="service-search-container">
 		<%= form_tag opentable_search_path, remote: true, id: "service-search-form" do %>
 			<%= text_field_tag :location, nil, placeholder: "Search by city or zipcode", :class => "service-search-field" %>

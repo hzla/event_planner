@@ -1,21 +1,20 @@
 @import 'variables';
 
-
 /****** Main Elements ******/
 
 #welcome-icon {
-	height: 100px;
-	width: 100px;
-	display: block;
-	margin: 0 auto;
-	padding: 10px 0px;
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 0px;
 }
 
 #welcome-text {
-	margin: 0 auto;
-	width: 80%;
-	text-align: center;
-	padding-bottom: 20px;
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 #create-poll {
@@ -50,6 +49,7 @@
 }
 
 div.event {
+<<<<<<< HEAD
 	height: 120px;
 	text-align: left;
 	cursor: pointer;
@@ -58,74 +58,83 @@ div.event {
 	box-sizing: border-box;
 	padding: $dg;
 	border-bottom: 1px solid $border-grey;
+=======
+  height: 120px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  background: $light-grey;
+  box-sizing: border-box;
+  padding: $dg;
+  margin-bottom: 10px;
+>>>>>>> 0980f0242569cb2b4c47d1d56e3f8f79dd2d73d0
 }
 
 .event-line-text {
-	width: auto;
-	line-height: 20px;
+  width: auto;
+  line-height: 20px;
 }
 
 .event-name {
 }
 
 .event-voters {
-	position: absolute;
-	bottom: $dg;
-	right: $dg;
+  position: absolute;
+  bottom: $dg;
+  right: $dg;
 }
 
 .event-line-text.bottom-line {
-	position: absolute;
-	bottom: $dg;
-	width: auto;
-	left: $dg;
+  position: absolute;
+  bottom: $dg;
+  width: auto;
+  left: $dg;
 }
 
 .event-icon {
-	height: 15px;
-	width: 15px;
+  height: 15px;
+  width: 15px;
 }
 
 
 #event_threshold {
-	width: 100%;
-	height: 40px;
-	border: none;
-	background: white;
-	font-size: 16px;
-	box-sizing: border-box;
-	padding-left: 10px;
-	color: $grey;
-	font-weight: 300;
+  width: 100%;
+  height: 40px;
+  border: none;
+  background: white;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  color: $grey;
+  font-weight: 300;
 }
 
 @media (max-width: 1023px) {
-	body {
-		div.event{
-			padding: 10px $mg;
-			margin-bottom: 8px;
-			height: 100px;
-		}
-		.event-voters {
-			bottom: 10px;
-			right: $mg;
-		}
-		.event-line-text.bottom-line {
-			bottom: 10px;
-			left: $mg;
-		}
-		#range {
-			width: calc(100% - 40px);
-			left: 20px;
-			.noUi-handle {
-				background: $green;
-				border: none;
-				box-shadow: none;
-				height: 40px;
-				top: -17px;
-				width: 20px;
-			}
-		}
-		
-	}
+  body {
+    div.event{
+      padding: 10px $mg;
+      margin-bottom: 8px;
+      height: 100px;
+    }
+    .event-voters {
+      bottom: 10px;
+      right: $mg;
+    }
+    .event-line-text.bottom-line {
+      bottom: 10px;
+      left: $mg;
+    }
+    #range {
+      width: calc(100% - 40px);
+      left: 20px;
+      .noUi-handle {
+        background: $green;
+        border: none;
+        box-shadow: none;
+        height: 40px;
+        top: -17px;
+        width: 20px;
+      }
+    }
+  }
 }

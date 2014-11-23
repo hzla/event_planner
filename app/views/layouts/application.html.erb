@@ -10,10 +10,10 @@
 </head>
 <body>
 <header id="main-header">
-	<%= link_to dashboard_path do %>
-		<%= image_tag 'logowhite.svg', :class => "main-logo pic no-mobile" %>
-	<% end %>
-	<%= yield :header %>
+  <%= link_to dashboard_path do %>
+    <%= image_tag 'logowhite.svg', :class => "main-logo pic no-mobile" %>
+  <% end %>
+  <%= yield :header %>
 </header>
 <%= yield %>
 </body>

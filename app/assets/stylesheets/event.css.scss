@@ -1,9 +1,9 @@
 @import 'variables';
 
 div.event-field {
-	padding: 15px;
-	text-align: center;
-	box-sizing: border-box;
+  padding: 15px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .event-field-header {
@@ -16,27 +16,27 @@ div.event-field {
 }
 
 #event-name {
-	font-weight: 700;
-	text-align: center;
-	font-size: 32px;
-	color: white;
-	background: $green;
-	padding-top: 40px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 32px;
+  color: white;
+  background: $green;
+  padding-top: 40px;
 }
 
 #event-comment {
-	font-size: 16px;
-	color: $black;
-	text-align: center;
+  font-size: 16px;
+  color: $black;
+  text-align: center;
 }
 
 #invitee-list.event-field {
-	text-align: center;
+  text-align: center;
 }
 .invitee-pic {
-	width: 40px;
-	height: 40px;
-	margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
 
 #event-options {
@@ -72,17 +72,17 @@ div.event-field {
 }
 
 #invitee-list {
-	.profile-tooltip {
-		left: -50px;
-	}
-	.tail {
-		left: 10px;
-	}
+  .profile-tooltip {
+    left: -50px;
+  }
+  .tail {
+    left: 10px;
+  }
 }
 .event-show.option-pic {
-	height: 40px;
-	width: 40px;
-	margin: 0px;
+  height: 40px;
+  width: 40px;
+  margin: 0px;
 }
 
 #poll-status {
@@ -91,74 +91,73 @@ div.event-field {
 }
 
 .poll-url {
-	text-align: center;
-	margin: 20px 0px;
-	font-size: 24px;
-	word-break: break-all;
+  text-align: center;
+  margin: 20px 0px;
+  font-size: 24px;
+  word-break: break-all;
 }
 
 /******** Activation Modal *******/
 
 .black-overlay {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: black;
-	z-index: 3;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: black;
+  z-index: 3;
 }
 
 .activation-modal {
-	width: calc(100% - 40px);
-	max-width: 720px;
-	border-radius: 5px;
-	z-index: 3;
-	margin: 0 auto;
-	margin-top: 30vh;
-	background: white;
+  width: calc(100% - 40px);
+  max-width: 720px;
+  border-radius: 5px;
+  z-index: 3;
+  margin: 0 auto;
+  margin-top: 30vh;
+  background: white;
 }
 
 .activation-message {
-	padding: 20px 0px;
-	font-size: 32px;
-	font-weight: 600;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+  padding: 20px 0px;
+  font-size: 32px;
+  font-weight: 600;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .activation-action.btn {
-	width: 100%;
-	height: 40px;
-	line-height: 40px;
-	border-radius: 0px;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 0px;
 }
 
-
 .send-link {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 @media (max-width: 1023px) {
-	body {
-		#event-options{
-			width: calc(100% - 30px);
-			margin: $mg auto;
-		}
-		#poll-status{
-			margin-bottom: 10px;
-			bottom: 0;
-			z-index: 40;
-			width: 100%;
-		}
-		#back-to-dashboard {
-			width: 100%;
-		}
-		.poll-url {
-			width: calc(100% - 40px);
-			margin: 20px auto;
-		}
-	}
+  body {
+    #event-options{
+      width: calc(100% - 30px);
+      margin: $mg auto;
+    }
+    #poll-status{
+      margin-bottom: 10px;
+      bottom: 0;
+      z-index: 40;
+      width: 100%;
+    }
+    #back-to-dashboard {
+      width: 100%;
+    }
+    .poll-url {
+      width: calc(100% - 40px);
+      margin: 20px auto;
+    }
+  }
 }
 
 @media (min-width: 1024px) {

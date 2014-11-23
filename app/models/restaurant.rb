@@ -1,5 +1,5 @@
 class Restaurant < ActiveRecord::Base
-	attr_accessible :pricing, :popularity, :name, :address, :city, :state, :review_count, :rating, :opentable_id, :lat, :long, :pricing_info
+  attr_accessible :pricing, :popularity, :name, :address, :city, :state, :review_count, :rating, :opentable_id, :lat, :long, :pricing_info
 
 	def self.update_availabilities date, time
 		response = HTTParty.get(url(date, time)).parsed_response
@@ -55,11 +55,11 @@ class Restaurant < ActiveRecord::Base
 		"#{successes} successes, #{failures} failures"
 	end
 
-	def self.url date, time
-		#date format: yyyy-mm-dd
-		#time format: HH:MM
-		"http://www.opentable.com/s/?datetime=#{date}%20#{time}&covers=2&showmap=false&popularityalgorithm=NameSearches&tests=EnableMapview,ShowPopularitySortOption,srs,customfilters&sort=Popularity&excludefields=Description&from=0"
-	end
+  def self.url date, time
+    #date format: yyyy-mm-dd
+    #time format: HH:MM
+    "http://www.opentable.com/s/?datetime=#{date}%20#{time}&covers=2&showmap=false&popularityalgorithm=NameSearches&tests=EnableMapview,ShowPopularitySortOption,srs,customfilters&sort=Popularity&excludefields=Description&from=0"
+  end
 end
 
 # Foodspotting Opentable API Key: gApqnQV9AZOMKEkNAtV9
