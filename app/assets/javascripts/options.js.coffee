@@ -8,8 +8,12 @@ Options =
     $('body').on 'click', '.movie', @toggleMovieSelect
     $('body').on 'ajax:success', '#service-search-form', @showResults
     $('body').on 'keyup', '#service-search-name', @filterResults
+    $('body').on 'click', '.location-search', @searchLocation
 
   selected_options: {}
+
+  searchLocation: ->
+    $('#service-search-form').submit()
 
   filterResults: ->
     term = $(@).val()
@@ -71,7 +75,7 @@ Options =
     $('#id-list').val($('#id-list').val().replace("#{id}<OPTION>", ""))
 
   checkDone: ->
-  	if $('.option.selected').length > 0
+  	if $('.option.selected').length > 1
   		$('.done').show()
   	else
   		$('.done').hide()

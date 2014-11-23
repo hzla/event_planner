@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="15px" height="22px" viewBox="0 0 15 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 257</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Main-Attraction" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desk-Landing" sketch:type="MSArtboardGroup" transform="translate(-916.000000, -401.000000)" fill="#00CC99">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(310.000000, 60.000000)">
+                <g transform="translate(40.000000, 20.000000)" id="Rectangle-257" sketch:type="MSShapeGroup">
+                    <path d="M570.339027,335.329733 L563.486665,328.477371 L566.86457,325.099466 L573.716932,331.951828 L580.586663,325.082096 L583.964568,328.460002 L577.094837,335.329733 L577.307294,335.54219 L573.929389,338.920095 L573.716932,338.707638 L573.521845,338.902726 L570.143939,335.52482 L570.339027,335.329733 Z" transform="translate(573.725617, 332.001096) rotate(-90.000000) translate(-573.725617, -332.001096) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
