@@ -122,6 +122,10 @@
   text-align: center;
 }
 
+.choice .star-container {
+  margin-left: 0px;
+}
+
 .yes {
   color: $green;
 }
@@ -203,4 +207,16 @@
       margin: 0;
     }
   }
+}
+
+@media (min-width: 1024px) {
+    body {
+      .choice-status {
+        position: absolute;
+        bottom: 0;
+        left: 450px;
+        height: 100px;
+        line-height: 100px;
+      } 
+    } 
 }

@@ -346,3 +346,62 @@
     }
   }
 }
+
+.box-content.profile-box {
+  width: 300px;
+  padding: 0px calc(50% - 150px);
+  text-align: left;
+  height: 160px;
+  position: relative;
+  background: $green;
+  color: black;
+  padding-top: 0px;
+  .profile-info {
+    padding: 10px 0px;
+    margin-left: 120px;
+  }
+  .poll-username {
+    padding-top: 30px;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+  }
+} 
+
+@media (min-width: 1024px) {
+ .poll-take   {
+    .box-content.profile-box {
+      width: 300px;
+      padding: 0px calc(50% - 150px);
+      text-align: left;
+      height: 160px;
+      position: relative;
+      background: $green;
+      color: black;
+      padding-top: 0px;
+      .profile-info {
+        padding: 10px 0px;
+        margin-left: 120px;
+      }
+      .poll-username {
+        padding-top: 30px;
+        font-size: 30px;
+        font-weight: 600;
+        color: white;
+      }
+    }  
+    .profile-pic-container {
+      left: calc(50% - 150px);
+      top: 20px;
+    }
+    #event-name {
+      padding-top: 0px;
+    }
+    #event-options {
+      background: white;
+      border-bottom: 0px;
+    }
+  }
+}
+
+

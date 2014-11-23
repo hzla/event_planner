@@ -2,9 +2,24 @@
   <div class="option mobile-text <%= "o-#{option.opentable_id}" %>" id='<%= "o-#{option.opentable_id}" %>'>
     <div class="option-overlay"></div>
     <%= image_tag Opentable.image_for(option), :class => "option-pic" %>
-    <%= image_tag 'checkgreen.svg', :class => "option-check" %>
+    <%= image_tag 'unselected.svg', :class => "option-check unselected" %>
+		<%= image_tag 'selected.svg', :class => "option-check" %>
     <div class="option-title bold"><%= option.name %></div>
     <div class="option-info"><%= option.address %></div>
+    <div class="star-container">
+					<% option.rating.round.times do %>
+						<%= image_tag 'stargreen.svg', :class => "star" %> 
+					<% end %>
+					<% (5 - option.rating.round).times do %>
+						<%= image_tag 'stargrey.svg', :class => "star" %> 
+					<% end %>
+				</div>
+				<div class="option-price">
+					<% option.pricing.times do %>
+						$
+					<% end %>
+				</div>
+
     <div class="option-id hidden"><%= option.opentable_id %></div>
   </div>
 <% end %>

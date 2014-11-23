@@ -56,4 +56,9 @@ class Choice < ActiveRecord::Base
     update_attributes yes: response
     change_status
   end
+
+  def restaurant
+    Restaurant.find_by_opentable_id service_id
+  end
+
 end
