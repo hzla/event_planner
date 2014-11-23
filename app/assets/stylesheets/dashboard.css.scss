@@ -37,6 +37,8 @@
 			width: 300px;
 			margin: 20px calc(50% - 150px);
 			position: absolute;
+      height: 40px;
+      line-height: 40px;
 		}
 	}
 }
@@ -46,6 +48,8 @@
 #events {
 	height: calc(100vh - 120px);
 	overflow-y: scroll;
+  padding: 0px 40px;
+  box-sizing: border-box;
 }
 
 div.event {
@@ -53,7 +57,6 @@ div.event {
 	text-align: left;
 	cursor: pointer;
 	position: relative;
-	background: $light-grey;
 	box-sizing: border-box;
 	padding: $dg;
 	border-bottom: 1px solid $border-grey;
@@ -112,6 +115,10 @@ div.event {
     .event-line-text.bottom-line {
       bottom: 10px;
       left: $mg;
+    }
+    #events{
+      padding: 0px;
+      box-sizing: border-box;
     }
     #range {
       width: calc(100% - 40px);
