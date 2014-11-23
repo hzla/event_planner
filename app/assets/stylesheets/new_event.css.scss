@@ -31,7 +31,7 @@
 	height: 40px;
 	box-sizing: border-box;
 	border: none;
-	border-bottom: 1px solid $light-grey;
+	border-bottom: 1px solid #EBEBEB;
 	font-size: 16px;
 	font-weight: 300;
 }
@@ -189,18 +189,23 @@
 
 @media (min-width: 1024px) {
 	body {
+    #poll-creator{
+      padding: 0px 40px;
+      box-sizing: border-box;
+    }
 		.poll-field {
-			height: 80px;
-			text-align: center;
-			font-size: 24px;
+			height: 60px;
+			text-align: left;
+			font-size: 16px;
 		}
 		 #event_threshold {
-			 	width: 300px;
-				margin-left: calc(50% - 110px);
+			 	width: 100%;
 				padding-left: 0px;
-				font-size: 24px;
-				height: 80px;
+				font-size: 16px;
+				height: 60px;
 				font-weight: 300;
+        font-family: "lato";
+        text-indent: 10px;
 		 }
 		 #event_start_date {
 		 	border-top: 1px solid $border-grey;
