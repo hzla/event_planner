@@ -27,11 +27,16 @@
 
 #service-search-container {
   width: 100%;
+  position: relative;
 }
 #service-search-container input {
   font-size: 16px;
+  padding: 0px;
 }
 
+.search-arrow {
+  display: none;
+}
 
 .service-search-field {
   width: 100%;
@@ -72,6 +77,9 @@ body div.option-overlay {
   .option-check, .option-overlay {
     display: block;
   }
+  .option-check.unselected {
+    display: none;
+  }
 }
 
 .option-check {
@@ -81,6 +89,24 @@ body div.option-overlay {
   top: 30px;
   right: 20px;
   display: none;
+}
+
+.option-price, .star-container {
+  margin-top: 10px;
+  margin-left: 20px;
+  float: left;
+  color: $green;
+  font-weight: 600;
+}
+
+.star-container {
+  width: 120px;
+  height: 15px;
+  .star {
+    margin-right: 5px;
+    height: 15px;
+    width: 15px;
+  }
 }
 
 .option div {
@@ -99,7 +125,7 @@ body div.option-overlay {
 }
 
 .option-title {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -132,4 +158,21 @@ body div.option-overlay {
 		height: 80px;
 		font-size: 24px;
 	}
+
+  .option-check.unselected {
+    display: inline-block;
+  }
+  .search-arrow {
+    display: block;
+    position: absolute;
+    right : 40px;
+    height: 40px;
+    width: 40px;
+    top: 20px;
+    cursor: pointer;
+  }
+  .search-arrow.name-search {
+    top: 100px;
+
+  }
 }
