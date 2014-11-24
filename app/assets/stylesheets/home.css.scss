@@ -68,7 +68,8 @@
   height: 50px;
   left: 40px;
   top: 15px;
-  width: 240px;
+  max-width: 240px;
+  width: auto;
 }
 
 .header-link {
@@ -167,6 +168,7 @@
 
 #showcase-container {
   position: absolute;
+  overflow-x: hidden;
   top: 100%;
   width: 100%;
   left: 0;
