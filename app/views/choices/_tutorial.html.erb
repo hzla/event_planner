@@ -1,0 +1,34 @@
+<div id="voter-tutorial-container">
+	<div class="voter-tut-step voter-step-1 active">
+		<%= image_tag @images[0], :class => "step-pic" %>
+		<div class="step-desc">	
+			<div class="step-desc-text">
+				Click or tap RSVP so we can keep track of how may people to book for.
+			</div>
+		</div>
+	</div>
+
+	<div class="voter-tut-step voter-step-2">
+		<%= image_tag @images[1], :class => "step-pic" %>
+		<div class="step-desc">	
+			<div class="step-desc-text">
+				Upvote or Downvote to show your preference. Or you can Abstain and let democracy take care of it. 
+			</div>
+		</div>
+	</div>
+	<div class="voter-tut-step voter-step-3">
+		<%= image_tag @images[2], :class => "step-pic" %>
+		<div class="step-desc">	
+			<div class="step-desc-text">
+				You can come back any time to check on the status of your group’s reservation.
+			</div>
+		</div>
+	</div>
+	<%= image_tag 'arrowright.svg', :class => "step-arrow right" %>
+	<%= image_tag 'arrowleft.svg', :class => "step-arrow left hidden"  %>
+	<div id="step-dots">
+		<div class="step-dot active first"></div>
+		<div class="step-dot"></div>
+		<div class="step-dot last"></div>
+	</div>
+</div>

@@ -5,7 +5,7 @@
 <% end %>
 <div id="content-container" class="generic">
   <% if @tutorial %>
-  <%= render partial: "tutorial" %>
+    <%= render partial: "tutorial" %>
   <% end %>
   <div class="full-white-block event-field" id="event-name">
     <%= @event.name %><br>
@@ -14,6 +14,16 @@
       <%= @event.comment %>
     </div>
   </div>
+
+  <% if true #!@poll.confirmed_attending %>
+    <div id="rsvp-container">
+      <%= link_to rsvp_path(@poll), remote: true do %>
+        <div class="btn turq-btn rsvp-btn">
+          RSVP to start voting
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <div id="choices">
     <% @choices.each do |choice| %>
       <div class="choice <%= 'grey-back' if choice.is_processing || choice.is_current %> ">

@@ -1,7 +1,18 @@
 Dashboard =
   init: ->
-    $('body').on 'click touchend', '#create-poll', @showPollForm
+    $('body').on 'click', '#create-poll', @showPollForm
     $('body').on 'click touchend', '#cancel-form', @hidePollForm
+    $('body').on 'ajax:success', '#activation-form', @showActivation
+
+  showActivation: (event, data) ->
+    if data.activated 
+      $('.activation-email.btn').val "Thanks! We'll be in touch!"
+    else
+      $('.activation-email.btn').val "Looks like you don't have access yet"
+      setTimeout ->
+        $('.activation-email.btn').val 'Submit'
+      , 2000
+
 
   showPollForm: ->
     setTimeout ->

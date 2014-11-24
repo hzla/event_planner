@@ -1,0 +1,128 @@
+@import 'variables';
+
+#voter-tutorial-container {
+	position: fixed;
+	background-image: image_url("layoutbg.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	height: 100%;
+}
+
+.voter-tut-step {
+	position: relative;
+	width: calc(100% - 40px);
+	height: calc(100% - 40px);
+	margin: 20px 20px;
+	border-radius: 10px;
+	background: white;
+	display: none;
+}
+
+.voter-tut-step.active {
+	display: block;
+}
+
+.step-pic {
+	position: absolute;
+	bottom: 160px;
+	width: calc(100% - 40px);
+	left: calc(20px);
+}
+
+.step-desc {
+	text-align: center;
+	width: 100%;
+	background: $blue;
+	color: white;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	position: absolute;
+	height: 160px;
+	bottom: 0;
+}
+
+.step-desc-text {
+	box-sizing: border-box;
+	padding: 20px;
+	line-height: 20px;
+}
+
+#step-dots {
+	position: fixed;
+	z-index: 12;
+	height: 20px;
+	width: 45px;
+	left: calc(50% - 22.5px);
+	bottom: 40px;
+}
+
+.step-dot {
+	height: 10px;
+	width: 10px;
+	background: rgba(0,0,0,.3);
+	float: left;
+	margin-right: 5px;
+	border-radius: 20px;
+}
+
+.step-dot.active {
+	background: white;
+}
+
+.step-arrow {
+	height: 20px;
+	width: 20px;
+	position: fixed;
+	z-index: 12;
+	bottom: 40px;
+	cursor: pointer;
+}
+
+.step-arrow.left {
+	left: 40px;
+}
+
+.step-arrow.right {
+	right: 40px;
+}
+
+@media (min-width: 1024px) {
+	body {
+		.voter-tut-step {
+			width: 720px;
+			margin: 0 auto;
+			border-radius: 0;
+			height: 100%;
+		}
+		.step-arrow {
+			height: 40px;
+			width: 40px;
+		}
+		.step-arrow.right {
+			right: calc(50% - 320px);
+		}
+		.step-arrow.left {
+			left: calc(50% - 320px);
+		}
+		.step-desc {
+			border-bottom-right-radius: 0px;
+			border-bottom-left-radius: 0px; 
+			height: 40%;
+		}
+
+		.step-desc-text {
+			font-size: 24px;
+		}
+		.step-pic {
+			width: 440px;
+			left: calc(50% - 220px);
+			bottom: 40%;
+			max-height: 50%;
+		}
+	}
+
+}

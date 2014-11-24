@@ -1,0 +1,10 @@
+<div id="activation-container">
+	<div class="activation-text">
+		We’re currently in Beta, if you received an invite, please enter your email address below:
+	</div>
+
+	<%= form_tag activation_path, id: 'activation-form', remote: true do %>
+		<%= text_field_tag :activation_email, nil, :class => "activation-email", placeholder: 'Enter Email' %>
+		<%= submit_tag 'Submit', :class => "activation-email btn turq-btn" %>
+	<% end %>
+</div>

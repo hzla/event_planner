@@ -7,13 +7,25 @@ class ChoicesController < ApplicationController
 
   def index
     @poll = Poll.find(params[:poll_id])
-    @tutorial = params[:tutorial] == "true"
-    @poll.update_attributes confirmed_attending: true
+    @tutorial = true #session[:new_poll_taker]
+    session[:new_poll_taker] = nil
     @event = @poll.event
     if params[:code] != @poll.url.split("?code=").last
       redirect_to root_path
     end
     @choices = @poll.choices
+
+    if @browser.mobile? 
+      @images = ["mvotertut1.png", "mvotertut2.png", "mvotertut3.png"]
+    else
+      @images = ["mvotertut1.png", "mvotertut2.png", "mvotertut3.png"]
+    end
+  end
+
+  def rsvp
+    poll = Poll.find(params[:id])
+    poll.update_attributes confirmed_attending: true
+    render nothing: true
   end
 
   def create

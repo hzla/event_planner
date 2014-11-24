@@ -9,7 +9,7 @@
   </div>
     <div class="hidden desk-text" id="cancel-form">Cancel</div>
     <%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
-    <div class="main-logo text mobile main-header-text">INSTAGATOR</div>
+    <div class="main-logo text mobile main-header-text">dinnerPoll</div>
     <div class="text mobile hidden whos-going">POLL INFO</div>
     <div class="desk-text-header whos-going hidden">POLL INFO</div>
 <% end %>
@@ -20,7 +20,7 @@
 		<div id="welcome-text-container" class="full-white-block">
 			<%= image_tag 'instagatoricon.svg', id: "welcome-icon" %>
 			<div id="welcome-text" class="medium-text">
-				Welcome to Instagator, the easiest way to plan events.
+				Welcome to dinnerPoll, the easiest way to plan dinners.
 			</div>
 		</div>
 			<div id="create-poll" class="btn-rnd blue-btn pull-down">
@@ -38,3 +38,12 @@
 	<% end %>
 	<%= render partial: 'events/new' %>
 </div>
+
+
+<% if current_user.activation != "activated" %>
+	<%= render partial: 'activation' %>
+
+<% end %>
+
+<!-- billdriscoll3
+Gator2231 -->

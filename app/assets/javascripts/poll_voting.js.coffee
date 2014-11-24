@@ -6,6 +6,34 @@ Poll =
     $('.choice').first().show()
     @centerProfile()
     @sortChoices()
+    @confirmRSVP()
+    $('body').on 'click', '.step-arrow.right', @goNextTut
+    $('body').on 'click', '.step-arrow.left', @goBackTut
+
+  goNextTut: ->
+    current = $('.voter-tut-step.active, .step-dot.active')
+    next = current.next()
+    current.removeClass('active')
+    next.addClass('active')
+    $('.step-arrow.left').show()
+    if $('.step-dot.active').length < 1
+      $('#voter-tutorial-container').hide()
+
+  goBackTut: ->
+    current = $('.voter-tut-step.active, .step-dot.active')
+    back = current.prev()
+    current.removeClass('active')
+    back.addClass('active')
+    if $('.step-dot.first.active').length > 0
+      $('.step-arrow.left').hide()
+
+
+  confirmRSVP: ->
+    if $('.rsvp-btn:visible').length > 0
+      $('.vote-link').hide()
+      $('.rsvp-btn').click ->
+        $('#rsvp-container').hide()
+        $('.vote-link').show()
 
   finishTutorial: ->
     $('#poll-take-tutorial').hide()
@@ -22,23 +50,23 @@ Poll =
 
   choose: (event, data) ->
     #REFACTOR add css to achieve same effects, only use js to add class
-    count = $(@).parent()
-    delta = data.delta
-    if data.changed
-      if data.answer == "yes"
-        $(@).parent().find('g').css('stroke', '#bebebe')
-        $(@).find('g').css('stroke', '#00CC99')
-        count.css('color', '#00CC99')
-        current_score = count.find('.choice-score')
-        new_score = parseInt(current_score.text()) + delta
-        current_score.text new_score
-      else
-        $(@).parent().find('g').css('stroke', '#bebebe')
-        $(@).find('g').css('stroke', '#FF0043')
-        count.css('color', '#FF0043')
-        current_score = count.find('.choice-score')
-        new_score = parseInt(current_score.text()) - delta
-        current_score.text new_score
+      count = $(@).parent()
+      delta = data.delta
+      if data.changed
+        if data.answer == "yes"
+          $(@).parent().find('g').css('stroke', '#bebebe')
+          $(@).find('g').css('stroke', '#00CC99')
+          count.css('color', '#00CC99')
+          current_score = count.find('.choice-score')
+          new_score = parseInt(current_score.text()) + delta
+          current_score.text new_score
+        else
+          $(@).parent().find('g').css('stroke', '#bebebe')
+          $(@).find('g').css('stroke', '#FF0043')
+          count.css('color', '#FF0043')
+          current_score = count.find('.choice-score')
+          new_score = parseInt(current_score.text()) - delta
+          current_score.text new_score
 
 
   sortChoices: ->

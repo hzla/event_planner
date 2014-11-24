@@ -14,4 +14,14 @@ class UsersController < ApplicationController
       @tutorial = params[:tutorial] == "true"
     end
   end
+
+  def activate
+    emails = ["andylee.hzl@gmail.com", "hsia.kenneth@gmail.com", 'bob@instagator.com']
+    activated = false
+    if emails.include? params[:activation_email]
+      current_user.update_attributes activation: params[:activation_email]
+      activated = true
+    end
+    render json: {activated: activated}
+  end
 end

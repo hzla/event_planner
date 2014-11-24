@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122060658) do
+ActiveRecord::Schema.define(version: 20141124012833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20141122060658) do
     t.datetime "updated_at"
   end
 
+  add_index "authorizations", ["user_id", "uu_id"], name: "index_authorizations_on_user_id_and_uu_id", using: :btree
+
   create_table "choices", force: true do |t|
     t.string   "value"
     t.text     "add_info"
@@ -35,6 +37,7 @@ ActiveRecord::Schema.define(version: 20141122060658) do
     t.integer  "event_id"
   end
 
+  add_index "choices", ["event_id", "value"], name: "index_choices_on_event_id_and_value", using: :btree
   add_index "choices", ["poll_id"], name: "index_choices_on_poll_id", using: :btree
 
   create_table "events", force: true do |t|
@@ -86,6 +89,7 @@ ActiveRecord::Schema.define(version: 20141122060658) do
   end
 
   add_index "polls", ["event_id"], name: "index_polls_on_event_id", using: :btree
+  add_index "polls", ["user_id"], name: "index_polls_on_user_id", using: :btree
 
   create_table "restaurants", force: true do |t|
     t.string   "name"

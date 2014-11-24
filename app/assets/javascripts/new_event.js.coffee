@@ -10,8 +10,7 @@ NewEvent =
     $('body').on 'submit', '.new_event, .edit_event', @checkFields
 
     #so that mobile time fields can have placeholder text
-    $('body').on 'touchstart', '#event_start_date, #event_expiration', @convertEventDate
-    $('body').on 'touchstart', '#event_start_time, #event_end_time', @convertEventTime
+    $('body').on 'focus', '#event_start_date, #event_expiration', @convertEventDate
 
     #slider
     @initSlider() if $("#range").length > 0
@@ -39,9 +38,9 @@ NewEvent =
     $('.shown-values').text "#{convertedValue1} - #{convertedValue2}"
 
   slideTime: (value) ->
-    minutes0 = parseInt(value % 60, 10)
-    hours0 = parseInt(value / 60 % 24, 10)
-    time = NewEvent.getTime(hours0, minutes0)
+    minutes = parseInt(value % 60, 10)
+    hours = parseInt(value / 60 % 24, 10)
+    time = NewEvent.getTime(hours, minutes)
 
   getTime: (hours, minutes) ->
     minutes = minutes + ""
@@ -86,10 +85,6 @@ NewEvent =
       return false
     else
       return true
-
-  convertEventTime: ->
-    if $(window).width() < 1024
-      @.type = 'time'
 
   convertEventDate: ->
     if $(window).width() < 1024

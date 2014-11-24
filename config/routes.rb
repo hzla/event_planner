@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
+  post '/activate', to: 'users#activate', as: 'activation'
 
   resources :events, only: [:create, :show] do
     get '/polls/find_or_create', to: 'polls#find_or_create', as: 'find_or_create_poll'
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
   resources :polls, only: [:show] do
     resources :choices, only: [:index]
   end
+
+  get '/polls/:id/rsvp', to: 'polls#rsvp', as: 'rsvp'
 
   resources :choices, only: [:create]
   get '/choices/:id/vote', to: 'choices#vote', as: 'vote'

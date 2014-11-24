@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
       user = User.create_with_facebook auth_hash
       session[:user_id] = user.id
       if session[:route_poll] #if they're coming from the take poll page
+        session[:new_poll_taker] = true
         redirect_to event_find_or_create_poll_path(event_id: session[:event_id]) and return
       end
       redirect_to dashboard_path({welcome: true})
