@@ -41,7 +41,7 @@
 }
 
 #range {
-  height: 3px;
+  height: 1px;
   margin: 40px 0px;
   border: none;
   .noUi-background, .noUi-base {
@@ -55,8 +55,9 @@
     border: none;
     box-shadow: none;
     height: 40px;
-    top: -17px;
+    top: -20px;
     width: 20px;
+    border-radius: 0px;
   }
   .noUi-handle:before, .noUi-handle:after {
     display: none;
@@ -231,12 +232,14 @@
 		 	right: 100%;
 		 }
 		 .shown-values {
-		 	font-size: 30px;
+		 	font-size: 24px;
+      font-weight: 600;
+      color: $dark-grey;
 		 }
 		 .range-placeholder {
 		 	width: 100%;
 		 	text-align: center;
-		 	font-size: 24px;
+		 	font-size: 16px;
 		 	color: $grey;
 		 	margin: 20px 0px;
 		 	display: block;

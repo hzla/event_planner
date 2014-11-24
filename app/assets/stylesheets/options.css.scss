@@ -32,6 +32,7 @@
 #service-search-container input {
   font-size: 16px;
   padding: 0px;
+	font-weight: 300;
 }
 
 .search-arrow {
@@ -51,6 +52,8 @@
   line-height: 40px;
   border: none;
 }
+
+
 
 
 /******* browsing options *******/
@@ -143,19 +146,23 @@ body div.option-overlay {
 
 @media (min-width: 1024px) {
 	.service-tabs {
-		height: 80px;
+		height: 60px;
 		margin: 0;
 		width: 100%;
 	}
 	.service-options {
-		max-height: calc(100vh - 380px);
+		max-height: calc(100vh - 323px);
 		overflow-y: scroll;
 		padding: 0 40px;
 		box-sizing: border-box;
 	}
 
+	.service-header{
+		height: 60px;
+	}
+
 	.service-tab {
-		line-height: 80px;
+		line-height: 60px;
 	}
 	.service-search-field {
 		height: 60px;
