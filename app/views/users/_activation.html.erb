@@ -7,4 +7,11 @@
 		<%= text_field_tag :activation_email, nil, :class => "activation-email", placeholder: 'Enter Email' %>
 		<%= submit_tag 'Submit', :class => "activation-email btn turq-btn" %>
 	<% end %>
+
+	<div class="failure-text hidden act-text">
+		Thanks for signing up, we'll let you know when we're ready to take you off the waitlist.
+	</div>
+	<div class="success-text hidden act-text">
+		Thanks for signing up, we'll let you know when we're ready to take you off the waitlist.
+	</div>
 </div>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="124px" height="102px" viewBox="0 0 124 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>Poll</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Main-Attraction" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desk-Landing-4" sketch:type="MSArtboardGroup" transform="translate(-227.000000, -919.000000)">
+            <g id="Poll" sketch:type="MSLayerGroup" transform="translate(228.000000, 919.000000)">
+                <rect id="Rectangle-470" fill="#00CC99" sketch:type="MSShapeGroup" x="24.7376033" y="0.00410677618" width="97.6797521" height="20.8275154"></rect>
+                <rect id="Rectangle-474" stroke="#00CC99" stroke-width="3" sketch:type="MSShapeGroup" x="-0.373966942" y="1.91683778" width="17.0247934" height="17.0020534"></rect>
+                <rect id="Rectangle-475" stroke="#00CC99" stroke-width="3" sketch:type="MSShapeGroup" x="-0.373966942" y="27.4199179" width="17.0247934" height="17.0020534"></rect>
+                <rect id="Rectangle-476" stroke="#00CC99" stroke-width="3" sketch:type="MSShapeGroup" x="-0.373966942" y="55.473306" width="17.0247934" height="17.0020534"></rect>
+                <rect id="Rectangle-477" stroke="#00CC99" stroke-width="3" sketch:type="MSShapeGroup" x="-0.373966942" y="82.25154" width="17.0247934" height="17.0020534"></rect>
+                <rect id="Rectangle-471" fill="#00CC99" sketch:type="MSShapeGroup" x="24.7376033" y="25.9322382" width="84.911157" height="20.8275154"></rect>
+                <rect id="Rectangle-472" fill="#00CC99" sketch:type="MSShapeGroup" x="24.7376033" y="53.9856263" width="55.1177686" height="20.8275154"></rect>
+                <rect id="Rectangle-473" fill="#00CC99" sketch:type="MSShapeGroup" x="24.7376033" y="80.7638604" width="76.3987603" height="20.8275154"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

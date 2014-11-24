@@ -7,8 +7,10 @@ Dashboard =
   showActivation: (event, data) ->
     if data.activated 
       $('.activation-email.btn').val "Thanks! We'll be in touch!"
+      $('.act-text.success-text').show()
     else
       $('.activation-email.btn').val "Looks like you don't have access yet"
+      $('.act-text.failure-text').show()
       setTimeout ->
         $('.activation-email.btn').val 'Submit'
       , 2000

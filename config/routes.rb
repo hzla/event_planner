@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  get '/dinner', to: 'pages#dinner_poll', as: 'dinner_poll'
+
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
   post '/activate', to: 'users#activate', as: 'activation'
 

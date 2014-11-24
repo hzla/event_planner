@@ -6,18 +6,20 @@
 
 
 <div id="landing-header">
-  <%= image_tag 'dinnerpoll.svg', id: 'landing-logo' %>
+  <%= link_to '/' do %>
+    <%= image_tag 'dinnerpoll.svg', id: 'landing-logo' %>
+  <% end %>
   <%= link_to '/auth/facebook' do %>
     <div class="header-link no-mobile">Connect with Facebook</div>
   <% end %>
-  <div class="header-link no-mobile">dinner</div>
-  <div class="header-link no-mobile">poll</div>
+  <%= link_to dinner_poll_path do  %>
+    <div class="header-link no-mobile">instagator</div>
+  <% end %>
 </div>
 
 <div id="mid-container">
   <div class="mid-section">
-    <div class="title-text" id="fade-1">Planning a group dinner?</div>
-    <div class="showcase-subtext">We'll take care of everything.</div>
+    <div class="title-text" id="fade-1">The automation of coordination</div>
     <div id="section-footer">SCROLL DOWN TO SEE HOW</div>
   </div>
 </div>
