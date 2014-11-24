@@ -21,7 +21,7 @@
 }
 
 .range-placeholder {
-	display: none;
+  margin: 20px 0px;
 }
 
 .poll-field {
@@ -189,6 +189,20 @@
 		.blocker-text {
 			width: 200px;
 		}
+    #event_start_date {
+      border-top: 1px solid $border-grey;
+    }
+    #new_event {
+      width: calc(100% - 30px);
+      padding: 0px 15px;
+      input, select {
+        padding-left: 0px;
+        font-family: 'Lato'
+      }
+    }
+    .noUi-handle {
+      top: -20px;
+    }
 	}
 }
 

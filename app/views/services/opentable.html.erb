@@ -5,8 +5,8 @@
   <%= link_to :back do %>
     <div class="mobile desk-text" id="back-link">Back</div>
   <% end %>
-    <div class="main-logo text mobile">Open Table</div>
-    <div id="header-right" class="no-mobile">Open Table</div>
+    <div class="main-logo text mobile">Select Restaurants</div>
+    <div id="header-right" class="no-mobile">SELECT RESTAURANTS</div>
 <% end %>
 
 <%= form_tag choices_path(event_id: @event_id), id: 'options-form' do %>
@@ -41,7 +41,7 @@
 				<%= image_tag 'unselected.svg', :class => "option-check unselected" %>
 				<%= image_tag 'selected.svg', :class => "option-check" %>
 				<div class="option-title bold"><%= option.name %></div>
-				<div class="option-info"><%= option.address %></div>
+				<div class="option-info"><%= option.shortened_address %></div>
 				<div class="star-container">
 					<% option.rating.round.times do %>
 						<%= image_tag 'stargreen.svg', :class => "star" %> 

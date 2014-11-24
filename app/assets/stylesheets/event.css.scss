@@ -62,7 +62,6 @@ div.event-field {
 		width: 60px;
 		position: absolute;
 		left: 120px;
-    display: none;
 	}
 	.option-title {
 		width: 100%;
@@ -88,13 +87,12 @@ div.event-field {
 
 #poll-status {
 	font-size: 16px;
-	font-weight: 600;
 }
 
 .poll-url {
   text-align: center;
   margin: 20px 0px;
-  font-size: 24px;
+  font-size: 16px;
   word-break: break-all;
 }
 
@@ -149,6 +147,12 @@ div.event-field {
     #event-options{
       width: calc(100% - 30px);
       margin: $mg auto;
+      .event-option {
+        text-align: right;
+      }
+      .option-pic {
+        left: 0px;
+      }
     }
     #poll-status{
       margin-bottom: 10px;

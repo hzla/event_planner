@@ -40,7 +40,6 @@ Poll =
         new_score = parseInt(current_score.text()) - delta
         current_score.text new_score
 
-    Poll.sortChoices()
 
   sortChoices: ->
     sortedChoices = $('.choice').sort (a,b) ->

@@ -26,7 +26,11 @@
 }
 
 .desk-text-header {
-  display: inline;
+  display: block;
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  font-size: 16px;
 }
 
 .main-logo {
@@ -237,6 +241,7 @@ body.landing {
   	height: 40px;
   	width: 100%;
   	background: none;
+    left: 0;
   	.btn, .btn-rnd {
   		width: 100%;
   		height: 40px;
@@ -300,6 +305,9 @@ body.landing {
 				margin: 0;
 			}
 		}
+    .bottom-btn-container.fixed {
+      position: fixed;
+    }
 		background: none;
 		.desk-text-header {
 			display: none;

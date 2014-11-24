@@ -65,6 +65,10 @@
       left: 50%;
       margin-left: -10vw;
     }
+    #choices {
+      max-height: calc(100vh - 290px);
+      overflow-y: scroll; 
+    }
   }
 }
 
@@ -205,6 +209,24 @@
     }
     #poll-take-header {
       margin: 0;
+    }
+    .choice {
+      .choice-value, .choice-pic {
+        margin-top: 15px;
+      }
+      .star-container, .choice-time {
+        margin-top: 7px;
+        color: $grey;
+        font-weight: 300; 
+      }
+      .option-price {
+        margin-left: 0px;
+        margin-top: 7px;
+      }
+      .choice-status {
+        display: none;
+      }
+
     }
   }
 }

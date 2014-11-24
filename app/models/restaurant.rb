@@ -60,6 +60,10 @@ class Restaurant < ActiveRecord::Base
     #time format: HH:MM
     "http://www.opentable.com/s/?datetime=#{date}%20#{time}&covers=2&showmap=false&popularityalgorithm=NameSearches&tests=EnableMapview,ShowPopularitySortOption,srs,customfilters&sort=Popularity&excludefields=Description&from=0"
   end
+
+  def shortened_address
+  	address.split(",")[0]
+  end
 end
 
 # Foodspotting Opentable API Key: gApqnQV9AZOMKEkNAtV9

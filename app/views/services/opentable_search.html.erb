@@ -5,7 +5,7 @@
     <%= image_tag 'unselected.svg', :class => "option-check unselected" %>
 		<%= image_tag 'selected.svg', :class => "option-check" %>
     <div class="option-title bold"><%= option.name %></div>
-    <div class="option-info"><%= option.address %></div>
+    <div class="option-info"><%= option.shortened_address %></div>
     <div class="star-container">
 					<% option.rating.round.times do %>
 						<%= image_tag 'stargreen.svg', :class => "star" %> 

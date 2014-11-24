@@ -87,12 +87,24 @@ body div.option-overlay {
 }
 
 .option-check {
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  top: 30px;
-  right: 20px;
+  height: 20px;
+  width: 20px;
+  top: 40px;
   display: none;
+  position: absolute;
+  right: 20px;
+}
+
+.option-check.unselected {
+  display: block;
+}
+
+.option-check {
+  height: 20px;
+  width: 20px;
+  top: 40px;
+
+
 }
 
 .option-price, .star-container {
@@ -107,10 +119,14 @@ body div.option-overlay {
   width: 120px;
   height: 15px;
   .star {
-    margin-right: 5px;
+    margin-right: 1px;
     height: 15px;
     width: 15px;
   }
+}
+
+.option-price {
+  margin-left: -5px;
 }
 
 .option div {
@@ -145,7 +161,15 @@ body div.option-overlay {
 }
 
 @media (min-width: 1024px) {
-	.service-tabs {
+	.option-check {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    display: none;
+  }
+  .service-tabs {
 		height: 60px;
 		margin: 0;
 		width: 100%;
