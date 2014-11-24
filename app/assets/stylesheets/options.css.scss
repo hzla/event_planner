@@ -65,6 +65,8 @@
   text-align: left;
   position: relative;
   cursor: pointer;
+	padding: 10px;
+	box-sizing: border-box;
 }
 
 body div.option-overlay {
@@ -107,13 +109,7 @@ body div.option-overlay {
 
 }
 
-.option-price, .star-container {
-  margin-top: 10px;
-  margin-left: 20px;
-  float: left;
-  color: $green;
-  font-weight: 600;
-}
+
 
 .star-container {
   width: 120px;
@@ -140,12 +136,19 @@ body div.option-overlay {
 .option-title, .option-info {
   float: left;
   width: calc(100% - 120px);
-  margin-left: 20px;
+  margin-left: 10px;
+}
 
+.option-price, .star-container {
+	margin-top: 10px;
+	margin-left: 10px;
+	float: left;
+	color: $green;
+	font-weight: 600;
 }
 
 .option-title {
-  margin-top: 20px;
+  margin-top: 8px;
   margin-bottom: 10px;
 }
 
@@ -154,13 +157,19 @@ body div.option-overlay {
 }
 
 .option-pic {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   box-sizing: border-box;
   float: left;
 }
 
 @media (min-width: 1024px) {
+	.option-info {
+		margin-left: 20px;
+	}
+	.option-price, .star-container {
+		margin-left: 20px;
+	}
 	.option-check {
     height: 40px;
     width: 40px;
@@ -222,5 +231,6 @@ body div.option-overlay {
 	}
 	.option-title{
 		margin-top: 0px;
+		margin-left: 20px;
 	}
 }

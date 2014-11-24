@@ -32,10 +32,10 @@
         <div class="choice-time grey"><%= choice.restaurant.shortened_address || "7:00PM" %></div>
         <div class="star-container">
           <% choice.restaurant.rating.round.times do %>
-            <%= image_tag 'stargreen.svg', :class => "star" %> 
+            <%= image_tag 'stargreen.svg', :class => "star" %>
           <% end %>
           <% (5 - choice.restaurant.rating.round).times do %>
-            <%= image_tag 'stargrey.svg', :class => "star" %> 
+            <%= image_tag 'stargrey.svg', :class => "star" %>
           <% end %>
         </div>
         <div class="option-price">
@@ -66,11 +66,10 @@
 
   <div id="poll-finished" class="hidden main-text">
     Thanks for answering! We’ll email you notifications as the poll updates.<br><br>
-    In the mean time, you can download the app and start planning your own events for free!<br><br>
     <% if current_user %>
       <br>
       <%= link_to dashboard_path do %>
-        <div class="btn blue-btn" id="go-dashboard">Go to Dashboard</div>
+        <div class="btn blue-btn" id="go-dashboard">Back to Dashboard</div>
       <% end %>
     <% end %>
   </div>

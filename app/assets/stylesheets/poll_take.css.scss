@@ -79,7 +79,7 @@
     }
     #choices {
       max-height: calc(100vh - 290px);
-      overflow-y: scroll; 
+      overflow-y: scroll;
     }
   }
 }
@@ -213,7 +213,7 @@
       position: fixed;
       width: calc(100% - 40px);
       border-radius: 5px;
-      bottom: 20px;
+      bottom: 0px;
       left: 20px;
     }
     #poll-take-name, #poll-take-count{
@@ -229,7 +229,7 @@
       .star-container, .choice-time {
         margin-top: 7px;
         color: $grey;
-        font-weight: 300; 
+        font-weight: 300;
       }
       .option-price {
         margin-left: 0px;
@@ -251,6 +251,6 @@
         left: 450px;
         height: 100px;
         line-height: 100px;
-      } 
-    } 
+      }
+    }
 }
