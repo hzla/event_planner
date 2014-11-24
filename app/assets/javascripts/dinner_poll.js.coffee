@@ -3,6 +3,8 @@ DinnerPoll =
     @cycleImages()
 
   cycleImages: ->
+    for i in [0..99999]
+      window.clearInterval(i)
     setInterval ->
       current = $('#sec-3 .sec-pic.active')
       next = current.next()
