@@ -99,6 +99,7 @@
   z-index: 4;
   width: 100%;
   top: 0;
+  left: 0;
 }
 
 .blocker {
@@ -106,6 +107,7 @@
   position: absolute;
   width: 100%;
   color: white;
+  left: 0;
 }
 
 .tut-blocker-top {
@@ -142,12 +144,12 @@
 }
 
 .tut-1.tut-blocker-top {
-  height: 40px;
+  height: 60px;
   top: 0;
 }
 
 .tut-1.tut-blocker-bottom {
-  height: calc(100% - 80px);
+  height: calc(100% - 120px);
   .blocker-text {
     left: 120px;
     top: 40px;
@@ -162,7 +164,7 @@
 }
 
 .tut-2.tut-blocker-top {
-  height: 120px;
+  height: 180px;
   .blocker-text {
     bottom: 20px;
     right: 100px;
@@ -177,7 +179,7 @@
 }
 
 .tut-2.tut-blocker-bottom {
-  height: calc(100% - 230px);
+  height: calc(100% - 340px);
 }
 
 
