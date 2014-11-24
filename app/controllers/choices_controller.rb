@@ -15,8 +15,8 @@ class ChoicesController < ApplicationController
     end
     @choices = @poll.choices
 
-    if @browser.mobile? 
-      @images = ["mvotertut1.png", "mvotertut2.png", "mvotertut3.png"]
+    if !@browser.mobile? 
+      @images = ["desktut1.png", "desktut2.png", "desktut3.png"]
     else
       @images = ["mvotertut1.png", "mvotertut2.png", "mvotertut3.png"]
     end
