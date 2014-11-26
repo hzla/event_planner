@@ -1,14 +1,31 @@
-class EventsController < ApplicationController
+class Simple::EventsController < ApplicationController
 
   include SessionsHelper
 
   before_filter :get_event, only: [:activate, :route, :generate_poll, :show]
 
-  
+  def new
+    @event = Event.new
+  end
+
   def create
-    @event = Event.create params[:event]
-    @event.assign_user_and_create_first_poll current_user
-    redirect_to opentable_path(event_id: @event.id)
+    p params["questions"]
+    puts "\n" * 10
+    if params["questions"] != ","
+      p "hid"
+      Event.create_simple_event params, current_user
+    end
+    redirect_to dashboard_path
+  end
+
+  def route
+    session[:user_id] = nil
+    if params[:code] != @event.code
+      redirect_to root_path and return
+    end
+    @polls = @event.polls
+    session[:route_poll] = true
+    session[:event_id] = @event.id
   end
 
   def generate_poll

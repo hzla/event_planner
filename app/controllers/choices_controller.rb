@@ -7,7 +7,7 @@ class ChoicesController < ApplicationController
 
   def index
     @poll = Poll.find(params[:poll_id])
-    @tutorial = true #session[:new_poll_taker]
+    @tutorial = session[:new_poll_taker] 
     session[:new_poll_taker] = nil
     @event = @poll.event
     if params[:code] != @poll.url.split("?code=").last

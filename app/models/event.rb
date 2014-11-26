@@ -13,8 +13,33 @@ class Event < ActiveRecord::Base
 	attr_accessible :routing_url, :processing_choice, :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
 
 	
+
+	def self.create_simple_event params, user
+		event = Event.create name: params["question_1"], status: "activated"
+		count = 1
+		questions = params["questions"].split(",")
+		questions.each do |q|
+			p q
+			puts "\n" * 10
+			params["date_choice_list_#{count}"].split(",").each do |choice|
+				Choice.create question: q, value: choice, event_id: event.id, choice_type: "date"
+				p choice
+				puts "\n" * 10
+			end
+			params["text_choice_list_#{count}"].split(",").each do |choice|
+				Choice.create question: q, value: choice, event_id: event.id, choice_type: "text"
+				p choice
+				puts "\n" * 10
+			end
+			count += 1
+		end
+		event.assign_user_and_create_first_poll user
+		event.populate_polls_with_choices
+	end
+
 	def populate_polls_with_choices
 		polls.each do |poll|
+			p "worked"
 			poll.choices << choices
 		end
 	end
@@ -60,7 +85,9 @@ class Event < ActiveRecord::Base
 	end
 
 	def ongoing?
-		(end_time - 24.hours) > Time.now
+		if end_time
+			(end_time - 24.hours) > Time.now
+		end
 	end
 
 	def last_log
@@ -76,9 +103,11 @@ class Event < ActiveRecord::Base
 	end
 
 	def time_info
-		date = start_date.strftime("%b %d, %Y at ")
-		time = start_time.strftime("%l:%M %p - ") + end_time.strftime("%l:%M %p")
-		date + time
+		if start_date
+			date = start_date.strftime("%b %d, %Y at ")
+			time = start_time.strftime("%l:%M %p - ") + end_time.strftime("%l:%M %p")
+			date + time
+		end
 	end
 
 	def time_left
@@ -111,10 +140,12 @@ class Event < ActiveRecord::Base
 	end
 
 	def update_times
-		new_start = start_time
-		new_start = new_start.change day: start_date.day, month: start_date.month
-		new_end = end_time
-		new_end = new_end.change day: start_date.day, month: start_date.month
-		self.update_attributes start_time: new_start, end_time: new_end
+		if start_time
+			new_start = start_time
+			new_start = new_start.change day: start_date.day, month: start_date.month
+			new_end = end_time
+			new_end = new_end.change day: start_date.day, month: start_date.month
+			self.update_attributes start_time: new_start, end_time: new_end
+		end
 	end
 end

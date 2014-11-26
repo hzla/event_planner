@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124012833) do
+ActiveRecord::Schema.define(version: 20141126022605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20141124012833) do
     t.integer  "service_id"
     t.datetime "time"
     t.integer  "event_id"
+    t.string   "choice_type"
+    t.string   "question"
   end
 
   add_index "choices", ["event_id", "value"], name: "index_choices_on_event_id_and_value", using: :btree

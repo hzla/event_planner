@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <% if true #!@poll.confirmed_attending %>
+  <% if !@poll.confirmed_attending %>
     <div id="rsvp-container">
       <%= link_to rsvp_path(@poll), remote: true do %>
         <div class="btn turq-btn rsvp-btn">
@@ -29,20 +29,23 @@
       <div class="choice <%= 'grey-back' if choice.is_processing || choice.is_current %> ">
         <%= image_tag choice.image_url, :class => "choice-pic" %>
         <div class="choice-value"><%= choice.value %></div>
-        <div class="choice-time grey"><%= choice.restaurant.shortened_address || "7:00PM" %></div>
-        <div class="star-container">
-          <% choice.restaurant.rating.round.times do %>
-            <%= image_tag 'stargreen.svg', :class => "star" %>
-          <% end %>
-          <% (5 - choice.restaurant.rating.round).times do %>
-            <%= image_tag 'stargrey.svg', :class => "star" %>
-          <% end %>
-        </div>
-        <div class="option-price">
-          <% choice.restaurant.pricing.times do %>
-            $
-          <% end %>
-        </div>
+        
+        <div class="choice-time grey"><%= "Question: #{choice.question}" || choice.restaurant.shortened_address %></div>
+        <% if choice.restaurant %>
+          <div class="star-container">
+            <% choice.restaurant.rating.round.times do %>
+              <%= image_tag 'stargreen.svg', :class => "star" %>
+            <% end %>
+            <% (5 - choice.restaurant.rating.round).times do %>
+              <%= image_tag 'stargrey.svg', :class => "star" %>
+            <% end %>
+          </div>
+          <div class="option-price">
+            <% choice.restaurant.pricing.times do %>
+              $
+            <% end %>
+          </div>
+        <% end %>
         <div class="choice-status">
           <% if choice.is_processing %>
             <span class="grey">New Reservation Processing</span>

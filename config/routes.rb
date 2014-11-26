@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  #Instagator/DinnerPoll routes
+
   root to: 'pages#home'
 
   get '/instagator', to: 'pages#dinner_poll', as: 'dinner_poll'
@@ -28,6 +30,11 @@ Rails.application.routes.draw do
   post '/opentable/search', to: 'services#opentable_search', as: 'opentable_search'
 
 
+  # Optionize Routes
+
+  namespace :simple do 
+    resources :events
+  end
 
 
   # API ROUTES

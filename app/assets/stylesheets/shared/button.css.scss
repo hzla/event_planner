@@ -1,0 +1,101 @@
+@import '../variables';
+
+
+
+
+.btn {
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+}
+
+.blue-btn {
+  background: $blue;
+}
+
+.black-btn {
+	background: $dark-grey;
+}
+
+.red-btn {
+	background: $red;
+}
+
+.green-btn {
+	background: $green;
+}
+
+
+.bottom-btn-container {
+	.black-btn:hover {
+		background: white;
+		color: $dark-grey;
+		border: 1px solid $dark-grey;
+	}
+
+	.blue-btn:hover {
+	  background: white;
+	  border: 1px solid $blue;
+	  color: $blue;
+	}
+
+	.red-btn:hover {
+		background: white;
+		border: 1px solid $red;
+		color: $red;
+	}
+
+	.green-btn:hover {
+		background: white;
+		border: 1px solid $green;
+		color: $green;
+	}
+
+}
+.black-btn:hover {
+		background: white;
+		color: $dark-grey;
+		border: 1px solid $dark-grey;
+	}
+
+	.blue-btn:hover {
+	  background: white;
+	  border: 1px solid $blue;
+	  color: $blue;
+	}
+
+	.red-btn:hover {
+		background: white;
+		border: 1px solid $red;
+		color: $red;
+	}
+
+	.green-btn:hover {
+		background: white;
+		border: 1px solid $green;
+		color: $green;
+	}
+
+
+
+.pull-bottom-btn {
+  height: 40px;
+  line-height: 40px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* .btn are square in mobile */
+
+.btn-rnd {
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
