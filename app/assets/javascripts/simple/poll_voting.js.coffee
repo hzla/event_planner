@@ -38,9 +38,10 @@ SimplePollVoting =
           dateVoter.datepicker
             'multidate': true
             'beforeShowDay': (date) ->
+              shouldShow = false
               for parsedDate in parsedDates
-              	if parsedDate - date == 0
-              		shouldShow = true
+                if parsedDate - date == 0
+                  shouldShow = true
               shouldShow
 
           if $('.selected-choice-dates').text() != ""

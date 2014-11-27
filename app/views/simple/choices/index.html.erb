@@ -44,7 +44,10 @@
 						<div class="simple-date-voter simple-voter">
 							<div class="choice-dates hidden"><%= @poll.values_for question %></div>
 							<div class="selected-choice-dates hidden"><%= @poll.selected_values_for question %></div>
-							<div class="date-voter"></div>
+							<div class="date-picker-container">
+								<div class="date-picker-header">Pick your dates:</div>
+								<div class="date-voter"></div>
+							</div>
 						</div>
 					<% end %>
 				</div>

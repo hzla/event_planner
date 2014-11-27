@@ -24,8 +24,10 @@
 				<div id="add-another-question" class="poll-field blue">
 					+ Add another question
 				</div>
-
-				<div id="datepicker"></div>
+				<div class="date-picker-container">
+					<div class="date-picker-header">Pick your dates:</div>
+					<div id="datepicker"></div>
+				</div>
 				<div id="text-choice-picker">
 					<div class="text-choice">
 						<div class="text-choice-num">1.</div>
@@ -39,7 +41,7 @@
 					</div>
 					<div class="text-choice placeholder">
 						<div class="text-choice-num">3.</div>
-						<%= text_field_tag :text_choice_3, nil, :class => "text-choice-input", disabled: true %>
+						<%= text_field_tag :text_choice_3, nil, :class => "text-choice-input", placeholder: "Add option..."%>
 						<%= image_tag 'delete.svg', :class => "text-choice-icon cancel-choice" %>
 						<%= image_tag 'add.svg', :class => "text-choice-icon add-choice" %>
 					</div>
@@ -61,8 +63,8 @@
 			<% end %>
 		</div>
 		<div class="bottom-btn-container double fixed hidden" id="simple-event-btns">
-			<div class="btn green-btn" id="confirm-simple-event">Ok</div> 
 			<div class="btn red-btn" id="cancel-simple-event">Cancel</div> 
+			<div class="btn green-btn" id="confirm-simple-event">Ok</div> 
 		</div>
 </div>
 

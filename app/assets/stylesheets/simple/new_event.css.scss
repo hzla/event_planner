@@ -11,6 +11,24 @@
 	overflow-y: scroll;
 }
 
+.date-picker-container {
+	display: none;
+}
+
+.simple-vote .date-picker-container {
+	display: block;
+	.date-picker-header {
+		margin-left: 10px;
+		width: calc(100% - 10px);
+	}
+}
+
+.date-picker-header {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+}
+
 .question-info-container, .poll-field {
 	position: relative;
 	.type-pic {
@@ -51,6 +69,7 @@
 }
 
 .placeholder {
+	cursor: pointer;
 	.text-choice-input {
 		border: none;
 		background: $border-grey;
@@ -61,6 +80,10 @@
 	.add-choice {
 		display: block;
 	}
+}
+
+.placeholder:hover {
+	cursor: pointer;
 }
 
 .text-choice-icon {

@@ -15,7 +15,7 @@ SimpleNewEvent =
     # adding more questions/choices to event creator
     $('body').on 'click', '#add-another-question', @addAnotherQuestion
     $('body').on 'click', '.cancel-choice', @cancelChoice
-    $('body').on 'click', '.add-choice', @addChoice
+    $('body').on 'click', '.text-choice.placeholder', @addChoice
     
     @questionCount = 1
     @initDatePicker()
@@ -32,7 +32,7 @@ SimpleNewEvent =
       $('#add-another-question').show()
 
   editDateQuestion: ->
-    if $('#text-choice-picker:visible, #datepicker:visible, .type-container:visible').length < 1
+    if $('#text-choice-picker:visible, #datepicker-container:visible, .type-container:visible').length < 1
       SimpleNewEvent.editMode = true
       $('.active').removeClass('active')
       clickedQuestion = $(@).parents(".question-info-container")
@@ -43,7 +43,7 @@ SimpleNewEvent =
 
       $('#datepicker').datepicker('setDates', parsedDates)
       $('#add-another-question').hide()
-      $('#datepicker, #simple-event-btns').show()
+      $('.date-picker-container, #simple-event-btns').show()
 
   editTextQuestion: ->
     if $('#text-choice-picker:visible, #datepicker:visible, .type-container:visible').length < 1
@@ -57,7 +57,7 @@ SimpleNewEvent =
       $.each textToSet, (i, choice) ->
         if choice != ""
           input = $("#text_choice_#{i + 1}")
-          if input.attr('disabled') == "disabled" 
+          if input.parents('.text-choice').hasClass('placeholder')
             $('.add-choice:visible').click()
             input = $("#text_choice_#{i + 1}")
             input.val(choice)
@@ -80,15 +80,15 @@ SimpleNewEvent =
     SimpleNewEvent.reassignNumbers()
 
   addChoice: ->
-    choice = $(@).parents('.text-choice')
+    choice = $(@)
+    choice.find('.text-choice-input').attr('placeholder', '')
     choice.removeClass 'placeholder'
-    choice.find('input').removeAttr('disabled')
     addIcon = choice.find('.add-choice').clone() 
     cancelIcon = choice.find('.cancel-choice').clone()
     nextChoiceNum  = parseInt(choice.find('.text-choice-num').text().slice(0, -1)) + 1
     nextChoice = "<div class='text-choice placeholder'>
             <div class='text-choice-num'>#{nextChoiceNum}.</div>
-            <input class='text-choice-input' id='text_choice_#{nextChoiceNum}' name='text_choice_#{nextChoiceNum}' type='text' disabled='disabled'>
+            <input class='text-choice-input' id='text_choice_#{nextChoiceNum}' name='text_choice_#{nextChoiceNum}' type='text' placeholder='Add Option...'>
           </div>"
     choice.after(nextChoice)
     $('.text-choice').last().append(addIcon)
@@ -116,7 +116,7 @@ SimpleNewEvent =
   confirmEventDetails: ->
     currentQuestion = $('.question-info-container.active')
    
-    if $('#datepicker:visible').length > 0 #if clicking ok on datepicker
+    if $('.date-picker-container:visible').length > 0 #if clicking ok on datepicker
       icon = $('.type .date-type').clone()
       dates = $('#datepicker').datepicker('getDates')
       $('.question-info-container.active').find('.date-choices').val dates
@@ -162,7 +162,7 @@ SimpleNewEvent =
   toggleEventDateForm: ->
     currentQuestion = $('.question-info-container.active .poll-field')
     if currentQuestion.val() != ""
-      $('#datepicker, #simple-event-btns, .type-container').toggle()
+      $('.date-picker-container, #simple-event-btns, .type-container').toggle()
     else
       currentQuestion.css('border', '1px solid red')
       setTimeout ->
@@ -184,12 +184,13 @@ SimpleNewEvent =
     
 
   closeEventForm: ->
-    $('#datepicker, #text-choice-picker, #simple-event-btns').hide()
+    $('.date-picker-container, #text-choice-picker, #simple-event-btns').hide()
     $('.type-container').show()
 
   initDatePicker: ->
     $("#datepicker").datepicker
       'multidate': true
+      'startDate': new Date()
     $('.dow').parent().addClass('dow-row')
 
   clearEventDetails: ->
@@ -215,7 +216,6 @@ SimpleNewEvent =
     $('.text-choice').remove()
     $('#text-choice-picker').append firstThreeChoiceInputs
     $('.text-choice').last().addClass('placeholder')
-    $('.text-choice-input').last().attr('disabled', 'disabled')
           
 ready = ->
   SimpleNewEvent.init()
