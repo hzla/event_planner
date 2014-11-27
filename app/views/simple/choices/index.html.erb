@@ -54,7 +54,7 @@
 			<% end %>
 		</div>
 
-	<%= form_tag simple_poll_vote_path(id: @poll.id), id: 'simple-events-vote-form', remote: true do %>
+	<%= form_tag simple_poll_vote_path(id: @poll.id), id: 'simple-events-vote-form' do %>
 		<% hidden_field_tag :choice_values, @poll.all_selected_values %>
 	<% end %>
 </div>
