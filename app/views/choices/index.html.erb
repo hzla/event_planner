@@ -30,7 +30,7 @@
         <%= image_tag choice.image_url, :class => "choice-pic" %>
         <div class="choice-value"><%= choice.value %></div>
         
-        <div class="choice-time grey"><%= "Question: #{choice.question}" || choice.restaurant.shortened_address %></div>
+        <div class="choice-time grey"><%= choice.restaurant.shortened_address %></div>
         <% if choice.restaurant %>
           <div class="star-container">
             <% choice.restaurant.rating.round.times do %>
