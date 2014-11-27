@@ -1,13 +1,12 @@
 <%= content_for :header do %>
-  <div class="header-pic-container">
-    <div id="header-right-pic" class="done submit-simple-event-votes">Submit</div>
-  </div>
-    <%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
+	<%= link_to dashboard_path do %>
+    <%= image_tag 'arrowleft.svg', id: 'header-left', :class => "mobile" %>
+  <% end %>
     <div class="text mobile whos-going">Poll Results</div>
     <div class="desk-text-header whos-going">Poll Results</div>
 <% end %>
 
-<div class="generic simple-vote" id="content-container">
+<div class="generic simple-results" id="content-container">
 		<div id="questions-container">
 			<% @questions.each do |question, choices| %>
 				<div class="simple-choice">
@@ -24,15 +23,18 @@
 					<% end %>
 					<div class="simple-question-results simple-voter">
 							<div class="simple-results-header">
-								<% choices.each do |choice| %>
-									<div class="choice-header cell"><%= choice.result_value %></div>
+								<% choices.each_with_index do |choice , i| %>
+									<div class='choice-header cell <%= "col-#{i}" %>'>
+										<span class="shortened-value"><%= choice.result_value %></span>
+										<span class="hidden full-value"><%= choice.value %></span>
+									</div>
 								<% end %>
 							</div>
 							<div class="simple-choice-body">
 								<% @event.polls.each do |poll| %>
 									<div class="cell poll-taker-name"><%= poll.user.name %></div>
-									<% poll.choices_for(question).each do |choice| %>
-										<div class="cell">
+									<% poll.choices_for(question).each_with_index do |choice, i| %>
+										<div class="cell <%= "col-#{i}" %>">
 											<% if choice.yes %>
 												<%= image_tag 'checkgreen.svg', :class => "cell-check" %>
 											<% end %>

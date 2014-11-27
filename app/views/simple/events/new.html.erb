@@ -2,7 +2,9 @@
   <div class="header-pic-container">
     <div id="header-right-pic" class="done submit-simple-event">Done</div>
   </div>
-    <%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
+    <%= link_to dashboard_path do %>
+    	<%= image_tag 'arrowleft.svg', id: 'header-left', :class => "mobile" %>
+ 		<% end %>
     <div class="text mobile whos-going">POLL INFO</div>
     <div class="desk-text-header whos-going">POLL INFO</div>
 <% end %>
