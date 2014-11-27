@@ -1,4 +1,4 @@
-class Api::V1::ServicesController < ApplicationController
+class Api::V1::ServicesController < Api::V1::ApplicationController
 
   include ApplicationHelper
   skip_before_filter :verify_authenticity_token

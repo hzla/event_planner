@@ -1,4 +1,4 @@
-class Api::V1::ChoicesController < ApplicationController
+class Api::V1::ChoicesController < Api::V1::ApplicationController
 
   include SessionsHelper
   include ApplicationHelper

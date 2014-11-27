@@ -1,0 +1,72 @@
+<%= content_for :header do %>
+  <div class="header-pic-container">
+    <div id="header-right-pic" class="done submit-simple-event-votes">Submit</div>
+  </div>
+    <%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
+    <div class="text mobile whos-going">Vote</div>
+    <div class="desk-text-header whos-going">Vote</div>
+<% end %>
+
+<div class="generic simple-vote" id="content-container">
+	<div class="poll-field italic blue" id="vote-header">Tap or click a question to vote</div>
+		<div id="questions-container">
+			<% @questions.each do |question, choices| %>
+				<div class="simple-choice">
+					<% if choices.first.choice_type == "text" %>
+						<div class="poll-field question-name <%= 'voted' if @poll.voted?(question) %>">
+							<%= question %>
+							<div class="voted-indicator">Voted</div>
+							<%= image_tag 'customgrey.svg', :class => "type-pic text-type svg" %>
+						</div>
+						<div class="simple-text-voter simple-voter">
+							<% choices.each_with_index do |choice, i| %>
+								<div class="text-choice <%= 'selected' if choice.yes %>">
+									<div class="text-choice-num"><%= i + 1 %>.</div>
+									<div class="text-choice-input"><%= choice.value %></div>
+									<%= image_tag 'checkgrey.svg', :class => "text-choice-icon grey" %>
+									<%= image_tag 'checkgreen.svg', :class => "text-choice-icon green" %>
+								</div>
+							<% end %>
+						</div>
+					<% else %>
+						<div class="poll-field question-name <%= 'voted' if @poll.voted?(question) %>">
+							<%= question %>
+							<div class="voted-indicator">Voted</div>
+							<%= image_tag 'dategrey.svg', :class => "type-pic date-type svg" %>
+						</div>
+						<div class="simple-date-voter simple-voter">
+
+							<div class="choice-dates hidden"><%= @poll.values_for question %></div>
+							<div class="selected-choice-dates hidden"><%= @poll.selected_values_for question %></div>
+							<div class="date-voter"></div>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+
+	<%= form_tag simple_poll_vote_path(id: @poll.id), id: 'simple-events-vote-form', remote: true do %>
+		<% hidden_field_tag :choice_values, @poll.all_selected_values %>
+	<% end %>
+</div>
+
+
+<script>
+  $('img.svg').each(function(){
+    var $img = $(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
+    $.get(imgURL, function(data) {
+        var $svg = $(data).find('svg');
+        if(typeof imgID !== 'undefined') {
+            $svg = $svg.attr('id', imgID);
+        }
+        if(typeof imgClass !== 'undefined') {
+            $svg = $svg.attr('class', imgClass+' replaced-svg');
+        }
+        $svg = $svg.removeAttr('xmlns:a');
+        $img.replaceWith($svg);
+    }, 'xml');
+  });
+</script>

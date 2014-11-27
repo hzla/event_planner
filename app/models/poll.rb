@@ -17,6 +17,29 @@ class Poll < ActiveRecord::Base
     code.join
   end
 
+  def questions
+    choices.group_by {|c| c.question }
+  end
+
+  def all_selected_values
+    choices.where(yes: true).pluck(:value).join("<separator>")
+  end
+
+  def vote_with choice_values
+    values = choice_values.split("<separator>")
+    values.each do |value|
+      choice = choices.where(value: value).first
+      choice.update_attributes yes: true if choice
+    end
+  end
+
+  def values_for question
+    choices.where(question: question).map(&:value).join("<separator>")
+  end
+
+  def selected_values_for question
+    choices.where(question: question, yes: true).map(&:value).join("<separator>")
+  end
   def top_choice
     choices.sort_by(&:score).reverse.first
   end
@@ -27,6 +50,10 @@ class Poll < ActiveRecord::Base
 
   def takers
     Poll.where event_id: event_id
+  end
+
+  def voted? question
+    !choices.where(question: question, yes: true).empty?
   end
 
   def avatar

@@ -1,0 +1,71 @@
+@import '../variables';
+
+
+.question-name {
+	cursor: pointer;
+	position: relative;
+}
+
+.voted-indicator {
+	display: none;
+	position: absolute;
+	height: 40px;
+	line-height: 60px;
+	right: 80px;
+	top: 0px;
+	color: $green;
+}
+
+.question-name.voted {
+	.voted-indicator {
+		display: block;
+	}
+	path {
+		fill: $green;
+	}
+}
+
+.simple-voter {
+	width: 100%;
+	overflow-y: auto;
+	display: none;
+	border-bottom: 1px solid $border-grey;
+	.text-choice {
+		padding-left: 10px;
+		width: calc(100% - 20px);
+	}
+	.text-choice-input {
+		line-height: 40px;
+		box-sizing: border-box;
+		padding-left: 20px; 
+		cursor: pointer;
+	}
+	.text-choice-icon.green {
+		display: none;
+	}
+	.text-choice-icon.grey {
+		display: block;
+	} 
+	.text-choice.selected {
+		.text-choice-input {
+			background: $green;
+			color: white;
+			border: none;
+		}
+		.text-choice-icon.grey {
+			display: none;
+		}
+		.text-choice-icon.green {
+			display: block;
+		}
+	}
+	.datepicker {
+		position: static;
+		//margin-left: calc(50% - 150px);
+		border: none;
+		width: 100%;
+	}
+}
+
+
+

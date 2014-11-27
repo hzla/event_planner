@@ -34,6 +34,10 @@ Rails.application.routes.draw do
 
   namespace :simple do 
     resources :events
+    resources :polls do 
+      resources :choices
+      post '/poll/:id/vote', to: 'polls#vote', as: "vote"
+    end
   end
 
 

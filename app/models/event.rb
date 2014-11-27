@@ -17,19 +17,13 @@ class Event < ActiveRecord::Base
 	def self.create_simple_event params, user
 		event = Event.create name: params["question_1"], status: "activated"
 		count = 1
-		questions = params["questions"].split(",")
+		questions = params["questions"].split("<separator>")
 		questions.each do |q|
-			p q
-			puts "\n" * 10
 			params["date_choice_list_#{count}"].split(",").each do |choice|
 				Choice.create question: q, value: choice, event_id: event.id, choice_type: "date"
-				p choice
-				puts "\n" * 10
 			end
-			params["text_choice_list_#{count}"].split(",").each do |choice|
+			params["text_choice_list_#{count}"].split("<separator>").each do |choice|
 				Choice.create question: q, value: choice, event_id: event.id, choice_type: "text"
-				p choice
-				puts "\n" * 10
 			end
 			count += 1
 		end

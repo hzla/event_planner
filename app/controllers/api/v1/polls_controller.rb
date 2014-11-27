@@ -1,4 +1,4 @@
-class Api::V1::PollsController < ApplicationController
+class Api::V1::PollsController < Api::V1::ApplicationController
 
   include SessionsHelper
   include ApplicationHelper

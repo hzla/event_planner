@@ -11,10 +11,23 @@
 	overflow-y: scroll;
 }
 
+.question-info-container, .poll-field {
+	position: relative;
+	.type-pic {
+		position: absolute;
+		height: 40px;
+		width: 40px;
+		right: 10px;
+		top: 10px;
+		cursor: pointer;
+	}
+}
+
 .text-choice {
 	width: 100%;
 	height: 40px;
 	margin: 10px 0px;
+	position: relative;
 	.add-choice {
 		display: none;
 	}
@@ -89,6 +102,14 @@
 	display: none;
 }
 
+#datepicker {
+	.datepicker {
+		position: static;
+		border: none;
+		width: 100%;
+	}
+}
+
 @media (max-width: 1023px) {
 	body {
 		.text-choice {
@@ -97,6 +118,12 @@
 		}
 		#add-another-question {
 			line-height: 20px;
+		}
+		.question-info-container, .poll-field {
+			.type-pic {
+				height: 20px;
+				width: 20px;
+			}
 		}
 	}
 }

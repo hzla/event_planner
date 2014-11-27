@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
   before_action :set_device_type
-  # before_action :require_login
+  before_action :require_login
 
 
   private

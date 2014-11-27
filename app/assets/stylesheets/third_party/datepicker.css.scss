@@ -6,8 +6,8 @@
 
 .datepicker {
   top: 80px;
-  left: calc(50% - 160px);
-  width: 320px;
+  left: calc(50% - 150px);
+  width: 300px;
   background: $white;
   position: absolute;
   color: $dark-grey;
@@ -41,14 +41,17 @@ body .table-condensed {
 }
 .datepicker td.day:hover {
   cursor: pointer;
+  background: $green;
+  cursor: pointer;
+  color: white;
 }
 .datepicker td.day.disabled {
   color: $border-grey;
 }
 
 .datepicker td.day.disabled:hover {
-  background: $green;
-  cursor: default;
+  color: $border-grey;
+  background: white;
 }
 
 .datepicker td.old,

@@ -1,4 +1,4 @@
-class Api::V1::AuthorizationsController < ApplicationController
+class Api::V1::AuthorizationsController < Api::V1::ApplicationController
 
   include SessionsHelper
   include ApplicationHelper
