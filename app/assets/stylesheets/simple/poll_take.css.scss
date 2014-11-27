@@ -6,6 +6,14 @@
 	position: relative;
 }
 
+.results-link {
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	color: $blue;
+	cursor: pointer;
+}
+
 .voted-indicator {
 	display: none;
 	position: absolute;

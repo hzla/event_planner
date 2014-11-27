@@ -10,7 +10,12 @@
 <% end %>
 
 <div class="generic simple-vote" id="content-container">
-	<div class="poll-field italic blue" id="vote-header">Tap or click a question to vote</div>
+	<div class="poll-field italic blue" id="vote-header">
+		Tap or click a question to vote
+		<%= link_to simple_results_path(@event) do %>
+			<div class="results-link">View Results</div>
+		<% end %>
+	</div>
 		<div id="questions-container">
 			<% @questions.each do |question, choices| %>
 				<div class="simple-choice">
