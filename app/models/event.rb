@@ -37,7 +37,7 @@ class Event < ActiveRecord::Base
 				choices.each do |choice|
 					Choice.create poll_id: poll.id, event_id: id, value: choice.value, 
 					choice_type: choice.choice_type, add_info: choice.add_info,
-					image_url: choice.image_url, question: choice.question
+					image_url: choice.image_url, question: choice.question, service_id: choice.service_id
 				end
 			end
 		end

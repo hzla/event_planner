@@ -4,7 +4,9 @@ class Choice < ActiveRecord::Base
   attr_accessible :choice_type, :question, :event_id, :value, :desc, :add_info, :poll_id, :replayer_name, :image_url, :yes, :service_id
 
   def self.create_choices_using_list_of_attributes choice_info, event
+    p choice_info
     (0..(choice_info[:length] - 1)).each do |i|
+      p choice_info[:service_ids][i]
       create(event_id: event.id, image_url: choice_info[:images][i],
       value: choice_info[:titles][i], add_info: choice_info[:infos][i],
       service_id: choice_info[:service_ids][i])

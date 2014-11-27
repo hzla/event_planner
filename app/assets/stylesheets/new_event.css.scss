@@ -131,7 +131,7 @@ div.poll-field {
   position: absolute;
   width: 40px;
   height: 40px;
-  bottom: 20px;
+  bottom: 0px;
   right: 20px;
   cursor: pointer;
   z-index: 1;
@@ -267,5 +267,8 @@ div.poll-field {
 		 	margin: 20px 0px;
 		 	display: block;
 		 }
+     #tut-right {
+      bottom: 100px;
+     }
 	}
 }
