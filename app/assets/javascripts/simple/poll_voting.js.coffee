@@ -34,9 +34,6 @@ SimplePollVoting =
         parsedDates = $.map dates, (val, i) ->
           new Date val
         dateVoter = $(@).find('.date-voter')
-        console.log parsedDates
-        console.log dateVoter
-        console.log dateVoter.length
         if dateVoter.length > 0
           dateVoter.datepicker
             'multidate': true
@@ -54,6 +51,7 @@ SimplePollVoting =
         $('.dow').parent().addClass('dow-row')
 
   toggleVoter: ->
+    $('.simple-voter').hide()
     $(@).parent().find('.simple-voter').toggle() 
 
   toggleSelected: ->

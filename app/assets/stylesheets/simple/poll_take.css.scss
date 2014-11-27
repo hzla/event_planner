@@ -6,6 +6,14 @@
 	position: relative;
 }
 
+.results-link {
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	color: $blue;
+	cursor: pointer;
+}
+
 .voted-indicator {
 	display: none;
 	position: absolute;
@@ -27,7 +35,6 @@
 
 .simple-voter {
 	width: 100%;
-	overflow-y: auto;
 	display: none;
 	border-bottom: 1px solid $border-grey;
 	.text-choice {

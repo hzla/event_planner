@@ -8,6 +8,13 @@ class Simple::EventsController < ApplicationController
     @event = Event.new
   end
 
+  def create
+    if params["questions"] != ","
+      Event.create_simple_event params, current_user
+    end
+    redirect_to dashboard_path
+  end
+
   def index
   end
 

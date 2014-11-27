@@ -2,13 +2,20 @@
   <div class="header-pic-container">
     <div id="header-right-pic" class="done submit-simple-event-votes">Submit</div>
   </div>
-    <%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
+    <%= link_to dashboard_path do %>
+    	<%= image_tag 'arrowleft.svg', id: 'header-left', :class => "mobile" %>
+  	<% end %>
     <div class="text mobile whos-going">Vote</div>
     <div class="desk-text-header whos-going">Vote</div>
 <% end %>
 
 <div class="generic simple-voter" id="content-container">
-	<div class="poll-field italic blue" id="vote-header">Tap or click a question to vote</div>
+	<div class="poll-field italic blue" id="vote-header">
+		Tap or click a question to vote
+		<%= link_to simple_results_path(@event) do %>
+			<div class="results-link">View Results</div>
+		<% end %>
+	</div>
 		<div id="questions-container">
 			<% @questions.each do |question, choices| %>
 				<div class="simple-choice">
