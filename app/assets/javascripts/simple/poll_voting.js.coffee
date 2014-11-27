@@ -51,8 +51,15 @@ SimplePollVoting =
         $('.dow').parent().addClass('dow-row')
 
   toggleVoter: ->
+    voter = $(@).parent().find('.simple-voter')
+    wasVisible = voter.is(":visible")
+    
     $('.simple-voter').hide()
-    $(@).parent().find('.simple-voter').toggle() 
+    if wasVisible
+      voter.hide()
+    else
+      voter.show() 
+    
 
   toggleSelected: ->
     $(@).toggleClass('selected')
