@@ -1,0 +1,50 @@
+@import '../variables';
+
+.simple-question-results {
+	width: 100%;
+	overflow: scroll;
+}
+
+.cell {
+	height: 40px;
+	width: 80px;
+	margin: 1px;
+	box-sizing: border-box;
+	line-height: 40px;
+	text-align: center;
+	float: left;
+	background: $border-grey;
+	.cell-check {
+		height: 20px;
+		width: 20px;
+		margin: 10px 0px;
+	}
+}
+
+.simple-results-header {
+	height: 40px;
+	color: white;
+	margin-left: 92px;
+	margin-top: 10px;
+	clear: left;
+}
+
+.simple-choice-body {
+	margin: 10px;
+	margin-top: 0px;
+	float: left;
+	clear: left;
+	.poll-taker-name {
+		clear: left;
+		background: $grey;
+		color: white;
+	}
+}
+
+
+
+.choice-header {
+	background: $green;
+	color: white;
+	cursor: pointer;
+}

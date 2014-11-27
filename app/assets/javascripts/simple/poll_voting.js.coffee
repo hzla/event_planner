@@ -18,13 +18,10 @@ SimplePollVoting =
    	$('.date-voter').each ->
    		dates = $(@).datepicker('getDates') 
    		values += dates
-   		console.log dates
    	$('.text-choice.selected .text-choice-input').each ->
    		values += "<separator>" + $(@).text()
-   	console.log values
    	values = values.replace(/,/g, "<separator>")  
    	
-   	console.log values
    	$('#choice_values').val("")
    	$('#choice_values').val values
    	$('#simple-events-vote-form').submit()
@@ -33,33 +30,28 @@ SimplePollVoting =
    initDateVoter: ->
    		$('.submit-simple-event-votes').show()
    		$('.simple-choice').each ->
-   			dates = $(@).find('.choice-dates').text().split("<separator>")
-   			parsedDates = $.map dates, (val, i) ->
-   				new Date val
-   			console.log parsedDates
-   			dateVoter = $(@).find('.date-voter')
-   			dateVoter.datepicker
-      		'multidate': true
-      		'beforeShowDay': (date) ->
-      			shouldShow = false
-      			for parsedDate in parsedDates
-      				if parsedDate - date == 0
-      					shouldShow = true
-      				break if shouldShow
-      			shouldShow
+        dates = $(@).find('.choice-dates').text().split("<separator>")
+        parsedDates = $.map dates, (val, i) ->
+          new Date val
+        dateVoter = $(@).find('.date-voter')
+        console.log parsedDates
+        console.log dateVoter
+        console.log dateVoter.length
+        if dateVoter.length > 0
+          dateVoter.datepicker
+            'multidate': true
+            'beforeShowDay': (date) ->
+              for parsedDate in parsedDates
+              	if parsedDate - date == 0
+              		shouldShow = true
+              shouldShow
 
-      	parsedSelectedDates = $.map $('.selected-choice-dates').text().split("<separator>"), (val, i) ->
-      		new Date val
-
-      	console.log parsedSelectedDates
-      	dateVoter.datepicker "setDates", parsedSelectedDates
-
-
-
-
-
-
-    	$('.dow').parent().addClass('dow-row')
+          if $('.selected-choice-dates').text() != ""
+            parsedSelectedDates = $.map $('.selected-choice-dates').text().split("<separator>"), (val, i) ->
+              new Date val
+            dateVoter.datepicker "setDates", parsedSelectedDates
+        
+        $('.dow').parent().addClass('dow-row')
 
   toggleVoter: ->
     $(@).parent().find('.simple-voter').toggle() 

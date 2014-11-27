@@ -61,4 +61,12 @@ class Choice < ActiveRecord::Base
     Restaurant.find_by_opentable_id service_id
   end
 
+  def result_value
+    if choice_type == "date"
+      Date.parse(value).strftime("%b %d")
+    else
+      value[0..5]
+    end
+  end
+
 end

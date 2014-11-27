@@ -1,0 +1,68 @@
+<%= content_for :header do %>
+  <div class="header-pic-container">
+    <div id="header-right-pic" class="done submit-simple-event-votes">Submit</div>
+  </div>
+    <%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
+    <div class="text mobile whos-going">Poll Results</div>
+    <div class="desk-text-header whos-going">Poll Results</div>
+<% end %>
+
+<div class="generic simple-vote" id="content-container">
+		<div id="questions-container">
+			<% @questions.each do |question, choices| %>
+				<div class="simple-choice">
+					<% if choices.first.choice_type == "text" %>
+						<div class="poll-field question-name">
+							<%= question %>
+							<%= image_tag 'customgrey.svg', :class => "type-pic text-type svg" %>
+						</div>
+					<% else %>
+						<div class="poll-field question-name">
+							<%= question %>
+							<%= image_tag 'dategrey.svg', :class => "type-pic date-type svg" %>
+						</div>
+					<% end %>
+					<div class="simple-question-results simple-voter">
+							<div class="simple-results-header">
+								<% choices.each do |choice| %>
+									<div class="choice-header cell"><%= choice.result_value %></div>
+								<% end %>
+							</div>
+							<div class="simple-choice-body">
+								<% @event.polls.each do |poll| %>
+									<div class="cell poll-taker-name"><%= poll.user.name %></div>
+									<% poll.choices_for(question).each do |choice| %>
+										<div class="cell">
+											<% if choice.yes %>
+												<%= image_tag 'checkgreen.svg', :class => "cell-check" %>
+											<% end %>
+										</div>
+									<% end %>
+								<% end %>
+							</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+</div>
+
+
+<script>
+  $('img.svg').each(function(){
+    var $img = $(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
+    $.get(imgURL, function(data) {
+        var $svg = $(data).find('svg');
+        if(typeof imgID !== 'undefined') {
+            $svg = $svg.attr('id', imgID);
+        }
+        if(typeof imgClass !== 'undefined') {
+            $svg = $svg.attr('class', imgClass+' replaced-svg');
+        }
+        $svg = $svg.removeAttr('xmlns:a');
+        $img.replaceWith($svg);
+    }, 'xml');
+  });
+</script>

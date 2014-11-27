@@ -33,8 +33,13 @@ class Event < ActiveRecord::Base
 
 	def populate_polls_with_choices
 		polls.each do |poll|
-			p "worked"
-			poll.choices << choices
+			if poll.choices.empty?
+				choices.each do |choice|
+					Choice.create poll_id: poll.id, event_id: id, value: choice.value, 
+					choice_type: choice.choice_type, add_info: choice.add_info,
+					image_url: choice.image_url, question: choice.question
+				end
+			end
 		end
 	end
 

@@ -18,7 +18,7 @@ class Poll < ActiveRecord::Base
   end
 
   def questions
-    choices.group_by {|c| c.question }
+    choices.order(:value).group_by {|c| c.question }
   end
 
   def all_selected_values
@@ -27,6 +27,7 @@ class Poll < ActiveRecord::Base
 
   def vote_with choice_values
     values = choice_values.split("<separator>")
+    choices.update_all yes: nil
     values.each do |value|
       choice = choices.where(value: value).first
       choice.update_attributes yes: true if choice
@@ -39,6 +40,10 @@ class Poll < ActiveRecord::Base
 
   def selected_values_for question
     choices.where(question: question, yes: true).map(&:value).join("<separator>")
+  end
+
+  def choices_for question
+    choices.where(question: question).order(:value)
   end
   def top_choice
     choices.sort_by(&:score).reverse.first

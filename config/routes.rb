@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   namespace :simple do 
     resources :events
+    get '/events/:id/results', to: 'events#results', as: 'results'
     resources :polls do 
       resources :choices
       post '/poll/:id/vote', to: 'polls#vote', as: "vote"
