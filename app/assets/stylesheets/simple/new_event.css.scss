@@ -16,6 +16,12 @@ body #content-container.simple-new-event {
 }
 
 
+.name-container {
+	width: 100%;
+	position: relative;
+
+}
+
 .picker-error {
 	width: 100%;
 	text-align: center;
@@ -30,15 +36,16 @@ body #content-container.simple-new-event {
 
 #event_name {
 	background: $light-grey;
+	z-index: 3;
 }
 
 #grey-blocker {
 	background: $light-grey;
 	position: absolute;
-	width: 100%;
+	width: calc(100% + 80px);
 	height: 60px;
 	top: 0;
-	left: 0;
+	left: -40px;
 }
 
 .type-container {
