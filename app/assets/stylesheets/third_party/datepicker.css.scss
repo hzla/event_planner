@@ -136,9 +136,20 @@ body .table-condensed {
   .datepicker td.active.disabled,
   .datepicker td.active[disabled]
    {
-    color: $dark-grey;
-    background-color: $border-grey;
+    color: white;
+    background-color: $green;
   }
+
+.simple-vote {
+  .datepicker td.disabled {
+  background: white;
+}
+
+.datepicker td {
+  background: $border-grey;
+}
+
+}
 
 
 @media (min-width: 1024px) {
@@ -155,9 +166,10 @@ body .table-condensed {
   .datepicker td.active:hover.disabled,
   .datepicker td.active:hover[disabled],
   .datepicker td.active:focus, {
-    color: $dark-grey;
-    background-color: $border-grey;
+    color: white;
+    background-color: $green;
   }
+
   .datepicker thead tr:first-child th:hover {
   background: #eeeeee;
 }

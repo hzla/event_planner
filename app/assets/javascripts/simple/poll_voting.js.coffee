@@ -3,10 +3,11 @@ SimplePollVoting =
     $('body').on 'click', '.simple-choice .poll-field', @toggleVoter
     $('.text-choice').on 'click', @toggleSelected
     $('.submit-simple-event-votes').click @submitEventVotes
-    $('.datepicker, .text-choice').click @updateVotedStatus
+    setInterval @updateVotedStatus, 500
     @initDateVoter()
 
   updateVotedStatus: ->
+    console.log "tried"
     $('.simple-choice').each ->
       if $(@).find('.selected, .active').length > 0
         $(@).find('.question-name').addClass('voted')

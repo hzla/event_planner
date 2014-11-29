@@ -15,21 +15,50 @@ body #content-container.simple-new-event {
 	}
 }
 
+
+.picker-error {
+	width: 100%;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+}
+
+
+.question-info-container .poll-field {
+	cursor: pointer;
+}
+
+#event_name {
+	background: $light-grey;
+}
+
+#grey-blocker {
+	background: $light-grey;
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	top: 0;
+	left: 0;
+}
+
 .type-container {
 	width: 100%;
 	color: $dark-grey;
 	background: white;
+	z-index: 5;
 }
 
 #text-choice-picker {
 	display: none;
 	width: 100%;
 	overflow-y: scroll;
+	z-index: 5;
 }
 
 .date-picker-container {
 	display: none;
 	overflow: visible;
+	z-index: 5;
 }
 
 .simple-vote .date-picker-container {
@@ -55,6 +84,12 @@ body #content-container.simple-new-event {
 		right: 10px;
 		top: 15px;
 		cursor: pointer;
+	}
+}
+
+.active {
+	.poll-field {
+		border: none;
 	}
 }
 
@@ -160,6 +195,9 @@ body #content-container.simple-new-event {
 		}
 		#add-another-question {
 			line-height: 22px;
+		}
+		#grey-blocker {
+			height: 44px;
 		}
 		.question-info-container, .poll-field {
 			.type-pic {
