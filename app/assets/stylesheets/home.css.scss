@@ -252,6 +252,100 @@
   border-radius: 10px;
 }
 
+/************  Timeline Content *************/
+
+
+.timeline-container {
+  position: absolute;
+  left: 0;
+  top: 200%;
+  width: 100vw;
+  z-index: 3;
+  background-color: $green;
+  display: flex;
+}
+
+.timeline-left{
+  width: 50%
+}
+
+.timeline-right{
+  width: 50%;
+}
+
+.timeline-header{
+  margin-top: 15%;
+  font-family: 'Lato', sans-serif;
+  font-size: 36px;
+  color: white;
+  font-weight: 600;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.left-side{
+  text-align: right;
+  margin-right: 10px;
+}
+
+.right-side{
+  text-align: left;
+  margin-left: 10px;
+}
+
+.timeline-content{
+  width:100%;
+  display:flex;
+  height: auto;
+}
+
+
+.timeline-line-container{
+  height: auto;
+  width: 40px;
+  position: relative;
+}
+
+.timeline-line-left{
+  width: 1px;
+  height: calc(100% - 105px);
+  position: absolute;
+  background-color: white;
+  top: 50px;
+  left: calc(50% - 0.5px);
+}
+.timeline-line-right{
+  width: 1px;
+  height: calc(100% - 105px);
+  position: absolute;
+  background-color: white;
+  top: 50px;
+  left: 50%;
+}
+
+.timeline-dots{
+  height: 11px;
+  width: 11px;
+  border-radius: 5px;
+  margin: 50px auto;
+  background-color: white;
+  margin-top: 50px;
+
+}
+
+.timeline-text-container{
+  width: calc(100% - 40px);
+  padding-top: 47px;
+}
+
+.timeline-text{
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  line-height: 1.2;
+  height: 60.5px;
+}
+
 
 /***********  Media Queries   *****************/
 
@@ -265,6 +359,9 @@
 
 @media (max-width: 1023px) {
   body {
+    .timeline-container{
+      display: none;
+    }
     #landing-header {
       width: 100%;
       left: 0;
@@ -282,9 +379,9 @@
     .mid-section {
       .title-text {
         top: 25vh;
-        left: 20px;
+        text-align: center;
         font-size: 44px;
-        width: 280px
+        width: 100vw;
       }
     }
     #iphone-1 {
