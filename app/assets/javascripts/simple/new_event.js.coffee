@@ -50,7 +50,6 @@ SimpleNewEvent =
     $('#text-choice-picker')[0].scrollTop = 100000
 
   hideBtns: ->
-
     $('.double.bottom-btn-container').hide()
 
   showBtns: ->
@@ -58,9 +57,8 @@ SimpleNewEvent =
 
   showTypePicker: ->
     if SimpleNewEvent.shown == false
-      $('.type-container').show() 
+      $('.type-container').show().removeClass('animated fadeInDown').addClass('animated fadeInDown')
       SimpleNewEvent.shown = true
-
 
   nextOnEnter: (e) ->
     if e.keyCode == 13
@@ -190,7 +188,7 @@ SimpleNewEvent =
     $('.active .poll-field').keydown ->
       $('.poll-field').unbind('keydown')
       if SimpleNewEvent.shown == false
-        $('.type-container').show()
+        $('.type-container').show().removeClass('animated fadeInDown').addClass('animated fadeInDown')
         $('#poll-creator')[0].scrollTop = 100000
         SimpleNewEvent.shown = true
 
