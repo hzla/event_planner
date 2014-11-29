@@ -7,7 +7,6 @@ SimplePollVoting =
     @initDateVoter()
 
   updateVotedStatus: ->
-    console.log "tried"
     $('.simple-choice').each ->
       if $(@).find('.selected, .active').length > 0
         $(@).find('.question-name').addClass('voted')

@@ -57,9 +57,14 @@ SimpleNewEvent =
 
   showTypePicker: ->
     if SimpleNewEvent.shown == false
-      $('.type-container').show().removeClass('animated fadeInDown').addClass('animated fadeInDown')
+      $('.type-container').show()
+      height = $('.type-container').height()
+      $('.type-container').css('height', '0px').css('opacity', '0')
+      $('.type-container').animate {
+        opacity: 1
+        height: height
+      }, 750
       SimpleNewEvent.shown = true
-
   nextOnEnter: (e) ->
     if e.keyCode == 13
       next = $(@).parents('.text-choice').next().children('.text-choice-input')
@@ -188,7 +193,12 @@ SimpleNewEvent =
     $('.active .poll-field').keydown ->
       $('.poll-field').unbind('keydown')
       if SimpleNewEvent.shown == false
-        $('.type-container').show().removeClass('animated fadeInDown').addClass('animated fadeInDown')
+        height = $('.type-container').height()
+        $('.type-container').css('height', '0px').css('opacity', '0')
+        $('.type-container').animate {
+          opacity: 1
+          height: height
+        }, 750
         $('#poll-creator')[0].scrollTop = 100000
         SimpleNewEvent.shown = true
 
