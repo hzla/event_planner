@@ -1,8 +1,24 @@
 @import '../variables';
 
+body #content-container.simple-new-event {
+	background: $light-grey;
+	.pad-container {
+		background: white;
+		overflow-y: scroll; 
+	}
+	#simple-events-form {
+		overflow-y: scroll;
+	}
+	#poll-creator {
+		overflow: scroll;
+		max-height: calc(100vh - 140px);
+	}
+}
+
 .type-container {
 	width: 100%;
 	color: $dark-grey;
+	background: white;
 }
 
 #text-choice-picker {
@@ -13,6 +29,7 @@
 
 .date-picker-container {
 	display: none;
+	overflow: visible;
 }
 
 .simple-vote .date-picker-container {
@@ -73,6 +90,7 @@
 	.text-choice-input {
 		border: none;
 		background: $border-grey;
+		cursor: pointer;
 	}
 	.cancel-choice {
 		display: none;
@@ -123,6 +141,7 @@
 	line-height: 40px;
 	cursor: pointer;
 	display: none;
+	background: white;
 }
 
 #datepicker {

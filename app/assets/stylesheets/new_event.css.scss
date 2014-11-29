@@ -12,8 +12,6 @@
 }
 
 #poll-creator {
-  position: absolute;
-  top: 0;
   width: 100%;
   min-height: 100%;
   background: white;
@@ -217,10 +215,6 @@ div.poll-field {
 
 @media (min-width: 1024px) {
 	body {
-    #poll-creator{
-      padding: 0px 40px;
-      box-sizing: border-box;
-    }
 		.poll-field {
 			height: 60px;
 			text-align: left;

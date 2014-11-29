@@ -9,6 +9,10 @@ button:focus {
     outline: none;
 }
 
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 input, select {
     -webkit-appearance: none;
 }

@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
 	
 
 	def self.create_simple_event params, user
-		event = Event.create name: params["question_1"], status: "activated"
+		event = Event.create name: params["event_name"], status: "activated"
 		count = 1
 		questions = params["questions"].split("<separator>")
 		questions.each do |q|

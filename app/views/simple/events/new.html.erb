@@ -12,59 +12,59 @@
 
 
 
-<div id="content-container" class="welcome-dashboard generic">
-	<div id="poll-creator">
-			<%= form_tag simple_events_path, id: 'simple-events-form' do |f| %>
-				<%= hidden_field_tag :questions, nil, :class => "questions" %>
-				<div class="question-info-container active">
-					<%= text_field_tag :question_1,nil, placeholder: "Type question...", :class => "poll-field" %>
-					<%= hidden_field_tag :date_choice_list_1, nil, :class => 'date-choices' %>
-					<%= hidden_field_tag :text_choice_list_1, nil, :class => "text-choices" %>
-				</div>
-				<div id="add-another-question" class="poll-field blue">
-					+ Add another question
-				</div>
-				<div class="date-picker-container">
-					<div class="date-picker-header">Pick your dates:</div>
-					<div id="datepicker"></div>
-				</div>
-				<div id="text-choice-picker">
-					<div class="text-choice">
-						<div class="text-choice-num">1.</div>
-						<%= text_field_tag :text_choice_1, nil, :class => "text-choice-input" %>
-						<%= image_tag 'delete.svg', :class => "text-choice-icon cancel-choice" %>
+<div id="content-container" class="simple-new-event generic">
+	<div class="pad-container">
+		<div id="poll-creator">
+				<%= form_tag simple_events_path, id: 'simple-events-form' do |f| %>
+					<%= hidden_field_tag :questions, nil, :class => "questions" %>
+					<%= text_field_tag :event_name ,nil, placeholder: "Name your poll...", :class => "poll-field" %>
+					<div class="question-info-container active">
+						<%= text_field_tag :question_1,nil, placeholder: "Type question...", :class => "poll-field" %>
+						<%= hidden_field_tag :date_choice_list_1, nil, :class => 'date-choices' %>
+						<%= hidden_field_tag :text_choice_list_1, nil, :class => "text-choices" %>
 					</div>
-					<div class="text-choice">
-						<div class="text-choice-num">2.</div>
-						<%= text_field_tag :text_choice_2, nil, :class => "text-choice-input" %>
-						<%= image_tag 'delete.svg', :class => "text-choice-icon cancel-choice" %>
+					<div id="add-another-question" class="poll-field blue">
+						+ Add another question
 					</div>
-					<div class="text-choice placeholder">
-						<div class="text-choice-num">3.</div>
-						<%= text_field_tag :text_choice_3, nil, :class => "text-choice-input", placeholder: "Add option..."%>
-						<%= image_tag 'delete.svg', :class => "text-choice-icon cancel-choice" %>
-						<%= image_tag 'add.svg', :class => "text-choice-icon add-choice" %>
+					<div class="date-picker-container">
+						<div class="date-picker-header">Pick your dates:</div>
+						<div id="datepicker"></div>
 					</div>
-				</div>
-				<div class="type-container">
-					<div class="type-header">Choose Type:</div>
-					<div class="type">
-						<%= image_tag 'custom.svg', :class => "type-pic text-type" %>
-						<div class="type-label">Custom</div>
+					<div id="text-choice-picker">
+						<div class="text-choice">
+							<div class="text-choice-num">1.</div>
+							<%= text_field_tag :text_choice_1, nil, :class => "text-choice-input" %>
+							<%= image_tag 'delete.svg', :class => "text-choice-icon cancel-choice" %>
+						</div>
+						<div class="text-choice">
+							<div class="text-choice-num">2.</div>
+							<%= text_field_tag :text_choice_2, nil, :class => "text-choice-input" %>
+							<%= image_tag 'delete.svg', :class => "text-choice-icon cancel-choice" %>
+						</div>
+						<div class="text-choice placeholder">
+							<div class="text-choice-num">3.</div>
+							<%= text_field_tag :text_choice_3, nil, :class => "text-choice-input", placeholder: "Add option..."%>
+							<%= image_tag 'delete.svg', :class => "text-choice-icon cancel-choice" %>
+							<%= image_tag 'add.svg', :class => "text-choice-icon add-choice" %>
+						</div>
 					</div>
-					<div class="type">
-						<%= image_tag 'date.svg', :class => "type-pic date-type" %>
-						<div class="type-label">Date Picker</div>
+					<div class="type-container hidden">
+						<div class="type-header">Choose Type:</div>
+						<div class="type">
+							<%= image_tag 'custom.svg', :class => "type-pic text-type" %>
+							<div class="type-label">Custom</div>
+						</div>
+						<div class="type">
+							<%= image_tag 'date.svg', :class => "type-pic date-type" %>
+							<div class="type-label">Date Picker</div>
+						</div>
 					</div>
-					<div class="bottom-btn-container fixed"> 
-						<div class="btn red-btn" id="cancel-type-container">Cancel</div> 
-					</div>
-				</div>
-			<% end %>
+				<% end %>
+			</div>
 		</div>
-		<div class="bottom-btn-container double fixed hidden" id="simple-event-btns">
-			<div class="btn red-btn" id="cancel-simple-event">Cancel</div> 
-			<div class="btn green-btn" id="confirm-simple-event">Ok</div> 
+		<div class="bottom-btn-container double fixed hidden one-row" id="simple-event-btns">
+			<div class="btn blue-btn submit-simple-event">Done with poll</div> 
+			<div class="btn green-btn" id="confirm-simple-event">Add another question</div> 
 		</div>
 </div>
 

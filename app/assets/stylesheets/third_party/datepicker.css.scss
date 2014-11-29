@@ -36,12 +36,7 @@ body .table-condensed {
   border-collapse: inherit;
   background: white;
 }
-.datepicker td.day:hover {
-  cursor: pointer;
-  background: $green;
-  cursor: pointer;
-  color: white;
-}
+
 .datepicker td.day.disabled {
   color: $border-grey;
 }
@@ -56,24 +51,8 @@ body .table-condensed {
   color: #999999;
 }
 .datepicker td.active,
-.datepicker td.active:hover {
-  background: $green;
-}
-.datepicker td.active:hover,
-.datepicker td.active:hover:hover,
-.datepicker td.active:focus,
-.datepicker td.active:hover:focus,
-.datepicker td.active:active,
-.datepicker td.active:hover:active,
-.datepicker td.active.active,
-.datepicker td.active:hover.active,
-.datepicker td.active.disabled,
-.datepicker td.active:hover.disabled,
-.datepicker td.active[disabled],
-.datepicker td.active:hover[disabled] {
-  color: #ffffff;
-  background-color: $green;
-}
+
+
 .datepicker td.active:active,
 .datepicker td.active:hover:active,
 .datepicker td.active.active,
@@ -141,13 +120,52 @@ body .table-condensed {
 .datepicker thead tr:first-child th {
   cursor: pointer;
 }
-.datepicker thead tr:first-child th:hover {
-  background: #eeeeee;
-}
+
 .input-append.date .add-on i,
 .input-prepend.date .add-on i {
   display: block;
   cursor: pointer;
   width: 16px;
   height: 16px;
+}
+
+
+
+  .datepicker td.active:active,
+  .datepicker td.active.active,
+  .datepicker td.active.disabled,
+  .datepicker td.active[disabled]
+   {
+    color: $dark-grey;
+    background-color: $border-grey;
+  }
+
+
+@media (min-width: 1024px) {
+  
+  .datepicker td.active:hover {
+    background: $border-grey;
+    color: $dark-grey;
+  }
+  .datepicker td.active:hover,
+  .datepicker td.active:hover:hover,
+  .datepicker td.active:hover:focus,
+  .datepicker td.active:hover:active,
+  .datepicker td.active:hover.active,
+  .datepicker td.active:hover.disabled,
+  .datepicker td.active:hover[disabled],
+  .datepicker td.active:focus, {
+    color: $dark-grey;
+    background-color: $border-grey;
+  }
+  .datepicker thead tr:first-child th:hover {
+  background: #eeeeee;
+}
+.datepicker td.day:hover {
+  cursor: pointer;
+  background: $border-grey;
+  cursor: pointer;
+  color: $dark-grey;
+}
+
 }
