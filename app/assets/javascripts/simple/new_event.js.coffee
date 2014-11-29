@@ -105,6 +105,7 @@ SimpleNewEvent =
       $('#datepicker').datepicker('setDates', parsedDates)
       $('#add-another-question').hide()
       $('.date-picker-container, #simple-event-btns').show()
+      $('.date-picker-container').removeClass('animated fadeInDown').addClass('animated fadeInDown')
       $('.question-info-container:not(.active)').hide()
     if $('#text-choice-picker:visible, .date-picker-container:visible').length > 0
       $('.question-info-container').show() if !dontClose
@@ -122,6 +123,7 @@ SimpleNewEvent =
       textToSet = clickedQuestion.find('.text-choices').val().split("<separator>")
       $('#add-another-question').hide()
       $('#text-choice-picker, #simple-event-btns').show()
+      $('#text-choice-picker').removeClass('animated fadeInDown').addClass('animated fadeInDown')
       $('.active').after($('#text-choice-picker'))
       $.each textToSet, (i, choice) ->
         if choice != ""
@@ -273,6 +275,7 @@ SimpleNewEvent =
     currentQuestion = $('.question-info-container.active .poll-field')
     if currentQuestion.val() != ""
       $('.date-picker-container, .type-container').toggle()
+      $('.date-picker-container').removeClass('animated fadeInDown').addClass('animated fadeInDown')
       $('#poll-creator')[0].scrollTop = 100000
     else
       currentQuestion.css('border', '1px solid red')
@@ -286,7 +289,7 @@ SimpleNewEvent =
     SimpleNewEvent.reassignNumbers()
     currentQuestion = $('.question-info-container.active .poll-field')
     if currentQuestion.val() != ""
-      $('#text-choice-picker').show()
+      $('#text-choice-picker').show().removeClass('animated fadeInDown').addClass('animated fadeInDown')
       $('.type-container').hide()
       if $(window).width() > 1023
         offset = 140 + SimpleNewEvent.questionCount * 60
