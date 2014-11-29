@@ -147,6 +147,7 @@ SimpleNewEvent =
 
   cancelChoice: ->
     $(@).parents('.text-choice').remove()
+    $('.text-choice-input').last().attr('placeholder', 'Add an option...')
     SimpleNewEvent.reassignNumbers()
 
   addChoice: ->
