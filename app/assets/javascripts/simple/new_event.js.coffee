@@ -31,6 +31,27 @@ SimpleNewEvent =
     #show the done button
     $('.submit-simple-event').show()
     $('.submit-simple-event').click @submitSimpleEvent
+    @sortable()
+
+  sortable: ->
+    list = $('#simple-events-form')[0]
+    if $(window).width() > 1023
+      new Sortable list, {
+        draggable: '.question-info-container'
+      }
+      choices = $('#text-choice-picker')[0]
+      new Sortable choices, {
+        draggable: '.text-choice'
+        onUpdate: SimpleNewEvent.reassignNumbers
+      }
+    else
+      choices = $('#text-choice-picker')[0]
+      new Sortable choices, {
+        draggable: '.text-choice'
+        handle: '.text-choice-num'
+        onUpdate: SimpleNewEvent.reassignNumbers
+      }
+      
 
 
   addChoiceWithClick: ->
@@ -93,6 +114,7 @@ SimpleNewEvent =
 
   editDateQuestion: (clickedQuestion) ->  
     dontClose = false
+    clickedQuestion.find('input').focus()
     if $('#text-choice-picker:visible, .date-picker-container:visible, .type-container:visible').length < 1
       dontClose = true
       SimpleNewEvent.editMode = true
