@@ -22,12 +22,14 @@ Dashboard =
       $('.main-header-text').hide()
       $('#poll-creator, #cancel-form').show()
       $('.whos-going').removeClass("hidden")
+      $('#events').hide()
       $(window).scrollTop(0)
     , 300
 
   hidePollForm: ->
     $('.main-logo.pic, .event').show()
     $('#poll-creator, #cancel-form, #header-left, .main-logo.txt').hide()
+    $('#events').show()
     if $(window).width() < 1024
       $('.main-logo.pic').hide()
       $('#header-left').show()
