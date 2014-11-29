@@ -193,6 +193,8 @@ SimpleNewEvent =
     $('.active .poll-field').keydown ->
       $('.poll-field').unbind('keydown')
       if SimpleNewEvent.shown == false
+        console.log "trying"
+        $('.type-container').show()
         height = $('.type-container').height()
         $('.type-container').css('height', '0px').css('opacity', '0')
         $('.type-container').animate {
