@@ -19,9 +19,10 @@ div.event-field {
   font-weight: 700;
   text-align: center;
   font-size: 32px;
-  color: white;
-  background: $green;
+  color: $dark-grey;
+  background: white;
   padding-top: 40px;
+  border-bottom: 1px solid #ebebeb;
 }
 
 #event-comment {
