@@ -78,10 +78,8 @@ SimpleNewEvent =
       $('#datepicker').datepicker('setDates', parsedDates)
       $('#add-another-question').hide()
       $('.date-picker-container, #simple-event-btns').show()
-      console.log "did this"
       $('.question-info-container:not(.active)').hide()
     if $('#text-choice-picker:visible, .date-picker-container:visible').length > 0
-      console.log "did that"
       $('.question-info-container').show() if !dontClose
       $('#confirm-simple-event').click() if !dontClose
     $('#poll-creator')[0].scrollTop = 100000
@@ -112,6 +110,7 @@ SimpleNewEvent =
     $('#poll-creator')[0].scrollTop = 100000
 
   submitSimpleEvent: ->
+    $('#confirm-simple-event:visible').click()
     $('#simple-events-form').submit()
 
   addQuestions: ->
