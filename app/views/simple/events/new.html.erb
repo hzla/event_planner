@@ -20,7 +20,7 @@
 					</div>
 					
 					<div class="question-info-container active">
-						<%= text_field_tag :question_1,nil, placeholder: "Type question...", :class => "poll-field" %>
+						<%= text_field_tag :question_1,nil, placeholder: "Type your question...", :class => "poll-field" %>
 						<%= hidden_field_tag :date_choice_list_1, nil, :class => 'date-choices' %>
 						<%= hidden_field_tag :text_choice_list_1, nil, :class => "text-choices" %>
 					</div>
@@ -53,8 +53,8 @@
 						</div>
 					</div>
 					<div class="type-container hidden">
-						<div class="type-header">Choose Type:</div>
-						<div class="type">
+						<div class="type-header">Choose a type:</div>
+						<div class="type first">
 							<%= image_tag 'custom.svg', :class => "type-pic text-type svg" %>
 							<div class="type-label">Custom</div>
 						</div>
@@ -63,16 +63,21 @@
 							<div class="type-label">Date Picker</div>
 						</div>
 					</div>
+					<div class="poll-field blue no-mobile" id="confirm-simple-event">+ Add a new question</div>
 				<% end %>
 			</div>
-
-		<div class="bottom-btn-container double fixed double-row" id="simple-event-btns">
-			<div class="btn blue-btn submit-simple-event btn-bot">Done with poll</div> 
-			<div class="btn blue btn-top" id="confirm-simple-event">+ Add a new question</div> 
+	<% if @browser.mobile? %>
+		<div class="bottom-btn-container double full-fixed double-row mobile" id="simple-event-btns">
+			<div class="btn blue-btn submit-simple-event btn-bot">Done with poll</div>  
+			<div class="poll-field blue mobile" id="confirm-simple-event">+ Add a new question</div>
 		</div>
+	<% end %>
 </div>
-
-<script>
+<div class="bottom-btn-container double full-fixed double-row no-mobile desk" id="simple-event-btns">
+			<div class="btn blue-btn submit-simple-event btn-bot">Done</div>  
+			<div class="poll-field blue mobile btn-top" id="confirm-simple-event">+ Add a new question</div>
+		</div>
+<script id="getImages">
   $('img.svg').each(function(){
     var $img = $(this);
     var imgID = $img.attr('id');
@@ -90,4 +95,6 @@
         $img.replaceWith($svg);
     }, 'xml');
   });
+  $('body').css('background', 'white')
 </script>
+
