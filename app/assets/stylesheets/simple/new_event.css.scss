@@ -361,7 +361,9 @@ body #content-container.simple-new-event {
 			padding: 0px;
 			margin: 0px 40px;
 			width: calc(100% - 80px);
+			box-sizing: border-box;
 		}
+		
 	}
 	body {
 		.bottom-btn-container.full-fixed.double-row {
@@ -374,6 +376,14 @@ body #content-container.simple-new-event {
 
 				margin-top: 20px;
 				margin-left: calc(50% - 360px);
+			}
+			.submit-simple-event {
+				box-sizing: border-box;
+			}
+			.submit-simple-event:hover {
+				background: #0058b4;
+				color: white;
+				border: none;
 			}
 		}
 	}
