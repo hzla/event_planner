@@ -82,7 +82,10 @@ body #content-container.simple-new-event {
 	display: none;
 	overflow: visible;
 	z-index: 5;
+	height: 370px;
+	float: left;
 	background: white;
+	width: 100%;
 }
 
 .simple-vote .date-picker-container {
@@ -210,22 +213,46 @@ body #content-container.simple-new-event {
 	background: white;
 }
 
-#datepicker {
+#datepicker, #datepicker-2 {
+	width: 260px;
+	height: 290px;
+	float: left;
+	display: inline;
+	padding-left: 40px;
 	.datepicker {
 		position: static;
 		border: none;
 		width: 100%;
+		float: left;
+	}
+	.new.day {
+		display: none;
 	}
 }
 
+
+
 @media (max-width: 1023px) {
 	body {
+		.date-picker-container {
+			width: 100%;
+		}
+		#datepicker, #datepicker-2 {
+			width: 100%;
+			height: auto;
+			float: none;
+			display: block;
+			padding-left: 0px;
+		}
 		.text-choice {
 			width: calc(100% - 20px);
 			margin-left: 10px;
 		}
 		#add-another-question {
 			line-height: 22px;
+		}
+		#datepicker-2 {
+			display: none;
 		}
 		#grey-blocker {
 			height: 44px;

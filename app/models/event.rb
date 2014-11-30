@@ -19,7 +19,7 @@ class Event < ActiveRecord::Base
 		count = 1
 		questions = params["questions"].split("<separator>")
 		questions.each do |q|
-			params["date_choice_list_#{count}"].split(",").each do |choice|
+			params["date_choice_list_#{count}"].split(",").uniq.each do |choice|
 				Choice.create question: q, value: choice, event_id: event.id, choice_type: "date"
 			end
 			params["text_choice_list_#{count}"].split("<separator>").each do |choice|

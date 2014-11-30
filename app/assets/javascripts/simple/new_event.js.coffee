@@ -35,6 +35,55 @@ SimpleNewEvent =
     $('.submit-simple-event').click @submitSimpleEvent
     @sortable() if $('#simple-events-form').length > 0
 
+    #datepicker
+    if $(window).width() > 1023
+      $('#datepicker, #datepicker-2').datepicker().on 'changeMonth', @changeMonth
+      $('#datepicker, #datepicker-2').datepicker().on 'changeDate', @changeDate
+      $('#datepicker, #datepicker-2').datepicker().on 'clearDate', @clearDate
+
+  clearDate: (e) ->
+    console.log e
+
+  changeDate: (e) ->
+    console.log "date changed"
+    datepicker = $(e.currentTarget)
+    dates = $('#datepicker').datepicker('getDates')
+    dates2 = $('#datepicker-2').datepicker('getDates')
+    dates = (dates + "," + dates2).split(",")
+    parsedDates = $.map dates, (val, i) ->
+      new Date(val)
+    if dates.length > 0
+      $('#datepicker, #datepicker-2').datepicker('setDates', parsedDates)
+      if datepicker.attr('id') == "datepicker-2"
+        console.log "2"
+        SimpleNewEvent.syncDate = false
+        $('#datepicker .prev').first().click()
+        setTimeout ->
+          SimpleNewEvent.syncDate = true
+        , 500
+      else
+        console.log "1"
+        SimpleNewEvent.syncDate = false
+        $('#datepicker-2 .next').first().click()
+        setTimeout ->
+          SimpleNewEvent.syncDate = true
+        , 500
+
+  changeMonth: (e) ->
+    datepicker = $(e.currentTarget)
+    currentMonth = e.date.getMonth()
+    if SimpleNewEvent.syncDate
+      console.log "sync"
+      if datepicker.attr('id') == "datepicker-2" 
+        SimpleNewEvent.syncDate = false
+        $('#datepicker .next').first().click()
+        SimpleNewEvent.syncDate = true
+      else
+        SimpleNewEvent.syncDate = false
+        $('#datepicker-2 .prev').first().click()
+        SimpleNewEvent.syncDate = true
+
+
   nextTypeOnTab: (e) ->
     if e.keyCode == 9 && $('.type').first().hasClass('selected')
       $('.selected').removeClass('selected')
@@ -146,7 +195,7 @@ SimpleNewEvent =
       parsedDates = $.map datesToSet, (val, i) ->
         new Date(val)
 
-      $('#datepicker').datepicker('setDates', parsedDates)
+      $('#datepicker, #datepicker-2').datepicker('setDates', parsedDates)
       $('#add-another-question').hide()
       $('.date-picker-container, #simple-event-btns').show()
       $('.date-picker-container').removeClass('animated fadeInDown').addClass('animated fadeInDown')
@@ -354,7 +403,18 @@ SimpleNewEvent =
     $("#datepicker").datepicker
       'multidate': true
       'startDate': new Date()
+    $("#datepicker-2").datepicker
+      'multidate': true
+      'startDate': new Date()
     $('.dow').parent().addClass('dow-row')
+    if $(window).width() > 1023
+      $('#datepicker .next').hide()
+      $('#datepicker-2 .prev').css('display', 'none')
+      $('#datepicker-2 .datepicker-switch').attr('colspan', 6)
+      SimpleNewEvent.syncDate = false
+      $('#datepicker-2 .next').first().click()
+      SimpleNewEvent.syncDate = true
+      $('.new.day').hide()
 
   clearEventDetails: ->
     $('#datepicker').datepicker 'remove'
