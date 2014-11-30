@@ -959,7 +959,7 @@
 								month = target.parent().find('span').index(target);
 								year = this.viewDate.getUTCFullYear();
 								this.viewDate.setUTCMonth(month);
-								this._trigger('changeMonth', this.viewDate);
+								// this._trigger('changeMonth', this.viewDate);
 								if (this.o.minViewMode === 1){
 									this._setDate(UTCDate(year, month, day));
 								}
@@ -984,22 +984,22 @@
 							year = this.viewDate.getUTCFullYear();
 							month = this.viewDate.getUTCMonth();
 							if (target.is('.old')){
-								if (month === 0){
-									month = 11;
-									year -= 1;
-								}
-								else {
-									month -= 1;
-								}
+								// if (month === 0){
+								// 	month = 11;
+								// 	year -= 1;
+								// }
+								// else {
+								// 	month -= 1;
+								// }
 							}
 							else if (target.is('.new')){
-								if (month === 11){
-									month = 0;
-									year += 1;
-								}
-								else {
-									month += 1;
-								}
+								// if (month === 11){
+								// 	month = 0;
+								// 	year += 1;
+								// }
+								// else {
+								// 	month += 1;
+								// }
 							}
 							this._setDate(UTCDate(year, month, day));
 						}
@@ -1143,7 +1143,7 @@
 					else if (e.shiftKey){
 						newDate = this.moveMonth(this.dates.get(-1) || UTCToday(), dir);
 						newViewDate = this.moveMonth(focusDate, dir);
-						this._trigger('changeMonth', this.viewDate);
+						// this._trigger('changeMonth', this.viewDate);
 					}
 					else {
 						newDate = new Date(this.dates.get(-1) || UTCToday());
@@ -1171,7 +1171,7 @@
 					else if (e.shiftKey){
 						newDate = this.moveMonth(this.dates.get(-1) || UTCToday(), dir);
 						newViewDate = this.moveMonth(focusDate, dir);
-						this._trigger('changeMonth', this.viewDate);
+						// this._trigger('changeMonth', this.viewDate);
 					}
 					else {
 						newDate = new Date(this.dates.get(-1) || UTCToday());

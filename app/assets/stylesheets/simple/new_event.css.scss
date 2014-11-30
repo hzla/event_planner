@@ -228,6 +228,9 @@ body #content-container.simple-new-event {
 	.new.day {
 		display: none;
 	}
+	.old.day {
+		visibility: collapse;
+	}
 }
 
 

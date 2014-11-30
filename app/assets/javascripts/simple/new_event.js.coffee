@@ -40,40 +40,55 @@ SimpleNewEvent =
       $('#datepicker, #datepicker-2').datepicker().on 'changeMonth', @changeMonth
       $('#datepicker, #datepicker-2').datepicker().on 'changeDate', @changeDate
       $('#datepicker, #datepicker-2').datepicker().on 'clearDate', @clearDate
+      @dateChangable = true
 
   clearDate: (e) ->
     console.log e
 
   changeDate: (e) ->
-    console.log "date changed"
     datepicker = $(e.currentTarget)
-    dates = $('#datepicker').datepicker('getDates')
-    dates2 = $('#datepicker-2').datepicker('getDates')
-    dates = (dates + "," + dates2).split(",")
-    parsedDates = $.map dates, (val, i) ->
-      new Date(val)
-    if dates.length > 0
-      $('#datepicker, #datepicker-2').datepicker('setDates', parsedDates)
-      if datepicker.attr('id') == "datepicker-2"
-        console.log "2"
-        SimpleNewEvent.syncDate = false
-        $('#datepicker .prev').first().click()
-        setTimeout ->
-          SimpleNewEvent.syncDate = true
-        , 500
-      else
-        console.log "1"
-        SimpleNewEvent.syncDate = false
-        $('#datepicker-2 .next').first().click()
-        setTimeout ->
-          SimpleNewEvent.syncDate = true
-        , 500
+    
+    if SimpleNewEvent.dateChangable 
+      SimpleNewEvent.dateChangable = false
+      dates = $('#datepicker').datepicker('getDates')
+      dates2 = $('#datepicker-2').datepicker('getDates')
+
+      console.log dates
+      console.log dates2
+      console.log datepicker.attr('id') == 'datepicker-2'
+      if datepicker.attr('id') == 'datepicker-2'
+        dates = dates2
+      else 
+        dates = dates
+
+      console.log dates
+
+
+      parsedDates = $.map dates, (val, i) ->
+        new Date(val)
+      setTimeout ->
+        SimpleNewEvent.dateChangable = true
+      , 500
+
+      if dates.length > 0
+        $('#datepicker, #datepicker-2').datepicker('setDates', parsedDates)
+        if datepicker.attr('id') == "datepicker-2"
+          SimpleNewEvent.syncDate = false
+          $('#datepicker .prev').first().click()
+          setTimeout ->
+            SimpleNewEvent.syncDate = true
+          , 500
+        else
+          SimpleNewEvent.syncDate = false
+          $('#datepicker-2 .next').first().click()
+          setTimeout ->
+            SimpleNewEvent.syncDate = true
+          , 500
 
   changeMonth: (e) ->
     datepicker = $(e.currentTarget)
     currentMonth = e.date.getMonth()
     if SimpleNewEvent.syncDate
-      console.log "sync"
       if datepicker.attr('id') == "datepicker-2" 
         SimpleNewEvent.syncDate = false
         $('#datepicker .next').first().click()
