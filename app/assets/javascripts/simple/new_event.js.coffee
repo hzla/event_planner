@@ -31,7 +31,7 @@ SimpleNewEvent =
     #show the done button
     $('.submit-simple-event').show()
     $('.submit-simple-event').click @submitSimpleEvent
-    @sortable()
+    @sortable() if $('#simple-events-form').length > 0
 
   sortable: ->
     list = $('#simple-events-form')[0]
@@ -84,7 +84,8 @@ SimpleNewEvent =
       $('.type-container').animate {
         opacity: 1
         height: height
-      }, 750
+      }, 750, ->
+        $('#poll-creator')[0].scrollTop = 100000
       SimpleNewEvent.shown = true
   nextOnEnter: (e) ->
     if e.keyCode == 13
@@ -224,8 +225,8 @@ SimpleNewEvent =
         $('.type-container').animate {
           opacity: 1
           height: height
-        }, 750
-        $('#poll-creator')[0].scrollTop = 100000
+        }, 750, ->
+          $('#poll-creator')[0].scrollTop = 100000
         SimpleNewEvent.shown = true
 
   confirmEventDetails: ->

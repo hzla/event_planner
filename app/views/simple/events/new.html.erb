@@ -12,13 +12,11 @@
 
 
 <div id="content-container" class="simple-new-event generic">
-
 		<div id="poll-creator">
 				<%= form_tag simple_events_path, id: 'simple-events-form' do |f| %>
 					<%= hidden_field_tag :questions, nil, :class => "questions" %>
 					<div class="name-container">
 						<%= text_field_tag :event_name ,nil, placeholder: "Name your poll...", :class => "poll-field" %>
-						<div id="grey-blocker"></div>
 					</div>
 					
 					<div class="question-info-container active">
@@ -67,9 +65,9 @@
 				<% end %>
 			</div>
 
-		<div class="bottom-btn-container double fixed one-row" id="simple-event-btns">
-			<div class="btn blue-btn submit-simple-event">Done with poll</div> 
-			<div class="btn green-btn" id="confirm-simple-event">Add another question</div> 
+		<div class="bottom-btn-container double fixed double-row" id="simple-event-btns">
+			<div class="btn blue-btn submit-simple-event btn-bot">Done with poll</div> 
+			<div class="btn blue btn-top" id="confirm-simple-event">+ Add a new question</div> 
 		</div>
 </div>
 
