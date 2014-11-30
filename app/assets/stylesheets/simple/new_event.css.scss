@@ -316,6 +316,10 @@ body #content-container.simple-new-event {
 			box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
 			overflow: visible;
 		}
+		.poll-field {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
 		.name-container {
 			background: $light-grey;
 		}
@@ -327,7 +331,7 @@ body #content-container.simple-new-event {
 				color: $grey;
 				width: auto;
 				padding: 0px;
-				left: 50px;
+				left: 40px;
 			}
 			.type {
 				width: 40%;
