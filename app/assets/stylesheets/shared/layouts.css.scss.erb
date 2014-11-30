@@ -13,7 +13,6 @@
   background: $turq;
   color: white;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.09);
-
 }
 
 #back-link {
@@ -151,9 +150,7 @@ img#header-right-pic {
 }
 
 body {
-	background-image: image_url("layoutbg.jpg");
-	background-size: cover;
-	background-attachment: fixed;
+	background: #efefef;
 }
 
 body.landing {
@@ -238,6 +235,9 @@ body.landing {
 
 #content-container.generic {
 	background: white;
+  min-height: calc(100% - 120px);
+  margin-top: 60px;
+
 }
 
 #content-container.generic.no-top {
@@ -275,7 +275,7 @@ body.landing {
     padding: 0px 40px;
     box-sizing: border-box;
   }
-	.bottom-btn-container {
+	form .bottom-btn-container {
 		position: absolute;
 		bottom: 0;
 		height: 80px;
@@ -289,6 +289,21 @@ body.landing {
 			font-size: 16px;
 		}
 	}
+  .bottom-btn-container {
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    left: 0;
+    background: $light-grey;
+    .btn, .btn-rnd {
+      width: 300px;
+      margin: 20px calc(50% - 150px);
+      position: absolute;
+      font-size: 16px;
+    }
+  }
+
 	.double.bottom-btn-container {
 		.btn, .btn-rnd {
 			position: static;

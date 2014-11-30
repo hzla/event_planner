@@ -86,6 +86,7 @@ SimpleNewEvent =
           , 500
 
   changeMonth: (e) ->
+    console.log e
     datepicker = $(e.currentTarget)
     currentMonth = e.date.getMonth()
     if SimpleNewEvent.syncDate
