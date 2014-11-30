@@ -320,6 +320,14 @@ body #content-container.simple-new-event {
 			padding-left: 0px;
 			padding-right: 0px;
 		}
+		.question-info-container:hover {
+			.poll-field {
+				color: $dark-grey;
+			}
+			path, rect {
+				fill: $dark-grey;
+			}
+		}
 		.name-container {
 			background: $light-grey;
 		}
