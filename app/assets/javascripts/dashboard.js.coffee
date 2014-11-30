@@ -15,11 +15,11 @@ Dashboard =
         $('.activation-email.btn').val 'Submit'
       , 2000
 
-
   showPollForm: ->
     setTimeout ->
       $('.main-logo.pic, #header-left, .event').hide()
       $('.main-header-text').hide()
+      $('.bottom-btn-container').first().hide()
       $('#poll-creator, #cancel-form').show()
       $('.whos-going').removeClass("hidden")
       $('#events').hide()
@@ -30,6 +30,7 @@ Dashboard =
     $('.main-logo.pic, .event').show()
     $('#poll-creator, #cancel-form, #header-left, .main-logo.txt').hide()
     $('#events').show()
+    $('.bottom-btn-container').first().show()
     if $(window).width() < 1024
       $('.main-logo.pic').hide()
       $('#header-left').show()

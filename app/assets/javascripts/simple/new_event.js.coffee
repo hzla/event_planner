@@ -1,9 +1,9 @@
 SimpleNewEvent =
   init: ->
     # displaying date/text choice pickers
-    $('.type .date-type').click @toggleEventDateForm
+    $('body').on 'click', '.type .date-type', @toggleEventDateForm
     $('body').on 'click', '.question-info-container', @editQuestion
-    $('.text-type').click @toggleEventTextForm
+    $('body').on 'click', '.type .text-type', @toggleEventTextForm
     $('body').on 'click', '#cancel-simple-event', @clearEventDetails
     $('body').on 'click', '#cancel-type-container', @cancelTypeContainer
 
@@ -17,8 +17,10 @@ SimpleNewEvent =
     $('body').on 'focus', '.text-choice.placeholder', @addChoice
     $('body').on 'click', '.add-choice', @addChoiceWithClick
     $('body').on 'keydown', '.text-choice-input', @nextOnEnter
-    $('body').on 'keydown', @confirmDateOnEnter
+    $('body').on 'keydown', @eventsOnEnter
+    $('body').on 'keydown', @nextTypeOnTab
     $('body').on 'keydown', '.active .poll-field', @showTypePicker
+    $('body').on 'keydown', '.active .poll-field', @selectTypeOnTab
     @shown = false
 
     if $(window).width() < 1023
@@ -32,6 +34,22 @@ SimpleNewEvent =
     $('.submit-simple-event').show()
     $('.submit-simple-event').click @submitSimpleEvent
     @sortable() if $('#simple-events-form').length > 0
+
+  nextTypeOnTab: (e) ->
+    if e.keyCode == 9 && $('.type').first().hasClass('selected')
+      $('.selected').removeClass('selected')
+      $('.type').last().addClass('selected')
+      $('#main-header a').click ->
+        return false
+    else if e.keyCode == 9 && $('.type').last().hasClass('selected')
+      $('.selected').removeClass('selected')
+      $('.active .poll-field').focus()
+
+  selectTypeOnTab: (e) ->
+     e.stopPropagation()
+     if e.keyCode == 9
+      $(@).blur()
+      $('.type').first().addClass('selected')
 
   sortable: ->
     list = $('#simple-events-form')[0]
@@ -51,9 +69,7 @@ SimpleNewEvent =
         handle: '.text-choice-num'
         onUpdate: SimpleNewEvent.reassignNumbers
       }
-      
-
-
+    
   addChoiceWithClick: ->
     choice = $(@).parents('.text-choice')
     choice.find('.text-choice-input').attr('placeholder', 'Type an option...')
@@ -87,6 +103,7 @@ SimpleNewEvent =
       }, 750, ->
         $('#poll-creator')[0].scrollTop = 100000
       SimpleNewEvent.shown = true
+
   nextOnEnter: (e) ->
     if e.keyCode == 13
       next = $(@).parents('.text-choice').next().children('.text-choice-input')
@@ -94,15 +111,19 @@ SimpleNewEvent =
         $('#confirm-simple-event').click()
       $(@).parents('.text-choice').next().children('.text-choice-input').focus()
 
-  confirmDateOnEnter: (e) ->
+  eventsOnEnter: (e) ->
     if e.keyCode == 13 && $('.date-picker-container:visible').length > 0
       $('#confirm-simple-event').click()
+    else if e.keyCode == 13 && $('.type.selected').length > 0
+      $('.type.selected .type-pic').click()
+      $('.selected').removeClass('selected')
+    $('#main-header a').unbind()
 
   editQuestion: ->
     pic = $(@).find('.type-pic:visible')
     clickedQuestion = $(@)
     if pic.length > 0
-      if pic.hasClass('date-type')
+      if pic.attr('class').indexOf('date-type') >= 0
         SimpleNewEvent.editDateQuestion clickedQuestion
       else
         SimpleNewEvent.editTextQuestion clickedQuestion
@@ -130,6 +151,7 @@ SimpleNewEvent =
       $('.date-picker-container, #simple-event-btns').show()
       $('.date-picker-container').removeClass('animated fadeInDown').addClass('animated fadeInDown')
       $('.question-info-container:not(.active)').hide()
+      # $('.active').after($('.date-picker-container'))
     if $('#text-choice-picker:visible, .date-picker-container:visible').length > 0
       $('.question-info-container').show() if !dontClose
       $('#confirm-simple-event').click() if !dontClose
@@ -137,8 +159,7 @@ SimpleNewEvent =
 
   editTextQuestion: (clickedQuestion) ->
     dontClose = false
-    if $('#text-choice-picker:visible, .date-picker-container:visible, .type-container:visible').length < 1
-      console.log "happened"      
+    if $('#text-choice-picker:visible, .date-picker-container:visible, .type-container:visible').length < 1    
       dontClose = true
       SimpleNewEvent.editMode = true
       $('.active').removeClass('active')
@@ -294,6 +315,7 @@ SimpleNewEvent =
 
 
   toggleEventDateForm: ->
+    console.log "tried something"
     $('.poll-field').unbind('keydown')
     currentQuestion = $('.question-info-container.active .poll-field')
     if currentQuestion.val() != ""
@@ -314,9 +336,6 @@ SimpleNewEvent =
     if currentQuestion.val() != ""
       $('#text-choice-picker').show().removeClass('animated fadeInDown').addClass('animated fadeInDown')
       $('.type-container').hide()
-      if $(window).width() > 1023
-        offset = 140 + SimpleNewEvent.questionCount * 60
-        $('#text-choice-picker').css('max-height', "calc(100vh - #{offset}px)" )
       $('#poll-creator')[0].scrollTop = 100000
       $('.text-choice-input').first().focus()
     else

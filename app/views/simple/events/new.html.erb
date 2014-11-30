@@ -1,15 +1,15 @@
 <%= content_for :header do %>
   <div class="header-pic-container">
   </div>
-    <%= link_to dashboard_path do %>
-    	<%= image_tag 'arrowback.svg', id: 'header-left', :class => "mobile" %>
+  <!-- Necessary to allow switching type on 'TAB' -->
+  	<% if @browser.mobile? %>
+	    <%= link_to dashboard_path do %>
+	    	<%= image_tag 'arrowback.svg', id: 'header-left', :class => "mobile" %>
+	 		<% end %>
  		<% end %>
     <div class="text mobile whos-going">POLL INFO</div>
     <div class="desk-text-header whos-going">POLL INFO</div>
 <% end %>
-
-
-
 
 <div id="content-container" class="simple-new-event generic">
 		<div id="poll-creator">
@@ -54,11 +54,11 @@
 					<div class="type-container hidden">
 						<div class="type-header">Choose Type:</div>
 						<div class="type">
-							<%= image_tag 'custom.svg', :class => "type-pic text-type" %>
+							<%= image_tag 'custom.svg', :class => "type-pic text-type svg" %>
 							<div class="type-label">Custom</div>
 						</div>
 						<div class="type">
-							<%= image_tag 'date.svg', :class => "type-pic date-type" %>
+							<%= image_tag 'date.svg', :class => "type-pic date-type svg " %>
 							<div class="type-label">Date Picker</div>
 						</div>
 					</div>
@@ -71,4 +71,22 @@
 		</div>
 </div>
 
-
+<script>
+  $('img.svg').each(function(){
+    var $img = $(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
+    $.get(imgURL, function(data) {
+        var $svg = $(data).find('svg');
+        if(typeof imgID !== 'undefined') {
+            $svg = $svg.attr('id', imgID);
+        }
+        if(typeof imgClass !== 'undefined') {
+            $svg = $svg.attr('class', imgClass+' replaced-svg');
+        }
+        $svg = $svg.removeAttr('xmlns:a');
+        $img.replaceWith($svg);
+    }, 'xml');
+  });
+</script>

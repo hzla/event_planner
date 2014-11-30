@@ -6,6 +6,12 @@
 	position: relative;
 }
 
+.simple-vote {
+	.simple-choice .type-pic {
+		right: 10px;
+	}
+}
+
 .results-link {
 	position: absolute;
 	right: 20px;

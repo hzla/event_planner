@@ -53,12 +53,27 @@ body #content-container.simple-new-event {
 	color: $dark-grey;
 	background: white;
 	z-index: 5;
+	.type {
+		path, rect {
+			fill: $grey;
+		}
+		.type-label {
+			color: $grey;
+		}
+	}
+	.type.selected, .type:hover {
+		path, rect {
+			fill: $green;
+		}
+		.type-label {
+			color: $green;
+		}
+	}
 }
 
 #text-choice-picker {
 	display: none;
 	width: 100%;
-	overflow-y: scroll;
 	z-index: 5;
 	background: white;
 }
@@ -86,6 +101,7 @@ body #content-container.simple-new-event {
 
 #confirm-simple-event {
  background: white;
+ font-style: italic;
 }
 
 .question-info-container, .poll-field {
@@ -110,7 +126,7 @@ body #content-container.simple-new-event {
 .text-choice {
 	width: 100%;
 	height: 40px;
-	margin: 10px 0px;
+	padding: 10px 0px;
 	position: relative;
 	.add-choice {
 		display: none;
