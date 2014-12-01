@@ -55,6 +55,10 @@ body .table-condensed {
 .datepicker td.active,
 
 
+.datepicker th.datepicker-switch:hover {
+  cursor: default;
+}
+
 .datepicker td.active:active,
 .datepicker td.active:hover:active,
 .datepicker td.active.active,
@@ -172,9 +176,14 @@ body .table-condensed {
     background-color: $green;
   }
 
-  .datepicker thead tr:first-child th:hover {
-  background: #eeeeee;
-}
+  .datepicker thead th.datepicker-switch:hover {
+    background: white;
+  }
+  .datepicker thead {
+    .next:hover, .prev:hover {
+      background: #eeeeee;
+    }
+  }  
 .datepicker td.day:hover {
   cursor: pointer;
   background: $border-grey;

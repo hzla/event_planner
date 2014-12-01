@@ -40,6 +40,7 @@ body #content-container.simple-new-event {
 	cursor: pointer;
 }
 
+
 // body div.type-container {
 // 	transition: all 0.25s ease-in-out 0s;
 // }
@@ -76,6 +77,9 @@ body #content-container.simple-new-event {
 	width: 100%;
 	z-index: 5;
 	background: white;
+	.text-choice.placeholder {
+		border-bottom: 1px solid $border-grey;
+	}
 }
 
 .date-picker-container {
@@ -100,10 +104,22 @@ body #content-container.simple-new-event {
 	width: 100%;
 	height: 40px;
 	line-height: 40px;
+	color: $grey;
 }
 
 #confirm-simple-event {
  background: white;
+}
+
+.delete-question-icon {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	right: 100px;
+	top: 20px;
+	display: none;
+	cursor: pointer;
+	z-index: 10;
 }
 
 .question-info-container.active {
@@ -121,10 +137,10 @@ body #content-container.simple-new-event {
 	color: $grey;
 	.type-pic {
 		position: absolute;
-		height: 30px;
-		width: 30px;
+		height: 20px;
+		width: 20px;
 		right: 50px;
-		top: 15px;
+		top: 20px;
 		cursor: pointer;
 	}
 	path, rect {
@@ -146,6 +162,18 @@ body #content-container.simple-new-event {
 	.add-choice {
 		display: none;
 	}
+	.draggable-top, .draggable-bottom {
+		position: absolute;
+		cursor: move;
+		width: 100%;
+		height: 10px;
+	}
+	.draggable-top {
+		top: 0px;
+	}
+	.draggable-bottom {
+		bottom: 0px;
+	}
 }
 
 .text-choice-num {
@@ -153,6 +181,7 @@ body #content-container.simple-new-event {
 	height: 100%;
 	line-height: 40px;
 	width: 40px;
+	cursor: move;
 }
 
 .text-choice-input {
@@ -163,7 +192,6 @@ body #content-container.simple-new-event {
 	border: 1px solid $border-grey;
 	padding: 0 0 0 15px;
 	box-sizing: border-box;
-	cursor: move;
 }
 
 .placeholder {
@@ -316,12 +344,34 @@ body #content-container.simple-new-event {
 			box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
 			overflow: visible;
 		}
-		.poll-field {
+		.poll-field#event_name {
 			padding-left: 0px;
+		}
+		.poll-field {
+			padding-left: 40px;
 			padding-right: 0px;
 		}
+		.question-info-container {
+			.question-num {
+				position: absolute;
+				width: 40px;
+				height: 60px;
+				left: 40px;
+				z-index: 5;
+				top: 0;
+				line-height: 60px;
+			}
+		}
+		.date-picker-container .picker-error {
+			width: calc(100% - 80px);
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+			position: absolute;
+			top: 0;
+		}
 		.question-info-container:hover {
-			.poll-field {
+			.poll-field, .question-num {
 				color: $dark-grey;
 			}
 			path, rect {
@@ -371,6 +421,7 @@ body #content-container.simple-new-event {
 			margin: 0px 40px;
 			width: calc(100% - 80px);
 			box-sizing: border-box;
+			border-bottom: 0px;
 		}
 		
 	}

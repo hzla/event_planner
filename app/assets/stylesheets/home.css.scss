@@ -114,7 +114,7 @@
   z-index: 3;
 }
 
-.mid-section .title-text {
+.mid-section .title-landing-text {
   position: absolute;
   font-size: 48px;
   font-weight: 800;
@@ -144,7 +144,7 @@
 
 }
 
-.title-text{
+.title-landing-text{
   z-index: 2;
   vertical-align: center;
 }
@@ -275,7 +275,7 @@
 
 .timeline-header{
   margin-top: 15%;
-  font-family: 'Lato', sans-serif;
+   
   font-size: 36px;
   color: white;
   font-weight: 600;
@@ -340,7 +340,7 @@
 
 .timeline-text{
   color: white;
-  font-family: 'Lato', sans-serif;
+   
   font-size: 15px;
   line-height: 1.2;
   height: 60.5px;
@@ -377,7 +377,7 @@
       height: 40px;
     }
     .mid-section {
-      .title-text {
+      .title-landing-text {
         top: 25vh;
         text-align: center;
         font-size: 44px;
@@ -417,7 +417,7 @@
       left: 0;
       right: 0;
     }
-    #fade-2 .title-text {
+    #fade-2 .title-landing-text {
       top: 20vh;
     }
     .mid-sub-text {
@@ -462,7 +462,7 @@
       font-weight: 400;
       margin: 0 auto;
     }
-    .showcase-title-text, .title-text, .showcase-subtext {
+    .showcase-title-text, .title-landing-text, .showcase-subtext {
       width: calc(100% - 20px);
       left: 10px;
     }

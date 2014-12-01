@@ -155,11 +155,11 @@
 			switch (o.minViewMode){
 				case 1:
 				case 'months':
-					o.minViewMode = 1;
+					o.minViewMode = 0;
 					break;
 				case 2:
 				case 'years':
-					o.minViewMode = 2;
+					o.minViewMode = 0;
 					break;
 				default:
 					o.minViewMode = 0;
@@ -889,7 +889,7 @@
 					case 'th':
 						switch (target[0].className){
 							case 'datepicker-switch':
-								this.showMode(1);
+								this.showMode(0);
 								break;
 							case 'prev':
 							case 'next':
