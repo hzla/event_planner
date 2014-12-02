@@ -36,6 +36,7 @@ class ChoicesController < ApplicationController
     choice_info = extract_choice_attribute_arrays_from params
     @event.choices.destroy_all if !@event.choices.empty?
     Choice.create_choices_using_list_of_attributes choice_info, @event
+    # @event.clear_dups
     @event.populate_polls_with_choices
     redirect_to event_path(@event_id)
   end

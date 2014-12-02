@@ -4,7 +4,12 @@ class Choice < ActiveRecord::Base
   attr_accessible :choice_type, :question, :event_id, :value, :desc, :add_info, :poll_id, :replayer_name, :image_url, :yes, :service_id
 
   def self.create_choices_using_list_of_attributes choice_info, event
-    p choice_info
+    # choice_info[:images] = choice_info[:images].uniq
+    # choice_info[:titles] = choice_info[:titles].uniq
+    # choice_info[:infos] = choice_info[:infos].uniq
+    # choice_info[:service_ids] = choice_info[:service_ids].uniq
+    # choice_info[:length] = choice_info[:length] / 2
+    # binding.pry
     (0..(choice_info[:length] - 1)).each do |i|
       p choice_info[:service_ids][i]
       create(event_id: event.id, image_url: choice_info[:images][i],
@@ -34,11 +39,11 @@ class Choice < ActiveRecord::Base
   end
 
   def is_current
-    event.current_choice == value
+    poll.event.current_choice == value
   end
 
   def is_processing
-    event.processing_choice == value
+    poll.event.processing_choice == value
   end
 
   def self.update_event_ids

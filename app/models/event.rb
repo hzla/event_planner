@@ -34,13 +34,24 @@ class Event < ActiveRecord::Base
 
 	def populate_polls_with_choices
 		polls.each do |poll|
+			binding.pry
 			if poll.choices.empty?
+				p poll.choices
 				choices.each do |choice|
-					Choice.create poll_id: poll.id, event_id: id, value: choice.value, 
+					p choice
+					Choice.create poll_id: poll.id, value: choice.value, 
 					choice_type: choice.choice_type, add_info: choice.add_info,
 					image_url: choice.image_url, question: choice.question, service_id: choice.service_id
 				end
 			end
+		end
+	end
+
+	def clear_dups
+		count = 0
+		choices.order(:value).each do |c|
+			c.destroy if count % 2 == 0
+			count += 1
 		end
 	end
 
