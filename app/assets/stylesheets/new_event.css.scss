@@ -22,7 +22,7 @@
   }
   #new_event {
     #event_threshold {
-
+      color: $grey;
     }
   }
 }
@@ -234,7 +234,6 @@ div.poll-field {
           width: calc(100% - 80px);
           padding: 0px;
           margin: 0 40px;
-          color: $dark-grey;
         }
         #new_event {
           #event_threshold {

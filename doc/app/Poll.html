@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class Poll - Rails Application Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ActiveRecord::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-update_urls">::update_urls</a>
+    
+    <li ><a href="#method-i-all_selected_values">#all_selected_values</a>
+    
+    <li ><a href="#method-i-avatar">#avatar</a>
+    
+    <li ><a href="#method-i-choices_for">#choices_for</a>
+    
+    <li ><a href="#method-i-code">#code</a>
+    
+    <li ><a href="#method-i-generate_code">#generate_code</a>
+    
+    <li ><a href="#method-i-generate_url">#generate_url</a>
+    
+    <li ><a href="#method-i-questions">#questions</a>
+    
+    <li ><a href="#method-i-selected_values_for">#selected_values_for</a>
+    
+    <li ><a href="#method-i-takers">#takers</a>
+    
+    <li ><a href="#method-i-top_choice">#top_choice</a>
+    
+    <li ><a href="#method-i-values_for">#values_for</a>
+    
+    <li ><a href="#method-i-vote_with">#vote_with</a>
+    
+    <li ><a href="#method-i-voted-3F">#voted?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Poll">
+  <h1 id="class-Poll" class="class">
+    class Poll
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-update_urls" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_urls</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_urls-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">update_urls</span>
+  <span class="ruby-identifier">all</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:generate_url</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-all_selected_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_selected_values</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="all_selected_values-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_selected_values</span>
+  <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">yes</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:value</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&lt;separator&gt;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-avatar" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">avatar</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="avatar-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">avatar</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">n</span> = (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">12</span>).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">sample</span>
+    <span class="ruby-node">&quot;p#{n}.png&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">profile_pic_url</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-choices_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">choices_for</span><span
+            class="method-args">(question)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="choices_for-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">choices_for</span> <span class="ruby-identifier">question</span>
+  <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">question</span><span class="ruby-operator">:</span> <span class="ruby-identifier">question</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="code-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">code</span>
+  <span class="ruby-identifier">url</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;code=&quot;</span>)[<span class="ruby-value">-1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_code-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_code</span>
+  <span class="ruby-identifier">random</span> = (<span class="ruby-value">48</span><span class="ruby-operator">..</span><span class="ruby-value">122</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">chr</span>}
+  <span class="ruby-identifier">characters</span> = (<span class="ruby-identifier">random</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">random</span>[<span class="ruby-value">43</span><span class="ruby-operator">..</span><span class="ruby-value">48</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">random</span>[<span class="ruby-value">10</span><span class="ruby-operator">..</span><span class="ruby-value">16</span>])
+  <span class="ruby-identifier">code</span> = <span class="ruby-identifier">characters</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">characters</span>.<span class="ruby-identifier">sample</span>}
+  <span class="ruby-identifier">code</span>.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_url-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_url</span>
+  <span class="ruby-identifier">update_attributes</span> <span class="ruby-identifier">url</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;/polls/#{id}/choices?code=#{generate_code}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-questions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">questions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="questions-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">questions</span>
+  <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:value</span>).<span class="ruby-identifier">group_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">question</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-selected_values_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">selected_values_for</span><span
+            class="method-args">(question)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="selected_values_for-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">selected_values_for</span> <span class="ruby-identifier">question</span>
+  <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">question</span><span class="ruby-operator">:</span> <span class="ruby-identifier">question</span>, <span class="ruby-identifier">yes</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:value</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&lt;separator&gt;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-takers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">takers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="takers-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">takers</span>
+  <span class="ruby-constant">Poll</span>.<span class="ruby-identifier">where</span> <span class="ruby-identifier">event_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">event_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-top_choice" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">top_choice</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="top_choice-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">top_choice</span>
+  <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">sort_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:score</span>).<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-values_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">values_for</span><span
+            class="method-args">(question)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="values_for-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">values_for</span> <span class="ruby-identifier">question</span>
+  <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">question</span><span class="ruby-operator">:</span> <span class="ruby-identifier">question</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:value</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&lt;separator&gt;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-vote_with" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">vote_with</span><span
+            class="method-args">(choice_values)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="vote_with-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">vote_with</span> <span class="ruby-identifier">choice_values</span>
+  <span class="ruby-identifier">values</span> = <span class="ruby-identifier">choice_values</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;&lt;separator&gt;&quot;</span>)
+  <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">update_all</span> <span class="ruby-identifier">yes</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>).<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">update_attributes</span> <span class="ruby-identifier">yes</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-voted-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">voted?</span><span
+            class="method-args">(question)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="voted-3F-source">
+            <pre><span class="ruby-comment"># File app/models/poll.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">voted?</span> <span class="ruby-identifier">question</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">choices</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">question</span><span class="ruby-operator">:</span> <span class="ruby-identifier">question</span>, <span class="ruby-identifier">yes</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

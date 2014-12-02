@@ -30,11 +30,15 @@ gem 'protected_attributes', '~> 1.0.5'
 gem 'browser'
 gem 'dotenv-rails'
 gem 'pry'
+gem "rails-erd"
 
 gem 'httparty'
 gem 'sidekiq'
 gem 'slim'
 gem 'redis'
+
+############### custom
+
 gem 'zeroclipboard-rails'
 
 
