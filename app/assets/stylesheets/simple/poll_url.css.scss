@@ -16,6 +16,7 @@
 	background: white;
 	left: calc(50% - 260px);
 	top: 100px;
+	max-width: 100%;
 	
 	#poll-url-text, #link-box, #take-poll-btn  {
 		width: calc(100% - 80px);
@@ -40,7 +41,8 @@
 		border-left: 1px solid $grey;
 		border-top: 1px solid $grey;
 		border-bottom: 1px solid $grey;
-		padding-left: 20px;
+		border-right: 0px;
+		padding: 0 0 0 20px;
 		color: $blue;
 		white-space: nowrap;
 		overflow-x: scroll;
@@ -50,6 +52,19 @@
 		width: 80px;
 		float: left;
 		border-radius: 0px;
+	}
+	#copy-poll-url.zeroclipboard-is-hover {
+		background: #00aa80;
+		color: white;
+	}
+}
+
+@media (max-width: 1023px) {
+	body {
+		#poll-url-container {
+			width: calc(100% - 40px);
+			left: 20px;
+		}
 	}
 }
 

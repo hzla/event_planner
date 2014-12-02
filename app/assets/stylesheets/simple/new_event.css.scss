@@ -440,6 +440,14 @@ body #content-container.simple-new-event {
 			.submit-simple-event {
 				box-sizing: border-box;
 			}
+			.submit-simple-event.inactive {
+				background: $light-grey;
+				color: $grey;
+			}
+			.submit-simple-event.inactive:hover {
+				background: $light-grey;
+				color: $grey;
+			}
 			.submit-simple-event:hover {
 				background: #0058b4;
 				color: white;

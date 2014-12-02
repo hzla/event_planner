@@ -62,14 +62,19 @@ SimpleNewEvent =
     pollTakeUrl = "http://www.dinnerpoll.com" + poll.url
     $('#poll-url-overlay').show()
     $('#copy-poll-url').attr('data-clipboard-text', pollUrl)
-    $('#poll-url').text pollUrl
+    $('#poll-url').val pollUrl
     $('#poll-url-container').append("<a href='#{pollTakeUrl}'>
     <div id='take-poll-btn' class='btn blue-btn'>Take Poll</div>
     </a>") 
+    $('#poll-url')[0].select()
+    $('.submit-simple-event').addClass('inactive')
+    $('#simple-event-btns').append("<a href='#{pollTakeUrl}'>
+    <div class='btn blue-btn btn-bot'>Take Poll</div>
+    </a>")
 
 
   showDelete: ->
-    if $(@).find('.poll-field').val() != "" 
+    if $(@).find('.date-choices').val() != "" || $(@).find('.text-choices').val() != "" 
       $(@).find('.delete-question-icon').show()
 
   hideDelete: ->
@@ -335,11 +340,9 @@ SimpleNewEvent =
         clickedQuestion.click()
     $('#poll-creator, #simple-events-form, body').scrollTop(100000)
 
-
-
   submitSimpleEvent: ->
-    $('#confirm-simple-event:visible').click()
-    $('#simple-events-form').submit()
+    # $('#confirm-simple-event:visible').click()
+    $('#simple-events-form').submit() if !$('.submit-simple-event').hasClass('inactive')
 
   addQuestions: ->
     if $('#questions').val() == ""  
@@ -451,6 +454,7 @@ SimpleNewEvent =
       SimpleNewEvent.resetTextPicker()
 
     #logic for what to hide and what to show  
+    $('.submit-simple-event').removeClass('inactive')
     showTypePicker = true if $('.type-container:visible').length > 0 
     SimpleNewEvent.closeEventForm()
     $('.type-container').hide()

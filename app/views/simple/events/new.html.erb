@@ -82,13 +82,13 @@
 			</div>
 	<% if @browser.mobile? %>
 		<div class="bottom-btn-container double full-fixed double-row mobile" id="simple-event-btns">
-			<div class="btn blue-btn submit-simple-event btn-bot">Done with poll</div>  
+			<div class="btn blue-btn submit-simple-event btn-bot">Done</div>  
 			<div class="poll-field blue mobile" id="confirm-simple-event">+ Add a new question</div>
 		</div>
 	<% end %>
 </div>
 <div class="bottom-btn-container double full-fixed double-row no-mobile desk" id="simple-event-btns">
-	<div class="btn blue-btn submit-simple-event btn-bot">Done</div>  
+	<div class="btn blue-btn submit-simple-event btn-bot inactive">Done</div>  
 	<div class="poll-field blue mobile btn-top" id="confirm-simple-event">+ Add a new question</div>
 </div>
 
@@ -96,7 +96,7 @@
 	<div id="poll-url-container">
 		<div id="poll-url-text">Done.<br>Send this link for others to take your poll:</div>
 		<div id="link-box">
-			<div id="poll-url">http://www.google.com</div>
+			<%= text_field_tag :poll_url, nil, id: "poll-url" %>
 			<div id="copy-poll-url" class="green-btn btn">Copy</div>
 		</div>
 	</div>
