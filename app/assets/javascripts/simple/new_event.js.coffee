@@ -110,6 +110,7 @@ SimpleNewEvent =
       count += 1
 
   firstQuestionOnEnter: (e) ->
+    $('.submit-simple-event').removeClass('inactive') if $('.text-choices').val() != "" || $('.date-choices').val() != ""
     if e.keyCode == 13 && $(@).val() != ""
       $('.active .poll-field').focus()
 
@@ -358,6 +359,7 @@ SimpleNewEvent =
         setTimeout ->
           $('#event_name, .poll-field').attr('style', '')
         , 1000
+        return false
   cancelChoice: ->
     $(@).parents('.text-choice').remove()
     $('.text-choice-input').last().attr('placeholder', 'Add an option...')
@@ -454,7 +456,7 @@ SimpleNewEvent =
       SimpleNewEvent.resetTextPicker()
 
     #logic for what to hide and what to show  
-    $('.submit-simple-event').removeClass('inactive')
+    $('.submit-simple-event').removeClass('inactive') if $('#event_name').val() != ""
     showTypePicker = true if $('.type-container:visible').length > 0 
     SimpleNewEvent.closeEventForm()
     $('.type-container').hide()
