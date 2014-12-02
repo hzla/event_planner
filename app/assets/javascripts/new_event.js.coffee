@@ -58,6 +58,7 @@ NewEvent =
 
   finishTut: ->
     $('.tut-1, .tut-2').hide()
+    $('.bottom-btn-container').show()
 
   showNextArrow: ->
     $('.tut-1 #tut-right').show()
