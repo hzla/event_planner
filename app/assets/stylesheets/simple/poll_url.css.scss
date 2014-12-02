@@ -16,7 +16,7 @@
 	background: white;
 	left: calc(50% - 260px);
 	top: 100px;
-	
+
 	#poll-url-text, #link-box, #take-poll-btn  {
 		width: calc(100% - 80px);
 		margin: 10px 40px;
@@ -24,14 +24,22 @@
 	#poll-url-text {
 		text-align: center;
 		margin-top: 40px;
+		line-height: 20px;
+		margin-bottom: 20px;
 	}
 	#take-poll-btn {
 		margin-bottom: 40px;
 		border-radius: 0px;
+		border: none;
+	}
+	#take-poll-btn:hover{
+		background-color: #0053AA;
+		color: white;
 	}
 	#link-box, #take-poll-btn, #poll-url, #take-poll-btn, #copy-poll-url {
 		height: 40px;
 		line-height: 40px;
+		box-sizing: border-box;
 	}
 	#poll-url {
 		width: calc(100% - 80px);
@@ -40,7 +48,7 @@
 		border-left: 1px solid $grey;
 		border-top: 1px solid $grey;
 		border-bottom: 1px solid $grey;
-		padding-left: 20px;
+		padding-left: 15px;
 		color: $blue;
 		white-space: nowrap;
 		overflow-x: scroll;
@@ -52,5 +60,3 @@
 		border-radius: 0px;
 	}
 }
-
-
