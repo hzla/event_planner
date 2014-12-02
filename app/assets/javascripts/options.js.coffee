@@ -38,7 +38,6 @@ Options =
   toggleOptionSelect: ->
     id = $(@).attr('id')
     $(".#{id}").toggleClass 'selected'
-    Options.checkDone()
 
     if $(@).hasClass('selected')
       clone = $(@).clone()
@@ -48,6 +47,8 @@ Options =
       id = $(@).attr('id')
       $('.selected-options').find(".#{id}").remove()
       Options.removeOptionFromForm $(@)
+
+    Options.checkDone()
 
   addOptionToForm: (option) ->
     image = option.find('img').attr('src')
@@ -75,10 +76,10 @@ Options =
     $('#id-list').val($('#id-list').val().replace("#{id}<OPTION>", ""))
 
   checkDone: ->
-  	if $('.option.selected').length > 1
-  		$('.done').show()
+  	if $('.selected-options .option.selected').length > 1
+  		$('.submit-options').removeClass('inactive')
   	else
-  		$('.done').hide()
+  		$('.submit-options').addClass('inactive')
 
   showChosenOptions: ->
     $('.service-options').hide()
@@ -100,7 +101,7 @@ Options =
     )
 
   submitOptions: ->
-    $('#options-form').submit()
+    $('#options-form').submit() if !$(@).hasClass('inactive')
 
 ready = ->
   Options.init()

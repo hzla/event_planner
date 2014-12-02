@@ -17,7 +17,7 @@ Dashboard =
 
   showPollForm: ->
     setTimeout ->
-      $('.main-logo.pic, #header-left, .event').hide()
+      $('.main-logo.pic, #header-left, .event, .tutorial').hide()
       $('.main-header-text').hide()
       $('.bottom-btn-container').first().hide()
       $('#poll-creator, #cancel-form').show()

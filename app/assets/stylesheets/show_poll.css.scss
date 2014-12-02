@@ -353,7 +353,6 @@
   text-align: left;
   height: 160px;
   position: relative;
-  background: $green;
   color: black;
   padding-top: 0px;
   .profile-info {
@@ -364,7 +363,6 @@
     padding-top: 30px;
     font-size: 30px;
     font-weight: 600;
-    color: white;
   }
 } 
 
@@ -372,22 +370,23 @@
  .poll-take   {
     .box-content.profile-box {
       width: 300px;
-      padding: 0px calc(50% - 150px);
+      padding: 0px calc(50% - 190px);
+      margin: 0px 40px;
       text-align: left;
       height: 160px;
       position: relative;
-      background: $green;
       color: black;
       padding-top: 0px;
+      border-bottom: 1px solid $border-grey;
       .profile-info {
         padding: 10px 0px;
         margin-left: 120px;
+        font-weight: 300;
       }
-      .poll-username {
+      .poll-username.profile-info {
         padding-top: 30px;
         font-size: 30px;
-        font-weight: 600;
-        color: white;
+        font-weight: 700;
       }
     }  
     .profile-pic-container {
@@ -395,10 +394,9 @@
       top: 20px;
     }
     #event-name {
-      // padding-top: 0px;
+      border: none;
     }
     #event-options {
-      background: white;
       border-bottom: 0px;
     }
   }

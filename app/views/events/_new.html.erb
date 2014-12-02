@@ -1,6 +1,8 @@
 <div id="poll-creator" class="hidden">
 		<%= form_for @event do |f| %>
-			<%= f.text_field :name, placeholder: "Event Name", :class => "poll-field" %>
+			<div class="grey-back-wrapper">
+				<%= f.text_field :name, placeholder: "Event Name", :class => "poll-field" %>
+			</div>
 			<%= f.select :threshold, options_for_select((2..16).to_a), prompt: "Minimum Party Size", :class => "poll-field" %>
 			<% if browser.mobile? %>
 				<%= f.text_field :start_date, :class => "poll-field", placeholder: "Reservation Date" %>

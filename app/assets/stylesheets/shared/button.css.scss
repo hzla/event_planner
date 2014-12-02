@@ -1,15 +1,6 @@
 @import '../variables';
 
-
-
-#main-header {
-	.btn {
-		border-radius: 0px;
-	}
-}
-
 .btn {
-	border-radius: 5px;
 	color: white;
 	cursor: pointer;
 	text-align: center;
@@ -17,6 +8,11 @@
 	 
 	font-size: 16px;
 	font-weight: 400;
+}
+
+body .btn.inactive, body .btn.inactive:hover {
+	background: $border-grey;
+	color: $grey;
 }
 
 .blue-btn {
@@ -96,7 +92,6 @@
 /* .btn are square in mobile */
 
 .btn-rnd {
-  border-radius: 5px;
   color: white;
   cursor: pointer;
   text-align: center;

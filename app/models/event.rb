@@ -126,6 +126,14 @@ class Event < ActiveRecord::Base
 		end_time.strftime("%m/%d/%Y %H:%M:00")
 	end
 
+	def service_pic
+		if choices.first.choice_type == nil
+			'event-opentable.svg'
+		else
+			'event-simple.svg'
+		end
+	end
+
 	private
 
 	def generate_routing_url

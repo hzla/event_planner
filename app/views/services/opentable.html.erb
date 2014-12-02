@@ -1,6 +1,5 @@
 <%= content_for :header do %>
   <div class="header-pic-container">
-    <div id="header-right-pic" class="done submit-options btn blue-btn">Done</div>
   </div>
   <%= link_to :back do %>
     <div class="mobile desk-text" id="back-link">Back</div>
@@ -16,7 +15,7 @@
   <%= hidden_field_tag :id_list, nil, id: "id-list" %>
 <% end %>
 
-<div class="generic" id="content-container">
+<div class="generic no-scroll" id="content-container">
   <div class="service-header full-white-block">
     <div class="service-tabs">
       <div class="browse service-tab active">Browse</div>
@@ -29,8 +28,9 @@
 		<%= form_tag opentable_search_path, remote: true, id: "service-search-form" do %>
 			<%= text_field_tag :location, nil, placeholder: "Search by city or zipcode", :class => "service-search-field" %>
 			<%= submit_tag "Search", id: "submit-service-search", :class => "btn blue-btn hidden" %>
+			<%= text_field_tag :name, nil, placeholder: "Filter your results by name", :class => "service-search-field", id:  "service-search-name" %>
 		<% end %>
-		<%= text_field_tag :name, nil, placeholder: "Filter your results by name", :class => "service-search-field", id:  "service-search-name" %>
+		
 	</div>
 
 	<div class='service-options full-white-block choosable'>
@@ -63,7 +63,7 @@
 
 	<div class="service-options full-white-block selected-options hidden">
 	</div>
-	<div class="bottom-btn-container done hidden">
-		<div class="btn blue-btn submit-options">Done</div>
+	<div class="bottom-btn-container done">
+		<div class="btn blue-btn submit-options inactive">Continue</div>
 	</div>
 </div>

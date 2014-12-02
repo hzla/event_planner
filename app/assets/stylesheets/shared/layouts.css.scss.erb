@@ -15,6 +15,11 @@
   box-shadow: 0px 0px 10px rgba(0,0,0,0.09);
 }
 
+.grey-back-wrapper {
+  width: 100%;
+  background: $light-grey;
+}
+
 #back-link {
   position: absolute;
   left: 10px;
@@ -235,7 +240,6 @@ body.landing {
 
 #content-container.generic {
 	background: white;
-
 }
 
 #content-container.generic.no-top {
@@ -273,20 +277,6 @@ body.landing {
     padding: 0px 40px;
     box-sizing: border-box;
   }
-	form .bottom-btn-container {
-		position: absolute;
-		bottom: 0;
-		height: 80px;
-		width: 100%;
-    left: 0;
-		background: $light-grey;
-		.btn, .btn-rnd {
-			width: 300px;
-			margin: 20px calc(50% - 190px);
-			position: absolute;
-			font-size: 16px;
-		}
-	}
   .bottom-btn-container {
     position: absolute;
     bottom: 0;
@@ -295,8 +285,8 @@ body.landing {
     left: 0;
     background: $light-grey;
     .btn, .btn-rnd {
-      width: 300px;
-      margin: 20px calc(50% - 150px);
+      width: 720px;
+      margin: 20px calc(50% - 360px);
       position: absolute;
       font-size: 16px;
     }
@@ -305,13 +295,17 @@ body.landing {
 	.double.bottom-btn-container {
 		.btn, .btn-rnd {
 			position: static;
-			width: calc(50% - 30px);
+      width: 350px;
+			margin-left: 30px;
 			font-size: 16px;
 			float: left;
 			margin-top: 20px;
 			margin-left: 20px;
 			margin-right: 0px;
 		}
+    .btn.first {
+      margin-left: calc(50% - 360px);
+    }
 	}
 }
 body .double.bottom-btn-container.double-row {
@@ -332,6 +326,31 @@ body .double.bottom-btn-container.double-row {
 }
 
 
+@media (min-width: 1024px) {
+  #content-container.generic {
+    margin-top: 40px;
+    margin-bottom: 120px;
+    min-height: calc(100% - 220px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+    .bottom-btn-container {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+    }
+  }
+  #content-container.generic.no-scroll {
+    margin-bottom: 0px;
+    min-height: 0px;
+    max-height: calc(100% - 220px);
+    height: calc(100% - 220px);
+  }
+  .side-margined {
+    width: calc(100% - 80px);
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
 
 
 /********** Reduced font sizes, added styling for icons in the header  ************/

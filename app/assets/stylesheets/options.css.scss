@@ -8,8 +8,8 @@
 
 .service-tab {
 	width: 50%;
-	background: $light-grey;
-	color: $grey;
+	background: $tab-dark-grey;
+	color: $tab-grey;
 	text-align: center;
 	box-sizing: border-box;
 	float: left;
@@ -19,8 +19,8 @@
 }
 
 .service-tab.active, .service-tab:hover {
-	background: $dark-grey;
-	color: white;
+	background: white;
+	color: $green;
 }
 
 /*************** Searching *****************/
@@ -33,6 +33,17 @@
   font-size: 16px;
   padding: 0px;
 	font-weight: 400;
+}
+
+#service-search-form {
+  background: $light-grey;
+  input {
+    width: calc(100% - 80px);
+    margin: 0px 40px;
+    background: $light-grey;
+    border-top: 0px;
+    border-bottom: 1px solid $border-grey;
+  }
 }
 
 .search-arrow {
@@ -184,7 +195,7 @@ body div.option-overlay {
 		width: 100%;
 	}
 	.service-options {
-		max-height: calc(100vh - 323px);
+		max-height: calc(100vh - 400px);
 		overflow-y: scroll;
 		padding: 0 40px;
 		box-sizing: border-box;
@@ -202,7 +213,6 @@ body div.option-overlay {
 		font-size: 24px;
 	}
 	#service-search-container {
-		border-bottom: 1px solid #ebebeb;
 		box-sizing: border-box;
 	}
   .option-check.unselected {

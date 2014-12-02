@@ -64,7 +64,7 @@ NewEvent =
 
   goNextTutStep: ->
     $('.tut-1').hide()
-    $('.tut-2').show()
+    $('.tut-2, #tut-right').show()
 
   goBackTutStep: ->
     $('.tut-1').show()

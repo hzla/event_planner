@@ -23,6 +23,10 @@ div.event-field {
   background: white;
   padding-top: 40px;
   border-bottom: 1px solid #ebebeb;
+  margin: 0px 40px;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: calc(100% - 80px);
 }
 
 #event-comment {
@@ -41,12 +45,12 @@ div.event-field {
 }
 
 #event-options {
-	background: $light-grey;
 	border-radius: 10px;
   width: calc(100% - 40px);
   padding: 10px 20px;
   box-sizing: border-box;
   margin: 0 auto;
+  background: $light-grey;
 }
 
 .event-option {
@@ -175,9 +179,7 @@ div.event-field {
 @media (min-width: 1024px) {
 	body {
 		#event-options {
-			max-height: 260px;
-			overflow-y: scroll;
-			border-bottom: 1px solid $border-grey;
+      padding-bottom: 20px;
       .option-pic {
         display: inline-block;
       }

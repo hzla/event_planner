@@ -58,8 +58,10 @@ SimplePollVoting =
     $('.simple-voter').hide()
     if wasVisible
       voter.hide()
+      $(@).attr('style',"")
     else
       voter.show() 
+      $(@).css('border', 'none')
     
 
   toggleSelected: ->

@@ -17,6 +17,11 @@ class PollsController < ApplicationController
     end
   end
 
+  def rsvp
+    Poll.find(params[:id]).update_attributes confirmed_attending: true
+    render nothing: true
+  end
+
   private
   def check_event_ownership
     if params[:event_id]

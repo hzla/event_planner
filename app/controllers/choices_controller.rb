@@ -6,7 +6,6 @@ class ChoicesController < ApplicationController
   #REFACTOR: extract vote and decide_vote into own controller to make more restful
 
   def index
-  
     @poll = Poll.find(params[:poll_id])
     @tutorial = session[:new_poll_taker] 
     session[:new_poll_taker] = nil
@@ -16,7 +15,7 @@ class ChoicesController < ApplicationController
     end
     @choices = @poll.choices
     if @choices.first.choice_type != nil
-      redirect_to simple_poll_choices_path(poll_id: @poll.id)
+      redirect_to simple_poll_choices_path(poll_id: @poll.id) and return
     end
 
     if !@browser.mobile? 
@@ -24,6 +23,7 @@ class ChoicesController < ApplicationController
     else
       @images = ["mvotertut1.png", "mvotertut2.png", "mvotertut3.png"]
     end
+    render 'index'
   end
 
   def rsvp
@@ -34,6 +34,7 @@ class ChoicesController < ApplicationController
 
   def create
     choice_info = extract_choice_attribute_arrays_from params
+    @event.choices.destroy_all if !@event.choices.empty?
     Choice.create_choices_using_list_of_attributes choice_info, @event
     @event.populate_polls_with_choices
     redirect_to event_path(@event_id)

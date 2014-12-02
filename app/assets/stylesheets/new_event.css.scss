@@ -16,6 +16,15 @@
   min-height: 100%;
   background: white;
   z-index: 2;
+  #new_event > * {
+
+
+  }
+  #new_event {
+    #event_threshold {
+
+    }
+  }
 }
 
 .range-placeholder {
@@ -47,7 +56,6 @@ div.poll-field {
   margin: 40px 0px;
   border: none;
   .noUi-background, .noUi-base {
-    background: $grey;
   }
   .noUi-connect {
     background: $green;
@@ -129,7 +137,7 @@ div.poll-field {
   position: absolute;
   width: 40px;
   height: 40px;
-  bottom: 0px;
+  bottom: 10px;
   right: 20px;
   cursor: pointer;
   z-index: 1;
@@ -139,7 +147,7 @@ div.poll-field {
   position: absolute;
   width: 40px;
   height: 40px;
-  bottom: 20px;
+  bottom: 10px;
   left: 20px;
   cursor: pointer;
   z-index: 1;
@@ -163,6 +171,7 @@ div.poll-field {
     top: 20px;
     position: absolute;
   }
+  #tut-right: 10px;
 }
 
 .tut-2.tut-blocker-top {
@@ -177,6 +186,9 @@ div.poll-field {
     bottom: 20px;
     right: 20px;
     position: absolute;
+  }
+  #tut-right {
+    bottom: 10px;
   }
 }
 
@@ -211,27 +223,57 @@ div.poll-field {
 }
 
 @media (min-width: 1024px) {
-	body {
+  	body {
+      #poll-creator {
+        width: 100%;
+        min-height: 100%;
+        background: white;
+        z-index: 2;
+        #new_event > .poll-field, #event_threshold {
+          box-sizing: content-box;
+          width: calc(100% - 80px);
+          padding: 0px;
+          margin: 0 40px;
+          color: $dark-grey;
+        }
+        #new_event {
+          #event_threshold {
+            margin-left: 30px;
+          }
+          #event_name {
+            background: $light-grey;
+            font-weight: 700;
+            color: $dark-grey;
+          }
+          .bottom-btn-container {
+            margin: 0px;
+            padding: 0px;
+          }
+        }
+      }
 		.poll-field {
 			height: 60px;
 			text-align: left;
 			font-size: 16px;
+      padding-left: 0px;
 		}
 		 #event_threshold {
 			 	width: 100%;
-				padding-left: 0px;
 				font-size: 16px;
 				height: 60px;
 				font-weight: 400;
         text-indent: 10px;
+        padding-left: 30px;
+        font-family: 'Avenir Next';
 		 }
 		 #event_start_date {
 		 	border-top: 1px solid $border-grey;
 		 }
-		 #range {
+		 #poll-creator #range {
 		 	width: 50%;
 		 	left: 25%;
 		 	position: relative;
+      padding: 0px;
 		 }
 		 #start-border, #end-border {
 		 	position: absolute;
@@ -246,7 +288,7 @@ div.poll-field {
 		 }
 		 .shown-values {
 		 	font-size: 24px;
-      font-weight: 600;
+      font-weight: 700;
       color: $dark-grey;
 		 }
 		 .range-placeholder {
@@ -257,8 +299,5 @@ div.poll-field {
 		 	margin: 20px 0px;
 		 	display: block;
 		 }
-     #tut-right {
-      bottom: 100px;
-     }
 	}
 }

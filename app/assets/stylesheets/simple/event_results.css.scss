@@ -21,10 +21,15 @@
 	}
 }
 
+.cell.total, .cell.poll-taker-name.total {
+	color: $green;
+	background: #e5f9f4;
+}
+
 .simple-results-header {
 	height: 30px;
 	color: white;
-	margin-left: 72px;
+	margin-left: 132px;
 	margin-top: 10px;
 	clear: left;
 }
@@ -34,10 +39,12 @@
 	margin-top: 0px;
 	float: left;
 	clear: left;
+	margin-left: 40px;
 	.poll-taker-name {
 		clear: left;
 		background: $grey;
 		color: white;
+		width: 90px;
 	}
 }
 .simple-voter {

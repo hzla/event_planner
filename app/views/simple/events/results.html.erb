@@ -8,15 +8,18 @@
 
 <div class="generic simple-results" id="content-container">
 		<div id="questions-container">
+			<% count = 1 %>
 			<% @questions.each do |question, choices| %>
-				<div class="simple-choice">
+				<div class="simple-choice side-margined">
 					<% if choices.first.choice_type == "text" %>
 						<div class="poll-field question-name">
+							<div class="question-num no-mobile"><%= count %><% count += 1 %>.</div>
 							<%= question %>
 							<%= image_tag 'customgrey.svg', :class => "type-pic text-type svg" %>
 						</div>
 					<% else %>
 						<div class="poll-field question-name">
+							<div class="question-num no-mobile"><%= count %><% count += 1 %>.</div>
 							<%= question %>
 							<%= image_tag 'dategrey.svg', :class => "type-pic date-type svg" %>
 						</div>
@@ -38,6 +41,12 @@
 											<% if choice.yes %>
 												<%= image_tag 'checkgreen.svg', :class => "cell-check" %>
 											<% end %>
+										</div>
+									<% end %>
+									<div class="cell poll-taker-name total">Total</div>
+									<% @event.polls.last.choices_for(question).each_with_index do |choice, i| %>
+										<div class="cell <%= "col-#{i}" %> total">
+											<%= choice.yes_count %>
 										</div>
 									<% end %>
 								<% end %>

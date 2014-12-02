@@ -8,18 +8,19 @@
         <div class="event-line-text">
           <%= event.time_info %>
         </div>
-        <% if @event.last_log %>
-          <%= @event.last_log %>
+        <% if event.last_log %>
+          <%= event.last_log %>
         <% else %>
           <div class="event-line-text bottom-line">
             <% if event.current_choice %>
               <span class="grey"><%= event.rsvps %> voters </span>
             <% else %>
-              <span class="red"><%= event.rsvps %>/<%= event.polls.count %> Responded</span>
+              <span class="green"><%= event.rsvps %> Response(s)</span>
             <% end %>
             </div>
         <% end %>
-        <%= image_tag "arrowcripplegreen.svg", :class => "event-arrow" %>
+        <%= image_tag "dasharrow.svg", :class => "event-arrow" %>
+        <%= image_tag event.service_pic, :class => "event-service-icon" %>
       </div>
     <% else %>
       <div class="event <%= event.html_classes(current_user) %>">

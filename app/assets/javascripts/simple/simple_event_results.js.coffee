@@ -5,6 +5,7 @@ SimpleEventResults =
 
   expandResultsTable: ->
     resultsTable = $(@).parents('.simple-choice').find('.simple-voter')
+    $(@).parents('.simple-choice').css('border', 'none')
     columnCount = resultsTable.find('.choice-header').length + 1
     width = columnCount * 62 + 20
     resultsTable.css('width' , "#{width}px")

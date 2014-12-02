@@ -12,23 +12,28 @@
 	</div>
 	<div class="poll-url">
 		<div class="no-break send-link">Send this link to anyone you'd like to take your poll:</div><br> 
-		<div id="polling-link"><%= "dinnerpoll.com" + @event.routing_url %></div>
+		<div id="link-box">
+			<%= text_field_tag :poll_url, "dinnerpoll.com" + @event.routing_url, id: "poll-url" %>
+			<div id="copy-poll-url" class="green-btn btn" data-clipboard-text='<%= "dinnerpoll.com" + @event.routing_url  %>'>Copy</div>
+		</div>
 	</div>
-	<div class="full-white-block event-field" id="event-options">
-		<div class="event-field-header">Venue Options</div>
-		<% @choices.each do |choice| %>
-			<div class="event-option">
-					<%= image_tag choice.image_url , :class => "option-pic event-show" %>
-					<div class="option-title bold event-show option-result"><%= choice.value %></div>
-			</div>
-			
-		<% end %>
+	<div class="grey-back-wrapper">
+		<div class="full-white-block event-field" id="event-options">
+			<div class="event-field-header">Venue Options</div>
+			<% @choices.each do |choice| %>
+				<div class="event-option">
+						<%= image_tag choice.image_url , :class => "option-pic event-show" %>
+						<div class="option-title bold event-show option-result"><%= choice.value %></div>
+				</div>
+				
+			<% end %>
+		</div>
 	</div>
 
 
 	<div class="double bottom-btn-container">
 		<%= link_to @poll.url do %>
-			<div class="btn activate-poll blue-btn" id="poll-status">
+			<div class="btn activate-poll blue-btn first" id="poll-status">
 				Take Your Poll
 			</div>
 		<% end %>
@@ -39,3 +44,16 @@
 		<% end %>
 	</div>
 </div>
+
+<script>
+ $(document).ready(function() {
+    var clip = new ZeroClipboard($("#copy-poll-url"))
+    clip.on('aftercopy', function(){
+    	$('#copy-poll-url').text("Copied")
+    	setTimeout(function(){
+    		$('#copy-poll-url').text("Copy")
+    	}, 1000)
+    })
+  });
+</script>
+

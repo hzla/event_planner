@@ -28,6 +28,8 @@
 #rsvp-container {
   width: 100%;
   height: 80px;
+  padding-top: 1px;
+  background: $light-grey;
   .rsvp-btn {
     height: 40px;
     width: 300px;
@@ -110,6 +112,7 @@
   width: 60px;
   float: left;
   margin: 20px;
+  margin-left: 0px;
 }
 
 .choice-info{

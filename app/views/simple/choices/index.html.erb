@@ -1,7 +1,4 @@
 <%= content_for :header do %>
-  <div class="header-pic-container">
-    <div id="header-right-pic" class="done submit-simple-event-votes btn blue-btn">Submit</div>
-  </div>
     <%= link_to dashboard_path do %>
     	<%= image_tag 'arrowleft.svg', id: 'header-left', :class => "mobile" %>
   	<% end %>
@@ -18,10 +15,12 @@
 			<% end %>
 		</div>
 		<div id="questions-container">
+			<% count = 1 %>
 			<% @questions.each do |question, choices| %>
 				<div class="simple-choice">
 					<% if choices.first.choice_type == "text" %>
 						<div class="poll-field question-name <%= 'voted' if @poll.voted?(question) %>">
+							<div class="question-num no-mobile"><%= count %><% count += 1 %>.</div>
 							<%= question %>
 							<div class="voted-indicator">Voted</div>
 							<%= image_tag 'customgrey.svg', :class => "type-pic text-type svg" %>
@@ -38,6 +37,7 @@
 						</div>
 					<% else %>
 						<div class="poll-field question-name <%= 'voted' if @poll.voted?(question) %>">
+							<div class="question-num no-mobile"><%= count %><% count += 1 %>.</div>
 							<%= question %>
 							<div class="voted-indicator">Voted</div>
 							<%= image_tag 'dategrey.svg', :class => "type-pic date-type svg" %>
@@ -59,6 +59,11 @@
 	<%= form_tag simple_poll_vote_path(id: @poll.id), id: 'simple-events-vote-form' do %>
 		<% hidden_field_tag :choice_values, @poll.all_selected_values %>
 	<% end %>
+	<div class="bottom-btn-container">
+		<div class="btn-rnd blue-btn pull-down done submit-simple-event-votes">
+			Submit
+		</div>
+	</div>
 </div>
 
 

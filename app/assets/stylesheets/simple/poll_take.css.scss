@@ -1,9 +1,11 @@
 @import '../variables';
 
 
-.question-name {
+body .poll-field.question-name {
 	cursor: pointer;
 	position: relative;
+	box-sizing: border-box;
+	padding-left: 40px;
 }
 
 .simple-vote {
@@ -77,6 +79,17 @@
 		//margin-left: calc(50% - 150px);
 		border: none;
 		width: 100%;
+	}
+}
+
+.simple-choice {
+	.question-num {
+		position: absolute;
+		line-height: 60px;
+		height: 100%;
+		width: 40px;
+		left: 0;
+		top: 0;
 	}
 }
 
