@@ -15,4 +15,5 @@
 //= require jquery.ui.slider
 //= require jquery.ui.sortable
 //= require turbolinks
+//= require zeroclipboard
 //= require_tree .

@@ -10,9 +10,9 @@ class Simple::EventsController < ApplicationController
 
   def create
     if params["questions"] != ","
-      Event.create_simple_event params, current_user
+      event = Event.create_simple_event params, current_user
     end
-    redirect_to dashboard_path
+    render json: {created_event: event.to_json, poll: event.polls.first.to_json} and return
   end
 
   def index

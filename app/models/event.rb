@@ -29,6 +29,7 @@ class Event < ActiveRecord::Base
 		end
 		event.assign_user_and_create_first_poll user
 		event.populate_polls_with_choices
+		event
 	end
 
 	def populate_polls_with_choices

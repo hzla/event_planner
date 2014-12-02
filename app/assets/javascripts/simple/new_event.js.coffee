@@ -37,6 +37,9 @@ SimpleNewEvent =
     #show the done button
     $('.submit-simple-event').show()
     $('.submit-simple-event').click @submitSimpleEvent
+    $('body').on 'ajax:success', '#simple-events-form', @showEventUrl
+    $('body').on 'click', '#poll-url-overlay', @hideEventUrl
+    $('body').on 'click', '#poll-url-container', @dontHideEventUrl
     @sortable() if $('#simple-events-form').length > 0
 
     #datepicker
@@ -45,6 +48,25 @@ SimpleNewEvent =
       $('#datepicker, #datepicker-2').datepicker().on 'changeDate', @changeDate
       $('#datepicker, #datepicker-2').datepicker().on 'clearDate', @clearDate
       @dateChangable = true
+
+  hideEventUrl: ->
+    $(@).hide()
+
+  dontHideEventUrl: (e) ->
+    e.stopPropagation()
+
+  showEventUrl: (e, data) ->
+    event = $.parseJSON data.created_event
+    poll = $.parseJSON data.poll
+    pollUrl = "http://www.dinnerpoll.com" + event.routing_url
+    pollTakeUrl = "http://www.dinnerpoll.com" + poll.url
+    $('#poll-url-overlay').show()
+    $('#copy-poll-url').attr('data-clipboard-text', pollUrl)
+    $('#poll-url').text pollUrl
+    $('#poll-url-container').append("<a href='#{pollTakeUrl}'>
+    <div id='take-poll-btn' class='btn blue-btn'>Take Poll</div>
+    </a>") 
+
 
   showDelete: ->
     if $(@).find('.poll-field').val() != "" 
@@ -56,6 +78,11 @@ SimpleNewEvent =
   deleteQuestion: (e) ->
     e.stopPropagation() 
     currentQuestion = $(@).parents('.question-info-container')
+    if !currentQuestion.hasClass('active')
+      currentQuestion.remove()
+      SimpleNewEvent.reorderQuestionNums()
+      return
+
     if $('.type-container:visible').length > 0
       currentQuestion.find('.poll-field').val("").focus()
       $(".type-container").hide()
@@ -67,7 +94,7 @@ SimpleNewEvent =
       $('.type-container').show()
       $('#text-choice-picker, .date-picker-container').hide()
     else if $('#text-choice-picker:visible, .date-picker-container:visible, .type-container:visible').length < 1
-      $(@).parents('.question-info-container').remove()
+      $(@).parents('.question-info-container').remove() if $('.question-info-container').length > 1
       SimpleNewEvent.reorderQuestionNums()
     else
 
@@ -232,6 +259,11 @@ SimpleNewEvent =
         SimpleNewEvent.editDateQuestion clickedQuestion
       else
         SimpleNewEvent.editTextQuestion clickedQuestion
+    else
+      $('.active').removeClass('active')
+      $(@).addClass('active')
+      $('.date-picker-container:visible, #text-choice-picker:visible').hide()
+      SimpleNewEvent.shown = false
 
   cancelTypeContainer: (e) ->
     if SimpleNewEvent.questionCount > 1
@@ -264,6 +296,10 @@ SimpleNewEvent =
       $('.type-container').hide()
       clickedQuestion.click()
       SimpleNewEvent.shown = false
+    else if $('#text-choice-picker:visible, .date-picker-container:visible').length > 0 && !clickedQuestion.hasClass('active')
+      $('#confirm-simple-event').click()
+      if $('.picker-error:visible').length < 1
+        clickedQuestion.click()
     $('#poll-creator, #simple-events-form, body').scrollTop(100000)
 
   editTextQuestion: (clickedQuestion) ->
@@ -293,6 +329,10 @@ SimpleNewEvent =
       $('.type-container').hide()
       clickedQuestion.click()
       SimpleNewEvent.shown = false
+    else if $('#text-choice-picker:visible, .date-picker-container:visible').length > 0 && !clickedQuestion.hasClass('active')
+      $('#confirm-simple-event').click()
+      if $('.picker-error:visible').length < 1
+        clickedQuestion.click()
     $('#poll-creator, #simple-events-form, body').scrollTop(100000)
 
 
@@ -303,12 +343,18 @@ SimpleNewEvent =
 
   addQuestions: ->
     if $('#questions').val() == ""  
-      $('.question-info-container .poll-field').each ->
-        value = $(@).val()
-        currentQuestions = $('#questions').val()
-        newQuestions = currentQuestions + value + "<separator>"
-        $('#questions').val newQuestions
-
+      if $('#event_name').val() != "" && $('.question-info-container .poll-field').first().val() != ""
+        $('.question-info-container .poll-field').each ->
+          value = $(@).val()
+          currentQuestions = $('#questions').val()
+          newQuestions = currentQuestions + value + "<separator>"
+          $('#questions').val newQuestions
+      else
+        $('#event_name').css 'border', '1px solid red' if $('#event_name').val() == ""
+        $('.question-info-container .poll-field').css 'border', '1px solid red' if $('.question-info-container .poll-field').first().val() == ""
+        setTimeout ->
+          $('#event_name, .poll-field').attr('style', '')
+        , 1000
   cancelChoice: ->
     $(@).parents('.text-choice').remove()
     $('.text-choice-input').last().attr('placeholder', 'Add an option...')
@@ -358,7 +404,7 @@ SimpleNewEvent =
     $('input.poll-field').last().focus()
     $('#poll-creator, #simple-events-form, body').scrollTop(100000)
     $('.active .poll-field').keydown ->
-      $('.poll-field').unbind('keydown')
+      # $('.poll-field').unbind('keydown')
       if SimpleNewEvent.shown == false && $('.date-picker-container:visible, #text-choice-picker:visible').length < 1
         $('.type-container').show()
         height = $('.type-container').height()
@@ -434,7 +480,7 @@ SimpleNewEvent =
 
   toggleEventDateForm: ->
     icon = $('.type .date-type').first().clone()
-    $('.poll-field').unbind('keydown')
+    # $('.poll-field').unbind('keydown')
     SimpleNewEvent.initDatePicker()
     currentQuestion = $('.question-info-container.active .poll-field')
     if currentQuestion.val() != ""
@@ -451,7 +497,7 @@ SimpleNewEvent =
 
   toggleEventTextForm: ->
     icon = $('.type .text-type').first().clone()
-    $('.poll-field').unbind('keydown')
+    # $('.poll-field').unbind('keydown')
     SimpleNewEvent.reassignNumbers()
     currentQuestion = $('.question-info-container.active .poll-field')
     if currentQuestion.val() != ""

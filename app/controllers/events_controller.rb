@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   include SessionsHelper
 
   before_filter :get_event, only: [:activate, :route, :generate_poll, :show]
+  skip_before_filter :require_login, only: [:route]
 
   
   def create
@@ -11,13 +12,18 @@ class EventsController < ApplicationController
     redirect_to opentable_path(event_id: @event.id)
   end
 
+  def route
+    session[:user_id] = nil
+    session[:route_poll] = true
+    session[:event_id] = params[:id]
+  end
+
   def generate_poll
     if @event.user_id == current_user.id
       poll = @event.polls.where(user_id: current_user.id).first
       redirect_to poll.url and return
     else
       poll = Poll.create event_id: @event.id, confirmed_attending: true ,email: current_user.email, user_id: current_user.id
-      #REFACTOR: confirmed_attending should default to true
       poll.choices << @event.choices
       @event.users << current_user
       redirect_to poll.url

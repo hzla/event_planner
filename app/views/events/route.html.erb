@@ -37,7 +37,9 @@
     <div class="event-field-header">Venue Options</div>
     <% @event.choices.each do |choice| %>
       <div class="event-option">
-          <%= image_tag choice.image_url , :class => "option-pic event-show" %>
+          <% if choice.image_url %>
+            <%= image_tag choice.image_url , :class => "option-pic event-show" %>
+          <% end %>
           <div class="option-title bold event-show option-result"><%= choice.value %></div>
       </div>
 
