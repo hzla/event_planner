@@ -8,7 +8,7 @@
 
 .service-tab {
 	width: 50%;
-	background: $light-grey;
+	background: #d3d3d3;
 	color: $grey;
 	text-align: center;
 	box-sizing: border-box;
@@ -18,9 +18,13 @@
 	cursor: pointer;
 }
 
-.service-tab.active, .service-tab:hover {
-	background: $dark-grey;
-	color: white;
+.service-tab.active{
+	background: white;
+	color: $green;
+}
+
+.service-tab:hover{
+	background: white;
 }
 
 /*************** Searching *****************/
@@ -33,6 +37,7 @@
   font-size: 16px;
   padding: 0px;
 	font-weight: 400;
+	background: $light-grey;
 }
 
 .search-arrow {
