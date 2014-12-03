@@ -63,6 +63,7 @@ div.event {
 .event-line-text {
   width: auto;
   line-height: 20px;
+  max-width: calc(100% - 90px);
 }
 
 .event-name {
@@ -122,6 +123,10 @@ div.event {
     .event-arrow{
       right: 15px;
       top: 33px;
+    }
+    .event-service-icon {
+      top: 36px;
+      right: 60px;
     }
     .event-voters {
       bottom: 10px;

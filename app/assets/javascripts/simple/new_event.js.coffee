@@ -41,6 +41,7 @@ SimpleNewEvent =
     $('body').on 'click', '#poll-url-overlay', @hideEventUrl
     $('body').on 'click', '#poll-url-container', @dontHideEventUrl
     @sortable() if $('#simple-events-form').length > 0
+    $('body').on 'click', '#get-poll-url', @showPollUrlContainer
 
     #datepicker
     if $(window).width() > 1023
@@ -63,15 +64,16 @@ SimpleNewEvent =
     $('#poll-url-overlay').show()
     $('#copy-poll-url').attr('data-clipboard-text', pollUrl)
     $('#poll-url').val pollUrl
-    $('#poll-url-container').append("<a href='#{pollTakeUrl}'>
+    $('#dashboard-btn').before("<a href='#{pollTakeUrl}'>
     <div id='take-poll-btn' class='btn blue-btn'>Take Poll</div>
     </a>") 
     $('#poll-url')[0].select()
     $('.submit-simple-event').addClass('inactive')
-    $('#simple-event-btns').append("<a href='#{pollTakeUrl}'>
-    <div class='btn blue-btn btn-bot'>Take Poll</div>
-    </a>")
-
+    $('#simple-event-btns').append("<div class='btn blue-btn btn-bot' id='get-poll-url'>Get Poll Url</div>")
+    $('#simple-event-btns').append("<a href='/dashboard'><div class='btn black-btn btn-bot'>Back to dashboard</div></a>")
+      
+  showPollUrlContainer: ->
+    $('#poll-url-overlay').show()
 
   showDelete: ->
     if $(@).find('.date-choices').val() != "" || $(@).find('.text-choices').val() != "" 
@@ -229,7 +231,6 @@ SimpleNewEvent =
     $('.double.bottom-btn-container').show()
 
   showTypePicker: ->
-    console.log "i happened"
     if SimpleNewEvent.shown == false && $('.date-picker-container:visible, #text-choice-picker:visible').length < 1 && $(@).val() != ""
       $('.type-container').show()
       height = $('.type-container').height()
@@ -249,7 +250,6 @@ SimpleNewEvent =
       $(@).parents('.text-choice').next().children('.text-choice-input').focus()
 
   eventsOnEnter: (e) ->
-    console.log(e.keyCode == 13 && $('.date-picker-container:visible').length > 0)
     if e.keyCode == 13 && $('.date-picker-container:visible').length > 0
       $('#confirm-simple-event').click()
     else if e.keyCode == 13 && $('.type-container:visible .type.selected').length > 0
@@ -289,7 +289,10 @@ SimpleNewEvent =
       parsedDates = $.map datesToSet, (val, i) ->
         new Date(val)
       $('#datepicker, #datepicker-2').datepicker('setDates', parsedDates)
-      $('#datepicker .day').first().click().click() #in order to make the second month go forward
+      #in order to make the second month go forward
+      SimpleNewEvent.syncDate = false
+      $('#datepicker-2 .next').first().click()
+      SimpleNewEvent.syncDate = true
       $('#add-another-question').hide()
       $('.date-picker-container, #simple-event-btns').show()
       $('.date-picker-container').removeClass('animated fadeInDown').addClass('animated fadeInDown')
@@ -423,6 +426,9 @@ SimpleNewEvent =
 
   confirmEventDetails: ->
     currentQuestion = $('.question-info-container.active')
+    isEmpty = currentQuestion.find('.date-choices, .text-choices').val() == ""
+    console.log currentQuestion.find('.date-choices, .text-choices').val()
+    console.log isEmpty
     $('.question-info-container').show()
     if $('.date-picker-container:visible').length > 0 #if clicking ok on datepicker
       
@@ -467,7 +473,9 @@ SimpleNewEvent =
     
 
     # if the picker was opened by clickin on the small icon to edit an question
-    if !SimpleNewEvent.editMode
+    # only add a new question if not editing, or if you clicked to create another question while editing
+    # and if the last question isn't blank
+    if (!SimpleNewEvent.editMode || isEmpty) && $('.question-info-container .poll-field').last().val() != ""
       $('#add-another-question').click()
 
 
@@ -504,6 +512,7 @@ SimpleNewEvent =
   toggleEventTextForm: ->
     icon = $('.type .text-type').first().clone()
     # $('.poll-field').unbind('keydown')
+    SimpleNewEvent.resetTextPicker()
     SimpleNewEvent.reassignNumbers()
     currentQuestion = $('.question-info-container.active .poll-field')
     if currentQuestion.val() != ""
@@ -533,7 +542,6 @@ SimpleNewEvent =
     $("#datepicker-2").datepicker
       'multidate': true
       'startDate': new Date()
-    console.log "reset"
     $('.dow').parent().addClass('dow-row')
     if $(window).width() > 1023
       $('#datepicker .next').hide()

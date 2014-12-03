@@ -18,7 +18,7 @@ SimpleEventResults =
     question = $(@).parents('.simple-choice')
     if $(@).hasClass("expanded")   
       question.find('.cell:not(.poll-taker-name)').hide()
-      column.show().css('width', '216px')
+      column.show().css('width', '150px')
       question.find('.shortened-value').hide()
       question.find('.full-value').show()
     else

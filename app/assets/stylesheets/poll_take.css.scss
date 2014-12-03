@@ -125,6 +125,7 @@
 
 .choice-time {
   margin-top: 10px;
+  font-weight: 400;
 }
 
 .choice-vote-container {
@@ -224,6 +225,9 @@
     .choice {
       .choice-value, .choice-pic {
         margin-top: 15px;
+      }
+      .choice-pic {
+        margin-left: 20px;
       }
       .star-container, .choice-time {
         margin-top: 7px;

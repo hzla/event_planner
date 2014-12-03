@@ -34,11 +34,8 @@ class Event < ActiveRecord::Base
 
 	def populate_polls_with_choices
 		polls.each do |poll|
-			binding.pry
 			if poll.choices.empty?
-				p poll.choices
 				choices.each do |choice|
-					p choice
 					Choice.create poll_id: poll.id, value: choice.value, 
 					choice_type: choice.choice_type, add_info: choice.add_info,
 					image_url: choice.image_url, question: choice.question, service_id: choice.service_id
@@ -65,6 +62,10 @@ class Event < ActiveRecord::Base
 		polls.where(confirmed_attending: true).count
 	end
 
+	def response_count
+		polls.select {|poll| poll.voted_on? }.length
+	end
+
 	def top_choices
 		polls.first.choices.sort_by do |choice|
 			choice.yes_count
@@ -77,6 +78,7 @@ class Event < ActiveRecord::Base
 
 	def attending_count
 		polls.where(confirmed_attending: true).count
+		# subtract one if event creator has not voted
 	end
 
 	def html_classes user

@@ -29,7 +29,6 @@
 		margin-bottom: 20px;
 	}
 	#take-poll-btn {
-		margin-bottom: 40px;
 		border-radius: 0px;
 		border: none;
 	}
@@ -65,6 +64,13 @@
 	#copy-poll-url.zeroclipboard-is-hover {
 		background: #00aa80;
 		color: white;
+	}
+	#dashboard-btn .btn {
+		height: 40px;
+		line-height: 40px;
+		width: calc(100% - 80px);
+		margin: 10px 40px;
+		box-sizing: border-box;
 	}
 
 @media (max-width: 1023px) {

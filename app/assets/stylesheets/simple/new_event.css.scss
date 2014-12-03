@@ -297,13 +297,20 @@ body #content-container.simple-new-event {
 		#datepicker-2 {
 			display: none;
 		}
+		#text-choice-picker {
+			margin-bottom: 40px; //so it doesn't get covered up by add another question btn
+		}
 		#grey-blocker {
 			height: 44px;
+		}
+		.delete-question-icon {
+			top: 10px;
 		}
 		.question-info-container, .poll-field {
 			.type-pic {
 				height: 20px;
 				width: 20px;
+				top: 10px;
 			}
 		}
 		.poll-field{

@@ -203,6 +203,15 @@ div.poll-field {
 
 @media (max-width: 1023px) {
 	body {
+    .tut-1.tut-blocker-top {
+      height: 45px;
+    }
+    .tut-1.tut-blocker-bottom {
+      height: calc(100% - 83px);
+    }
+    .tut-1.tut-blocker-botom {
+      height: calc(100% - 300px);
+    }
 		.blocker-text {
 			width: 200px;
 		}
@@ -220,6 +229,7 @@ div.poll-field {
     div.poll-field {
       line-height: 20px;
     }
+
 	}
 }
 
@@ -238,7 +248,8 @@ div.poll-field {
         }
         #new_event {
           #event_threshold {
-            margin-left: 30px;
+            // margin-left: 30px;
+            border-radius: 0px;
           }
           #event_name {
             background: $light-grey;

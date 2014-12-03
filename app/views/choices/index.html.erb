@@ -9,7 +9,7 @@
   <% end %>
   <div class="full-white-block event-field" id="event-name">
     <%= @event.name %><br>
-    <span class="sub-text"><%= @event.time_info %></span>
+    <span class="sub-text grey"><%= @event.time_info %></span>
     <div class="event-field" id="event-comment">
       <%= @event.comment %>
     </div>
@@ -76,7 +76,7 @@
       <% end %>
     <% end %>
   </div>
-  
+
   <div class="bottom-btn-container">
     <%= link_to decide_vote_path(@poll), remote: true do %>
       <div id="finish-poll-take" class="btn blue-btn pull-bottom-btn">

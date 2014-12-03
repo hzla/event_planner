@@ -77,7 +77,8 @@
 							<div class="type-label">Date Picker</div>
 						</div>
 					</div>
-					<div class="poll-field blue no-mobile" id="confirm-simple-event">+ Add a new question</div>
+					
+						<div class="poll-field blue no-mobile" id="confirm-simple-event">+ Add a new question</div>
 				<% end %>
 			</div>
 	<% if @browser.mobile? %>
@@ -87,10 +88,12 @@
 		</div>
 	<% end %>
 </div>
-<div class="bottom-btn-container double full-fixed double-row no-mobile desk" id="simple-event-btns">
-	<div class="btn blue-btn submit-simple-event btn-bot inactive">Done</div>  
-	<div class="poll-field blue mobile btn-top" id="confirm-simple-event">+ Add a new question</div>
-</div>
+<% if !@browser.mobile? %>
+	<div class="bottom-btn-container double full-fixed double-row no-mobile desk" id="simple-event-btns">
+		<div class="btn blue-btn submit-simple-event btn-bot inactive">Done</div>  
+		<div class="poll-field blue mobile btn-top" id="confirm-simple-event">+ Add a new question</div>
+	</div>
+<% end %>
 
 <div id="poll-url-overlay" class="hidden">
 	<div id="poll-url-container">
@@ -99,6 +102,9 @@
 			<%= text_field_tag :poll_url, nil, id: "poll-url" %>
 			<div id="copy-poll-url" class="green-btn btn">Copy</div>
 		</div>
+		<%= link_to dashboard_path, id: "dashboard-btn" do %>
+			<div class="btn black-btn">Back to Dashboard</div>
+		<% end %>
 	</div>
 </div>
 
