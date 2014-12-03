@@ -43,12 +43,13 @@
 											<% end %>
 										</div>
 									<% end %>
-									<div class="cell poll-taker-name total">Total</div>
-									<% @event.polls.last.choices_for(question).each_with_index do |choice, i| %>
-										<div class="cell <%= "col-#{i}" %> total">
-											<%= choice.yes_count %>
-										</div>
-									<% end %>
+									
+								<% end %>
+								<div class="cell poll-taker-name total">Total</div>
+								<% @event.polls.last.choices_for(question).each_with_index do |choice, i| %>
+									<div class="cell <%= "col-#{i}" %> total">
+										<%= choice.yes_count %>
+									</div>
 								<% end %>
 							</div>
 					</div>

@@ -2,7 +2,7 @@ class PollsController < ApplicationController
 
   include SessionsHelper
   skip_before_action :require_login, only: "show"
-  before_filter :check_event_ownership
+
 
   def find_or_create
     @event = Event.find params[:event_id]
