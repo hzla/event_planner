@@ -39,11 +39,11 @@
 	<%= render partial: 'events/new' %>
 </div>
 
+<%= render partial: 'events/typepicker' %>
 
-<% if current_user.activation != "activated" %>
-	
+
+<% if current_user.activation != "activated" %>	
 	<%= render partial: 'activation' %>
-
 <% end %>
 
 

@@ -31,6 +31,11 @@ body .btn.inactive, body .btn.inactive:hover {
 	background: $green;
 }
 
+.grey-btn {
+	background: $grey;
+	color: $dark-grey;
+}
+
 
 .bottom-btn-container {
 	.black-btn:hover {
@@ -54,8 +59,15 @@ body .btn.inactive, body .btn.inactive:hover {
 		background: #00aa80;
 		color: white;
 	}
+	.grey-btn:hover {
+		background: $border-grey;
+	}
 
 }
+.grey-btn:hover {
+	background: $border-grey;
+}
+
 .black-btn:hover {
 		background: white;
 		color: $dark-grey;

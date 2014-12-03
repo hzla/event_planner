@@ -1,0 +1,18 @@
+<div id="event-typepicker-overlay" class="hidden">
+	<div id="event-typepicker-container">
+		<div id="typepicker-header">
+			What kind of event are you making a poll for?
+		</div>
+		<div id="typepicker-content">
+			<div class="event-type" id="show-poll-form">
+				<%= image_tag 'event-opentable.svg', :class => "typepicker-pic" %>
+				<div class="event-type-label red">Dinner Reservation</div>
+			</div>
+			<%= link_to new_simple_event_path, :class => "event-type" do %>
+					<%= image_tag 'event-simple.svg', :class => "typepicker-pic" %>
+					<div class="event-type-label blue">Anything Goes</div>
+			<% end %>
+			<div class="btn grey-btn" id="cancel-typepicker">Cancel</div>
+		</div>
+	</div>
+</div>

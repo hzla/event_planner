@@ -1,0 +1,78 @@
+@import 'variables';
+
+#event-typepicker-overlay {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	background: rgba(0,0,0,.3);
+	left: 0;
+	top: 0;
+	z-index: 10;
+}
+
+#event-typepicker-container {
+	background: white;
+	position: absolute;
+	max-width: 100%;
+	top: 100px;
+	width: 600px;
+	left: calc(50% - 300px);
+	z-index: 11;
+}
+
+#typepicker-header {
+	background: $light-grey;
+	font-weight: 700;
+	text-align: center;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+}
+
+#typepicker-content {
+	width: calc(100% - 120px);
+	margin: 40px auto;
+}
+
+.event-type {
+	display: inline-block;
+	width: 49%;
+	text-align: center;
+	cursor: pointer;
+}
+
+
+.typepicker-pic {
+	width: 160px;
+}
+
+.event-type-label {
+	width: 100%;
+	text-align: center;
+	margin: 20px 0px;
+	height: 40px;
+}
+
+#cancel-typepicker {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	margin: 40px 0px;
+}
+
+@media (max-width: 1023px) {
+	body {
+		#event-typepicker-container {
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+		}
+		.event-type {
+			width: 49%;
+		}
+		.typepicker-pic {
+			width: 120px;
+		}
+	}
+}

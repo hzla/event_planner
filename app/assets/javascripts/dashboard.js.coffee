@@ -1,6 +1,8 @@
 Dashboard =
   init: ->
-    $('body').on 'click', '#create-poll', @showPollForm
+    $('body').on 'click', '#create-poll', @showEventTypepicker
+    $('body').on 'click', '#event-typepicker-overlay, #cancel-typepicker' ,@hideEventTypepicker
+    $('body').on 'click', '#show-poll-form', @showPollForm
     $('body').on 'click touchend', '#cancel-form', @hidePollForm
     $('body').on 'ajax:success', '#activation-form', @showActivation
 
@@ -15,8 +17,21 @@ Dashboard =
         $('.activation-email.btn').val 'Submit'
       , 2000
 
+  showEventTypepicker:  ->
+    $('#event-typepicker-overlay').show()
+    # $('#event-typepicker-container').click (e) ->
+    #   e.stopPropagation()
+
+  hideEventTypepicker: (e) ->
+    console.log e.target
+    console.log $('#event-typepicker-overlay')[0]
+    if e.target == $('#event-typepicker-overlay')[0] || e.target == $('#cancel-typepicker')[0]
+      $('#event-typepicker-overlay').hide()
+
   showPollForm: ->
     setTimeout ->
+      console.log "hi there"
+      $('#event-typepicker-overlay').hide()
       $('.main-logo.pic, #header-left, .event, .tutorial').hide()
       $('.main-header-text').hide()
       $('.bottom-btn-container').first().hide()
