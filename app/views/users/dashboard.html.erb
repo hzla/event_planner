@@ -1,12 +1,5 @@
 <%= content_for :header do %>
-  <div class="header-pic-container">
-    <%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
-    <div class="profile-tooltip">
-      <%= current_user.name %><br>
-      <%= link_to logout_path, class: "logout" do %>Logout<% end %>
-    </div>
-    <div class="tail"></div>
-  </div>
+    <%= render partial: '/shared/header_pic_container' %>
     <div class="hidden desk-text" id="cancel-form">Cancel</div>
     <%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
     <div class="main-logo text mobile main-header-text">dinnerPoll</div>

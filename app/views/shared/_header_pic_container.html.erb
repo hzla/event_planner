@@ -1,0 +1,8 @@
+<div class="header-pic-container">
+  <%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
+  <div class="profile-tooltip">
+    <%= link_to current_user.name, profile_path, class: "profile-link" %><br>
+    <%= link_to logout_path, class: "logout" do %>Logout<% end %>
+  </div>
+  <div class="tail"></div>
+</div>
