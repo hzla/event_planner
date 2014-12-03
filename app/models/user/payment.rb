@@ -28,8 +28,20 @@ class User
 
     def has_valid_payment_access_token?
       return false unless has_payment_access_token?
-      response = WEPAY.call("/user", self.payment_access_token)
+      response = payment_user_account
       response && response["user_id"] ? true : false
+    end
+
+    def payment_user_account
+      return false unless has_payment_access_token?
+      WEPAY.call("/user", self.payment_access_token)
+    end
+
+    def resend_payment_user_registration_confirmation_email
+      return false unless has_payment_access_token?
+      response = WEPAY.call("/user/resend_confirmation", self.payment_access_token)
+      puts "resend user registration confirmaion response: #{response.inspect}"
+      response
     end
 
     def has_payment_access_token?

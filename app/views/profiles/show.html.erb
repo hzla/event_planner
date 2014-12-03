@@ -10,12 +10,22 @@
       <dl>
         <dt>Your WePay access token:</dt>
         <dd>
-          <%= @user.payment_access_token %><br/>
-          <%= f.check_box :regenerate_payment_access_token %>
-          <%= f.label :regenerate_payment_access_token %>
+          <%= @user.payment_access_token %>
+          <% unless @user.has_valid_payment_access_token? %>
+            <br/>
+            <%= f.check_box :regenerate_payment_access_token %>
+            <%= f.label :regenerate_payment_access_token %>
+          <% end %>
         </dd>
-        <dt>Is WePay access token valid?:</dt>
-        <dd><%= @user.has_valid_payment_access_token? ? "Yes" : "No" %></dd>
+
+        <dt>WePay Account Status:</dt>
+        <dd>
+          <%= @user.payment_user_account["state"] %>
+          <% if @user.payment_user_account["state"] == "pending" %>
+            <%= f.check_box :resend_payment_user_registration_confirmation_email %>
+            <%= f.label :resend_payment_user_registration_confirmation_email %>
+          <% end %>
+        </dd>
       </dl>
       <%= f.submit %>
     <% end %>

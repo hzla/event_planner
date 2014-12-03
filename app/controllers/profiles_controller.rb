@@ -7,6 +7,11 @@ class ProfilesController < ApplicationController
 
   def update
     puts "params: #{params.inspect}"
+
+    if params[:profile][:resend_payment_user_registration_confirmation_email]
+      current_user.resend_payment_user_registration_confirmation_email
+    end
+
     if params[:profile][:regenerate_payment_access_token]
       user = current_user
       unless user.has_payment_user_id?
