@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :outings
   attr_accessible :name, :email, :profile_pic_url, :location, :phone_number, :uu_id, :activation
 
+  include Payment
+
   def self.create_with_facebook auth_hash
     timezone = auth_hash.extra.raw_info.timezone
     profile = auth_hash['info']

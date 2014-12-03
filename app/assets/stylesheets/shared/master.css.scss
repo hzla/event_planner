@@ -17,6 +17,10 @@ input, select {
     -webkit-appearance: none;
 }
 
+input[type='checkbox'] {
+  -webkit-appearance: checkbox;
+}
+
 div, input {
   -webkit-transition: background .5s;
 }

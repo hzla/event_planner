@@ -8,8 +8,7 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
   post '/activate', to: 'users#activate', as: 'activation'
-  get '/profile', to: 'users#show_profile'
-  patch '/profile', to: 'users#update_profile'
+  resource :profile, only: [:show, :update]
 
   resources :events, only: [:create, :show] do
     get '/polls/find_or_create', to: 'polls#find_or_create', as: 'find_or_create_poll'

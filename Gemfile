@@ -36,6 +36,7 @@ gem 'sidekiq'
 gem 'slim'
 gem 'redis'
 gem 'zeroclipboard-rails'
+gem 'wepay'
 
 
 

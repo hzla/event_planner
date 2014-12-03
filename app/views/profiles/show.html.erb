@@ -1,0 +1,23 @@
+<%= content_for :header do %>
+  <%= render partial: '/shared/header_pic_container' %>
+<% end %>
+
+<div id="content-container" class="welcome-dashboard generic">
+  <div>
+    <h1>Your Profile</h3>
+
+    <%= form_for :profile, url: profile_path, method: :put do |f| %>
+      <dl>
+        <dt>Your WePay access token:</dt>
+        <dd>
+          <%= @user.payment_access_token %><br/>
+          <%= f.check_box :regenerate_payment_access_token %>
+          <%= f.label :regenerate_payment_access_token %>
+        </dd>
+        <dt>Is WePay access token valid?:</dt>
+        <dd><%= @user.has_valid_payment_access_token? ? "Yes" : "No" %></dd>
+      </dl>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     render json: {activated: activated}
   end
 
-  def show_profile
+  def profile
     @user = current_user
   end
 end
