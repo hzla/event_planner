@@ -69,8 +69,8 @@ SimpleNewEvent =
     </a>") 
     $('#poll-url')[0].select()
     $('.submit-simple-event').addClass('inactive')
-    $('#simple-event-btns').append("<div class='btn blue-btn btn-bot' id='get-poll-url'>Get Poll Url</div>")
-    $('#simple-event-btns').append("<a href='/dashboard'><div class='btn black-btn btn-bot'>Back to dashboard</div></a>")
+    $('#simple-event-btns').append("<div class='btn blue-btn btn-bot' id='get-poll-url'>Get Poll Link</div>")
+    $('#simple-event-btns').append("<a href='/dashboard'><div class='btn black-btn btn-bot'>Back to Dashboard</div></a>")
       
   showPollUrlContainer: ->
     $('#poll-url-overlay').show()
