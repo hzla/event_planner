@@ -365,6 +365,7 @@
     #landing-header {
       width: 100%;
       left: 0;
+      text-align: center;
     }
     #section-footer {
       height: 40px;
@@ -373,8 +374,9 @@
       color: $dark-grey;
     }
     #landing-logo {
-      left: calc(50% - 120px);
       height: 40px;
+      position: static;
+      margin: 10px auto;
     }
     .mid-section {
       .title-landing-text {
@@ -382,12 +384,12 @@
         text-align: center;
         font-size: 44px;
         width: 100vw;
+        left: 0px;
+        line-height: 1.2
       }
     }
     #iphone-1 {
-      float: left;
-      margin: 40px 0px;
-      margin-left: calc(50% - 130px);
+      margin: 40px auto;
       position: static;
       clear: left;
       height: 70vh;
@@ -407,7 +409,7 @@
     .showcase-subtext {
       width: 100%;
       left: 0;
-      top: 50vh;
+      top: 60vh;
       font-size: 25px;
     }
     .blur-image {

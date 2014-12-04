@@ -6,7 +6,11 @@
 	    <%= link_to dashboard_path do %>
 	    	<%= image_tag 'arrowback.svg', id: 'header-left', :class => "mobile" %>
 	 		<% end %>
- 		<% end %>
+ 		<% else %>
+	 		<%= link_to dashboard_path do %>
+	    	<div class="desk-text simple-form" id="cancel-form">Cancel</div>
+	 		<% end %>
+	 	<% end %>
     <div class="text mobile whos-going">POLL INFO</div>
     <div class="desk-text-header whos-going">POLL INFO</div>
 <% end %>
@@ -130,9 +134,8 @@
   $('body').css('background', 'white')
   $(document).ready(function(){
   	$('#event_name').focus()
-  })
+ 		$('.main-logo').hide()
 
-  $(document).ready(function() {
     var clip = new ZeroClipboard($("#copy-poll-url"))
     clip.on('aftercopy', function(){
     	$('#copy-poll-url').text("Copied")

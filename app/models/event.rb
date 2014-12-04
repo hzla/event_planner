@@ -140,10 +140,10 @@ class Event < ActiveRecord::Base
 	end
 
 	def service_pic
-		if choices.first.choice_type == nil
-			'event-opentable.svg'
-		else
+		if choices.first.choice_type != nil && !choices.empty?
 			'event-simple.svg'
+		else
+			'event-opentable.svg'
 		end
 	end
 

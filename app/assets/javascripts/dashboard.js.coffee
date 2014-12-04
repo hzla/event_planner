@@ -3,7 +3,7 @@ Dashboard =
     $('body').on 'click', '#create-poll', @showEventTypepicker
     $('body').on 'click', '#event-typepicker-overlay, #cancel-typepicker' ,@hideEventTypepicker
     $('body').on 'click', '#show-poll-form', @showPollForm
-    $('body').on 'click touchend', '#cancel-form', @hidePollForm
+    $('body').on 'click touchend', '#cancel-form:not(.simple-form)', @hidePollForm
     $('body').on 'ajax:success', '#activation-form', @showActivation
 
   showActivation: (event, data) ->
