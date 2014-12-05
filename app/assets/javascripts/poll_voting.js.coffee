@@ -40,6 +40,7 @@ Poll =
 
   showPollFinished: ->
     $(@).hide()
+    $('#lock-event').hide()
     $('#choices').hide()
     $('#poll-finished').show()
 

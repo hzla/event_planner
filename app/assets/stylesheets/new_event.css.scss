@@ -113,7 +113,7 @@ div.poll-field {
 }
 
 .blocker {
-  background: $green;
+  background: rgba(65,65,65,.9);
   position: absolute;
   width: 100%;
   color: white;
@@ -130,7 +130,7 @@ div.poll-field {
 .blocker-text {
   width: 220px;
   position: absolute;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.3;
 }
 
@@ -138,8 +138,8 @@ div.poll-field {
   position: absolute;
   width: 40px;
   height: 40px;
-  bottom: 10px;
-  right: 20px;
+  bottom: 40px;
+  right: 40px;
   cursor: pointer;
   z-index: 1;
 }
@@ -148,8 +148,8 @@ div.poll-field {
   position: absolute;
   width: 40px;
   height: 40px;
-  bottom: 10px;
-  left: 20px;
+  bottom: 40px;
+  left: 40px;
   cursor: pointer;
   z-index: 1;
 }
@@ -162,13 +162,28 @@ div.poll-field {
 .tut-1.tut-blocker-bottom {
   height: calc(100% - 120px);
   .blocker-text {
-    left: 120px;
+    right: 40px;
     top: 40px;
+    width: 500px;    
+  }
+  .blocker-text-2 {
+    background: $light-grey;
+    position: absolute;
+    right: 40px;
+    text-align: right;
+    top: 100px;
+    width: 300px;
+    color: $dark-grey;
+    height: 160px;
+    box-sizing: border-box;
+    padding: 20px;
+    line-height: 1.2;
+
   }
   #tut-up {
     width: 60px;
     height: 90px;
-    left: 20px;
+    left: 60px;
     top: 20px;
     position: absolute;
   }
@@ -178,9 +193,11 @@ div.poll-field {
 .tut-2.tut-blocker-top {
   height: 180px;
   .blocker-text {
-    bottom: 20px;
-    right: 100px;
+    top: 40px;
+    left: 40px;
+    width: 500px;
   }
+
   #tut-down {
     width: 60px;
     height: 90px;
@@ -195,6 +212,11 @@ div.poll-field {
 
 .tut-2.tut-blocker-bottom {
   height: calc(100% - 340px);
+  .blocker-text {
+    width: 500px;
+    bottom: 50px;
+    left: calc(50% - 250px);
+  }
 }
 
 
@@ -203,17 +225,34 @@ div.poll-field {
 
 @media (max-width: 1023px) {
 	body {
+    
     .tut-1.tut-blocker-top {
       height: 45px;
     }
     .tut-1.tut-blocker-bottom {
       height: calc(100% - 83px);
+      #tut-up {
+        left: 10px;
+      }
+    }
+    .tut-2.tut-blocker-top {
+      height: 127px;
+      .blocker-text {
+        max-width: 250px;
+      }
+    }
+    .tut-2.tut-blocker-bottom {
+      .blocker-text {
+        max-width: 200px;
+        left: calc(50% - 125px);
+        top: 10px;
+      }
     }
     .tut-1.tut-blocker-botom {
       height: calc(100% - 300px);
     }
 		.blocker-text {
-			width: 200px;
+			max-width: 200px;
 		}
     #event_start_date {
       border-top: 1px solid $border-grey;

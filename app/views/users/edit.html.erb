@@ -1,0 +1,106 @@
+<%= content_for :header do %>
+  <div class="header-pic-container">
+    <%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
+    <div class="profile-tooltip">
+    	<%= link_to edit_user_path(current_user), :class => "white" do %>
+      	<%= current_user.name %><br>
+      <% end %>
+      <%= link_to logout_path, class: "logout" do %>Logout<% end %>
+    </div>
+    <div class="tail"></div>
+  </div>
+    <%= image_tag current_user.profile_pic_url, id: 'header-left', :class => "mobile" %>
+    <div class="main-logo text mobile main-header-text">dinnerPoll</div>
+    <div class="text mobile hidden whos-going">User Settings</div>
+    <div class="desk-text-header whos-going hidden">USER SETTINGS</div>
+<% end %>
+
+
+<div id="content-container" class="welcome-dashboard generic">
+
+		<%= form_for @user, remote: true do |f| %>
+			<div class="grey-back-wrapper">
+				<div class="poll-field bold email-me side-margined">Email me when:</div>
+			</div>
+			<div class="poll-field side-margined" id="on-vote">
+				Someone votes on my poll
+				<div class="user-setting-container">
+					<div class="svg-container yes <%= "#{'selected' if @user.mail_on_vote}" %> ">
+						<%= image_tag 'checkdarkgreen.svg', :class => "svg setting-icon" %>
+					</div>
+					<div class="svg-container no <%= "#{'selected' if !@user.mail_on_vote}" %>">
+						<%= image_tag 'delete.svg', :class => "svg setting-icon" %>
+					</div>
+				</div>
+			</div>
+			<div class="poll-field side-margined" id="on-res-success">
+				A reservation is successful
+				<div class="user-setting-container">
+					<div class="svg-container yes <%= "#{'selected' if @user.mail_on_res_success}" %>">
+						<%= image_tag 'checkdarkgreen.svg', :class => "svg setting-icon" %>
+					</div>
+					<div class="svg-container no <%= "#{'selected' if !@user.mail_on_res_success}" %>">
+						<%= image_tag 'delete.svg', :class => "svg setting-icon" %>
+					</div>
+				</div>
+			</div>
+			<div class="poll-field side-margined" id="on-res-failure">
+				A reservation can't be made
+				<div class="user-setting-container">
+					<div class="svg-container yes <%= "#{'selected' if @user.mail_on_res_failure}" %>">
+						<%= image_tag 'checkdarkgreen.svg', :class => "svg setting-icon" %>
+					</div>
+					<div class="svg-container no <%= "#{'selected' if !@user.mail_on_res_failure}" %>">
+						<%= image_tag 'delete.svg', :class => "svg setting-icon" %>
+					</div>
+				</div>
+			</div>
+			<div class="poll-field side-margined" id="on-res-24-hour">
+				My reservation time is 24 hours away
+				<div class="user-setting-container">
+					<div class="svg-container yes <%= "#{'selected' if @user.mail_on_res_24_hour}" %>">
+						<%= image_tag 'checkdarkgreen.svg', :class => "svg setting-icon" %>
+					</div>
+					<div class="svg-container no <%= "#{'selected' if !@user.mail_on_res_24_hour}" %>">
+						<%= image_tag 'delete.svg', :class => "svg setting-icon" %>
+					</div>
+				</div>
+			</div>	
+			<%= f.hidden_field :mail_on_vote %>
+			<%= f.hidden_field :mail_on_res_success %>
+			<%= f.hidden_field :mail_on_res_failure %>
+			<%= f.hidden_field :mail_on_res_24_hour %>	
+			<div class="bottom-btn-container fixed">
+				<%= f.submit "Save", id: "save-settings", :class => "btn blue-btn" %>
+			</div>
+		<% end %>
+
+		
+
+
+
+
+</div>
+
+
+<script>
+  $('img.svg').each(function(){
+    var $img = $(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
+    $.get(imgURL, function(data) {
+        var $svg = $(data).find('svg');
+        if(typeof imgID !== 'undefined') {
+            $svg = $svg.attr('id', imgID);
+        }
+        if(typeof imgClass !== 'undefined') {
+            $svg = $svg.attr('class', imgClass+' replaced-svg');
+        }
+        $svg = $svg.removeAttr('xmlns:a');
+        $img.replaceWith($svg);
+    }, 'xml');
+  });
+</script>
+
+

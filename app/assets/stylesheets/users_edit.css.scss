@@ -1,0 +1,58 @@
+@import 'variables';
+
+
+.email-me {
+	background: $light-grey;
+}
+
+.edit_user {
+	.poll-field {
+		position: relative;
+	}
+	.user-setting-container {
+		position: absolute;
+		height: 100%;
+		right: 0px;
+		top: 0px;
+		width: 100px;
+	}
+	.setting-icon {
+		height: 20px;
+		width: 20px;
+		cursor: pointer;
+		position: absolute;
+		top: 20px;
+		path  {
+			fill: $grey;
+		}
+	}
+	.svg-container.selected.yes {
+		.setting-icon {
+			path {
+				fill: $green;
+			}
+		}
+	}
+
+	.svg-container.selected.no {
+		.setting-icon {
+			path {
+				fill: $red;
+			}
+		}
+	}
+	.yes .setting-icon {
+		right: 40px;
+	}
+	.no .setting-icon {
+		right: 0px;
+	}
+}
+
+@media (max-width: 1023px) {
+	body .edit_user { 
+		.no .setting-icon {
+			right: 10px;
+		}
+	}
+}

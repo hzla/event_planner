@@ -7,7 +7,7 @@
   width: 100px;
   display: block;
   margin: 0 auto;
-  padding: 10px 0px;
+  padding: 40px 0px;
 }
 
 #welcome-text {
@@ -63,10 +63,52 @@ div.event {
 .event-line-text {
   width: auto;
   line-height: 20px;
-  max-width: calc(100% - 90px);
+  max-width: calc(100% - 150px);
+  margin-left: 60px;
+}
+
+.event-profile-pic-container {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  .event-profile-pic-overlay {
+    position: absolute;
+    border-radius: 60px;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.4)
+  }
+  .event-profile-pic {
+    position: absolute;
+    border-radius: 60px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .event-profile-initials {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 60px;
+    height: 100%;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+  }
 }
 
 .event-name {
+}
+
+.poll-ended {
+  margin-left: 20px;
 }
 
 .event-voters {
@@ -120,6 +162,10 @@ div.event {
       margin-bottom: 8px;
       height: 100px;
     }
+    .event-profile-pic-container {
+      top: 20px;
+      left: 10px;
+    }
     .event-arrow{
       right: 15px;
       top: 33px;
@@ -131,6 +177,9 @@ div.event {
     .event-voters {
       bottom: 10px;
       right: $mg;
+    }
+    .event-line-text {
+      margin-left: 80px;
     }
     .event-line-text.bottom-line {
       bottom: 10px;

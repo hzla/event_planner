@@ -59,11 +59,28 @@
 	<%= form_tag simple_poll_vote_path(id: @poll.id), id: 'simple-events-vote-form' do %>
 		<% hidden_field_tag :choice_values, @poll.all_selected_values %>
 	<% end %>
-	<div class="bottom-btn-container">
-		<div class="btn-rnd blue-btn pull-down done submit-simple-event-votes">
-			Submit
+	<% if @event.user_id != current_user.id %>
+    <div class="bottom-btn-container">
+			<div class="btn-rnd blue-btn pull-down done submit-simple-event-votes">
+				Submit
+			</div>
 		</div>
-	</div>
+  <% else %>
+    <div class="bottom-btn-container double">
+      <div class="bottom-btn-container double">
+				<div class="btn blue-btn first pull-down done submit-simple-event-votes">
+					Submit
+				</div>
+				<%= link_to event_lock_path(@event) do %>
+	        <div id="lock-event" class="btn red-btn pull-bottom-btn">
+	          End Poll
+	        </div>
+	      <% end %>
+			</div>
+    </div>
+  <% end %>
+
+
 </div>
 
 

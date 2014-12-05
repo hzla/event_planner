@@ -2,7 +2,9 @@
   <div class="header-pic-container">
     <%= image_tag current_user.profile_pic_url, id: 'header-right-pic' %>
     <div class="profile-tooltip">
-      <%= current_user.name %><br>
+      <%= link_to edit_user_path(current_user), :class => "white" do %>
+      	<%= current_user.name %><br>
+      <% end %>
       <%= link_to logout_path, class: "logout" do %>Logout<% end %>
     </div>
     <div class="tail"></div>

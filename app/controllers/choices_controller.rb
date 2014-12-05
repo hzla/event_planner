@@ -9,6 +9,9 @@ class ChoicesController < ApplicationController
     @tutorial = session[:new_poll_taker] 
     session[:new_poll_taker] = nil
     @event = @poll.event
+    if @event.locked
+      redirect_to simple_results_path(@event) and return
+    end
     if params[:code] != @poll.url.split("?code=").last
       redirect_to root_path
     end
@@ -35,7 +38,6 @@ class ChoicesController < ApplicationController
     choice_info = extract_choice_attribute_arrays_from params
     @event.choices.destroy_all if !@event.choices.empty?
     Choice.create_choices_using_list_of_attributes choice_info, @event
-    # @event.clear_dups
     @event.populate_polls_with_choices
     redirect_to event_path(@event_id)
   end
@@ -53,6 +55,8 @@ class ChoicesController < ApplicationController
     @poll = Poll.find(params[:id])
     @event = @poll.event
     @choice = @poll.top_choice
+    user = @poll.event.user
+    UserMailer.vote_email(@poll, user).deliver if user.mail_on_vote
     if @event.should_book?(@choice) 
       ReservationWorker.perform_async({restaurant_id: @choice.service_id, start_time: @event.parsed_start_time,
       end_time: @event.parsed_end_time, party_size: @event.rsvps , first_name: @event.user.first_name, last_name: @event.user.last_name, 

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div>
+      <p><%= @poll.user.name %> voted on your poll:<br>
+        <% @poll.choices.each do |choice| %>
+          <% if choice.yes != nil %>
+            <%= choice.value %>: <%= "#{choice.yes ? 'yes' : 'no' }" %><br>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #Instagator/DinnerPoll routes
 
   root to: 'pages#home'
@@ -7,13 +8,16 @@ Rails.application.routes.draw do
   get '/instagator', to: 'pages#dinner_poll', as: 'dinner_poll'
 
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
+  resources :users, only: [:edit, :update]
   post '/activate', to: 'users#activate', as: 'activation'
 
   resources :events, only: [:create, :show] do
     get '/polls/find_or_create', to: 'polls#find_or_create', as: 'find_or_create_poll'
   end
   get '/events/:id/take', to: 'events#route', as: 'route_event'
+  get '/events/:id/lock', to: 'events#lock', as: 'event_lock'
   get '/events/:id/generate_poll', to: 'events#generate_poll', as: 'generate_poll'
+
 
   resources :polls, only: [:show] do
     resources :choices, only: [:index]

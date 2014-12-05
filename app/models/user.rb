@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   has_many :authorizations, dependent: :destroy
   has_many :events, through: :outings
   has_many :outings
-  attr_accessible :name, :email, :profile_pic_url, :location, :phone_number, :uu_id, :activation
+  attr_accessible(:role, :name, :email, :profile_pic_url, :location, :phone_number,
+  :uu_id, :activation, :mail_on_vote, :mail_on_res_success, :mail_on_res_failure, :mail_on_res_24_hour)
+
 
   def self.create_with_facebook auth_hash
     timezone = auth_hash.extra.raw_info.timezone

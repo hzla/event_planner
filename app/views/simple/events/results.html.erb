@@ -19,9 +19,11 @@
 						</div>
 					<% else %>
 						<div class="poll-field question-name">
-							<div class="question-num no-mobile"><%= count %><% count += 1 %>.</div>
 							<%= question %>
-							<%= image_tag 'dategrey.svg', :class => "type-pic date-type svg" %>
+							<% if choices.first.choice_type != nil %>
+								<div class="question-num no-mobile"><%= count %><% count += 1 %>.</div>
+								<%= image_tag 'dategrey.svg', :class => "type-pic date-type svg" %>
+							<% end %>
 						</div>
 					<% end %>
 					<div class="simple-question-results simple-voter">
@@ -60,21 +62,25 @@
 
 
 <script>
-  $('img.svg').each(function(){
-    var $img = $(this);
-    var imgID = $img.attr('id');
-    var imgClass = $img.attr('class');
-    var imgURL = $img.attr('src');
-    $.get(imgURL, function(data) {
-        var $svg = $(data).find('svg');
-        if(typeof imgID !== 'undefined') {
-            $svg = $svg.attr('id', imgID);
-        }
-        if(typeof imgClass !== 'undefined') {
-            $svg = $svg.attr('class', imgClass+' replaced-svg');
-        }
-        $svg = $svg.removeAttr('xmlns:a');
-        $img.replaceWith($svg);
-    }, 'xml');
-  });
+	$(document).ready(function(){
+		$('img.svg').each(function(){
+	    var $img = $(this);
+	    var imgID = $img.attr('id');
+	    var imgClass = $img.attr('class');
+	    var imgURL = $img.attr('src');
+	    $.get(imgURL, function(data) {
+	        var $svg = $(data).find('svg');
+	        if(typeof imgID !== 'undefined') {
+	            $svg = $svg.attr('id', imgID);
+	        }
+	        if(typeof imgClass !== 'undefined') {
+	            $svg = $svg.attr('class', imgClass+' replaced-svg');
+	        }
+	        $svg = $svg.removeAttr('xmlns:a');
+	        $img.replaceWith($svg);
+	    }, 'xml');
+	  });
+	  $('.question-name').first().click()
+	})
+  
 </script>

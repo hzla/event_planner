@@ -73,8 +73,21 @@
 			height: 100%;
 			width: 100%;
 		}
+		#typepicker-content {
+			width: calc(100% - 40px);
+		}
+		#typepicker-header {
+			box-sizing: border-box;
+			padding: 0 20px;
+		}
 		.event-type {
 			width: 49%;
+		}
+		a .event-type-label {
+			margin-top: 37px;
+		}
+		.typepicker-pic {
+			width: 50px;
 		}
 	}
 }

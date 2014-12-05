@@ -36,6 +36,8 @@ gem 'httparty'
 gem 'sidekiq'
 gem 'slim'
 gem 'redis'
+gem 'rails_admin'
+gem 'will_paginate'
 
 ############### custom
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div>
+      <p>User: <%= @user.name %><br><br>
+      	Time Range: <%= @time_range %><br><br>
+      	Email: <%= @user.email %><br><br>
+      	Url: <%= link_to @url, @url %>
+      </p>
+
+     	<p>
+     		Additional User/Event Info:<br><br>
+     		<%= @user.attributes %><br><br>
+     		<%= @event.attributes %><br><br>
+     	</p>
+    </div>
+  </body>
+</html>

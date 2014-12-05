@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   include SessionsHelper
 
-  before_filter :get_event, only: [:activate, :route, :generate_poll, :show]
+  before_filter :get_event, only: [:activate, :route, :generate_poll, :show, :lock]
   skip_before_filter :require_login, only: [:route]
 
   
@@ -10,6 +10,14 @@ class EventsController < ApplicationController
     @event = Event.create params[:event]
     @event.assign_user_and_create_first_poll current_user
     redirect_to opentable_path(event_id: @event.id)
+  end
+
+  def lock
+    @event.update_attributes locked: true  
+    @event.users.each do |user|
+      ResultsMailerWorker.perform_async(user.id, @event.id)
+    end
+    redirect_to dashboard_path
   end
 
   def route

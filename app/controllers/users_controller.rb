@@ -21,4 +21,18 @@ class UsersController < ApplicationController
     activated = true
     render json: {activated: activated}
   end
+
+  def edit
+    @user = User.find params[:id]
+    redirect_to dashboard_path if @user != current_user
+  end
+
+  def update
+    if @user != current_user
+      redirect_to dashboard_path and return
+    end
+    @user = User.find params[:id]
+    @user.update_attributes params[:user]
+    render nothing: true
+  end
 end

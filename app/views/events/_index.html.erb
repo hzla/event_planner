@@ -2,6 +2,13 @@
   <%= link_to event.vote_url(current_user) do %>
     <% if event.owned_by?(current_user) %>
       <div class="event <%= event.html_classes(current_user) %>">
+        <div class="event-profile-pic-container">
+          <%= image_tag event.user.profile_pic_url, :class => "event-profile-pic" %>
+          <div class="event-profile-pic-overlay"></div>
+          <div class="event-profile-initials">
+            <%= event.user.name.split(" ").map {|word| word[0]}.join("") %>
+          </div>
+        </div>
         <div class="event-line-text bold event-name <%= 'turq' if event.voted_on_by?(current_user) %>">
           <%= event.name %>
         </div>
@@ -15,7 +22,7 @@
             <% if event.current_choice %>
               <span class="grey"><%= event.rsvps %> voters </span>
             <% else %>
-              <span class="green"><%= event.response_count %> Response(s)</span>
+              <span class="green"><%= event.response_count %> Response(s)</span><span class="red poll-ended"><% if event.locked %> Poll Ended<% end %></span>
             <% end %>
             </div>
         <% end %>
@@ -24,6 +31,13 @@
       </div>
     <% else %>
       <div class="event <%= event.html_classes(current_user) %>">
+        <div class="event-profile-pic-container">
+          <%= image_tag event.user.profile_pic_url, :class => "event-profile-pic" %>
+          <div class="event-profile-pic-overlay"></div>
+          <div class="event-profile-initials">
+            <%= event.user.name.split(" ").map {|word| word[0]}.join("") %>
+          </div>
+        </div>
         <div class="event-line-text event-name">
           <span class="bold"><%= event.user.name %> invited you to</span>
         </div>

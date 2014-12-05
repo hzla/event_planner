@@ -57,19 +57,22 @@ NewEvent =
     hours + ":" + minutes + " " + time
 
   finishTut: ->
-    $('.tut-1, .tut-2').hide()
-    $('.bottom-btn-container').show()
+    $('.tut-1, .tut-2').addClass('animated fadeOut').one 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ->
+      $(@).hide()      
+    $('.bottom-btn-container').show().removeClass('animated fadeIn').addClass('animated fadeIn')
 
   showNextArrow: ->
-    $('.tut-1 #tut-right').show()
+    $('.tut-1 #tut-right').show().removeClass('animated fadeIn').addClass('animated fadeIn')
 
   goNextTutStep: ->
-    $('.tut-1').hide()
-    $('.tut-2, #tut-right').show()
+    $('.tut-1').removeClass('animated fadeIn').removeClass('animated fadeOut').addClass('animated fadeOut').one 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ->
+      $(@).hide()
+    $('.tut-2, #tut-right').show().removeClass('animated fadeIn').removeClass('animated fadeOut').addClass('animated fadeIn')
 
   goBackTutStep: ->
-    $('.tut-1').show()
-    $('.tut-2').hide()
+    $('.tut-1').show().removeClass('animated fadeIn').removeClass('fadeOut').addClass('animated fadeIn')
+    $('.tut-2').addClass('animated fadeOut').one 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ->
+      $(@).hide()
 
   checkFields: ->
     name = $('#event_name').val()

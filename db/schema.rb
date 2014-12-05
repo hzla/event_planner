@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126022605) do
+ActiveRecord::Schema.define(version: 20141205071826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20141126022605) do
     t.datetime "start_time"
     t.string   "processing_choice"
     t.string   "routing_url"
+    t.boolean  "locked"
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
@@ -131,6 +132,11 @@ ActiveRecord::Schema.define(version: 20141126022605) do
     t.string   "location"
     t.string   "phone_number"
     t.integer  "uu_id"
+    t.boolean  "mail_on_vote",        default: true
+    t.boolean  "mail_on_res_success", default: true
+    t.boolean  "mail_on_res_failure", default: true
+    t.boolean  "mail_on_res_24_hour", default: true
+    t.string   "role"
   end
 
 end
