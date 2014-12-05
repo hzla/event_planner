@@ -22,6 +22,7 @@ module Instagator
     # config.i18n.default_locale = :de
     config.assets.enabled = true
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    config.autoload_paths += Dir["#{config.root}/app/services/**"]
   end
 end
 

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :authorizations, dependent: :destroy
+  has_many :credit_cards
   has_many :events, through: :outings
   has_many :outings
   attr_accessible :name, :email, :profile_pic_url, :location, :phone_number, :uu_id, :activation

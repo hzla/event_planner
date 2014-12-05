@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203043817) do
+ActiveRecord::Schema.define(version: 20141205033430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20141203043817) do
 
   add_index "choices", ["event_id", "value"], name: "index_choices_on_event_id_and_value", using: :btree
   add_index "choices", ["poll_id"], name: "index_choices_on_poll_id", using: :btree
+
+  create_table "credit_cards", force: true do |t|
+    t.integer "user_id"
+    t.string  "wepay_credit_card_id"
+    t.string  "nickname"
+    t.string  "status"
+  end
+
+  add_index "credit_cards", ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
 
   create_table "events", force: true do |t|
     t.boolean  "finished",          default: false

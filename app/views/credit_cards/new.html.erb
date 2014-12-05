@@ -1,0 +1,59 @@
+<%= content_for :header do %>
+  <%= render partial: '/shared/header_pic_container' %>
+<% end %>
+
+<div id="content-container" class="welcome-dashboard generic">
+  <% if @credit_card.errors.any? %>
+    <p class="errors">
+    <% @credit_card.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
+    </p>
+  <% end %>
+
+  <%= form_for @credit_card, url: profile_credit_cards_path do |f| %>
+    <fieldset>
+      <legend>Card Info</legend>
+      <div class="field">
+        <%= f.label :cc_number %>
+        <%= f.text_field :cc_number %>
+      </div>
+      <div class="field">
+        <%= f.label :cvv %>
+        <%= f.text_field :cvv %>
+      </div>
+      <div class="field">
+        <%= f.label :expiration_month %>
+        <%= f.text_field :expiration_month %>
+      </div>
+      <div class="field">
+        <%= f.label :expiration_year %>
+        <%= f.text_field :expiration_year %>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Address Info</legend>
+      <div class="field">
+        <%= f.label :address1 %>
+        <%= f.text_field :address1 %>
+      </div>
+      <div class="field">
+        <%= f.label :address2 %>
+        <%= f.text_field :address2 %>
+      </div>
+      <div class="field">
+        <%= f.label :city %>
+        <%= f.text_field :city %>
+      </div>
+      <div class="field">
+        <%= f.label :state %>
+        <%= f.text_field :state %>
+      </div>
+      <div class="field">
+        <%= f.label :zip %>
+        <%= f.text_field :zip %>
+      </div>
+    </fieldset>
+    <%= f.submit %>
+  <% end %>
+</div>

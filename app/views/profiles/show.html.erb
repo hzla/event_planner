@@ -29,5 +29,25 @@
       </dl>
       <%= f.submit %>
     <% end %>
+
+    <h3>Credit Cards</h3>
+    <%= link_to "Add a new Credit Card", new_profile_credit_card_path %>
+    <% if @user.credit_cards.any? %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      <% @user.credit_cards.each do |cc| %>
+        <tr>
+          <td><%= cc.nickname %></td>
+          <td><%= cc.status %></td>
+          <td><%= link_to "Delete", profile_credit_card_path(cc), method: :delete %></td>
+        </tr>
+      <% end %>
+      </table>
+    <% end %>
+
   </div>
 </div>
