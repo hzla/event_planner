@@ -8,8 +8,8 @@
 
 .service-tab {
 	width: 50%;
-	background: $tab-dark-grey;
-	color: $tab-grey;
+	background: #d3d3d3;
+	color: $grey;
 	text-align: center;
 	box-sizing: border-box;
 	float: left;
@@ -18,9 +18,14 @@
 	cursor: pointer;
 }
 
-.service-tab.active, .service-tab:hover {
+
+.service-tab.active{
 	background: white;
 	color: $green;
+}
+
+.service-tab:hover{
+	background: white;
 }
 
 /*************** Searching *****************/
@@ -33,6 +38,7 @@
   font-size: 16px;
   padding: 0px;
 	font-weight: 400;
+	background: $light-grey;
 }
 
 #service-search-form {
