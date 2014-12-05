@@ -8,6 +8,7 @@
           <div class="event-profile-initials">
             <%= event.user.name.split(" ").map {|word| word[0]}.join("") %>
           </div>
+          <%= image_tag event.service_pic, :class => "event-service-icon mobile" %>
         </div>
         <div class="event-line-text bold event-name <%= 'turq' if event.voted_on_by?(current_user) %>">
           <%= event.name %>
@@ -26,8 +27,11 @@
             <% end %>
             </div>
         <% end %>
+        <%= link_to simple_results_path(event) do %>
+          <div class="event-results blue no-mobile">View Results</div>
+        <% end %>
         <%= image_tag "dasharrow.svg", :class => "event-arrow" %>
-        <%= image_tag event.service_pic, :class => "event-service-icon" %>
+        <%= image_tag event.service_pic, :class => "event-service-icon no-mobile" %>
       </div>
     <% else %>
       <div class="event <%= event.html_classes(current_user) %>">
@@ -37,6 +41,7 @@
           <div class="event-profile-initials">
             <%= event.user.name.split(" ").map {|word| word[0]}.join("") %>
           </div>
+          <%= image_tag event.service_pic, :class => "event-service-icon mobile" %>
         </div>
         <div class="event-line-text event-name">
           <span class="bold"><%= event.user.name %> invited you to</span>
@@ -52,7 +57,11 @@
             <span class="green">You Voted</span>
           <% end %>
         </div>
+        <%= link_to simple_results_path(event) do %>
+          <div class="event-results blue no-mobile">View Results</div>
+        <% end %>
         <%= image_tag "arrowcripplegreen.svg", :class => "event-arrow" %>
+        <%= image_tag event.service_pic, :class => "event-service-icon no-mobile" %>
       </div>
     <% end %>
   <% end %>

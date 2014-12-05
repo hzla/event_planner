@@ -63,7 +63,7 @@ div.event {
 .event-line-text {
   width: auto;
   line-height: 20px;
-  max-width: calc(100% - 150px);
+  max-width: calc(100% - 260px);
   margin-left: 60px;
 }
 
@@ -81,6 +81,12 @@ div.event {
     top: 0;
     left: 0;
     background: rgba(0,0,0,.4)
+  }
+  .event-service-icon {
+    right: -5px;
+    top: 32px;
+    height: 24px;
+    width: 24px;
   }
   .event-profile-pic {
     position: absolute;
@@ -122,6 +128,14 @@ div.event {
   bottom: $dg;
   width: auto;
   left: $dg;
+}
+
+.event-results {
+  position: absolute;
+  right: 120px;
+  height: 120px;
+  line-height: 120px;
+  top: 0px;
 }
 
 .event-arrow {

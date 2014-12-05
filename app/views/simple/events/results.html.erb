@@ -14,12 +14,12 @@
 					<% if choices.first.choice_type == "text" %>
 						<div class="poll-field question-name">
 							<div class="question-num no-mobile"><%= count %><% count += 1 %>.</div>
-							<%= question %>
+							<%= question || "Click to view Results" %>
 							<%= image_tag 'customgrey.svg', :class => "type-pic text-type svg" %>
 						</div>
 					<% else %>
 						<div class="poll-field question-name">
-							<%= question %>
+							<%= question || "Click to view Results" %>
 							<% if choices.first.choice_type != nil %>
 								<div class="question-num no-mobile"><%= count %><% count += 1 %>.</div>
 								<%= image_tag 'dategrey.svg', :class => "type-pic date-type svg" %>
