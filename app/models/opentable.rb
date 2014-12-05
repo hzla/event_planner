@@ -38,13 +38,12 @@ class Opentable
       cancel(event.confirmation_id) if event.confirmation_id
       event.update_attributes confirmation_id: c_id.to_i, current_choice: choice.value, processing_choice: nil
       event.users.each do |user|
-        UserMailer.reservation_success(event, user.email).deliver
+        UserMailer.reservation_success(event, user.email).deliver if user.mail_on_res_success
       end
     else
-
       url =  parsed_response["url"]
       event.update_attributes processing_choice: choice.value
-      UserMailer.reservation_info(url, email).deliver
+      UserMailer.reservation_info(url, email).deliver if user.mail_on_res_failure
       UserMailer.reservation_failure(event, url, "#{options['start_time']} to #{options['end_time']}").deliver
     end
     parsed_response

@@ -136,8 +136,8 @@ div.poll-field {
 
 #tut-right {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   bottom: 40px;
   right: 40px;
   cursor: pointer;
@@ -146,8 +146,8 @@ div.poll-field {
 
 #tut-left {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   bottom: 40px;
   left: 40px;
   cursor: pointer;
@@ -166,20 +166,7 @@ div.poll-field {
     top: 40px;
     width: 500px;    
   }
-  .blocker-text-2 {
-    background: $light-grey;
-    position: absolute;
-    right: 40px;
-    text-align: right;
-    top: 100px;
-    width: 300px;
-    color: $dark-grey;
-    height: 160px;
-    box-sizing: border-box;
-    padding: 20px;
-    line-height: 1.2;
 
-  }
   #tut-up {
     width: 60px;
     height: 90px;
@@ -214,8 +201,9 @@ div.poll-field {
   height: calc(100% - 340px);
   .blocker-text {
     width: 500px;
-    bottom: 50px;
+    bottom: 45px;
     left: calc(50% - 250px);
+    text-align: right;
   }
 }
 
