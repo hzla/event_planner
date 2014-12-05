@@ -65,6 +65,11 @@ div.event {
   line-height: 20px;
   max-width: calc(100% - 260px);
   margin-left: 60px;
+  font-size: 14px;
+}
+
+.event-line-text.event-name {
+  font-size: 16px;
 }
 
 .event-profile-pic-container {

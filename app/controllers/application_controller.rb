@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   before_action :set_device_type
   before_action :require_login
 
-
   private
 
   def require_login

@@ -5,10 +5,10 @@ NewEvent =
     $('.tut-2 #tut-left').click @goBackTutStep
     $('.tut-2 #tut-right').click @finishTut
     $('#event_threshold').change @showNextArrow
-
+   
     # validation
     $('body').on 'submit', '.new_event, .edit_event', @checkFields
-
+   
     #so that mobile time fields can have placeholder text
     $('body').on 'focus', '#event_start_date, #event_expiration', @convertEventDate
 

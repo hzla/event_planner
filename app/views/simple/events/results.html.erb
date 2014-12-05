@@ -41,7 +41,7 @@
 									<% poll.choices_for(question).each_with_index do |choice, i| %>
 										<div class="cell <%= "col-#{i}" %>">
 											<% if choice.yes %>
-												<%= image_tag 'checkgreen.svg', :class => "cell-check" %>
+												<%= image_tag 'check-green.svg', :class => "cell-check" %>
 											<% end %>
 										</div>
 									<% end %>

@@ -4,12 +4,6 @@ class Choice < ActiveRecord::Base
   attr_accessible :choice_type, :question, :event_id, :value, :desc, :add_info, :poll_id, :replayer_name, :image_url, :yes, :service_id
 
   def self.create_choices_using_list_of_attributes choice_info, event
-    # choice_info[:images] = choice_info[:images].uniq
-    # choice_info[:titles] = choice_info[:titles].uniq
-    # choice_info[:infos] = choice_info[:infos].uniq
-    # choice_info[:service_ids] = choice_info[:service_ids].uniq
-    # choice_info[:length] = choice_info[:length] / 2
-    # binding.pry
     (0..(choice_info[:length] - 1)).each do |i|
       p choice_info[:service_ids][i]
       create(event_id: event.id, image_url: choice_info[:images][i],
@@ -34,7 +28,7 @@ class Choice < ActiveRecord::Base
     yes_count - no_count
   end
 
-  def opentable_name
+  def opentable_name #used in the url to obtain opentable page
     value.gsub('&', 'and').downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-")
   end
 
@@ -52,12 +46,12 @@ class Choice < ActiveRecord::Base
     end
   end
 
-  def next_vote_delta
+  def next_vote_delta #the change in value from the next vote
     delta = yes == nil ? 1 : 2
     delta
   end
 
-  def answer_and_return_change_status answer
+  def answer_and_return_change_status answer 
     response = (answer == "yes")
     change_status = (yes != response ) || yes == nil
     update_attributes yes: response
@@ -68,7 +62,7 @@ class Choice < ActiveRecord::Base
     Restaurant.find_by_opentable_id service_id
   end
 
-  def result_value
+  def result_value #used on the results page in the header cells
     if choice_type == "date"
       Date.parse(value).strftime("%b %d")
     else

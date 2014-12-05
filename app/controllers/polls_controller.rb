@@ -3,10 +3,9 @@ class PollsController < ApplicationController
   include SessionsHelper
   skip_before_action :require_login, only: "show"
 
-
-  def find_or_create
+  def find_or_create #redirected from sessions#create after clicking on sign up on event#route page
     @event = Event.find params[:event_id]
-    if @event.user_id == current_user.id
+    if @event.user_id == current_user.id #if the current user created the event
       poll = @event.polls.where(user_id: current_user.id).first
       redirect_to poll.url and return
     else

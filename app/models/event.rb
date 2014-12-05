@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
 		event
 	end
 
-	def populate_polls_with_choices
+	def populate_polls_with_choices #duplicates event's choices into the event's polls. 
 		polls.each do |poll|
 			if poll.choices.empty?
 				choices.each do |choice|
@@ -41,14 +41,6 @@ class Event < ActiveRecord::Base
 					image_url: choice.image_url, question: choice.question, service_id: choice.service_id
 				end
 			end
-		end
-	end
-
-	def clear_dups
-		count = 0
-		choices.order(:value).each do |c|
-			c.destroy if count % 2 == 0
-			count += 1
 		end
 	end
 
@@ -62,7 +54,7 @@ class Event < ActiveRecord::Base
 		polls.where(confirmed_attending: true).count
 	end
 
-	def response_count
+	def response_count 
 		polls.select {|poll| poll.voted_on? }.length
 	end
 
@@ -78,7 +70,6 @@ class Event < ActiveRecord::Base
 
 	def attending_count
 		polls.where(confirmed_attending: true).count
-		# subtract one if event creator has not voted
 	end
 
 	def html_classes user
@@ -131,15 +122,15 @@ class Event < ActiveRecord::Base
 		[start_time.hour * 60 + start_time.min , end_time.hour * 60 + start_time.min]
 	end
 
-	def parsed_start_time
+	def parsed_start_time #for opentable bot
 		start_time.strftime("%m/%d/%Y %H:%M:00")
 	end
 
-	def parsed_end_time
+	def parsed_end_time #for opentable bot
 		end_time.strftime("%m/%d/%Y %H:%M:00")
 	end
 
-	def service_pic
+	def service_pic 
 		if choices.first.choice_type != nil && !choices.empty?
 			'event-custom-icon.svg'
 		else
@@ -160,7 +151,7 @@ class Event < ActiveRecord::Base
 		code.join[0..15]
 	end
 
-	def update_times
+	def update_times #should refactor later, used to change the dates in start time and end_time to the date in start_date
 		if start_time
 			new_start = start_time
 			new_start = new_start.change day: start_date.day, month: start_date.month

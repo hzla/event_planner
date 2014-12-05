@@ -1,3 +1,4 @@
+# TODO refactor the shit out of this
 SimpleNewEvent =
   init: ->
     # displaying date/text choice pickers

@@ -1,12 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: 'mailer@instagator.com'
 
-  def poll_email poll
-    @poll = poll
-    @host = "http://www.dinnerpoll.com"
-    mail(to: poll.email, subject: "#{poll.event.name}")
-  end
-
   def vote_email poll, user
     @poll = poll
     @host = "http://www.dinnerpoll.com"

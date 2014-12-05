@@ -17,11 +17,11 @@ class Poll < ActiveRecord::Base
     code.join
   end
 
-  def questions
+  def questions #a hash with questions as keys and corresponding array of choices as values
     choices.order(:value).group_by {|c| c.question }
   end
 
-  def all_selected_values
+  def all_selected_values #for use in results and voting
     choices.where(yes: true).pluck(:value).join("<separator>")
   end
 
@@ -65,7 +65,7 @@ class Poll < ActiveRecord::Base
     choices.where(yes: nil).count < choices.count
   end
 
-  def avatar
+  def avatar 
     user = User.where(email: email)
     if user.empty?
       n = (1..12).to_a.sample

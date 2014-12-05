@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get '/instagator', to: 'pages#dinner_poll', as: 'dinner_poll'
-
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
   resources :users, only: [:edit, :update]
   post '/activate', to: 'users#activate', as: 'activation'
