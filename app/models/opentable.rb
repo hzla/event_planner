@@ -17,8 +17,8 @@ class Opentable
   end
 
   def self.reserve options=nil, event=nil, choice=nil, email=nil
-    # base_url = 'http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/reserve?'
-    base_url = 'http://localhost:3001/api/v1/opentable/reserve?' # uncomment for development use
+    base_url = 'http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/reserve?'
+    # base_url = 'http://localhost:3001/api/v1/opentable/reserve?' # uncomment for development use
     event = Event.last if !event
     choice = Choice.last if !choice
     email = "andylee.hzl@gmail.com" if !email
