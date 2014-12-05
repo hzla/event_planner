@@ -22,10 +22,10 @@ class ChoicesController < ApplicationController
       redirect_to simple_poll_choices_path(poll_id: @poll.id) and return
     end
 
-    if !@browser.mobile?  #tutorial images
-      @images = ["desktut1.png", "desktut2.png", "desktut3.png"]
-    else
+    if @browser.mobile?  #tutorial images
       @images = ["mvotertut1.png", "mvotertut2.png", "mvotertut3.png"]
+    else
+      @images = ["desktut1.png", "desktut2.png", "desktut3.png"]
     end
 
     render 'index'

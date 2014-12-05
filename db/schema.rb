@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205071826) do
+ActiveRecord::Schema.define(version: 20141205213607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,13 +43,11 @@ ActiveRecord::Schema.define(version: 20141205071826) do
   add_index "choices", ["poll_id"], name: "index_choices_on_poll_id", using: :btree
 
   create_table "events", force: true do |t|
-    t.boolean  "finished",          default: false
     t.integer  "user_id"
     t.integer  "service_id"
     t.string   "name"
     t.text     "comment"
     t.string   "status",            default: "dormant"
-    t.boolean  "complete",          default: false
     t.integer  "confirmation_id"
     t.string   "current_choice"
     t.integer  "threshold"
@@ -138,5 +136,4 @@ ActiveRecord::Schema.define(version: 20141205071826) do
     t.boolean  "mail_on_res_24_hour", default: true
     t.string   "role"
   end
-
 end

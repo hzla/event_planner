@@ -8,7 +8,7 @@ class PollsController < ApplicationController
     if @event.user_id == current_user.id #if the current user created the event
       poll = @event.polls.where(user_id: current_user.id).first
       redirect_to poll.url and return
-    else
+    else #if the user doesn't have a poll for this event yet
       poll = Poll.create event_id: @event.id, email: current_user.email, user_id: current_user.id
       poll.choices << @event.choices
       @event.users << current_user
@@ -22,6 +22,7 @@ class PollsController < ApplicationController
   end
 
   private
+
   def check_event_ownership
     if params[:event_id]
       event = Event.find params[:event_id]
@@ -32,4 +33,5 @@ class PollsController < ApplicationController
       end
     end
   end
+
 end

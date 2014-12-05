@@ -41,7 +41,7 @@ SimpleNewEvent =
     $('body').on 'ajax:success', '#simple-events-form', @showEventUrl
     $('body').on 'click', '#poll-url-overlay', @hideEventUrl
     $('body').on 'click', '#poll-url-container', @dontHideEventUrl
-    @sortable() if $('#simple-events-form').length > 0
+    
     $('body').on 'click', '#get-poll-url', @showPollUrlContainer
 
     #datepicker
@@ -182,29 +182,7 @@ SimpleNewEvent =
       toSelect = $('.type:not(.selected)').first()
       $('.selected').removeClass('selected')
       toSelect.first().addClass('selected')
-
-  sortable: ->
-    list = $('#simple-events-form')[0]
-    if $(window).width() > 1023
-      new Sortable list, {
-        draggable: '.question-info-container'
-        onUpdate: SimpleNewEvent.reorderQuestionNums
-        filter: '.ignore-drag'
-      }
-      choices = $('#text-choice-picker')[0]
-      new Sortable choices, {
-        draggable: '.text-choice'
-        onUpdate: SimpleNewEvent.reassignNumbers
-        handle: '.draggable-container'
-      }
-    else
-      choices = $('#text-choice-picker')[0]
-      new Sortable choices, {
-        draggable: '.text-choice'
-        handle: '.text-choice-num'
-        onUpdate: SimpleNewEvent.reassignNumbers
-      }
-    
+  
   addChoiceWithClick: ->
     choice = $(@).parents('.text-choice')
     choice.find('.text-choice-input').attr('placeholder', 'Type an option...')

@@ -10,7 +10,10 @@ class Event < ActiveRecord::Base
 	after_create :generate_routing_url
 	after_create :update_times
 
-	attr_accessible :locked, :routing_url, :processing_choice, :finished, :user_id, :service_id, :comment, :start_time, :end_time, :start_date, :name, :status, :complete, :confirmation_id, :threshold, :current_choice, :expiration, :recurring
+	attr_accessible(:locked, :routing_url, :processing_choice, 
+	:user_id, :service_id, :comment, :start_time, :end_time, :start_date, 
+	:name, :status, :confirmation_id, :threshold, :current_choice, 
+	:expiration, :recurring)
 
 	
 

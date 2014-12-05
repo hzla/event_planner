@@ -2,7 +2,6 @@ class ServicesController < ApplicationController
 
   include SessionsHelper
   before_filter :check_event_ownership
-  # TODO: need to make rake tasks for seeding existing services
 
   def index
     @services = Service.order(:available).reverse

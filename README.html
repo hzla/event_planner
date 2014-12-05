@@ -1,16 +1,14 @@
-Readme
-
 <body>
 
-<h1>Getting Started:</h1> 
+<h1>README: Getting Started:</h1> 
 
-	To seed services, run:<br>
+	To seed services (opentable, fandango, seatgeek, etc.), run:<br>
 		rake db:seed:services<br><br>
 
 	To import restaurants from Open Table, run:<br>
 		rake db:import:restaurants<br><br>
 
-	Put facebook key and secret in instagator/.env <br><br>
+	Remember to Put facebook key and secret in instagator/.env <br><br>
 
 
 <h2>How Event Creation Works</h2>
@@ -18,41 +16,41 @@ Readme
 	<h3>Creating an Opentable Event</h3>
 
 		<strong>Step 1: Filling out the Info</strong><br><br>
-			Controller Action: users#dashboard
-			View Code: events/_new.html.erb
+			Controller Action: users#dashboard<br>
+			View Code: events/_new.html.erb<br>
 			What Happens in backend: nothing<br><br>
 
 		<strong>Step 2: Submiting Event Info</strong><br><br>
-			Controller Action: events#create
-			View Code: none
+			Controller Action: events#create<br>
+			View Code: none<br>
 			What Happens: An event is created with the submitted params,
 			1 poll is created for the current user. The poll belongs to the event.<br><br>
 
 		<strong>Step 3: Choosing Restaurants Choices</strong><br><br>
-			Controller Action: services#opentable
-			View Code: services/opentable.html.erb
+			Controller Action: services#opentable<br>
+			View Code: services/opentable.html.erb<br>
 			What happens: Restaurants are retrieved<br><br>
 
 		<strong>Step 4: Submitting Restauraunt Choices</strong><br><br>
-			Controller Action: choices#create
-			View Code: none
+			Controller Action: choices#create<br>
+			View Code: none<br>
 			What Happens: Data form the selected restaurants are extracted and turned into Active Record Choices. choice#value is the restaurant name, choice#service_id is the opentable id, choice#add_info is the restaurant address and so forth<br><br>
 
 		<strong>Step 5: Review Event</strong><br><br>
-			Controller Action: events#show
-			View Code: events/show.html.erb
+			Controller Action: events#show<br>
+			View Code: events/show.html.erb<br>
 			What Happens: Event's activated status attribute is now changed to 'activated' so it can show up on the dashboard. User can now take poll or go back to dashboard<br><br>
 
 	<h3>Creating a Simple/Anything Goes Event</h3>
 
 		<strong>Step 1: Filling out the Info</strong><br><br>
-			Controller Action: simple/events#new
-			View Code: simple/events/_new.html.erb
+			Controller Action: simple/events#new<br>
+			View Code: simple/events/_new.html.erb<br>
 			What Happens: nothing<br><br>
 
 		<strong>Step 2: Submiting Event Info</strong><br><br>
-			Controller Action: simple/events#create
-			View Code: none
+			Controller Action: simple/events#create<br>
+			View Code: none<br>
 			What Happens: An event along with its choices is created with the submitted params.
 			Choices are also assigned a question value and a choice_type value depending on what was filled out in the form. choice_type is used to distinguish between an opentable choice and a simple/anything goes choice. <br><br>
 	
@@ -61,25 +59,25 @@ Readme
 	<h3>Voting on an Opentable Event</h3>
 
 		<strong>Step 1: Upvote/Downvoting Choices</strong><br><br>
-			Controller Action: choices#index
-			View Code: choices/index
+			Controller Action: choices#index<br>
+			View Code: choices/index<br>
 			What Happens: Each click on upvote and downvote modifies the 'yes' boolean attribute on the choice. The choice's new yes_count is then displayed via ajax.<br><br>
 
 		<strong>Step 2: Clicking Submit</strong><br><br>
 			Controller Action: choices#decide_vote
-			View Code: none
+			View Code: none<br>
 			What Happens: All votes for the choice's event are tallied up. If the choice with the highest number of 'yes' votes has exceeded the event's 'threshold' attribute. An api call is made to the opentable bot to book the reservation This is done in opentable#reserve<br><br>
 
 	<h3>Voting on a Simple/Anything Goes Event</h3>
 
 		<strong>Step 1: Clicking on choices</strong><br><br>
-			Controller Action: choices#index
-			View Code: choices/index
+			Controller Action: choices#index<br>
+			View Code: choices/index<br>
 			What Happens: This time, clicking on choices does not make ajax calls to the backend. Clicking on choices simply toggles the html classes to make them appear selected. Votes are not saved until user hit's submit.<br><br>
 
 		<strong>Step 2: Clicking Submit</strong><br><br>
-			Controller Action: polls#vote
-			View Code: none
+			Controller Action: polls#vote<br>
+			View Code: none<br>
 			What Happens: All selected choices for the poll are submitted at once and updated. No bot action occurs. <br><br>
 
 <h2>How the Opentable Bot Interaction Works</h2>
@@ -106,11 +104,9 @@ Readme
 </body>
 
 <style>
-
 	body {
 	font-family: 'Arial'
 	}
-
 </style>
 
 
