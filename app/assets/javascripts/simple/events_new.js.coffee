@@ -25,6 +25,7 @@ SimpleNewEvent =
     @questionCount = 1
   
   toggleEventDateForm: ->
+
     icon = $('.type .date-type').first().clone()
     SimpleNewEvent.initDatePicker()
     currentQuestion = $('.question-info-container.active .poll-field')
@@ -94,7 +95,6 @@ SimpleNewEvent =
       SimpleNewEvent.editMode = true
       $('.active').removeClass('active')
       clickedQuestion.addClass('active')
-      
       #set the dates from the hidden input fields
       datesToSet = clickedQuestion.find('.date-choices').val().split(",")
       parsedDates = $.map datesToSet, (val, i) ->

@@ -1,6 +1,9 @@
 class Restaurant < ActiveRecord::Base
   attr_accessible :pricing, :popularity, :name, :address, :city, :state, :review_count, :rating, :opentable_id, :lat, :long, :pricing_info
 
+  # Foodspotting Opentable API Key: gApqnQV9AZOMKEkNAtV9
+  # for getting pictures of food at restaurants
+
 	def self.update_availabilities date, time
 		response = HTTParty.get(url(date, time)).parsed_response
 		restaurants = /{\"Id\".*}\]/.match(response)[0].split("},{\"Id\":")
@@ -66,7 +69,7 @@ class Restaurant < ActiveRecord::Base
   end
 end
 
-# Foodspotting Opentable API Key: gApqnQV9AZOMKEkNAtV9
+
 
 
 

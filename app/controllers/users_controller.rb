@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   include SessionsHelper
 
-  def dashboard
+  def dashboard #TODO move to events#index
     @event = Event.new
     @events = current_user.events.where(status: "activated").uniq
     @tutorial = @events.empty?

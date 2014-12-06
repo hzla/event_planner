@@ -23,6 +23,8 @@ ConfirmationNumber=SAVE_THIS_NUMBER
 
 10. click save
 
+11. If there was a cancel url present in the email, click on that link and cancel the previous reservation
+
 The user should recieve an email from opentable confirming the reservation, and their dashboard on instagator.com should change accordingly
 
 

@@ -9,16 +9,15 @@ class ChoicesController < ApplicationController
     @tutorial = session[:new_poll_taker] 
     session[:new_poll_taker] = nil
     @event = @poll.event
+    @choices = @poll.choices
+    
     if @event.locked #if voting on this poll has been closed
       redirect_to simple_results_path(@event) and return
     end
-    
     if params[:code] != @poll.url.split("?code=").last #if the url is incorrect
       redirect_to root_path and return
     end
-    @choices = @poll.choices
-    
-    if @choices.first.choice_type != nil #if this is a simple poll
+    if @choices.first.choice_type != nil #if this is a simple/anything goes poll
       redirect_to simple_poll_choices_path(poll_id: @poll.id) and return
     end
 
