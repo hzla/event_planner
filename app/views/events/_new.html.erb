@@ -13,6 +13,7 @@
 			<%= f.text_field :end_time, :class => "pick-time poll-field hidden", placeholder: "Latest Time" %>
 			<div class="range-placeholder">What time range should we try to book in?</div>
 			<div class="shown-values"></div>
+
 			<div id="range">
 				<div id="start-border"></div>
 				<div id="end-border"></div>
@@ -44,19 +45,9 @@
 	</div>
 
 <script>
-   Date.prototype.yyyymmdd = function() {
-     var yyyy = this.getFullYear().toString();
-     var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
-     var dd  = this.getDate().toString();
-     return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]); // padding
-    };
-    var d = new Date();
-
-
   $('.pick-date').datepicker({
       'format': 'yyyy-m-d',
       'autoclose': true,
-      'startDate': d.yyyymmdd()
-
+      'startDate': new Date()
     });
 </script>

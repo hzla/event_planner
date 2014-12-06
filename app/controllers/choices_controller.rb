@@ -58,9 +58,18 @@ class ChoicesController < ApplicationController
       ReservationWorker.perform_async({restaurant_id: @choice.service_id, start_time: @event.parsed_start_time,
       end_time: @event.parsed_end_time, party_size: @event.rsvps , first_name: user.first_name, last_name: user.last_name, 
       email: user.email, phone_number: "9499813668"}, @event.user.id, @event.id, @choice.id)
-    # elsif (@event.rsvps >= @event.threshold && @event.confirmation_id != nil && @event.current_choice == @top_choice.value)
-    #   #modify reservation
-    # else
+     elsif @event.should_modify?(@choice)
+        @event.update_attributes processing_choice: @choice.value
+        restaurant_id = @choice.service_id
+        start_time = URI.encode(@event.parsed_start_time).gsub('/','%2F').gsub(':','%3A')
+        base_url = "https://m.opentable.com/reservation/details?"
+        url_params = "RestaurantID=#{restaurant_id}&Points=100&SecurityID=0&DateTime=#{start_time}&PartySize=#{@event.rsvps}&OfferConfirmNumber=0&ChosenOfferId=0&IsMiddleSlot=False&ArePopPoints=False"
+        url = base_url + url_params
+        time_range = "#{@event.parsed_start_time} to #{@event.parsed_end_time}"
+        old_rest_id = Restaurant.find_by_name(@event.current_choice).opentable_id 
+        cancel_url = "https://m.opentable.com/reservation/view?RestaurantID=#{old_rest_id}&ConfirmationNumber=#{@event.confirmation_id}"
+        UserMailer.reservation_failure(@event, url, time_range, cancel_url).deliver
+     else
     end 
     render nothing: true
   end

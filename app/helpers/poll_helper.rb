@@ -9,17 +9,4 @@ module PollHelper
       poll.event.comment
     end
   end
-
-  # TODO: replace usage with ordinalize (http://apidock.com/rails/ActiveSupport/Inflector/ordinalize)
-  def suffixify n
-    if n == 1
-      "1st"
-    elsif n == 2
-      "2nd"
-    elsif n == 3
-      "3rd"
-    else
-      "#{n}th"
-    end
-  end
 end

@@ -35,9 +35,8 @@ class Opentable
     response = HTTParty.get(url).parsed_response #make a request to opentable bot
     parsed_response = JSON.parse(response["success"])
     
-    if parsed_response["id"] #if it was a success, and id for the created Meal will be returned
+    if parsed_response["id"] #if it was a success, a confirmation_id for the created Meal will be returned
       c_id = parsed_response["confirmation_id"]
-      cancel(event.confirmation_id) if event.confirmation_id
       event.update_attributes confirmation_id: c_id.to_i, current_choice: choice.value, processing_choice: nil
       event.users.each do |user|
         UserMailer.reservation_success(event, user.email).deliver if user.mail_on_res_success

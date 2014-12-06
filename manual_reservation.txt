@@ -1,0 +1,32 @@
+1. Click on the link provided in the email to make the reservation
+Use the provided email and name in the opentable form
+Phone number does not matter
+
+2. Save the Confirmation Number of the reservation.
+This can be found in the url of the page immedietly following the reservation
+It looks something like this: 
+ConfirmationNumber=SAVE_THIS_NUMBER
+
+3. go to www.dinnerpoll.com/admin
+
+4. click on 'events' in the navigation side bar on the left
+
+5. locate the event in the table using the event id which can be found in the email under 'Event Data'
+
+6. click on the pencil icon on the right side of the event to edit the event
+
+7. change the current_choice to the name of the open table restaurant. Make sure it is spelled correctly with no extra spaces
+
+8. change the confirmation to the number you got from the url earlier
+
+9. delete any text in the processing choice field
+
+10. click save
+
+The user should recieve an email from opentable confirming the reservation, and their dashboard on instagator.com should change accordingly
+
+
+
+
+
+

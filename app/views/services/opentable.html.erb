@@ -34,6 +34,7 @@
 	</div>
 
 	<div class='service-options full-white-block choosable'>
+		<!-- TODO: make into partial -->
 		<% @options.each do |option| %>
 			<div class="option mobile-text <%= "o-#{option.opentable_id}" %>" id='<%= "o-#{option.opentable_id}" %>'>
 				<div class="option-overlay"></div>

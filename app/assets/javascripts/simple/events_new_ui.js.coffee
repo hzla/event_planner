@@ -1,28 +1,59 @@
 SimpleNewEventUi =
   init: ->
-    @sortable() if $('#simple-events-form').length > 0
+    #for when to display the 'x' on the question
+    $('body').on 'mouseenter', '.question-info-container', @showDelete
+    $('body').on 'mouseleave', '.question-info-container', @hideDelete
 
-  sortable: ->
-    list = $('#simple-events-form')[0]
-    if $(window).width() > 1023
-      new Sortable list, {
-        draggable: '.question-info-container'
-        onUpdate: SimpleNewEventUi.reorderQuestionNums
-        filter: '.ignore-drag'
-      }
-      choices = $('#text-choice-picker')[0]
-      new Sortable choices, {
-        draggable: '.text-choice'
-        onUpdate: SimpleNewEventUi.reassignNumbers
-        handle: '.draggable-container'
-      }
-    else
-      choices = $('#text-choice-picker')[0]
-      new Sortable choices, {
-        draggable: '.text-choice'
-        handle: '.text-choice-num'
-        onUpdate: SimpleNewEventUi.reassignNumbers
-      }
+    #adding and deleting text choices
+    $('body').on 'click', '.cancel-choice', @cancelChoice
+    $('body').on 'focus', '.text-choice.placeholder', @addChoice
+    $('body').on 'click', '.add-choice', @addChoice
+
+    #hide the add-another-question btn on mobile while adding choices
+    if $(window).width() < 1023 
+      $('body').on 'focus', '.text-choice-input', @hideBtns
+      $('body').on 'unfocus blur', '.text-choice-input', @showBtns
+
+  showDelete: ->
+    if $(@).find('.date-choices').val() != "" || $(@).find('.text-choices').val() != "" 
+      $(@).find('.delete-question-icon').show()
+
+  hideDelete: ->
+    $(@).find('.delete-question-icon').hide()
+
+  cancelChoice: ->
+    $(@).parents('.text-choice').remove()
+    $('.text-choice-input').last().attr('placeholder', 'Add an option...')
+    SimpleNewEventUi.reassignNumbers()
+
+  addChoice: ->
+    choice = $(@)
+    if !choice.hasClass('text-choice')
+      choice = $(@).parents('.text-choice')
+
+    choice.find('.text-choice-input').attr('placeholder', 'Type an option...')
+    choice.removeClass 'placeholder'
+    addIcon = choice.find('.add-choice').clone() 
+    cancelIcon = choice.find('.cancel-choice').clone()
+    nextChoiceNum  = (choice.find('.text-choice-num').text().slice(0, -1)).charCodeAt(0) + 1
+    nextChoice = "<div class='text-choice placeholder'>
+            <div class='draggable-container'>
+                <div class='draggable-top'></div>
+                <div class='draggable-bottom'></div>
+                <div class='text-choice-num'>#{String.fromCharCode(nextChoiceNum)}.</div>
+              </div>
+            <input class='text-choice-input' id='text_choice_#{nextChoiceNum}' name='text_choice_#{nextChoiceNum}' type='text' placeholder='Add Option...'>
+          </div>"
+    choice.after(nextChoice)
+    $('.text-choice').last().append(addIcon)
+    $('.text-choice').last().append(cancelIcon)
+    $('#text-choice-picker').scrollTop(100000)
+
+  hideBtns: ->
+    $('.double.bottom-btn-container').hide()
+
+  showBtns: ->
+    $('.double.bottom-btn-container').show()
 
   reorderQuestionNums: ->
     count = 1

@@ -1,28 +1,6 @@
 @import 'variables';
 
 
-@import 'variables';
-
-// <--------extensions------->
-
-.gradient{
-  background: -moz-linear-gradient(top,  rgba(0,102,76,0.8) 0%, rgba(0,70,145,0.9) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,102,76,0.8)), color-stop(100%,rgba(0,70,145,0.9))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,102,76,0.8) 0%,rgba(0,70,145,0.9) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,102,76,0.8) 0%,rgba(0,70,145,0.9) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,102,76,0.8) 0%,rgba(0,70,145,0.9) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,102,76,0.8) 0%,rgba(0,70,145,0.9) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc00664c', endColorstr='#e6004691',GradientType=0 ); /* IE6-9 */
-}
-
-.blur{
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
-}
-
 // <--------background------->
 
 .blur-container{
@@ -35,14 +13,11 @@
 .blur-image{
   background: url("blurbg.jpg") no-repeat center;
   background-size: cover;
-  width:102%;
-  height: 102%;
-  // @extend .blur;
+  width:100%;
+  height: 100%;
   position: fixed;
-  left: -10px;
-  top: -10px;
-  z-index:1;
-
+  left: 0px;
+  top: 0px;
 }
 .glass{
   background-color: rgba(0,0,0,0.60);
@@ -100,10 +75,6 @@
   top: 0;
 }
 
-#fade-2 {
-  opacity: 0;
-}
-
 .mid-section {
   display: inline-block;
   width: 100%;
@@ -131,17 +102,6 @@
   top: 50vh;
   color: white;
   position: absolute;
-}
-
-
-.container-gradient{
-  @extend .gradient;
-  width: 100%;
-  height: 200%;
-  z-index: 2;
-  position: absolute;
-  top: 0;
-
 }
 
 .title-landing-text{
@@ -192,7 +152,6 @@
   width: 50%;
   text-align: left;
 }
-
 
 .phone-info-item {
   padding:  20px 0px;
@@ -298,7 +257,6 @@
   display:flex;
   height: auto;
 }
-
 
 .timeline-line-container{
   height: auto;

@@ -68,7 +68,11 @@ class Event < ActiveRecord::Base
 	end
 
 	def should_book? choice #if first quorum has been reached or if quorum has been reached on a new choice
-		(rsvps >= threshold && current_choice == nil) || (rsvps >= threshold && current_choice != nil && current_choice != choice.value)
+		(rsvps >= threshold && current_choice == nil) #|| (rsvps >= threshold && current_choice != nil && current_choice != choice.value)
+	end
+
+	def should_modify? choice
+		(rsvps >= threshold && confirmation_id != nil && current_choice != choice.value)
 	end
 
 	def attending_count
