@@ -221,15 +221,26 @@
   width: 100vw;
   z-index: 3;
   background-color: $green;
-  display: flex;
 }
 
 .timeline-left{
-  width: 50%
+  width: 50%;
+  float: left;
+  .timeline-line-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
 
 .timeline-right{
   width: 50%;
+  float: right;
+  .timeline-line-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .timeline-header{
@@ -254,14 +265,13 @@
 
 .timeline-content{
   width:100%;
-  display:flex;
   height: auto;
+  position: relative;
 }
 
 .timeline-line-container{
   height: auto;
   width: 40px;
-  position: relative;
 }
 
 .timeline-line-left{
@@ -271,6 +281,7 @@
   background-color: white;
   top: 50px;
   left: calc(50% - 0.5px);
+  
 }
 .timeline-line-right{
   width: 1px;
@@ -295,6 +306,10 @@
   width: calc(100% - 40px);
   padding-top: 47px;
   position: relative;
+}
+
+.timeline-text-container.right-side {
+  margin-left: 40px;
 }
 
 .timeline-text{

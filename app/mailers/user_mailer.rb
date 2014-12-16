@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: 'mailer@instagator.com'
+  default from: 'instagator@instagator.com'
 
   def vote_email poll, user
     @poll = poll

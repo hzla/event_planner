@@ -18,7 +18,8 @@ class Opentable
 
   def self.reserve options=nil, event=nil, choice=nil, email=nil
     base_url = 'http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/reserve?'
-    # base_url = 'http://localhost:3001/api/v1/opentable/reserve?' # uncomment for development use
+    # uncomment for development use
+    # base_url = 'http://localhost:3001/api/v1/opentable/reserve?' 
     # event = Event.last if !event
     # choice = Choice.last if !choice
     # email = "andylee.hzl@gmail.com" if !email
@@ -50,12 +51,12 @@ class Opentable
     parsed_response
   end
 
-  def self.modify c_id, time
+  def self.modify c_id, time #currently not used
     url = "http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/modify?c_id=#{c_id}&time=#{time}"
     HTTParty.get(url).parsed_response
   end
 
-  def self.cancel c_id
+  def self.cancel c_id #currenty not used
     url = "http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/cancel?c_id=#{c_id}"
     HTTParty.get(url).parsed_response
   end

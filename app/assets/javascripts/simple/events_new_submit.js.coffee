@@ -12,6 +12,7 @@ SimpleNewEventSubmit =
   addQuestions: ->
     if $('#questions').val() == ""  
       if $('#event_name').val() != "" && $('.question-info-container .poll-field').first().val() != ""
+        $('#confirm-simple-event').click() #add last question if not confirmed
         $('.question-info-container .poll-field').each ->
           value = $(@).val()
           currentQuestions = $('#questions').val()
