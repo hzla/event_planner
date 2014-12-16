@@ -20,6 +20,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find params[:id]
+    #for debugging use
+    if params[:user_switch]
+      session[:user_id] = params[:user_switch]
+      redirect_to dashboard_path and return
+    end
     redirect_to dashboard_path if @user != current_user
   end
 

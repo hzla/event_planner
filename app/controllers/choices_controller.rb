@@ -53,6 +53,7 @@ class ChoicesController < ApplicationController
     @choice = @poll.top_choice
     user = @poll.event.user
     UserMailer.vote_email(@poll, user).deliver if user.mail_on_vote
+    binding.pry
     if @event.should_book?(@choice) 
       ReservationWorker.perform_async({restaurant_id: @choice.service_id, start_time: @event.parsed_start_time,
       end_time: @event.parsed_end_time, party_size: @event.rsvps , first_name: user.first_name, last_name: user.last_name, 

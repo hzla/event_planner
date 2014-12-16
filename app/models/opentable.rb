@@ -24,18 +24,20 @@ class Opentable
     # choice = Choice.last if !choice
     # email = "andylee.hzl@gmail.com" if !email
     # options = {'restaurant_id' => choice.service_id, 'start_time' => "11/20/2014 18:30:00", 'end_time' => '11/20/2014 20:30:00', 'party_size' => 2, 'first_name' => "Robert", 'last_name' => "Gustavez", 'email' => "neohzla@gmail.com", 'phone_number' => "4157760400"} if !options
-    # options['start_time'] = URI.encode(options['start_time']).gsub('/','%2F').gsub(':','%3A')
-    # options['end_time'] = URI.encode(options['end_time']).gsub('/','%2F').gsub(':','%3A')
+    options['start_time'] = URI.encode(options['start_time']).gsub('/','%2F').gsub(':','%3A')
+    options['end_time'] = URI.encode(options['end_time']).gsub('/','%2F').gsub(':','%3A')
     
     options_url = ''
     options.each do |k, v| #convert the options to url params
       options_url += "#{k.to_s}=#{v.to_s}&"
     end
     url = base_url + options_url
-
+    binding.pry
     response = HTTParty.get(url).parsed_response #make a request to opentable bot
+    binding.pry
     parsed_response = JSON.parse(response["success"])
-    
+    p parsed_response
+    puts "\n" * 10
     if parsed_response["id"] #if it was a success, a confirmation_id for the created Meal will be returned
       c_id = parsed_response["confirmation_id"]
       event.update_attributes confirmation_id: c_id.to_i, current_choice: choice.value, processing_choice: nil
