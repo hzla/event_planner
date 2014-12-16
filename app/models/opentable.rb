@@ -32,12 +32,8 @@ class Opentable
       options_url += "#{k.to_s}=#{v.to_s}&"
     end
     url = base_url + options_url
-    binding.pry
     response = HTTParty.get(url).parsed_response #make a request to opentable bot
-    binding.pry
     parsed_response = JSON.parse(response["success"])
-    p parsed_response
-    puts "\n" * 10
     if parsed_response["id"] #if it was a success, a confirmation_id for the created Meal will be returned
       c_id = parsed_response["confirmation_id"]
       event.update_attributes confirmation_id: c_id.to_i, current_choice: choice.value, processing_choice: nil
