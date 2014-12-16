@@ -138,7 +138,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def service_pic 
-		if choices.first.choice_type != nil && !choices.empty?
+		if choices.first && choices.first.choice_type != nil && !choices.empty?
 			'event-custom-icon.svg'
 		else
 			'event-opentable-icon.svg'
