@@ -94,8 +94,17 @@ body .poll-field.question-name {
 }
 
 @media (max-width: 1023px) {
-	.voted-indicator {
-		line-height: 40px;
+	body {
+		.voted-indicator {
+			line-height: 40px;
+			right: 40px;
+		}
+		.simple-vote .poll-field.question-name {
+	 		padding-left: 10px;
+	 		height: auto;
+	 		min-height: 40px;
+	 		padding-right: 80px;
+	 	}
 	}
 }
 

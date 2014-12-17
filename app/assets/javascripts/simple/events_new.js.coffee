@@ -11,7 +11,7 @@ SimpleNewEvent =
     $('body').on 'click', '.delete-question-icon', @deleteQuestion
     
     # Confirming question choices
-    $('body').on 'click', '#confirm-simple-event', @confirmEventDetails
+    $('body').on 'click touchend', '#confirm-simple-event', @confirmEventDetails
 
     #datepicker
     @dateChangable = true
@@ -25,14 +25,13 @@ SimpleNewEvent =
     @questionCount = 1
   
   toggleEventDateForm: ->
-
     icon = $('.type .date-type').first().clone()
     SimpleNewEvent.initDatePicker()
     currentQuestion = $('.question-info-container.active .poll-field')
     if currentQuestion.val() != ""
       $('.date-picker-container, .type-container').toggle()
       $('.date-picker-container').removeClass('animated fadeInDown').addClass('animated fadeInDown')
-      $('#poll-creator, #simple-events-form, body').scrollTop(100000)
+      # $('#poll-creator, #simple-events-form, body').scrollTop(100000)
       currentQuestion.parents('.question-info-container').append icon
     else
       currentQuestion.css('border', '1px solid red')

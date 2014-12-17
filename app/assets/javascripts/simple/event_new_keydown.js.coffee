@@ -20,11 +20,10 @@ SimpleNewEventKeydown =
     if e.keyCode == 9 && $('.type').first().hasClass('selected')
       $('.selected').removeClass('selected')
       $('.type').last().addClass('selected')
-      $('#main-header a').click ->
-        return false
     else if e.keyCode == 9 && $('.type').last().hasClass('selected')
       $('.selected').removeClass('selected')
       $('.type').first().addClass('selected')
+    $('#dashboard-link').blur()
 
   selectTypeOnTab: (e) ->
     e.stopPropagation()
@@ -33,6 +32,7 @@ SimpleNewEventKeydown =
       toSelect = $('.type:not(.selected)').first()
       $('.selected').removeClass('selected')
       toSelect.first().addClass('selected')
+    $('#dashboard-link').blur()
 
   eventsOnEnter: (e) ->
     if e.keyCode == 13 && $('.date-picker-container:visible').length > 0
@@ -40,7 +40,6 @@ SimpleNewEventKeydown =
     else if e.keyCode == 13 && $('.type-container:visible .type.selected').length > 0
       $('.type.selected .type-pic').first().click()
       $('.selected').removeClass('selected')
-    $('#main-header a').unbind()
 
   nextOnEnter: (e) ->
     if e.keyCode == 13 && $(@).val() != ""

@@ -23,6 +23,8 @@
   #new_event {
     #event_threshold {
       color: $grey;
+      font-family: 'Avenir Next';
+      font-size: 14px;
     }
   }
 }
@@ -297,7 +299,6 @@ div.poll-field {
 		}
 		 #event_threshold {
 			 	width: 100%;
-				font-size: 16px;
 				height: 60px;
 				font-weight: 400;
         text-indent: 10px;

@@ -1,13 +1,13 @@
 <%= content_for :header do %>
   <div class="header-pic-container">
   </div>
-  <!-- Necessary to allow switching type on 'TAB' -->
+  <!-- This conditional Necessary to allow switching type on 'TAB' or else the link gets selected when the user presses 'TAB' -->
   	<% if @browser.mobile? %>
 	    <%= link_to dashboard_path do %>
 	    	<%= image_tag 'arrowback.svg', id: 'header-left', :class => "mobile" %>
 	 		<% end %>
  		<% else %>
-	 		<%= link_to dashboard_path do %>
+	 		<%= link_to dashboard_path, id: "dashboard-link" do %>
 	    	<div class="desk-text simple-form" id="cancel-form">Cancel</div>
 	 		<% end %>
 	 	<% end %>

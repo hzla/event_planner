@@ -2,6 +2,7 @@ SimpleEventResults =
   init: ->
     $('.choice-header').click @expandColumn
     $('.simple-results .question-name').click @expandResultsTable
+    $('.question-name').first().click()
 
   expandResultsTable: ->
     resultsTable = $(@).parents('.simple-choice').find('.simple-voter')
