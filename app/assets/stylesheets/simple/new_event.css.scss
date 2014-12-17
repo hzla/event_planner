@@ -2,6 +2,8 @@
 
 body #content-container.simple-new-event {
 	background: $light-grey;
+	position: fixed;
+	overflow-y: scroll;
 	.pad-container {
 		background: white;
 		overflow-y: scroll; 
@@ -79,6 +81,7 @@ body #content-container.simple-new-event {
 	background: white;
 	.text-choice.placeholder {
 		border-bottom: 1px solid $border-grey;
+		margin-bottom: 40px;
 	}
 }
 

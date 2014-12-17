@@ -31,7 +31,7 @@ SimpleNewEvent =
     if currentQuestion.val() != ""
       $('.date-picker-container, .type-container').toggle()
       $('.date-picker-container').removeClass('animated fadeInDown').addClass('animated fadeInDown')
-      # $('#poll-creator, #simple-events-form, body').scrollTop(100000)
+      # $('#poll-creator, #simple-events-form, body, #content-container').scrollTop(100000)
       currentQuestion.parents('.question-info-container').append icon
     else
       currentQuestion.css('border', '1px solid red')
@@ -49,7 +49,7 @@ SimpleNewEvent =
       $('.active').after($('#text-choice-picker'))
       $('#text-choice-picker').show().removeClass('animated fadeInDown').addClass('animated fadeInDown')
       $('.type-container').hide()
-      $('#poll-creator, #simple-events-form, body').scrollTop(100000)
+      $('#poll-creator, #simple-events-form, body, #content-container').scrollTop(100000)
       $('.text-choice-input').first().focus()
       currentQuestion.parents('.question-info-container').append icon
     else
@@ -68,7 +68,7 @@ SimpleNewEvent =
         opacity: 1
         height: height
       }, 750, ->
-        $('#poll-creator, #simple-events-form, body').scrollTop(100000)
+        $('#poll-creator, #simple-events-form, body, #content-container').scrollTop(100000)
       SimpleNewEvent.shown = true
 
   editQuestion: ->
@@ -128,7 +128,7 @@ SimpleNewEvent =
       $('#confirm-simple-event').click()
       if $('.picker-error:visible').length < 1
         clickedQuestion.click()
-    $('#poll-creator, #simple-events-form, body').scrollTop(100000)
+    $('#poll-creator, #simple-events-form, body, #content-container').scrollTop(100000)
 
   editTextQuestion: (clickedQuestion) ->
     dontClose = false #whether or not this click event should close the text picker
@@ -171,7 +171,7 @@ SimpleNewEvent =
       $('#confirm-simple-event').click()
       if $('.picker-error:visible').length < 1
         clickedQuestion.click()
-    $('#poll-creator, #simple-events-form, body').scrollTop(100000)
+    $('#poll-creator, #simple-events-form, body, #content-container').scrollTop(100000)
 
   addAnotherQuestion: ->
     $('.active').removeClass('active')
@@ -186,7 +186,7 @@ SimpleNewEvent =
     $(@).before nextQuestion
     $('.question-info-container.active').append $('.delete-question-icon').first().clone()
     $('input.poll-field').last().focus()
-    $('#poll-creator, #simple-events-form, body').scrollTop(100000)
+    $('#poll-creator, #simple-events-form, body, #content-container').scrollTop(100000)
     $('.active .poll-field').keydown ->
       if SimpleNewEvent.shown == false && $('.date-picker-container:visible, #text-choice-picker:visible').length < 1
         $('.type-container').show()
@@ -196,7 +196,7 @@ SimpleNewEvent =
           opacity: 1
           height: height
         }, 750, ->
-          $('#poll-creator, #simple-events-form, body').scrollTop(100000)
+          $('#poll-creator, #simple-events-form, body, #content-container').scrollTop(100000)
         SimpleNewEvent.shown = true
 
   deleteQuestion: (e) ->
