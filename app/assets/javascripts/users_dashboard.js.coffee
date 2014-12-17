@@ -5,6 +5,7 @@ Dashboard =
     $('body').on 'click', '#show-poll-form', @showPollForm
     $('body').on 'click touchend', '#cancel-form:not(.simple-form)', @hidePollForm
     $('body').on 'ajax:success', '#activation-form', @showActivation
+    @showEventTypepicker() if $('#show-poll-picker').length > 0
 
   showActivation: (event, data) ->
     if data.activated 
@@ -46,6 +47,7 @@ Dashboard =
       $('#header-left').show()
     $('.whos-going').addClass('hidden')
     $('.main-header-text').show()
+    Dashboard.showEventTypepicker()
 
 ready = ->
   Dashboard.init()

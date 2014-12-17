@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @event = Event.new
     @events = current_user.events.where(status: "activated").uniq
     @tutorial = @events.empty?
-
+    @show_poll_picker = params[:show_poll_picker] == "true"
     if params[:tutorial] #for bug testing tutorial
       @tutorial = params[:tutorial] == "true"
     end
