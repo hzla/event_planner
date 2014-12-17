@@ -16,7 +16,7 @@ class UserMailer < ActionMailer::Base
   def reservation_success event, email 
     @host = "http://www.dinnerpoll.com"
     @event = event
-    mail(to: email, subject: "Your Reservation at #{event.current_choice} for #{event.threshold} people has been booked!")
+    mail(to: [email, 'reservations@instagator.com'], subject: "Your Reservation at #{event.current_choice} for #{event.threshold} people has been booked!")
   end
 
   def reservation_failure event, url, time_range, cancel_url=nil
@@ -26,7 +26,7 @@ class UserMailer < ActionMailer::Base
     @time_range = URI.decode(time_range).gsub('%2F','%/').gsub('%3A',':')
     @url = url
     @cancel_url = cancel_url
-    mail(to: ['bob@instagator.com','andylee.hzl@gmail.com'], subject: "#{@user.name}'s reservation for #{@event.processing_choice} has failed.")
+    mail(to: ['reservations@instagator.com','andylee.hzl@gmail.com'], subject: "#{@user.name}'s reservation for #{@event.processing_choice} has failed.")
   end
 
   def results user, event
