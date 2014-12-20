@@ -16,6 +16,11 @@ class Opentable
     "http://www.opentable.com/img/restimages/#{restaurant["opentable_id"]}.jpg"
   end
 
+  def self.url_for restaurant
+    name = restaurant.name.gsub('&', 'and').gsub(" -", "").downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-").gsub("--", "-")
+    "http://www.opentable.com/#{name}"
+  end
+
   def self.reserve options=nil, event=nil, choice=nil, email=nil
     base_url = 'http://hidden-bastion-8862.herokuapp.com/api/v1/opentable/reserve?'
     # uncomment for development use

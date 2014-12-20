@@ -9,7 +9,8 @@
   <% end %>
   <div class="full-white-block event-field" id="event-name">
     <%= @event.name %><br>
-    <span class="sub-text grey"><%= @event.time_info %></span>
+    <span class="sub-text grey"><%= @event.time_info %></span><br>
+    <span class="sub-text grey">Click on choice name/image for more info.</span>
     <div class="event-field" id="event-comment">
       <%= @event.comment %>
     </div>
@@ -27,8 +28,10 @@
   <div id="choices">
     <% @choices.each do |choice| %>
       <div class="choice side-margined <%= 'grey-back' if choice.is_processing || choice.is_current %> ">
-        <%= image_tag choice.image_url, :class => "choice-pic" %>
-        <div class="choice-value"><%= choice.value %></div>
+        <%= link_to choice.opentable_url do %>
+          <%= image_tag choice.image_url, :class => "choice-pic" %>
+          <div class="choice-value"><%= choice.value %></div>
+        <% end %>
         
         <div class="choice-time grey"><%= choice.restaurant.shortened_address %></div>
         <% if choice.restaurant %>
@@ -48,7 +51,7 @@
         <% end %>
         <div class="choice-status">
           <% if choice.is_processing %>
-            <span class="grey">New Reservation Processing</span>
+            <span class="grey">Processing</span>
           <% end %>
           <% if choice.is_current %>
             <span class="green">Current Reservation</span>

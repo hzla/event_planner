@@ -28,9 +28,11 @@ class Choice < ActiveRecord::Base
     yes_count - no_count
   end
 
-  def opentable_name #used in the url to obtain opentable page
-    value.gsub('&', 'and').downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-")
+  def opentable_url #used in the url to obtain opentable page
+    name = value.gsub('&', 'and').gsub(" -", "").downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-")
+    "http://www.opentable.com/#{name}"
   end
+
 
   def is_current
     poll.event.current_choice == value

@@ -1,10 +1,12 @@
 <% @options.each do |option| %>
   <div class="option mobile-text <%= "o-#{option.opentable_id}" %>" id='<%= "o-#{option.opentable_id}" %>'>
     <div class="option-overlay"></div>
-    <%= image_tag Opentable.image_for(option), :class => "option-pic" %>
+    <%= link_to Opentable.url_for(option) do %>
+			<%= image_tag Opentable.image_for(option), :class => "option-pic" %>
+			<div class="option-title bold"><%= option.name %></div>
+		<% end %>
     <%= image_tag 'unselected.svg', :class => "option-check unselected" %>
 		<%= image_tag 'selected.svg', :class => "option-check" %>
-    <div class="option-title bold"><%= option.name %></div>
     <div class="option-info"><%= option.shortened_address %></div>
     <div class="star-container">
 					<% option.rating.round.times do %>
