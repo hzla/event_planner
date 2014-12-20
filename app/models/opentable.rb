@@ -17,7 +17,7 @@ class Opentable
   end
 
   def self.url_for restaurant
-    name = restaurant.name.gsub('&', 'and').gsub(" -", "").downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-").gsub("--", "-")
+    name = restaurant.name.gsub('&', 'and').gsub("-", " ").gsub(" -", "").downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-").gsub("--", "-")
     "http://www.opentable.com/#{name}"
   end
 
