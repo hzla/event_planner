@@ -29,7 +29,7 @@ class Choice < ActiveRecord::Base
   end
 
   def opentable_url #used in the url to obtain opentable page
-    name = value.gsub('&', 'and').gsub("-", " ").gsub(" -", "").downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-")
+    name = value.gsub(/(\w)-(\w)/, '\1 \2').gsub(/(\w)-(\w)/, '\1 \2').gsub('&', 'and').gsub(" - ", " ").downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-")
     "http://www.opentable.com/#{name}"
   end
 
