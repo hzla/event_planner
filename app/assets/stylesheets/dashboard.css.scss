@@ -50,10 +50,13 @@
   box-sizing: border-box;
 }
 
+.end-poll {
+  margin-left: 20px;
+}
+
 div.event {
 	height: 120px;
 	text-align: left;
-	cursor: pointer;
 	position: relative;
 	box-sizing: border-box;
 	padding: $dg;

@@ -17,7 +17,7 @@ class ChoicesController < ApplicationController
     if params[:code] != @poll.url.split("?code=").last #if the url is incorrect
       redirect_to root_path and return
     end
-    if @choices.first.choice_type != nil #if this is a simple/anything goes poll
+    if @choices.first.choice_type != nil && @choices.first #if this is a simple/anything goes poll
       redirect_to simple_poll_choices_path(poll_id: @poll.id) and return
     end
 

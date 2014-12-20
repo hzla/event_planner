@@ -1,18 +1,21 @@
 <% @events.each do |event| %>
-  <%= link_to event.vote_url(current_user) do %>
     <% if event.owned_by?(current_user) %>
       <div class="event <%= event.html_classes(current_user) %>">
-        <div class="event-profile-pic-container">
-          <%= image_tag event.user.profile_pic_url, :class => "event-profile-pic" %>
-          <div class="event-profile-pic-overlay"></div>
-          <div class="event-profile-initials">
-            <%= event.user.name.split(" ").map {|word| word[0]}.join("") %>
+        <%= link_to event.vote_url(current_user) do %>
+          <div class="event-profile-pic-container">
+            <%= image_tag event.user.profile_pic_url, :class => "event-profile-pic" %>
+            <div class="event-profile-pic-overlay"></div>
+            <div class="event-profile-initials">
+              <%= event.user.name.split(" ").map {|word| word[0]}.join("") %>
+            </div>
+            <%= image_tag event.service_pic, :class => "event-service-icon mobile" %>
           </div>
-          <%= image_tag event.service_pic, :class => "event-service-icon mobile" %>
-        </div>
-        <div class="event-line-text bold event-name <%= 'turq' if event.voted_on_by?(current_user) %>">
-          <%= event.name %>
-        </div>
+        
+        
+          <div class="event-line-text bold event-name <%= 'turq' if event.voted_on_by?(current_user) %>">
+            <%= event.name %>
+          </div>
+        <% end %>
         <div class="event-line-text">
           <%= event.time_info %>
         </div>
@@ -22,47 +25,60 @@
           <div class="event-line-text bottom-line">
             <% if event.current_choice %>
               <span class="grey"><%= event.rsvps %> voters </span>
+              <%= link_to event_lock_path(event), :class => "red end-poll" do %>
+                      End Poll
+              <% end %>
             <% else %>
-              <span class="green"><%= event.response_count %> Response(s)</span><span class="red poll-ended"><% if event.locked %> Poll Ended<% end %></span>
+              <span class="green"><%= event.response_count %> Response(s) 
+              <%= link_to event_lock_path(event), :class => "red end-poll" do %>
+                      End Poll
+              <% end %>
             <% end %>
-            </div>
+          </div>
         <% end %>
         <%= link_to simple_results_path(event) do %>
-          <div class="event-results blue no-mobile">View Results</div>
+          <div class="event-results blue no-mobile">Results/Link</div>
         <% end %>
-        <%= image_tag "dasharrow.svg", :class => "event-arrow" %>
+
+        <%= link_to event.vote_url(current_user) do %>
+          <%= image_tag "dasharrow.svg", :class => "event-arrow" %>
+        <% end %>
         <%= image_tag event.service_pic, :class => "event-service-icon no-mobile" %>
+
       </div>
     <% else %>
       <div class="event <%= event.html_classes(current_user) %>">
-        <div class="event-profile-pic-container">
-          <%= image_tag event.user.profile_pic_url, :class => "event-profile-pic" %>
-          <div class="event-profile-pic-overlay"></div>
-          <div class="event-profile-initials">
-            <%= event.user.name.split(" ").map {|word| word[0]}.join("") %>
+        <%= link_to event.vote_url(current_user) do %>
+          <div class="event-profile-pic-container">
+            <%= image_tag event.user.profile_pic_url, :class => "event-profile-pic" %>
+            <div class="event-profile-pic-overlay"></div>
+            <div class="event-profile-initials">
+              <%= event.user.name.split(" ").map {|word| word[0]}.join("") %>
+            </div>
+            <%= image_tag event.service_pic, :class => "event-service-icon mobile" %>
           </div>
-          <%= image_tag event.service_pic, :class => "event-service-icon mobile" %>
-        </div>
-        <div class="event-line-text event-name">
-          <span class="bold"><%= event.user.name %> invited you to</span>
-        </div>
-        <div class="event-line-text bold <%= 'green' if event.voted_on_by?(current_user) %>">
-          <%= event.name %>
-        </div>
+          <div class="event-line-text event-name">
+            <span class="bold"><%= event.user.first_name %> invited you to</span>
+          </div>
+          <div class="event-line-text bold <%= 'green' if event.voted_on_by?(current_user) %>">
+            <%= event.name %>
+          </div>
+        <% end %>
         <div class="event-line-text">
           <%= event.time_info %>
         </div>
-        <div class="event-line-text bottom-line">
+        <div class="event-line-text bottom-line no-mobile">
           <% if event.voted_on_by?(current_user) %>
             <span class="green">You Voted</span>
           <% end %>
         </div>
         <%= link_to simple_results_path(event) do %>
-          <div class="event-results blue no-mobile">View Results</div>
+          <div class="event-results blue no-mobile">Results/Link</div>
         <% end %>
-        <%= image_tag "arrowcripplegreen.svg", :class => "event-arrow" %>
+        <%= link_to event.vote_url(current_user) do %>
+          <%= image_tag "dasharrow.svg", :class => "event-arrow" %>
+        <% end %>
         <%= image_tag event.service_pic, :class => "event-service-icon no-mobile" %>
       </div>
     <% end %>
-  <% end %>
 <% end %>

@@ -7,6 +7,12 @@
 <% end %>
 
 <div class="generic simple-results" id="content-container">
+		<div id="event-link">
+			<div id="link-box">
+				<%= text_field_tag :poll_url, "dinnerpoll.com" + @event.routing_url, id: "poll-url", data: {clipboard_text: "dinnerpoll.com" + @event.routing_url }%>
+				<div id="copy-poll-url" class="green-btn btn">Copy</div>
+			</div>
+		</div>
 		<div id="questions-container">
 			<% count = 1 %>
 			<% @questions.each do |question, choices| %>
@@ -60,25 +66,35 @@
 		</div>
 </div>
 
-
 <script>
-	$(document).ready(function(){
-		$('img.svg').each(function(){
-	    var $img = $(this);
-	    var imgID = $img.attr('id');
-	    var imgClass = $img.attr('class');
-	    var imgURL = $img.attr('src');
-	    $.get(imgURL, function(data) {
-	        var $svg = $(data).find('svg');
-	        if(typeof imgID !== 'undefined') {
-	            $svg = $svg.attr('id', imgID);
-	        }
-	        if(typeof imgClass !== 'undefined') {
-	            $svg = $svg.attr('class', imgClass+' replaced-svg');
-	        }
-	        $svg = $svg.removeAttr('xmlns:a');
-	        $img.replaceWith($svg);
-	    }, 'xml');
-	  });
-	})
+  $('img.svg').each(function(){
+    var $img = $(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
+    $.get(imgURL, function(data) {
+        var $svg = $(data).find('svg');
+        if(typeof imgID !== 'undefined') {
+            $svg = $svg.attr('id', imgID);
+        }
+        if(typeof imgClass !== 'undefined') {
+            $svg = $svg.attr('class', imgClass+' replaced-svg');
+        }
+        $svg = $svg.removeAttr('xmlns:a');
+        $img.replaceWith($svg);
+    }, 'xml');
+  });
+  $('body').css('background', 'white')
+  $(document).ready(function(){
+  	$('#event_name').focus()
+ 		$('.main-logo').hide()
+
+    var clip = new ZeroClipboard($("#copy-poll-url"))
+    clip.on('aftercopy', function(){
+    	$('#copy-poll-url').text("Copied")
+    	setTimeout(function(){
+    		$('#copy-poll-url').text("Copy")
+    	}, 1000)
+    })
+  });
 </script>

@@ -55,19 +55,31 @@ Poll =
       delta = data.delta
       if data.changed
         if data.answer == "yes"
-          $(@).parent().find('g').css('stroke', '#bebebe')
-          $(@).find('g').css('stroke', '#00CC99')
-          count.css('color', '#00CC99')
           current_score = count.find('.choice-score')
           new_score = parseInt(current_score.text()) + delta
           current_score.text new_score
+          console.log new_score
+          if new_score != 0
+            $(@).parent().find('g').css('stroke', '#bebebe')
+            $(@).find('g').css('stroke', '#00CC99')
+            count.css('color', '#00CC99')
+          else
+            $(@).parent().find('g').css('stroke', '#bebebe')
+            $(@).find('g').css('stroke', '#bebebe')
+            count.css('color', '#bebebe')
         else
-          $(@).parent().find('g').css('stroke', '#bebebe')
-          $(@).find('g').css('stroke', '#FF0043')
-          count.css('color', '#FF0043')
           current_score = count.find('.choice-score')
           new_score = parseInt(current_score.text()) - delta
           current_score.text new_score
+          console.log new_score
+          if new_score != 0
+            $(@).parent().find('g').css('stroke', '#bebebe')
+            $(@).find('g').css('stroke', '#FF0043')
+            count.css('color', '#FF0043')
+          else
+            $(@).parent().find('g').css('stroke', '#bebebe')
+            $(@).find('g').css('stroke', '#bebebe')
+            count.css('color', '#bebebe')
 
 
   sortChoices: ->

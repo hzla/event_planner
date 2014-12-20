@@ -47,14 +47,22 @@ class Choice < ActiveRecord::Base
   end
 
   def next_vote_delta #the change in value from the next vote
-    delta = yes == nil ? 1 : 2
-    delta
+    return 1
   end
 
   def answer_and_return_change_status answer 
     response = (answer == "yes")
-    change_status = (yes != response ) || yes == nil
-    update_attributes yes: response
+    change_status = nil
+    if yes == response # if affirming an answer
+      change_status = false
+    elsif yes == nil 
+      change_status = true
+      update_attributes yes: response
+    else
+      change_status = true
+      update_attributes yes: nil
+    end
+    
     change_status
   end
 
