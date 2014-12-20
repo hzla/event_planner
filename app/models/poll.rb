@@ -65,6 +65,10 @@ class Poll < ActiveRecord::Base
     choices.where(yes: nil).count < choices.count
   end
 
+  def get_choices
+    event.populate_polls_with_choices
+  end
+
   def avatar 
     user = User.where(email: email)
     if user.empty?
