@@ -54,7 +54,7 @@ SimplePollVoting =
     voter = $(@).parent().find('.simple-voter')
     wasVisible = voter.is(":visible")
   
-    $('.simple-voter').hide()
+    # $('.simple-voter').hide()
     if wasVisible
       voter.hide()
       $(@).attr('style',"")
