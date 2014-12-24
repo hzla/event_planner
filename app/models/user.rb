@@ -19,6 +19,12 @@ class User < ActiveRecord::Base
     name.split(" ")[0]
   end
 
+  def short_name
+    names = name.split(" ")[0..1]
+    names[1] = names[1][0] + "."
+    names.join(" ")
+  end
+
   def created_events
     Event.where(user_id: id)
   end

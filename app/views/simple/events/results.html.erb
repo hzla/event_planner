@@ -43,7 +43,7 @@
 							</div>
 							<div class="simple-choice-body">
 								<% @event.polls.each do |poll| %>
-									<div class="cell poll-taker-name"><%= poll.user.name %></div>
+									<div class="cell poll-taker-name"><%= poll.user.short_name %></div>
 									<% poll.choices_for(question).each_with_index do |choice, i| %>
 										<div class="cell <%= "col-#{i}" %>">
 											<% if choice.yes %>
