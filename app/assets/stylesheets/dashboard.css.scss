@@ -50,7 +50,7 @@
   box-sizing: border-box;
 }
 
-.end-poll {
+.event-action {
   margin-left: 20px;
 }
 
@@ -183,6 +183,9 @@ div.event {
       padding: 10px $mg;
       margin-bottom: 8px;
       height: 100px;
+    }
+    .event-action {
+      margin-left: 5px;
     }
     .event-profile-pic-container {
       top: 20px;

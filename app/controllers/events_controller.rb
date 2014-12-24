@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   include SessionsHelper
 
-  before_filter :get_event, only: [:activate, :route, :generate_poll, :show, :lock]
+  before_filter :get_event, only: [:activate, :route, :generate_poll, :show, :lock, :destroy]
   skip_before_filter :require_login, only: [:route]
 
   
@@ -11,6 +11,11 @@ class EventsController < ApplicationController
     #create a poll for the person who created the event
     @event.assign_user_and_create_first_poll current_user 
     redirect_to opentable_path(event_id: @event.id)
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to dashboard_path
   end
 
   def lock

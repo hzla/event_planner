@@ -2,9 +2,9 @@ class Event < ActiveRecord::Base
 	has_many :polls, dependent: :destroy
 	belongs_to :user
 	has_many :users, through: :outings
-	has_many :outings
-	has_many :logs
-	has_many :choices
+	has_many :outings, dependent: :destroy
+	has_many :logs, dependent: :destroy
+	has_many :choices, dependent: :destroy
 	belongs_to :service
 
 	after_create :generate_routing_url
@@ -143,6 +143,14 @@ class Event < ActiveRecord::Base
 		else
 			'event-opentable-icon.svg'
 		end
+	end
+
+	def poll_type #what kind of event it is ie. opentable, custom
+		choices.first.choice_type
+	end
+
+	def questions
+		choices.pluck(:question).uniq
 	end
 
 	private

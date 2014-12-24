@@ -9,7 +9,7 @@
 <div class="generic simple-vote" id="content-container">
 	<div class="pad-container">
 		<div class="poll-field italic blue" id="vote-header">
-			Tap or click a question to vote
+			<div class="bold"><%= @event.name %></div> Tap or click a question to vote
 			<%= link_to simple_results_path(@event) do %>
 				<div class="results-link">Results</div>
 			<% end %>
@@ -66,18 +66,11 @@
 			</div>
 		</div>
   <% else %>
-    <div class="bottom-btn-container double">
-      <div class="bottom-btn-container double">
-				<div class="btn blue-btn first pull-down done submit-simple-event-votes">
+      <div class="bottom-btn-container">
+				<div class="btn blue-btn done submit-simple-event-votes">
 					Submit
 				</div>
-				<%= link_to event_lock_path(@event) do %>
-	        <div id="lock-event" class="btn red-btn pull-bottom-btn">
-	          End Poll
-	        </div>
-	      <% end %>
 			</div>
-    </div>
   <% end %>
 
 

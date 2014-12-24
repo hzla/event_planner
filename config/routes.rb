@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :events, only: [:create, :show] do
     get '/polls/find_or_create', to: 'polls#find_or_create', as: 'find_or_create_poll'
   end
+  delete '/events/:id', to: 'events#destroy', as: 'event_destroy'
   get '/events/:id/take', to: 'events#route', as: 'route_event'
   get '/events/:id/lock', to: 'events#lock', as: 'event_lock'
   get '/events/:id/generate_poll', to: 'events#generate_poll', as: 'generate_poll'

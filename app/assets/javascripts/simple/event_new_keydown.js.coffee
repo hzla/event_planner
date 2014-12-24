@@ -10,6 +10,11 @@ SimpleNewEventKeydown =
     #select type with enter, finish text/datepicker with enter, 
     $('body').on 'keydown', @eventsOnEnter
     $('body').on 'keydown', '.text-choice-input', @nextOnEnter
+    $('body').on 'keydown', '.text-choice-input', @checkIfPollDone
+
+  checkIfPollDone: (e) ->
+    if $('.text-choice-input').first().val() != "" && $($('.text-choice-input')[1]).val() != "" && $('#event_name').val() != ""
+      $('.submit-simple-event').removeClass('inactive')
     
   firstQuestionOnEnter: (e) ->
     $('.submit-simple-event').removeClass('inactive') if $('.text-choices').val() != "" || $('.date-choices').val() != ""

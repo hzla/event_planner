@@ -89,15 +89,10 @@
       <% end %>
     </div>
   <% else %>
-    <div class="bottom-btn-container double">
+    <div class="bottom-btn-container">
       <%= link_to decide_vote_path(@poll), remote: true do %>
-        <div id="finish-poll-take" class="btn first blue-btn pull-bottom-btn">
+        <div id="finish-poll-take" class="btn blue-btn">
           Done
-        </div>
-      <% end %>
-      <%= link_to event_lock_path(@event) do %>
-        <div id="lock-event" class="btn red-btn pull-bottom-btn">
-          End Poll
         </div>
       <% end %>
     </div>

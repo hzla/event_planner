@@ -43,7 +43,6 @@ SimplePollVoting =
                 if parsedDate - date == 0
                   shouldShow = true
               shouldShow
-
           if $('.selected-choice-dates').text() != ""
             parsedSelectedDates = $.map $('.selected-choice-dates').text().split("<separator>"), (val, i) ->
               new Date val
@@ -54,7 +53,7 @@ SimplePollVoting =
   toggleVoter: ->
     voter = $(@).parent().find('.simple-voter')
     wasVisible = voter.is(":visible")
-    
+  
     $('.simple-voter').hide()
     if wasVisible
       voter.hide()
@@ -62,11 +61,18 @@ SimplePollVoting =
     else
       voter.show() 
       $(@).css('border', 'none')
+
+    if $('.day:visible').length > 0
+      console.log "see date"
+      console.log $('.day:not(.disabled):visible')
+      while $('.day:not(.disabled):visible').length < 1
+        $('th.next:visible').first().click()
+        console.log "clicking"
+
     
 
   toggleSelected: ->
     $(@).toggleClass('selected')
-
           
 ready = ->
   SimplePollVoting.init()

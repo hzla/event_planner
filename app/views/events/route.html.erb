@@ -32,6 +32,7 @@
       <%= @event.comment %>
     </div>
   </div>
+ <% if @event.poll_type == nil %>
   <div class="grey-back-wrapper">
     <div class="full-white-block event-field" id="event-options">
       <div class="event-field-header">Venue Options</div>
@@ -42,10 +43,21 @@
               <% end %>
               <div class="option-title bold event-show option-result"><%= choice.value %></div>
           </div>
-
         <% end %>
       </div>
     </div>
+  <% else %>
+  <div class="grey-back-wrapper">
+    <div class="full-white-block event-field" id="event-options">
+      <div class="event-field-header">Questions</div>
+        <% @event.questions.each do |question| %>
+          <div class="event-option">
+            <div class="option-title bold event-show option-result"><%= question %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="double bottom-btn-container">
     <%= link_to '/auth/facebook' do %>

@@ -271,7 +271,9 @@ SimpleNewEvent =
           setTimeout ->
             SimpleNewEvent.syncDate = true
           , 200
-
+      if $('#datepicker').datepicker('getDates').length > 1 && $('#event_name').val() != ""
+        #if the poll is ready to be submitted
+        $('.submit-simple-event').removeClass('inactive')
   changeMonth: (e) ->
     datepicker = $(e.currentTarget)
     currentMonth = e.date.getMonth()

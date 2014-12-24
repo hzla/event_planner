@@ -9,8 +9,8 @@
 <div class="generic simple-results" id="content-container">
 		<div id="event-link">
 			<div id="link-box">
-				<%= text_field_tag :poll_url, "dinnerpoll.com" + @event.routing_url, id: "poll-url", data: {clipboard_text: "dinnerpoll.com" + @event.routing_url }%>
-				<div id="copy-poll-url" class="green-btn btn">Copy</div>
+				<%= text_field_tag :poll_url, "dinnerpoll.com" + @event.routing_url, id: "poll-url" %>
+				<div id="copy-poll-url" class="green-btn btn" data-clipboard-text='<%= "dinnerpoll.com" + @event.routing_url %>'>Copy</div>
 			</div>
 		</div>
 		<div id="questions-container">
@@ -87,7 +87,6 @@
   $('body').css('background', 'white')
   $(document).ready(function(){
   	$('#event_name').focus()
- 		$('.main-logo').hide()
 
     var clip = new ZeroClipboard($("#copy-poll-url"))
     clip.on('aftercopy', function(){

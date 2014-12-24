@@ -25,14 +25,14 @@
           <div class="event-line-text bottom-line">
             <% if event.current_choice %>
               <span class="grey"><%= event.rsvps %> voters </span>
-              <%= link_to event_lock_path(event), :class => "red end-poll" do %>
-                      End Poll
-              <% end %>
             <% else %>
               <span class="green"><%= event.response_count %> Response(s) 
-              <%= link_to event_lock_path(event), :class => "red end-poll" do %>
-                      End Poll
-              <% end %>
+            <% end %>
+            <%= link_to event_lock_path(event), :class => "red event-action" do %>
+              End <span class="no-mobile">Poll</span>
+            <% end %>
+            <%= link_to event_destroy_path(event), method: :delete, :class => "red event-action", data: {confirm: "Are you sure you want to delete this poll?"} do %>
+              Delete <span class="no-mobile">Poll</span>
             <% end %>
           </div>
         <% end %>
