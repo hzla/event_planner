@@ -148,9 +148,12 @@ SimpleNewEvent =
       # loop through the hidden text choices and fill out text picker manually
       textToSet = clickedQuestion.find('.text-choices').val().split("<separator>")
       $('.active').after($('#text-choice-picker'))
+      console.log textToSet
       $.each textToSet, (i, choice) ->
         if choice != ""
           input = $("#text_choice_#{i + 1}")
+          console.log choice
+          console.log input.parents('.text-choice').hasClass('placeholder')
           if input.parents('.text-choice').hasClass('placeholder')
             $('.add-choice:visible').click()
             input = $("#text_choice_#{i + 1}")

@@ -42,7 +42,7 @@ SimpleNewEventUi =
                 <div class='draggable-bottom'></div>
                 <div class='text-choice-num'>#{String.fromCharCode(nextChoiceNum)}.</div>
               </div>
-            <input class='text-choice-input' id='text_choice_#{nextChoiceNum}' name='text_choice_#{nextChoiceNum}' type='text' placeholder='Add Option...'>
+            <input class='text-choice-input' id='text_choice_#{nextChoiceNum - 96}' name='text_choice_#{nextChoiceNum}' type='text' placeholder='Add Option...'>
           </div>"
     choice.after(nextChoice)
     $('.text-choice').last().append(addIcon)

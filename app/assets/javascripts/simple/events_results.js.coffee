@@ -8,8 +8,8 @@ SimpleEventResults =
     resultsTable = $(@).parents('.simple-choice').find('.simple-voter')
     $(@).parents('.simple-choice').css('border', 'none')
     columnCount = resultsTable.find('.choice-header').length + 1
-    width = columnCount * 62 + 20
-    resultsTable.css('width' , "#{width}px")
+    width = columnCount * 62 + 40
+    $('.simple-results-header, .simple-choice-body').css('width' , "#{width}px")
 
   expandColumn: ->
     $(@).toggleClass('expanded')
