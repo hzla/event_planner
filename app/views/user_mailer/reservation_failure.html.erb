@@ -8,7 +8,8 @@
       <p>User: <%= @user.name %><br><br>
       	Time Range: <%= @time_range %><br><br>
       	Email: <%= @user.email %><br><br>
-      	Url: <%= link_to @url, @url %><br><br>
+      	Url To Reserve: <%= link_to @url, @url %><br><br>
+        Restaraunt Url: <%= link_to @event.processing_opentable_url, @event.processing_opentable_url  %><br><br>
 
         <% if @cancel_url %>
         Url to cancel previous reservation: <%= link_to @cancl_url, @cancel_url %>

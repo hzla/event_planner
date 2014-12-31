@@ -47,6 +47,11 @@ class Event < ActiveRecord::Base
 		end
 	end
 
+	def processing_opentable_url #used in the url to obtain opentable page
+    name = processing_choice.gsub(/(\w)-(\w)/, '\1 \2').gsub(/(\w)-(\w)/, '\1 \2').gsub('&', 'and').gsub(" - ", " ").downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-")
+    "http://www.opentable.com/#{name}"
+  end
+
 	def assign_user_and_create_first_poll user
 		users << user
 		update_attributes user_id: user.id
