@@ -150,7 +150,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def questions
-		choices.pluck(:question).uniq
+		choices.order(:created_at).pluck(:question).uniq
 	end
 
 	private

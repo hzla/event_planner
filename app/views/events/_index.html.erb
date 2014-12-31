@@ -36,7 +36,7 @@
             <% end %>
           </div>
         <% end %>
-        <%= link_to simple_results_path(event) do %>
+        <%= link_to simple_results_path(event), data: {no_turbolink: true} do %>
           <div class="event-results blue no-mobile">Results/Link</div>
         <% end %>
 
