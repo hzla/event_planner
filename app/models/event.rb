@@ -174,9 +174,9 @@ class Event < ActiveRecord::Base
 	def update_times #should refactor later, used to change the dates in start time and end_time to the date in start_date
 		if start_time
 			new_start = start_time
-			new_start = new_start.change day: start_date.day, month: start_date.month
+			new_start = new_start.change day: start_date.day, month: start_date.month, year: start_date.year
 			new_end = end_time
-			new_end = new_end.change day: start_date.day, month: start_date.month
+			new_end = new_end.change day: start_date.day, month: start_date.month, year: start_date.year
 			self.update_attributes start_time: new_start, end_time: new_end
 		end
 	end
