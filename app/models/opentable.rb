@@ -48,7 +48,7 @@ class Opentable
     else #if not, a url for the manually making a reservaation will be returned
       url =  parsed_response["url"]
       event.update_attributes processing_choice: choice.value
-      UserMailer.reservation_info(url, email).deliver if user.mail_on_res_failure
+      UserMailer.reservation_info(url, email).deliver if event.user.mail_on_res_failure
       UserMailer.reservation_failure(event, url, "#{options['start_time']} to #{options['end_time']}").deliver
     end
     parsed_response
