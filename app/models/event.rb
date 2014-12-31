@@ -23,10 +23,10 @@ class Event < ActiveRecord::Base
 		questions = params["questions"].split("<separator>")
 		questions.each do |q|
 			params["date_choice_list_#{count}"].split(",").uniq.each do |choice|
-				Choice.create question: q, value: choice, event_id: event.id, choice_type: "date"
+				Choice.create question: q, value: choice, event_id: event.id, choice_type: "date", position: count
 			end
 			params["text_choice_list_#{count}"].split("<separator>").each do |choice|
-				Choice.create question: q, value: choice, event_id: event.id, choice_type: "text"
+				Choice.create question: q, value: choice, event_id: event.id, choice_type: "text", position: count
 			end
 			count += 1
 		end
@@ -150,7 +150,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def questions
-		choices.order(:created_at).pluck(:question).uniq
+		choices.order(:position).pluck(:question).uniq
 	end
 
 	private

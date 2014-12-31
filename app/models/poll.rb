@@ -18,7 +18,7 @@ class Poll < ActiveRecord::Base
   end
 
   def questions #a hash with questions as keys and corresponding array of choices as values
-    choices.order(:created_at).reverse.group_by {|c| c.question }
+    choices.order(:position).reverse.group_by {|c| c.question }
   end
 
   def all_selected_values #for use in results and voting
