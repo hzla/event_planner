@@ -15,7 +15,7 @@ class Choice < ActiveRecord::Base
   def yes_count
     event = poll.event
     poll_ids = event.polls.map(&:id)
-    Choice.where(value: value, yes: true).where('poll_id in (?)', poll_ids).count
+    Choice.where(value: value, yes: true, question: question).where('poll_id in (?)', poll_ids).count
   end
 
   def no_count
