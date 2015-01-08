@@ -6,12 +6,15 @@
   <body>
     <div>
       <p><%= @poll.user.name %> voted on your poll:<br>
-        <% @poll.choices.each do |choice| %>
-          <% if choice.yes != nil %>   
-            <%= choice.value %>: <%= "#{choice.yes ? 'yes' : 'no' }" %><br>
-          <% else %>
-            <%= choice.value %>: no vote<br>
-          <% end %>
+        <% @poll.questions.each do |question, choices| %>
+          <%= question %><br>
+          <%= choices.each do |choide| %>
+            <% if choice.yes != nil %>   
+              <%= choice.value %>: <%= "#{choice.yes ? 'yes' : 'no' }" %><br>
+            <% else %>
+              <%= choice.value %>: no vote<br>
+            <% end %>
+          <% end %><br>
         <% end %>
       </p>
     </div>
