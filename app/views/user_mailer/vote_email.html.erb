@@ -7,10 +7,10 @@
     <div>
       <p><%= @poll.user.name %> voted on your poll:<br>
         <% @poll.choices.each do |choice| %>
-          <% if choice.yes != nil %>
+          <% if choice.yes != nil %>   
             <%= choice.value %>: <%= "#{choice.yes ? 'yes' : 'no' }" %><br>
           <% else %>
-            <%= @poll.user.name %> rescinded their vote on <%= choice.value %>.<br>
+            <%= choice.value %>: no vote<br>
           <% end %>
         <% end %>
       </p>
