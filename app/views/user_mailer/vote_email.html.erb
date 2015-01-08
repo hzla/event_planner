@@ -5,18 +5,32 @@
   </head>
   <body>
     <div>
-      <p><%= @poll.user.name %> voted on your poll:<br>
-        <% @poll.questions.each do |question, choices| %>
-          <%= question %><br>
-          <% choices.each do |choice| %>
-            <% if choice.yes != nil %>   
+      <% if @poll.choices.first.question != nil %>
+        <p><%= @poll.user.name %> voted on your poll:<br>
+          <% @poll.choices.each do |choice| %>
+            <% if choice.yes != nil %>
               <%= choice.value %>: <%= "#{choice.yes ? 'yes' : 'no' }" %><br>
             <% else %>
               <%= choice.value %>: no vote<br>
             <% end %>
-          <% end %><br>
-        <% end %>
-      </p>
+          <% end %>
+        </p>
+      <% else %>
+        <p><%= @poll.user.name %> voted on your poll:<br>
+          <% @poll.questions.each do |question, choices| %>
+            <%= question %><br>
+            <% choices.each do |choice| %>
+              <% if choice.yes != nil %>   
+                <%= choice.value %>: <%= "#{choice.yes ? 'yes' : 'no' }" %><br>
+              <% else %>
+                <%= choice.value %>: no vote<br>
+              <% end %>
+            <% end %><br>
+          <% end %>
+        </p>
+      <% end %>
     </div>
   </body>
 </html>
+
+
