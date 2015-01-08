@@ -6,17 +6,7 @@
   <body>
     <div>
       <% if @poll.choices.first.question != nil %>
-        <p><%= @poll.user.name %> voted on your poll:<br>
-          <% @poll.choices.each do |choice| %>
-            <% if choice.yes != nil %>
-              <%= choice.value %>: <%= "#{choice.yes ? 'yes' : 'no' }" %><br>
-            <% else %>
-              <%= choice.value %>: no vote<br>
-            <% end %>
-          <% end %>
-        </p>
-      <% else %>
-        <p><%= @poll.user.name %> voted on your poll:<br>
+         <p><%= @poll.user.name %> voted on your poll:<br>
           <% @poll.questions.each do |question, choices| %>
             <%= question %><br>
             <% choices.each do |choice| %>
@@ -26,6 +16,16 @@
                 <%= choice.value %>: no vote<br>
               <% end %>
             <% end %><br>
+          <% end %>
+        </p>
+      <% else %>
+        <p><%= @poll.user.name %> voted on your poll:<br>
+          <% @poll.choices.each do |choice| %>
+            <% if choice.yes != nil %>
+              <%= choice.value %>: <%= "#{choice.yes ? 'yes' : 'no' }" %><br>
+            <% else %>
+              <%= choice.value %>: no vote<br>
+            <% end %>
           <% end %>
         </p>
       <% end %>
