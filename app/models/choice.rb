@@ -1,7 +1,7 @@
 class Choice < ActiveRecord::Base
   belongs_to :poll
   belongs_to :event
-  attr_accessible :position, :choice_type, :question, :event_id, :value, :desc, :add_info, :poll_id, :replayer_name, :image_url, :yes, :service_id
+  attr_accessible :sub_position, :position, :choice_type, :question, :event_id, :value, :desc, :add_info, :poll_id, :replayer_name, :image_url, :yes, :service_id
 
   def self.create_choices_using_list_of_attributes choice_info, event
     (0..(choice_info[:length] - 1)).each do |i|
