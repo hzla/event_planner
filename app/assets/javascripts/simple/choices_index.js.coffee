@@ -19,9 +19,10 @@ SimplePollVoting =
    		dates = $(@).datepicker('getDates') 
    		values += dates
    	$('.text-choice.selected .text-choice-input').each ->
-   		values += "<separator>" + $(@).text()
-   	values = values.replace(/,/g, "<separator>")  
+      question = $(@).parents('.text-choice').attr('data-question')
+      values += "<separator>" + $(@).text() + "<question>#{question}"
    	
+    values = values.replace(/,/g, "<separator>")
    	$('#choice_values').val("")
    	$('#choice_values').val values
    	$('#simple-events-vote-form').submit()

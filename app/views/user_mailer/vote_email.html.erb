@@ -7,9 +7,9 @@
     <div>
       <% if @poll.choices.first.question != nil %>
          <p><%= @poll.user.name %> voted on your poll:<br>
-          <% @poll.questions.each do |question, choices| %>
+          <% @poll.event.questions.each do |question| %>
             <%= question %><br>
-            <% choices.each do |choice| %>
+            <% @questions[question].sort_by(&:sub_position).each do |choice| %>
               <% if choice.yes != nil %>   
                 <%= choice.value %>: <%= "#{choice.yes ? 'yes' : 'no' }" %><br>
               <% else %>
