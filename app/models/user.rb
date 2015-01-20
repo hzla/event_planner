@@ -38,7 +38,8 @@ class User < ActiveRecord::Base
   end
 
   def dashboard_events
-    dinner_poll_events.where(status: "activated", locked: nil).order(:start_date) + anything_goes_events.where(status: "activated", locked: nil).order('created_at desc')
+    events = dinner_poll_events.where(status: "activated", locked: nil).where('start_date > (?)', Time.now).order(:start_date) + anything_goes_events.where(status: "activated", locked: nil).order('created_at desc')
+    
   end
 
   def last_name
