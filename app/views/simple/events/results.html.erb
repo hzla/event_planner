@@ -16,7 +16,7 @@
 		<div id="questions-container">
 			<% count = 1 %>
 			<% @event.questions.each do |question| %>
-				<% choices = @questions[question].sort_by(&:value) %>
+				<% choices = @questions[question].sort_by(&:sub_position) %>
 				<div class="simple-choice side-margined">
 					<% if choices.first.choice_type == "text" %>
 						<div class="poll-field question-name">
