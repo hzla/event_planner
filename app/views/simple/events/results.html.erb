@@ -46,7 +46,7 @@
 								<% @event.polls.each do |poll| %>
 									<div class="cell poll-taker-name"><%= poll.user.short_name %></div>
 						
-									<% poll.choices.where(question: question).order(:value).each_with_index do |choice, i| %>
+									<% poll.choices.where(question: question).order(:sub_position).each_with_index do |choice, i| %>
 										<div class="cell <%= "col-#{i}" %>">
 											<% if choice.yes %>
 												<%= image_tag 'check-green.svg', :class => "cell-check" %>
