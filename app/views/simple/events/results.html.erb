@@ -16,7 +16,12 @@
 		<div id="questions-container">
 			<% count = 1 %>
 			<% @event.questions.each do |question| %>
-				<% choices = @questions[question].sort_by(&:sub_position) %>
+				<% if @event.poll_type == nil #if dinnerpoll event %>
+					<% choices = @questions[question].sort_by(&:value) %>
+				<% else # if anything goes %>
+					<% choices = @questions[question].sort_by(&:sub_position) %>
+				<% end %>
+				
 				<div class="simple-choice side-margined">
 					<% if choices.first.choice_type == "text" %>
 						<div class="poll-field question-name">
@@ -46,10 +51,13 @@
 								<% @event.polls.each do |poll| %>
 									<div class="cell poll-taker-name"><%= poll.user.short_name %></div>
 						
-									<% poll.choices.where(question: question).order(:sub_position).each_with_index do |choice, i| %>
+									<% poll.sorted_choices_for(question).each_with_index do |choice, i| %>
 										<div class="cell <%= "col-#{i}" %>">
 											<% if choice.yes %>
 												<%= image_tag 'check-green.svg', :class => "cell-check" %>
+											<% elsif choice.yes == false %>
+												<%= image_tag 'exit.svg', :class => "cell-check" %>
+											<% else %>
 											<% end %>
 										</div>
 									<% end %>
@@ -58,7 +66,7 @@
 								<div class="cell poll-taker-name total">Total</div>
 								<% choices.each_with_index do |choice, i| %>
 									<div class="cell <%= "col-#{i}" %> total">
-										<%= choice.yes_count %>
+										<%= choice.score %>
 									</div>
 								<% end %>
 							</div>

@@ -45,6 +45,14 @@ class Poll < ActiveRecord::Base
     choices.where(question: question, yes: true).map(&:value).join("<separator>")
   end
 
+  def sorted_choices_for question
+    if choices.first.choice_type == nil
+      choices.where(question: question).order(:value)
+    else
+      choices.where(question: question).order(:sub_position)
+    end
+  end
+
   def choices_for question
     choices.where(question: question).order(:value)
   end
