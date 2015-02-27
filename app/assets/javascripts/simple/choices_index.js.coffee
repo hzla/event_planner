@@ -23,6 +23,7 @@ SimplePollVoting =
         dates_with_questions.push(v + "<question>#{question}")  
       values += dates_with_questions
       values = values.replace(/,/g, "<separator>")
+      values += "<separator>"
    	$('.text-choice.selected .text-choice-input').each ->
       question = $(@).parents('.text-choice').attr('data-question')
       values += "<separator>" + $(@).text() + "<question>#{question}"
