@@ -26,20 +26,19 @@ class Event < ActiveRecord::Base
 
 	def self.create_simple_event params, user
 		event = Event.create name: params["event_name"], status: "activated"
-		count = 1
+		position = 1
 		questions = params["questions"].split("<separator>")
 		questions.each do |q|
-			if params["date_choice_list_#{count}"]
-				params["date_choice_list_#{count}"].split(",").uniq.each do |choice|
-					Choice.create question: q, value: choice, event_id: event.id, choice_type: "date", position: count
+				sub_position = 1
+				params["date_choice_list_#{position}"].split(",").uniq.each do |choice|
+					Choice.create question: q, value: choice, event_id: event.id, choice_type: "date", position: position, sub_position: sub_position
+					sub_position += 1
 				end
-			end
-			if params["text_choice_list_#{count}"]
-				params["text_choice_list_#{count}"].split("<separator>").each do |choice|
-					Choice.create question: q, value: choice, event_id: event.id, choice_type: "text", position: count
+				params["text_choice_list_#{position}"].split("<separator>").each do |choice|
+					Choice.create question: q, value: choice, event_id: event.id, choice_type: "text", position: position, sub_position: sub_position
+					sub_position += 1
 				end
-			end
-			count += 1
+			position += 1
 		end
 		event.assign_user_and_create_first_poll user
 		event.populate_polls_with_choices
@@ -52,11 +51,16 @@ class Event < ActiveRecord::Base
 				choices.each do |choice|
 					Choice.create poll_id: poll.id, value: choice.value, 
 					choice_type: choice.choice_type, add_info: choice.add_info,
-					image_url: choice.image_url, question: choice.question, service_id: choice.service_id
+					image_url: choice.image_url, question: choice.question, service_id: choice.service_id, position: choice.position, sub_position: choice.sub_position
 				end
 			end
 		end
 	end
+
+	def processing_opentable_url #used in the url to obtain opentable page
+    name = processing_choice.gsub(/(\w)-(\w)/, '\1 \2').gsub(/(\w)-(\w)/, '\1 \2').gsub('&', 'and').gsub(" - ", " ").downcase.gsub(/[^0-9a-z ]/i, '').gsub(" ", "-")
+    "http://www.opentable.com/#{name}"
+  end
 
 	def assign_user_and_create_first_poll user
 		Outing.create user_id: user.id, event_id: self.id
@@ -180,9 +184,9 @@ class Event < ActiveRecord::Base
 	def update_times #should refactor later, used to change the dates in start time and end_time to the date in start_date
 		if start_time
 			new_start = start_time
-			new_start = new_start.change day: start_date.day, month: start_date.month
+			new_start = new_start.change day: start_date.day, month: start_date.month, year: start_date.year
 			new_end = end_time
-			new_end = new_end.change day: start_date.day, month: start_date.month
+			new_end = new_end.change day: start_date.day, month: start_date.month, year: start_date.year
 			self.update_attributes start_time: new_start, end_time: new_end
 		end
 	end

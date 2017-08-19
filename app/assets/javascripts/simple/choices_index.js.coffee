@@ -16,12 +16,19 @@ SimplePollVoting =
    submitEventVotes: ->
    	values = ""
    	$('.date-voter').each ->
-   		dates = $(@).datepicker('getDates') 
-   		values += dates
+      dates = $(@).datepicker('getDates')
+      dates_with_questions = []
+      question = $(@).parent().attr('data-question')
+      $.each dates, (i,v) ->
+        dates_with_questions.push(v + "<question>#{question}")  
+      values += dates_with_questions
+      values = values.replace(/,/g, "<separator>")
+      values += "<separator>"
    	$('.text-choice.selected .text-choice-input').each ->
-   		values += "<separator>" + $(@).text()
-   	values = values.replace(/,/g, "<separator>")  
-   	
+      question = $(@).parents('.text-choice').attr('data-question')
+      values += "<separator>" + $(@).text() + "<question>#{question}"
+   	console.log values
+    values = values.replace(/,/g, "<separator>")
    	$('#choice_values').val("")
    	$('#choice_values').val values
    	$('#simple-events-vote-form').submit()

@@ -59,28 +59,30 @@ Poll =
           current_score = count.find('.choice-score')
           new_score = parseInt(current_score.text()) + delta
           current_score.text new_score
-          console.log new_score
-          if new_score != 0
+          gray = ($(@).parents('.choice-vote-container').find('.downvote-link').find('g').first().css('stroke') == "rgb(255, 0, 67)")
+          $(@).parent().find('g').css('stroke', '#bebebe')
+          if !gray
             $(@).parent().find('g').css('stroke', '#bebebe')
             $(@).find('g').css('stroke', '#00CC99')
-            count.css('color', '#00CC99')
+            current_score.css('color', '#00CC99')
           else
             $(@).parent().find('g').css('stroke', '#bebebe')
             $(@).find('g').css('stroke', '#bebebe')
-            count.css('color', '#bebebe')
+            current_score.css('color', '#bebebe')
         else
           current_score = count.find('.choice-score')
           new_score = parseInt(current_score.text()) - delta
           current_score.text new_score
-          console.log new_score
-          if new_score != 0
-            $(@).parent().find('g').css('stroke', '#bebebe')
+          current_score.css('color','bebebe')
+          gray = ($(@).parents('.choice-vote-container').find('.upvote-link').find('g').first().css('stroke') == "rgb(0, 204, 153)")
+          $(@).parent().find('g').css('stroke', '#bebebe')
+          if !gray
             $(@).find('g').css('stroke', '#FF0043')
-            count.css('color', '#FF0043')
-          else
+            current_score.css('color', '#FF0043')
+          else    
             $(@).parent().find('g').css('stroke', '#bebebe')
             $(@).find('g').css('stroke', '#bebebe')
-            count.css('color', '#bebebe')
+            current_score.css('color', '#bebebe')
 
 
   sortChoices: ->

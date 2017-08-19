@@ -28,8 +28,11 @@ class Poll < ActiveRecord::Base
   def vote_with choice_values
     values = choice_values.split("<separator>")
     choices.update_all yes: nil
-    values.each do |value|
-      choice = choices.where(value: value).first
+    values.each do |value_question_pair|
+      value_question_pair = value_question_pair.split('<question>')
+      value = value_question_pair[0]
+      question = value_question_pair[1]
+      choice = choices.where(value: value, question: question).first
       choice.update_attributes yes: true if choice
     end
   end
@@ -40,6 +43,14 @@ class Poll < ActiveRecord::Base
 
   def selected_values_for question
     choices.where(question: question, yes: true).map(&:value).join("<separator>")
+  end
+
+  def sorted_choices_for question
+    if choices.first.choice_type == nil
+      choices.where(question: question).order(:value)
+    else
+      choices.where(question: question).order(:sub_position)
+    end
   end
 
   def choices_for question

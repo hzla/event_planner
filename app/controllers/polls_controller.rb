@@ -5,12 +5,14 @@ class PollsController < ApplicationController
 
   def find_or_create #redirected from sessions#create after clicking on sign up on event#route page
     @event = Event.find params[:event_id]
-    if @event.user_id == current_user.id #if the current user created the event
+    session[:route_poll] = nil
+    if @event.user_id == current_user.id || @event.polls.pluck(:user_id).include?(current_user.id) 
+      #if the user has a poll for this event
       poll = @event.polls.where(user_id: current_user.id).first
       redirect_to poll.url and return
     else #if the user doesn't have a poll for this event yet
       poll = Poll.create event_id: @event.id, email: current_user.email, user_id: current_user.id
-      poll.choices << @event.choices
+      @event.populate_polls_with_choices
       @event.users << current_user
       redirect_to poll.url
     end

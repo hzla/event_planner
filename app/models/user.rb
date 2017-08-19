@@ -29,6 +29,19 @@ class User < ActiveRecord::Base
     Event.where(user_id: id)
   end
 
+  def dinner_poll_events
+    events.where('threshold is not null')
+  end
+
+  def anything_goes_events
+    events.where(threshold: nil)
+  end
+
+  def dashboard_events
+    events = dinner_poll_events.where(status: "activated", locked: nil).where('start_date > (?)', Time.now).order(:start_date) + anything_goes_events.where(status: "activated", locked: nil).order('created_at desc')
+    
+  end
+
   def last_name
     name.split(" ")[1]
   end

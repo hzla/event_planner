@@ -16,7 +16,8 @@
 		</div>
 		<div id="questions-container">
 			<% count = 1 %>
-			<% @questions.each do |question, choices| %>
+			<% @event.questions.each do |question| %>
+				<% choices = @questions[question].sort_by(&:sub_position) %> 
 				<div class="simple-choice">
 					<% if choices.first.choice_type == "text" %>
 						<div class="poll-field question-name <%= 'voted' if @poll.voted?(question) %>">
@@ -27,7 +28,7 @@
 						</div>
 						<div class="simple-text-voter simple-voter">
 							<% choices.each_with_index do |choice, i| %>
-								<div class="text-choice <%= 'selected' if choice.yes %>">
+								<div class="text-choice <%= 'selected' if choice.yes %>" data-question=<%= question %>>
 									<div class="text-choice-num"><%= i + 1 %>.</div>
 									<div class="text-choice-input"><%= choice.value %></div>
 									<%= image_tag 'checkgrey.svg', :class => "text-choice-icon grey" %>
@@ -42,10 +43,10 @@
 							<div class="voted-indicator">Voted</div>
 							<%= image_tag 'dategrey.svg', :class => "type-pic date-type svg" %>
 						</div>
-						<div class="simple-date-voter simple-voter">
+						<div class="simple-date-voter simple-voter" >
 							<div class="choice-dates hidden"><%= @poll.values_for question %></div>
 							<div class="selected-choice-dates hidden"><%= @poll.selected_values_for question %></div>
-							<div class="date-picker-container">
+							<div class="date-picker-container" data-question=<%= question %>>
 								<div class="date-picker-header">Pick your dates:</div>
 								<div class="date-voter"></div>
 							</div>

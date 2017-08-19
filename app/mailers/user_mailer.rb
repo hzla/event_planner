@@ -3,6 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def vote_email poll, user
     @poll = poll
+    @questions = @poll.questions
     @host = "http://www.dinnerpoll.com"
     mail(to: user.email, subject: "#{poll.user.name} voted on #{poll.event.name}")
   end

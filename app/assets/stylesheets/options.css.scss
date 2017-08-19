@@ -56,6 +56,14 @@
   display: none;
 }
 
+.location-search {
+  display: block;
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  height: 20px;
+}
+
 .service-search-field {
   width: 100%;
   text-align: center;

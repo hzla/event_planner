@@ -26,7 +26,7 @@
     </div>
   <% end %>
   <div id="choices">
-    <% @choices.each do |choice| %>
+    <% @choices.order(:value).each do |choice| %>
       <div class="choice side-margined <%= 'grey-back' if choice.is_processing || choice.is_current %> ">
         <%= link_to choice.opentable_url, target: "_blank" do %>
           <%= image_tag choice.image_url, :class => "choice-pic" %>
