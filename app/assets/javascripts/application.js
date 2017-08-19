@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.slider
-//= require jquery.ui.sortable
+//= require jquery-ui
 //= require turbolinks
 //= require zeroclipboard
 //= require_tree .

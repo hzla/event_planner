@@ -16,17 +16,28 @@ class Event < ActiveRecord::Base
 	:expiration, :recurring)
 
 	
+	def self.parse_and_create event_params
+		event_params[:start_date] = DateTime.parse event_params[:start_date]
+		event_params[:start_time] = DateTime.parse event_params[:start_time]
+		event_params[:end_time] = DateTime.parse event_params[:end_time]
+		event = Event.create event_params
+
+	end
 
 	def self.create_simple_event params, user
 		event = Event.create name: params["event_name"], status: "activated"
 		count = 1
 		questions = params["questions"].split("<separator>")
 		questions.each do |q|
-			params["date_choice_list_#{count}"].split(",").uniq.each do |choice|
-				Choice.create question: q, value: choice, event_id: event.id, choice_type: "date", position: count
+			if params["date_choice_list_#{count}"]
+				params["date_choice_list_#{count}"].split(",").uniq.each do |choice|
+					Choice.create question: q, value: choice, event_id: event.id, choice_type: "date", position: count
+				end
 			end
-			params["text_choice_list_#{count}"].split("<separator>").each do |choice|
-				Choice.create question: q, value: choice, event_id: event.id, choice_type: "text", position: count
+			if params["text_choice_list_#{count}"]
+				params["text_choice_list_#{count}"].split("<separator>").each do |choice|
+					Choice.create question: q, value: choice, event_id: event.id, choice_type: "text", position: count
+				end
 			end
 			count += 1
 		end
@@ -48,7 +59,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def assign_user_and_create_first_poll user
-		users << user
+		Outing.create user_id: user.id, event_id: self.id
 		update_attributes user_id: user.id
 		Poll.create email: user.email, event_id: id, user_id: user.id, confirmed_attending: true
 	end

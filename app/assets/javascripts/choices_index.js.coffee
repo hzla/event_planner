@@ -51,6 +51,7 @@ Poll =
 
   choose: (event, data) ->
     #REFACTOR add css to achieve same effects, only use js to add class
+      console.log "choosing"
       count = $(@).parent()
       delta = data.delta
       if data.changed
@@ -99,4 +100,4 @@ ready = ->
   Poll.init()
 
 $(document).ready ready
-$(document).on 'page:load', ready
+$(document).on 'turbolinks:load', ready

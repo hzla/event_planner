@@ -2,7 +2,7 @@
   <div class="header-pic-container">
   </div>
   <!-- This conditional Necessary to allow switching type on 'TAB' or else the link gets selected when the user presses 'TAB' -->
-  	<% if @browser.mobile? %>
+  	<% if @browser.device.mobile? %>
 	    <%= link_to dashboard_path(show_poll_picker: true) do %>
 	    	<%= image_tag 'arrowback.svg', id: 'header-left', :class => "mobile" %>
 	 		<% end %>
@@ -85,14 +85,14 @@
 						<div class="poll-field blue no-mobile" id="confirm-simple-event">+ Add a new question</div>
 				<% end %>
 			</div>
-	<% if @browser.mobile? %>
+	<% if @browser.device.mobile? %>
 		<div class="bottom-btn-container double full-fixed double-row mobile" id="simple-event-btns">
 			<div class="btn blue-btn submit-simple-event btn-bot">Done</div>  
 			<div class="poll-field blue mobile" id="confirm-simple-event">+ Add a new question</div>
 		</div>
 	<% end %>
 </div>
-<% if !@browser.mobile? %>
+<% if !@browser.device.mobile? %>
 	<div class="bottom-btn-container double full-fixed double-row no-mobile desk" id="simple-event-btns">
 		<div class="btn blue-btn submit-simple-event btn-bot inactive">Done</div>  
 		<div class="poll-field blue mobile btn-top" id="confirm-simple-event">+ Add a new question</div>

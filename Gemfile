@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
-
+ruby '2.3.0'
 
 ######### defaults
 gem 'rails', '4.1.0'
-gem 'pg'
+gem 'pg', '0.20'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'json', '>= 1.8.5'
+gem "eventmachine"
 
 group :assets do
   gem 'sprockets'

@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
   
   def create
-    @event = Event.create params[:event]
+    @event = Event.parse_and_create params[:event]
     #create a poll for the person who created the event
     @event.assign_user_and_create_first_poll current_user 
     redirect_to opentable_path(event_id: @event.id)

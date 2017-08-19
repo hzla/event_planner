@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: instagator
   host: localhost
-  username: instagator
+  username: andylee
   password:
 
 test:
@@ -12,7 +12,7 @@ test:
   database: instagator_test
   host: localhost
   pool: 5
-  username: instagator
+  username: andylee
   password:
 
 production:
@@ -20,5 +20,5 @@ production:
   encoding: unicode
   database: instagator_production
   pool: 25
-  username: instagator
+  username: andylee
   password:
